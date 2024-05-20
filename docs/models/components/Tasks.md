@@ -1,0 +1,10 @@
+# Tasks
+
+
+## Fields
+
+| Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      | Example                                                                          |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `pending`                                                                        | *Optional<? extends String>*                                                     | :heavy_minus_sign:                                                               | ID of any currently running task that is exporting this<br/>asset to IPFS.<br/>  | 09F8B46C-61A0-4254-9875-F71F4C605BC7                                             |
+| `last`                                                                           | *Optional<? extends String>*                                                     | :heavy_minus_sign:                                                               | ID of the last task to run successfully, that created<br/>the currently saved data.<br/> | 09F8B46C-61A0-4254-9875-F71F4C605BC7                                             |
+| `failed`                                                                         | *Optional<? extends String>*                                                     | :heavy_minus_sign:                                                               | ID of the last task to fail execution.                                           | 09F8B46C-61A0-4254-9875-F71F4C605BC7                                             |

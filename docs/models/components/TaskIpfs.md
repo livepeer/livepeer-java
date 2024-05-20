@@ -1,0 +1,13 @@
+# TaskIpfs
+
+
+## Fields
+
+| Field                                                         | Type                                                          | Required                                                      | Description                                                   | Example                                                       |
+| ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
+| `videoFileCid`                                                | *String*                                                      | :heavy_check_mark:                                            | IPFS CID of the exported video file                           | Qmabc123xyz341                                                |
+| `videoFileUrl`                                                | *Optional<? extends String>*                                  | :heavy_minus_sign:                                            | URL for the file with the IPFS protocol                       | ipfs://Qmabc123xyz341                                         |
+| `videoFileGatewayUrl`                                         | *Optional<? extends String>*                                  | :heavy_minus_sign:                                            | URL to access file via HTTP through an IPFS gateway           | https://gateway.ipfs.io/ipfs/Qmabc123xyz341                   |
+| `nftMetadataCid`                                              | *Optional<? extends String>*                                  | :heavy_minus_sign:                                            | IPFS CID of the default metadata exported for the video       | Qmabc123xyz341                                                |
+| `nftMetadataUrl`                                              | *Optional<? extends String>*                                  | :heavy_minus_sign:                                            | URL for the metadata file with the IPFS protocol              | ipfs://Qmabc123xyz341                                         |
+| `nftMetadataGatewayUrl`                                       | *Optional<? extends String>*                                  | :heavy_minus_sign:                                            | URL to access metadata file via HTTP through an IPFS<br/>gateway<br/> | https://gateway.ipfs.io/ipfs/Qmabc123xyz341                   |

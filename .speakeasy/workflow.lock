@@ -1,0 +1,42 @@
+speakeasyVersion: 1.293.1
+sources:
+    Livepeer:
+        sourceNamespace: livepeer
+        sourceRevisionDigest: sha256:a27b08eda9895afa45560e8255cc722036759a56c7c16bf09d002f2f5a4e2dea
+        sourceBlobDigest: sha256:856a4f7c8547bd06b13cb376f3b89f51fe7f6578c4fa6284a1877fc99cc46766
+        tags:
+            - latest
+    livepeer-studio-api:
+        sourceNamespace: livepeer-studio-api
+        sourceRevisionDigest: sha256:51f84f999492e68d743b37621498502e94bb3dd6d08e793bedff7d707991a4d6
+        sourceBlobDigest: sha256:751033d15c388aeb8e981675f9c2287250e9f0eb675920f20c5e772aef7a62b6
+        tags:
+            - latest
+targets:
+    livepeer-java:
+        source: livepeer-studio-api
+        sourceNamespace: livepeer-studio-api
+        sourceRevisionDigest: sha256:51f84f999492e68d743b37621498502e94bb3dd6d08e793bedff7d707991a4d6
+        sourceBlobDigest: sha256:751033d15c388aeb8e981675f9c2287250e9f0eb675920f20c5e772aef7a62b6
+        outLocation: /Users/chase/git/livepeer/livepeer-java
+    my-first-target:
+        source: Livepeer
+        sourceNamespace: livepeer
+        sourceRevisionDigest: sha256:a27b08eda9895afa45560e8255cc722036759a56c7c16bf09d002f2f5a4e2dea
+        sourceBlobDigest: sha256:856a4f7c8547bd06b13cb376f3b89f51fe7f6578c4fa6284a1877fc99cc46766
+        outLocation: /Users/chase/git/livepeer/livepeer-java
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        livepeer-studio-api:
+            inputs:
+                - location: https://raw.githubusercontent.com/livepeer/studio/master/packages/api/src/schema/api-schema.yaml
+            registry:
+                location: registry.speakeasyapi.dev/livepeer/livepeer-studio/livepeer-studio-api
+    targets:
+        livepeer-java:
+            target: java
+            source: livepeer-studio-api
+            codeSamples:
+                output: codeSamples.yaml

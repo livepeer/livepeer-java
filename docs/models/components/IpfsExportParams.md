@@ -1,0 +1,9 @@
+# IpfsExportParams
+
+
+## Fields
+
+| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `dollarRef`                                                                                                | *Optional<? extends java.lang.Object>*                                                                     | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
+| `pinata`                                                                                                   | [Optional<? extends studio.livepeer.livepeer.models.components.Pinata>](../../models/components/Pinata.md) | :heavy_minus_sign:                                                                                         | Custom credentials for the Piñata service. Must have either<br/>a JWT or an API key and an API secret.<br/> |
