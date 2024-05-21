@@ -69,7 +69,7 @@ public class Asset {
     private JsonNullable<? extends PlaybackPolicy> playbackPolicy;
 
     @JsonProperty("source")
-    private AssetSource source;
+    private Source source;
 
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("creatorId")
@@ -144,7 +144,7 @@ public class Asset {
             @JsonProperty("playbackUrl") Optional<? extends String> playbackUrl,
             @JsonProperty("downloadUrl") Optional<? extends String> downloadUrl,
             @JsonProperty("playbackPolicy") JsonNullable<? extends PlaybackPolicy> playbackPolicy,
-            @JsonProperty("source") AssetSource source,
+            @JsonProperty("source") Source source,
             @JsonProperty("creatorId") Optional<? extends CreatorId> creatorId,
             @JsonProperty("storage") Optional<? extends AssetStorage> storage,
             @JsonProperty("status") Optional<? extends AssetStatus> status,
@@ -195,7 +195,7 @@ public class Asset {
     
     public Asset(
             String id,
-            AssetSource source,
+            Source source,
             String name) {
         this(id, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), JsonNullable.undefined(), source, Optional.empty(), Optional.empty(), Optional.empty(), name, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty());
     }
@@ -261,7 +261,7 @@ public class Asset {
     }
 
     @JsonIgnore
-    public AssetSource source() {
+    public Source source() {
         return source;
     }
 
@@ -469,7 +469,7 @@ public class Asset {
         return this;
     }
 
-    public Asset withSource(AssetSource source) {
+    public Asset withSource(Source source) {
         Utils.checkNotNull(source, "source");
         this.source = source;
         return this;
@@ -728,7 +728,7 @@ public class Asset {
  
         private JsonNullable<? extends PlaybackPolicy> playbackPolicy = JsonNullable.undefined();
  
-        private AssetSource source;
+        private Source source;
  
         private Optional<? extends CreatorId> creatorId = Optional.empty();
  
@@ -870,7 +870,7 @@ public class Asset {
             return this;
         }
 
-        public Builder source(AssetSource source) {
+        public Builder source(Source source) {
             Utils.checkNotNull(source, "source");
             this.source = source;
             return this;

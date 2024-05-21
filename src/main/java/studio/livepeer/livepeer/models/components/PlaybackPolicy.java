@@ -50,25 +50,35 @@ public class PlaybackPolicy {
     @JsonProperty("refreshInterval")
     private Optional<? extends Double> refreshInterval;
 
+    /**
+     * List of allowed origins for CORS playback (&lt;scheme&gt;://&lt;hostname&gt;:&lt;port&gt;, &lt;scheme&gt;://&lt;hostname&gt;)
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("allowedOrigins")
+    private Optional<? extends java.util.List<String>> allowedOrigins;
+
     @JsonCreator
     public PlaybackPolicy(
             @JsonProperty("type") Type type,
             @JsonProperty("webhookId") Optional<? extends String> webhookId,
             @JsonProperty("webhookContext") Optional<? extends java.util.Map<String, java.lang.Object>> webhookContext,
-            @JsonProperty("refreshInterval") Optional<? extends Double> refreshInterval) {
+            @JsonProperty("refreshInterval") Optional<? extends Double> refreshInterval,
+            @JsonProperty("allowedOrigins") Optional<? extends java.util.List<String>> allowedOrigins) {
         Utils.checkNotNull(type, "type");
         Utils.checkNotNull(webhookId, "webhookId");
         Utils.checkNotNull(webhookContext, "webhookContext");
         Utils.checkNotNull(refreshInterval, "refreshInterval");
+        Utils.checkNotNull(allowedOrigins, "allowedOrigins");
         this.type = type;
         this.webhookId = webhookId;
         this.webhookContext = webhookContext;
         this.refreshInterval = refreshInterval;
+        this.allowedOrigins = allowedOrigins;
     }
     
     public PlaybackPolicy(
             Type type) {
-        this(type, Optional.empty(), Optional.empty(), Optional.empty());
+        this(type, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty());
     }
 
     @JsonIgnore
@@ -103,6 +113,15 @@ public class PlaybackPolicy {
     @JsonIgnore
     public Optional<Double> refreshInterval() {
         return (Optional<Double>) refreshInterval;
+    }
+
+    /**
+     * List of allowed origins for CORS playback (&lt;scheme&gt;://&lt;hostname&gt;:&lt;port&gt;, &lt;scheme&gt;://&lt;hostname&gt;)
+     */
+    @SuppressWarnings("unchecked")
+    @JsonIgnore
+    public Optional<java.util.List<String>> allowedOrigins() {
+        return (Optional<java.util.List<String>>) allowedOrigins;
     }
 
     public final static Builder builder() {
@@ -172,6 +191,24 @@ public class PlaybackPolicy {
         this.refreshInterval = refreshInterval;
         return this;
     }
+
+    /**
+     * List of allowed origins for CORS playback (&lt;scheme&gt;://&lt;hostname&gt;:&lt;port&gt;, &lt;scheme&gt;://&lt;hostname&gt;)
+     */
+    public PlaybackPolicy withAllowedOrigins(java.util.List<String> allowedOrigins) {
+        Utils.checkNotNull(allowedOrigins, "allowedOrigins");
+        this.allowedOrigins = Optional.ofNullable(allowedOrigins);
+        return this;
+    }
+
+    /**
+     * List of allowed origins for CORS playback (&lt;scheme&gt;://&lt;hostname&gt;:&lt;port&gt;, &lt;scheme&gt;://&lt;hostname&gt;)
+     */
+    public PlaybackPolicy withAllowedOrigins(Optional<? extends java.util.List<String>> allowedOrigins) {
+        Utils.checkNotNull(allowedOrigins, "allowedOrigins");
+        this.allowedOrigins = allowedOrigins;
+        return this;
+    }
     
     @Override
     public boolean equals(java.lang.Object o) {
@@ -186,7 +223,8 @@ public class PlaybackPolicy {
             java.util.Objects.deepEquals(this.type, other.type) &&
             java.util.Objects.deepEquals(this.webhookId, other.webhookId) &&
             java.util.Objects.deepEquals(this.webhookContext, other.webhookContext) &&
-            java.util.Objects.deepEquals(this.refreshInterval, other.refreshInterval);
+            java.util.Objects.deepEquals(this.refreshInterval, other.refreshInterval) &&
+            java.util.Objects.deepEquals(this.allowedOrigins, other.allowedOrigins);
     }
     
     @Override
@@ -195,7 +233,8 @@ public class PlaybackPolicy {
             type,
             webhookId,
             webhookContext,
-            refreshInterval);
+            refreshInterval,
+            allowedOrigins);
     }
     
     @Override
@@ -204,7 +243,8 @@ public class PlaybackPolicy {
                 "type", type,
                 "webhookId", webhookId,
                 "webhookContext", webhookContext,
-                "refreshInterval", refreshInterval);
+                "refreshInterval", refreshInterval,
+                "allowedOrigins", allowedOrigins);
     }
     
     public final static class Builder {
@@ -215,7 +255,9 @@ public class PlaybackPolicy {
  
         private Optional<? extends java.util.Map<String, java.lang.Object>> webhookContext = Optional.empty();
  
-        private Optional<? extends Double> refreshInterval = Optional.empty();  
+        private Optional<? extends Double> refreshInterval = Optional.empty();
+ 
+        private Optional<? extends java.util.List<String>> allowedOrigins = Optional.empty();  
         
         private Builder() {
           // force use of static builder() method
@@ -284,13 +326,32 @@ public class PlaybackPolicy {
             this.refreshInterval = refreshInterval;
             return this;
         }
+
+        /**
+         * List of allowed origins for CORS playback (&lt;scheme&gt;://&lt;hostname&gt;:&lt;port&gt;, &lt;scheme&gt;://&lt;hostname&gt;)
+         */
+        public Builder allowedOrigins(java.util.List<String> allowedOrigins) {
+            Utils.checkNotNull(allowedOrigins, "allowedOrigins");
+            this.allowedOrigins = Optional.ofNullable(allowedOrigins);
+            return this;
+        }
+
+        /**
+         * List of allowed origins for CORS playback (&lt;scheme&gt;://&lt;hostname&gt;:&lt;port&gt;, &lt;scheme&gt;://&lt;hostname&gt;)
+         */
+        public Builder allowedOrigins(Optional<? extends java.util.List<String>> allowedOrigins) {
+            Utils.checkNotNull(allowedOrigins, "allowedOrigins");
+            this.allowedOrigins = allowedOrigins;
+            return this;
+        }
         
         public PlaybackPolicy build() {
             return new PlaybackPolicy(
                 type,
                 webhookId,
                 webhookContext,
-                refreshInterval);
+                refreshInterval,
+                allowedOrigins);
         }
     }
 }

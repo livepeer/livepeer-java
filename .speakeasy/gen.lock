@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: b4f7f2df-6c4d-4150-a18f-8b74fe44eb22
 management:
-  docChecksum: c12afd029507bb4c81908e836702453b
+  docChecksum: c51b40791605d2618ac3ad4165afbd94
   docVersion: 1.0.0
-  speakeasyVersion: 1.293.1
+  speakeasyVersion: 1.294.0
   generationVersion: 2.333.3
-  releaseVersion: 0.0.2
-  configChecksum: 49f969b9c9a8b334df7a39f076e303ae
+  releaseVersion: 0.0.3
+  configChecksum: 87b849034c556af5c33a0b7db9145ee2
 features:
   java:
     additionalDependencies: 0.1.0
@@ -287,12 +287,12 @@ generatedFiles:
   - src/main/java/studio/livepeer/livepeer/models/components/StreamPatchPayload.java
   - src/main/java/studio/livepeer/livepeer/models/components/AssetType.java
   - src/main/java/studio/livepeer/livepeer/models/components/AssetSource3Type.java
-  - src/main/java/studio/livepeer/livepeer/models/components/AssetSource3.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Source3.java
   - src/main/java/studio/livepeer/livepeer/models/components/AssetSourceType.java
   - src/main/java/studio/livepeer/livepeer/models/components/Two.java
   - src/main/java/studio/livepeer/livepeer/models/components/SourceType.java
-  - src/main/java/studio/livepeer/livepeer/models/components/AssetSource1.java
-  - src/main/java/studio/livepeer/livepeer/models/components/AssetSource.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Source1.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Source.java
   - src/main/java/studio/livepeer/livepeer/models/components/AssetNftMetadataTemplate.java
   - src/main/java/studio/livepeer/livepeer/models/components/AssetNftMetadata.java
   - src/main/java/studio/livepeer/livepeer/models/components/AssetSpec.java
@@ -335,15 +335,8 @@ generatedFiles:
   - src/main/java/studio/livepeer/livepeer/models/components/NftMetadataTemplate.java
   - src/main/java/studio/livepeer/livepeer/models/components/NftMetadata.java
   - src/main/java/studio/livepeer/livepeer/models/components/Spec.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Source3.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Source1.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Source.java
-  - src/main/java/studio/livepeer/livepeer/models/components/AssetIpfsInput.java
-  - src/main/java/studio/livepeer/livepeer/models/components/AssetStorageInput.java
-  - src/main/java/studio/livepeer/livepeer/models/components/AssetInput.java
-  - src/main/java/studio/livepeer/livepeer/models/components/IpfsFileInfoInput.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Encryption.java
   - src/main/java/studio/livepeer/livepeer/models/components/NewAssetFromUrlPayload.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Encryption.java
   - src/main/java/studio/livepeer/livepeer/models/components/Ipfs1.java
   - src/main/java/studio/livepeer/livepeer/models/components/Ipfs.java
   - src/main/java/studio/livepeer/livepeer/models/components/Storage.java
@@ -581,12 +574,12 @@ generatedFiles:
   - docs/models/components/StreamPatchPayload.md
   - docs/models/components/AssetType.md
   - docs/models/components/AssetSource3Type.md
-  - docs/models/components/AssetSource3.md
+  - docs/models/components/Source3.md
   - docs/models/components/AssetSourceType.md
   - docs/models/components/Two.md
   - docs/models/components/SourceType.md
-  - docs/models/components/AssetSource1.md
-  - docs/models/components/AssetSource.md
+  - docs/models/components/Source1.md
+  - docs/models/components/Source.md
   - docs/models/components/AssetNftMetadataTemplate.md
   - docs/models/components/AssetNftMetadata.md
   - docs/models/components/AssetSpec.md
@@ -629,15 +622,8 @@ generatedFiles:
   - docs/models/components/NftMetadataTemplate.md
   - docs/models/components/NftMetadata.md
   - docs/models/components/Spec.md
-  - docs/models/components/Source3.md
-  - docs/models/components/Source1.md
-  - docs/models/components/Source.md
-  - docs/models/components/AssetIpfsInput.md
-  - docs/models/components/AssetStorageInput.md
-  - docs/models/components/AssetInput.md
-  - docs/models/components/IpfsFileInfoInput.md
-  - docs/models/components/Encryption.md
   - docs/models/components/NewAssetFromUrlPayload.md
+  - docs/models/components/Encryption.md
   - docs/models/components/Ipfs1.md
   - docs/models/components/Ipfs.md
   - docs/models/components/Storage.md

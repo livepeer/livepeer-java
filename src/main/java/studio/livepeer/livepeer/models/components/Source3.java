@@ -26,7 +26,7 @@ public class Source3 {
 
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("encryption")
-    private Optional<? extends Encryption> encryption;
+    private Optional<? extends EncryptionOutput> encryption;
 
     /**
      * ID of the asset or stream from which this asset was created.
@@ -66,7 +66,7 @@ public class Source3 {
     @JsonCreator
     public Source3(
             @JsonProperty("type") AssetSource3Type type,
-            @JsonProperty("encryption") Optional<? extends Encryption> encryption,
+            @JsonProperty("encryption") Optional<? extends EncryptionOutput> encryption,
             @JsonProperty("sourceId") Optional<? extends String> sourceId,
             @JsonProperty("sessionId") Optional<? extends String> sessionId,
             @JsonProperty("playbackId") Optional<? extends String> playbackId,
@@ -100,8 +100,8 @@ public class Source3 {
 
     @SuppressWarnings("unchecked")
     @JsonIgnore
-    public Optional<Encryption> encryption() {
-        return (Optional<Encryption>) encryption;
+    public Optional<EncryptionOutput> encryption() {
+        return (Optional<EncryptionOutput>) encryption;
     }
 
     /**
@@ -159,13 +159,13 @@ public class Source3 {
         return this;
     }
 
-    public Source3 withEncryption(Encryption encryption) {
+    public Source3 withEncryption(EncryptionOutput encryption) {
         Utils.checkNotNull(encryption, "encryption");
         this.encryption = Optional.ofNullable(encryption);
         return this;
     }
 
-    public Source3 withEncryption(Optional<? extends Encryption> encryption) {
+    public Source3 withEncryption(Optional<? extends EncryptionOutput> encryption) {
         Utils.checkNotNull(encryption, "encryption");
         this.encryption = encryption;
         return this;
@@ -308,7 +308,7 @@ public class Source3 {
  
         private AssetSource3Type type;
  
-        private Optional<? extends Encryption> encryption = Optional.empty();
+        private Optional<? extends EncryptionOutput> encryption = Optional.empty();
  
         private Optional<? extends String> sourceId = Optional.empty();
  
@@ -330,13 +330,13 @@ public class Source3 {
             return this;
         }
 
-        public Builder encryption(Encryption encryption) {
+        public Builder encryption(EncryptionOutput encryption) {
             Utils.checkNotNull(encryption, "encryption");
             this.encryption = Optional.ofNullable(encryption);
             return this;
         }
 
-        public Builder encryption(Optional<? extends Encryption> encryption) {
+        public Builder encryption(Optional<? extends EncryptionOutput> encryption) {
             Utils.checkNotNull(encryption, "encryption");
             this.encryption = encryption;
             return this;
