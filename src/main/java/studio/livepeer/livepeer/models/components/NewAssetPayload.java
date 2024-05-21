@@ -29,10 +29,6 @@ public class NewAssetPayload {
     @JsonProperty("name")
     private String name;
 
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("projectId")
-    private Optional<? extends AssetInput> projectId;
-
     /**
      * Whether to generate MP4s for the asset.
      */
@@ -80,7 +76,6 @@ public class NewAssetPayload {
     @JsonCreator
     public NewAssetPayload(
             @JsonProperty("name") String name,
-            @JsonProperty("projectId") Optional<? extends AssetInput> projectId,
             @JsonProperty("staticMp4") Optional<? extends Boolean> staticMp4,
             @JsonProperty("playbackPolicy") JsonNullable<? extends PlaybackPolicy> playbackPolicy,
             @JsonProperty("creatorId") Optional<? extends InputCreatorId> creatorId,
@@ -90,7 +85,6 @@ public class NewAssetPayload {
             @JsonProperty("profiles") JsonNullable<? extends java.util.List<TranscodeProfile>> profiles,
             @JsonProperty("targetSegmentSizeSecs") Optional<? extends Double> targetSegmentSizeSecs) {
         Utils.checkNotNull(name, "name");
-        Utils.checkNotNull(projectId, "projectId");
         Utils.checkNotNull(staticMp4, "staticMp4");
         Utils.checkNotNull(playbackPolicy, "playbackPolicy");
         Utils.checkNotNull(creatorId, "creatorId");
@@ -100,7 +94,6 @@ public class NewAssetPayload {
         Utils.checkNotNull(profiles, "profiles");
         Utils.checkNotNull(targetSegmentSizeSecs, "targetSegmentSizeSecs");
         this.name = name;
-        this.projectId = projectId;
         this.staticMp4 = staticMp4;
         this.playbackPolicy = playbackPolicy;
         this.creatorId = creatorId;
@@ -113,7 +106,7 @@ public class NewAssetPayload {
     
     public NewAssetPayload(
             String name) {
-        this(name, Optional.empty(), Optional.empty(), JsonNullable.undefined(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), JsonNullable.undefined(), Optional.empty());
+        this(name, Optional.empty(), JsonNullable.undefined(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), JsonNullable.undefined(), Optional.empty());
     }
 
     /**
@@ -123,12 +116,6 @@ public class NewAssetPayload {
     @JsonIgnore
     public String name() {
         return name;
-    }
-
-    @SuppressWarnings("unchecked")
-    @JsonIgnore
-    public Optional<AssetInput> projectId() {
-        return (Optional<AssetInput>) projectId;
     }
 
     /**
@@ -202,18 +189,6 @@ public class NewAssetPayload {
     public NewAssetPayload withName(String name) {
         Utils.checkNotNull(name, "name");
         this.name = name;
-        return this;
-    }
-
-    public NewAssetPayload withProjectId(AssetInput projectId) {
-        Utils.checkNotNull(projectId, "projectId");
-        this.projectId = Optional.ofNullable(projectId);
-        return this;
-    }
-
-    public NewAssetPayload withProjectId(Optional<? extends AssetInput> projectId) {
-        Utils.checkNotNull(projectId, "projectId");
-        this.projectId = projectId;
         return this;
     }
 
@@ -348,7 +323,6 @@ public class NewAssetPayload {
         NewAssetPayload other = (NewAssetPayload) o;
         return 
             java.util.Objects.deepEquals(this.name, other.name) &&
-            java.util.Objects.deepEquals(this.projectId, other.projectId) &&
             java.util.Objects.deepEquals(this.staticMp4, other.staticMp4) &&
             java.util.Objects.deepEquals(this.playbackPolicy, other.playbackPolicy) &&
             java.util.Objects.deepEquals(this.creatorId, other.creatorId) &&
@@ -363,7 +337,6 @@ public class NewAssetPayload {
     public int hashCode() {
         return java.util.Objects.hash(
             name,
-            projectId,
             staticMp4,
             playbackPolicy,
             creatorId,
@@ -378,7 +351,6 @@ public class NewAssetPayload {
     public String toString() {
         return Utils.toString(NewAssetPayload.class,
                 "name", name,
-                "projectId", projectId,
                 "staticMp4", staticMp4,
                 "playbackPolicy", playbackPolicy,
                 "creatorId", creatorId,
@@ -392,8 +364,6 @@ public class NewAssetPayload {
     public final static class Builder {
  
         private String name;
- 
-        private Optional<? extends AssetInput> projectId = Optional.empty();
  
         private Optional<? extends Boolean> staticMp4 = Optional.empty();
  
@@ -422,18 +392,6 @@ public class NewAssetPayload {
         public Builder name(String name) {
             Utils.checkNotNull(name, "name");
             this.name = name;
-            return this;
-        }
-
-        public Builder projectId(AssetInput projectId) {
-            Utils.checkNotNull(projectId, "projectId");
-            this.projectId = Optional.ofNullable(projectId);
-            return this;
-        }
-
-        public Builder projectId(Optional<? extends AssetInput> projectId) {
-            Utils.checkNotNull(projectId, "projectId");
-            this.projectId = projectId;
             return this;
         }
 
@@ -560,7 +518,6 @@ public class NewAssetPayload {
         public NewAssetPayload build() {
             return new NewAssetPayload(
                 name,
-                projectId,
                 staticMp4,
                 playbackPolicy,
                 creatorId,

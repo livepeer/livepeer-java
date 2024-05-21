@@ -39,14 +39,14 @@ public class Source1 {
 
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("encryption")
-    private Optional<? extends Encryption> encryption;
+    private Optional<? extends EncryptionOutput> encryption;
 
     @JsonCreator
     public Source1(
             @JsonProperty("type") SourceType type,
             @JsonProperty("url") String url,
             @JsonProperty("gatewayUrl") Optional<? extends String> gatewayUrl,
-            @JsonProperty("encryption") Optional<? extends Encryption> encryption) {
+            @JsonProperty("encryption") Optional<? extends EncryptionOutput> encryption) {
         Utils.checkNotNull(type, "type");
         Utils.checkNotNull(url, "url");
         Utils.checkNotNull(gatewayUrl, "gatewayUrl");
@@ -87,8 +87,8 @@ public class Source1 {
 
     @SuppressWarnings("unchecked")
     @JsonIgnore
-    public Optional<Encryption> encryption() {
-        return (Optional<Encryption>) encryption;
+    public Optional<EncryptionOutput> encryption() {
+        return (Optional<EncryptionOutput>) encryption;
     }
 
     public final static Builder builder() {
@@ -128,13 +128,13 @@ public class Source1 {
         return this;
     }
 
-    public Source1 withEncryption(Encryption encryption) {
+    public Source1 withEncryption(EncryptionOutput encryption) {
         Utils.checkNotNull(encryption, "encryption");
         this.encryption = Optional.ofNullable(encryption);
         return this;
     }
 
-    public Source1 withEncryption(Optional<? extends Encryption> encryption) {
+    public Source1 withEncryption(Optional<? extends EncryptionOutput> encryption) {
         Utils.checkNotNull(encryption, "encryption");
         this.encryption = encryption;
         return this;
@@ -182,7 +182,7 @@ public class Source1 {
  
         private Optional<? extends String> gatewayUrl = Optional.empty();
  
-        private Optional<? extends Encryption> encryption = Optional.empty();  
+        private Optional<? extends EncryptionOutput> encryption = Optional.empty();  
         
         private Builder() {
           // force use of static builder() method
@@ -221,13 +221,13 @@ public class Source1 {
             return this;
         }
 
-        public Builder encryption(Encryption encryption) {
+        public Builder encryption(EncryptionOutput encryption) {
             Utils.checkNotNull(encryption, "encryption");
             this.encryption = Optional.ofNullable(encryption);
             return this;
         }
 
-        public Builder encryption(Optional<? extends Encryption> encryption) {
+        public Builder encryption(Optional<? extends EncryptionOutput> encryption) {
             Utils.checkNotNull(encryption, "encryption");
             this.encryption = encryption;
             return this;

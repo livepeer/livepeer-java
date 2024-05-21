@@ -21,9 +21,9 @@ class SDKConfiguration {
     public int serverIdx = 0;
     public String language = "java";
     public String openapiDocVersion = "1.0.0";
-    public String sdkVersion = "0.0.2";
+    public String sdkVersion = "0.0.3";
     public String genVersion = "2.333.3";
-    public String userAgent = "speakeasy-sdk/java 0.0.2 2.333.3 1.0.0 studio.livepeer.livepeer";
+    public String userAgent = "speakeasy-sdk/java 0.0.3 2.333.3 1.0.0 studio.livepeer.livepeer";
 
     private studio.livepeer.livepeer.utils.Hooks _hooks = new studio.livepeer.livepeer.utils.Hooks();
 
