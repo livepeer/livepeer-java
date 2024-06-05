@@ -1,17 +1,18 @@
 lockVersion: 2.0.0
 id: b4f7f2df-6c4d-4150-a18f-8b74fe44eb22
 management:
-  docChecksum: c51b40791605d2618ac3ad4165afbd94
+  docChecksum: b534222e8195f9c182c64e92d4c02912
   docVersion: 1.0.0
-  speakeasyVersion: 1.294.0
-  generationVersion: 2.333.3
-  releaseVersion: 0.0.3
-  configChecksum: 87b849034c556af5c33a0b7db9145ee2
+  speakeasyVersion: 1.299.10
+  generationVersion: 2.338.14
+  releaseVersion: 0.1.0
+  configChecksum: c5222aca6e39564311960ea019bd2c49
+  repoURL: https://github.com/livepeer/livepeer-java.git
 features:
   java:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.1
-    core: 3.19.7
+    core: 3.21.1
     deprecations: 2.81.1
     flattening: 2.81.1
     globalSecurity: 2.82.5
@@ -106,6 +107,10 @@ generatedFiles:
   - src/main/java/studio/livepeer/livepeer/utils/BigDecimalString.java
   - src/main/java/studio/livepeer/livepeer/utils/BigIntegerString.java
   - src/main/java/studio/livepeer/livepeer/utils/Deserializers.java
+  - src/main/java/studio/livepeer/livepeer/utils/EventStream.java
+  - src/main/java/studio/livepeer/livepeer/utils/EventStreamLineReader.java
+  - src/main/java/studio/livepeer/livepeer/utils/EventStreamMessage.java
+  - src/main/java/studio/livepeer/livepeer/utils/EventStreamReader.java
   - src/main/java/studio/livepeer/livepeer/utils/FormMetadata.java
   - src/main/java/studio/livepeer/livepeer/utils/HTTPClient.java
   - src/main/java/studio/livepeer/livepeer/utils/HTTPRequest.java
@@ -199,6 +204,7 @@ generatedFiles:
   - src/main/java/studio/livepeer/livepeer/models/operations/GetSessionsResponse.java
   - src/main/java/studio/livepeer/livepeer/models/operations/GetSessionRequest.java
   - src/main/java/studio/livepeer/livepeer/models/operations/GetSessionResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/Record.java
   - src/main/java/studio/livepeer/livepeer/models/operations/GetRecordedSessionsRequest.java
   - src/main/java/studio/livepeer/livepeer/models/operations/GetRecordedSessionsResponse.java
   - src/main/java/studio/livepeer/livepeer/models/operations/CreateRoomResponse.java
@@ -486,6 +492,7 @@ generatedFiles:
   - docs/models/operations/GetSessionsResponse.md
   - docs/models/operations/GetSessionRequest.md
   - docs/models/operations/GetSessionResponse.md
+  - docs/models/operations/Record.md
   - docs/models/operations/GetRecordedSessionsRequest.md
   - docs/models/operations/GetRecordedSessionsResponse.md
   - docs/models/operations/CreateRoomResponse.md

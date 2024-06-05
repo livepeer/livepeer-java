@@ -16,7 +16,6 @@ import java.util.Optional;
 import studio.livepeer.livepeer.utils.SpeakeasyMetadata;
 import studio.livepeer.livepeer.utils.Utils;
 
-
 public class GetRecordedSessionsRequest {
 
     /**
@@ -31,12 +30,12 @@ public class GetRecordedSessionsRequest {
      * 
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=record")
-    private Optional<? extends Long> record;
+    private Optional<? extends Record> record;
 
     @JsonCreator
     public GetRecordedSessionsRequest(
             String parentId,
-            Optional<? extends Long> record) {
+            Optional<? extends Record> record) {
         Utils.checkNotNull(parentId, "parentId");
         Utils.checkNotNull(record, "record");
         this.parentId = parentId;
@@ -63,8 +62,8 @@ public class GetRecordedSessionsRequest {
      */
     @SuppressWarnings("unchecked")
     @JsonIgnore
-    public Optional<Long> record() {
-        return (Optional<Long>) record;
+    public Optional<Record> record() {
+        return (Optional<Record>) record;
     }
 
     public final static Builder builder() {
@@ -85,7 +84,7 @@ public class GetRecordedSessionsRequest {
      * sessions
      * 
      */
-    public GetRecordedSessionsRequest withRecord(long record) {
+    public GetRecordedSessionsRequest withRecord(Record record) {
         Utils.checkNotNull(record, "record");
         this.record = Optional.ofNullable(record);
         return this;
@@ -96,7 +95,7 @@ public class GetRecordedSessionsRequest {
      * sessions
      * 
      */
-    public GetRecordedSessionsRequest withRecord(Optional<? extends Long> record) {
+    public GetRecordedSessionsRequest withRecord(Optional<? extends Record> record) {
         Utils.checkNotNull(record, "record");
         this.record = record;
         return this;
@@ -134,7 +133,7 @@ public class GetRecordedSessionsRequest {
  
         private String parentId;
  
-        private Optional<? extends Long> record = Optional.empty();  
+        private Optional<? extends Record> record = Optional.empty();  
         
         private Builder() {
           // force use of static builder() method
@@ -154,7 +153,7 @@ public class GetRecordedSessionsRequest {
          * sessions
          * 
          */
-        public Builder record(long record) {
+        public Builder record(Record record) {
             Utils.checkNotNull(record, "record");
             this.record = Optional.ofNullable(record);
             return this;
@@ -165,7 +164,7 @@ public class GetRecordedSessionsRequest {
          * sessions
          * 
          */
-        public Builder record(Optional<? extends Long> record) {
+        public Builder record(Optional<? extends Record> record) {
             Utils.checkNotNull(record, "record");
             this.record = record;
             return this;

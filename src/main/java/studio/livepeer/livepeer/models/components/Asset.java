@@ -19,7 +19,6 @@ import java.util.Optional;
 import org.openapitools.jackson.nullable.JsonNullable;
 import studio.livepeer.livepeer.utils.Utils;
 
-
 public class Asset {
 
     @JsonProperty("id")
@@ -62,7 +61,7 @@ public class Asset {
     private Optional<? extends String> downloadUrl;
 
     /**
-     * Whether the playback policy for a asset or stream is public or signed
+     * Whether the playback policy for an asset or stream is public or signed
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("playbackPolicy")
@@ -126,7 +125,7 @@ public class Asset {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("hash")
-    private Optional<? extends java.util.List<Hash>> hash;
+    private JsonNullable<? extends java.util.List<Hash>> hash;
 
     /**
      * Video metadata
@@ -153,7 +152,7 @@ public class Asset {
             @JsonProperty("createdAt") Optional<? extends Double> createdAt,
             @JsonProperty("createdByTokenName") Optional<? extends String> createdByTokenName,
             @JsonProperty("size") Optional<? extends Double> size,
-            @JsonProperty("hash") Optional<? extends java.util.List<Hash>> hash,
+            @JsonProperty("hash") JsonNullable<? extends java.util.List<Hash>> hash,
             @JsonProperty("videoSpec") Optional<? extends VideoSpec> videoSpec) {
         Utils.checkNotNull(id, "id");
         Utils.checkNotNull(type, "type");
@@ -197,7 +196,7 @@ public class Asset {
             String id,
             Source source,
             String name) {
-        this(id, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), JsonNullable.undefined(), source, Optional.empty(), Optional.empty(), Optional.empty(), name, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty());
+        this(id, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), JsonNullable.undefined(), source, Optional.empty(), Optional.empty(), Optional.empty(), name, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), JsonNullable.undefined(), Optional.empty());
     }
 
     @JsonIgnore
@@ -252,7 +251,7 @@ public class Asset {
     }
 
     /**
-     * Whether the playback policy for a asset or stream is public or signed
+     * Whether the playback policy for an asset or stream is public or signed
      */
     @SuppressWarnings("unchecked")
     @JsonIgnore
@@ -336,8 +335,8 @@ public class Asset {
      */
     @SuppressWarnings("unchecked")
     @JsonIgnore
-    public Optional<java.util.List<Hash>> hash() {
-        return (Optional<java.util.List<Hash>>) hash;
+    public JsonNullable<java.util.List<Hash>> hash() {
+        return (JsonNullable<java.util.List<Hash>>) hash;
     }
 
     /**
@@ -452,7 +451,7 @@ public class Asset {
     }
 
     /**
-     * Whether the playback policy for a asset or stream is public or signed
+     * Whether the playback policy for an asset or stream is public or signed
      */
     public Asset withPlaybackPolicy(PlaybackPolicy playbackPolicy) {
         Utils.checkNotNull(playbackPolicy, "playbackPolicy");
@@ -461,7 +460,7 @@ public class Asset {
     }
 
     /**
-     * Whether the playback policy for a asset or stream is public or signed
+     * Whether the playback policy for an asset or stream is public or signed
      */
     public Asset withPlaybackPolicy(JsonNullable<? extends PlaybackPolicy> playbackPolicy) {
         Utils.checkNotNull(playbackPolicy, "playbackPolicy");
@@ -604,14 +603,14 @@ public class Asset {
      */
     public Asset withHash(java.util.List<Hash> hash) {
         Utils.checkNotNull(hash, "hash");
-        this.hash = Optional.ofNullable(hash);
+        this.hash = JsonNullable.of(hash);
         return this;
     }
 
     /**
      * Hash of the asset
      */
-    public Asset withHash(Optional<? extends java.util.List<Hash>> hash) {
+    public Asset withHash(JsonNullable<? extends java.util.List<Hash>> hash) {
         Utils.checkNotNull(hash, "hash");
         this.hash = hash;
         return this;
@@ -746,7 +745,7 @@ public class Asset {
  
         private Optional<? extends Double> size = Optional.empty();
  
-        private Optional<? extends java.util.List<Hash>> hash = Optional.empty();
+        private JsonNullable<? extends java.util.List<Hash>> hash = JsonNullable.undefined();
  
         private Optional<? extends VideoSpec> videoSpec = Optional.empty();  
         
@@ -853,7 +852,7 @@ public class Asset {
         }
 
         /**
-         * Whether the playback policy for a asset or stream is public or signed
+         * Whether the playback policy for an asset or stream is public or signed
          */
         public Builder playbackPolicy(PlaybackPolicy playbackPolicy) {
             Utils.checkNotNull(playbackPolicy, "playbackPolicy");
@@ -862,7 +861,7 @@ public class Asset {
         }
 
         /**
-         * Whether the playback policy for a asset or stream is public or signed
+         * Whether the playback policy for an asset or stream is public or signed
          */
         public Builder playbackPolicy(JsonNullable<? extends PlaybackPolicy> playbackPolicy) {
             Utils.checkNotNull(playbackPolicy, "playbackPolicy");
@@ -1005,14 +1004,14 @@ public class Asset {
          */
         public Builder hash(java.util.List<Hash> hash) {
             Utils.checkNotNull(hash, "hash");
-            this.hash = Optional.ofNullable(hash);
+            this.hash = JsonNullable.of(hash);
             return this;
         }
 
         /**
          * Hash of the asset
          */
-        public Builder hash(Optional<? extends java.util.List<Hash>> hash) {
+        public Builder hash(JsonNullable<? extends java.util.List<Hash>> hash) {
             Utils.checkNotNull(hash, "hash");
             this.hash = hash;
             return this;

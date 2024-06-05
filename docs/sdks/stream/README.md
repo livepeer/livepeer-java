@@ -42,6 +42,7 @@ also be added upon the creation of a new stream by adding
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -52,6 +53,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 
@@ -150,6 +152,7 @@ Retrieve streams
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -160,6 +163,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 
@@ -213,6 +217,7 @@ Retrieve a stream
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -223,6 +228,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 
@@ -276,6 +282,7 @@ Update a stream
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -286,6 +293,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 
@@ -376,6 +384,7 @@ using the PATCH stream API.
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -386,6 +395,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 
@@ -445,6 +455,7 @@ terminated.
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -455,6 +466,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 
@@ -513,6 +525,7 @@ started.
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -523,6 +536,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 
@@ -574,6 +588,7 @@ Create a clip
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -584,6 +599,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 
@@ -645,6 +661,7 @@ Retrieve clips of a livestream
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -655,6 +672,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 
@@ -708,6 +726,7 @@ Add a multistream target
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -718,6 +737,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 
@@ -779,6 +799,7 @@ Remove a multistream target
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -789,6 +810,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 

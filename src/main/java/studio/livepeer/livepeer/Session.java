@@ -120,8 +120,7 @@ public class Session implements
         
         if (Utils.statusCodeMatches(_httpRes.statusCode(), "200")) {
             if (Utils.contentTypeMatches(_contentType, "application/json")) {
-                ObjectMapper _mapper = JSON.getMapper();
-                java.util.List<studio.livepeer.livepeer.models.components.Asset> _out = _mapper.readValue(
+                java.util.List<studio.livepeer.livepeer.models.components.Asset> _out = Utils.mapper().readValue(
                     Utils.toUtf8AndClose(_httpRes.body()),
                     new TypeReference<java.util.List<studio.livepeer.livepeer.models.components.Asset>>() {});
                 _res.withData(java.util.Optional.ofNullable(_out));
@@ -144,8 +143,7 @@ public class Session implements
         }
         if (Utils.statusCodeMatches(_httpRes.statusCode(), "default")) {
             if (Utils.contentTypeMatches(_contentType, "application/json")) {
-                ObjectMapper _mapper = JSON.getMapper();
-                studio.livepeer.livepeer.models.errors.Error _out = _mapper.readValue(
+                studio.livepeer.livepeer.models.errors.Error _out = Utils.mapper().readValue(
                     Utils.toUtf8AndClose(_httpRes.body()),
                     new TypeReference<studio.livepeer.livepeer.models.errors.Error>() {});
                 _res.withError(java.util.Optional.ofNullable(_out));
@@ -235,8 +233,7 @@ public class Session implements
         
         if (Utils.statusCodeMatches(_httpRes.statusCode(), "200")) {
             if (Utils.contentTypeMatches(_contentType, "application/json")) {
-                ObjectMapper _mapper = JSON.getMapper();
-                java.util.List<studio.livepeer.livepeer.models.components.Session> _out = _mapper.readValue(
+                java.util.List<studio.livepeer.livepeer.models.components.Session> _out = Utils.mapper().readValue(
                     Utils.toUtf8AndClose(_httpRes.body()),
                     new TypeReference<java.util.List<studio.livepeer.livepeer.models.components.Session>>() {});
                 _res.withData(java.util.Optional.ofNullable(_out));
@@ -259,8 +256,7 @@ public class Session implements
         }
         if (Utils.statusCodeMatches(_httpRes.statusCode(), "default")) {
             if (Utils.contentTypeMatches(_contentType, "application/json")) {
-                ObjectMapper _mapper = JSON.getMapper();
-                studio.livepeer.livepeer.models.errors.Error _out = _mapper.readValue(
+                studio.livepeer.livepeer.models.errors.Error _out = Utils.mapper().readValue(
                     Utils.toUtf8AndClose(_httpRes.body()),
                     new TypeReference<studio.livepeer.livepeer.models.errors.Error>() {});
                 _res.withError(java.util.Optional.ofNullable(_out));
@@ -360,8 +356,7 @@ public class Session implements
         
         if (Utils.statusCodeMatches(_httpRes.statusCode(), "200")) {
             if (Utils.contentTypeMatches(_contentType, "application/json")) {
-                ObjectMapper _mapper = JSON.getMapper();
-                studio.livepeer.livepeer.models.components.Session _out = _mapper.readValue(
+                studio.livepeer.livepeer.models.components.Session _out = Utils.mapper().readValue(
                     Utils.toUtf8AndClose(_httpRes.body()),
                     new TypeReference<studio.livepeer.livepeer.models.components.Session>() {});
                 _res.withSession(java.util.Optional.ofNullable(_out));
@@ -384,8 +379,7 @@ public class Session implements
         }
         if (Utils.statusCodeMatches(_httpRes.statusCode(), "default")) {
             if (Utils.contentTypeMatches(_contentType, "application/json")) {
-                ObjectMapper _mapper = JSON.getMapper();
-                studio.livepeer.livepeer.models.errors.Error _out = _mapper.readValue(
+                studio.livepeer.livepeer.models.errors.Error _out = Utils.mapper().readValue(
                     Utils.toUtf8AndClose(_httpRes.body()),
                     new TypeReference<studio.livepeer.livepeer.models.errors.Error>() {});
                 _res.withError(java.util.Optional.ofNullable(_out));
@@ -435,7 +429,7 @@ public class Session implements
      */
     public studio.livepeer.livepeer.models.operations.GetRecordedSessionsResponse getRecorded(
             String parentId,
-            Optional<? extends Long> record) throws Exception {
+            Optional<? extends studio.livepeer.livepeer.models.operations.Record> record) throws Exception {
         studio.livepeer.livepeer.models.operations.GetRecordedSessionsRequest request =
             studio.livepeer.livepeer.models.operations.GetRecordedSessionsRequest
                 .builder()
@@ -505,8 +499,7 @@ public class Session implements
         
         if (Utils.statusCodeMatches(_httpRes.statusCode(), "200")) {
             if (Utils.contentTypeMatches(_contentType, "application/json")) {
-                ObjectMapper _mapper = JSON.getMapper();
-                java.util.List<studio.livepeer.livepeer.models.components.Session> _out = _mapper.readValue(
+                java.util.List<studio.livepeer.livepeer.models.components.Session> _out = Utils.mapper().readValue(
                     Utils.toUtf8AndClose(_httpRes.body()),
                     new TypeReference<java.util.List<studio.livepeer.livepeer.models.components.Session>>() {});
                 _res.withData(java.util.Optional.ofNullable(_out));
@@ -529,8 +522,7 @@ public class Session implements
         }
         if (Utils.statusCodeMatches(_httpRes.statusCode(), "default")) {
             if (Utils.contentTypeMatches(_contentType, "application/json")) {
-                ObjectMapper _mapper = JSON.getMapper();
-                studio.livepeer.livepeer.models.errors.Error _out = _mapper.readValue(
+                studio.livepeer.livepeer.models.errors.Error _out = Utils.mapper().readValue(
                     Utils.toUtf8AndClose(_httpRes.body()),
                     new TypeReference<studio.livepeer.livepeer.models.errors.Error>() {});
                 _res.withError(java.util.Optional.ofNullable(_out));

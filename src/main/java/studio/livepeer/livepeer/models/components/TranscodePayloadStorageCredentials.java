@@ -14,7 +14,6 @@ import java.lang.Deprecated;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import studio.livepeer.livepeer.utils.Utils;
-
 /**
  * TranscodePayloadStorageCredentials - Delegation proof for Livepeer to be able to upload to
  * web3.storage

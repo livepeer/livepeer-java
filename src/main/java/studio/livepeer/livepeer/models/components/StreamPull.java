@@ -17,7 +17,6 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Optional;
 import studio.livepeer.livepeer.utils.Utils;
-
 /**
  * StreamPull - Configuration for a stream that should be actively pulled from an
  * external source, rather than pushed to Livepeer. If specified, the

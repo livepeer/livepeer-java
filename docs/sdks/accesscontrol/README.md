@@ -25,6 +25,7 @@ Up to 10 signing keys can be generated, after that you must delete at least one 
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -35,6 +36,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 
@@ -81,6 +83,7 @@ Retrieves signing keys
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -91,6 +94,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 
@@ -137,6 +141,7 @@ Delete Signing Key
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -147,6 +152,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 
@@ -198,6 +204,7 @@ Retrieves a signing key
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -208,6 +215,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 
@@ -261,6 +269,7 @@ Update a signing key
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -271,6 +280,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 

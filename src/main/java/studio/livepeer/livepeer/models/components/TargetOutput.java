@@ -19,7 +19,6 @@ import java.util.Optional;
 import studio.livepeer.livepeer.utils.LazySingletonValue;
 import studio.livepeer.livepeer.utils.Utils;
 
-
 public class TargetOutput {
 
     /**

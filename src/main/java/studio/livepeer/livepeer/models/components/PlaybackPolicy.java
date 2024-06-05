@@ -17,9 +17,8 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Optional;
 import studio.livepeer.livepeer.utils.Utils;
-
 /**
- * PlaybackPolicy - Whether the playback policy for a asset or stream is public or signed
+ * PlaybackPolicy - Whether the playback policy for an asset or stream is public or signed
  */
 
 public class PlaybackPolicy {

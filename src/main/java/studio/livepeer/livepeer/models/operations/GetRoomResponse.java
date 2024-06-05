@@ -16,7 +16,6 @@ import java.net.http.HttpResponse;
 import java.util.Optional;
 import studio.livepeer.livepeer.utils.Utils;
 
-
 public class GetRoomResponse implements studio.livepeer.livepeer.utils.Response {
 
     /**

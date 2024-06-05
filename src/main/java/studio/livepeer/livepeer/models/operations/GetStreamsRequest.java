@@ -16,7 +16,6 @@ import java.util.Optional;
 import studio.livepeer.livepeer.utils.SpeakeasyMetadata;
 import studio.livepeer.livepeer.utils.Utils;
 
-
 public class GetStreamsRequest {
 
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=streamsonly")

@@ -15,7 +15,6 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import studio.livepeer.livepeer.utils.Utils;
 
-
 public class UploadAssetTask {
 
     @JsonProperty("id")
