@@ -15,7 +15,6 @@ import java.math.BigInteger;
 import studio.livepeer.livepeer.utils.SpeakeasyMetadata;
 import studio.livepeer.livepeer.utils.Utils;
 
-
 public class GetRoomUserRequest {
 
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")

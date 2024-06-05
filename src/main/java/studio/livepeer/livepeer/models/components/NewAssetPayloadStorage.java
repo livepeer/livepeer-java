@@ -18,7 +18,6 @@ import java.math.BigInteger;
 import org.openapitools.jackson.nullable.JsonNullable;
 import studio.livepeer.livepeer.utils.Utils;
 
-
 public class NewAssetPayloadStorage {
 
     /**

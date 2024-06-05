@@ -17,7 +17,6 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Optional;
 import studio.livepeer.livepeer.utils.Utils;
-
 /**
  * ViewershipMetric - An individual metric about viewership of an asset. Necessarily, at least
  * 1 of playbackId and dStorageUrl will be present, depending on the query.

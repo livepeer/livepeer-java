@@ -219,7 +219,7 @@ public class SDKMethodInterfaces {
     public interface MethodCallGetRecordedSessions {
         studio.livepeer.livepeer.models.operations.GetRecordedSessionsResponse getRecorded(
             String parentId,
-            Optional<? extends Long> record) throws Exception;
+            Optional<? extends studio.livepeer.livepeer.models.operations.Record> record) throws Exception;
     }
 
 

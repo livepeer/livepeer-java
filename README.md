@@ -16,7 +16,7 @@ The samples below show how a published SDK artifact is used:
 
 Gradle:
 ```groovy
-implementation 'studio.livepeer.livepeer:openapi:0.0.3'
+implementation 'studio.livepeer.livepeer:openapi:0.1.0'
 ```
 
 Maven:
@@ -24,7 +24,7 @@ Maven:
 <dependency>
     <groupId>studio.livepeer.livepeer</groupId>
     <artifactId>openapi</artifactId>
-    <version>0.0.3</version>
+    <version>0.1.0</version>
 </dependency>
 ```
 
@@ -52,6 +52,7 @@ gradlew.bat publishToMavenLocal -Pskip.signing
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -62,6 +63,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 
@@ -244,6 +246,7 @@ Handling errors in this SDK should largely match your expectations.  All operati
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -254,6 +257,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 
@@ -302,6 +306,7 @@ You can override the default server globally by passing a server index to the `s
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -312,6 +317,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 
@@ -393,6 +399,7 @@ The default server can also be overridden globally by passing a URL to the `serv
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -403,6 +410,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 
@@ -493,6 +501,7 @@ To authenticate with the API the `apiKey` parameter must be set when initializin
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -503,6 +512,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 

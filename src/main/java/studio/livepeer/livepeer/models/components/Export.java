@@ -17,7 +17,6 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Optional;
 import studio.livepeer.livepeer.utils.Utils;
-
 /**
  * Export - Output of the export task
  */

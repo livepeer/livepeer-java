@@ -20,7 +20,7 @@ import studio.livepeer.livepeer.utils.Utils;
 public class GetRecordedSessionsRequestBuilder {
 
     private String parentId;
-    private Optional<? extends Long> record = Optional.empty();
+    private Optional<? extends Record> record = Optional.empty();
     private final SDKMethodInterfaces.MethodCallGetRecordedSessions sdk;
 
     public GetRecordedSessionsRequestBuilder(SDKMethodInterfaces.MethodCallGetRecordedSessions sdk) {
@@ -33,13 +33,13 @@ public class GetRecordedSessionsRequestBuilder {
         return this;
     }
                 
-    public GetRecordedSessionsRequestBuilder record(long record) {
+    public GetRecordedSessionsRequestBuilder record(Record record) {
         Utils.checkNotNull(record, "record");
         this.record = Optional.of(record);
         return this;
     }
 
-    public GetRecordedSessionsRequestBuilder record(Optional<? extends Long> record) {
+    public GetRecordedSessionsRequestBuilder record(Optional<? extends Record> record) {
         Utils.checkNotNull(record, "record");
         this.record = record;
         return this;

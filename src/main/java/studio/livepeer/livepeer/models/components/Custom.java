@@ -18,7 +18,6 @@ import java.math.BigInteger;
 import java.util.Optional;
 import studio.livepeer.livepeer.utils.LazySingletonValue;
 import studio.livepeer.livepeer.utils.Utils;
-
 /**
  * Custom - custom URL parameters for the export task
  */

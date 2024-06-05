@@ -18,7 +18,6 @@ import java.math.BigInteger;
 import java.util.Optional;
 import studio.livepeer.livepeer.utils.Utils;
 
-
 public class StreamMultistream {
 
     /**

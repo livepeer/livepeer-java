@@ -121,8 +121,7 @@ public class Metrics implements
         
         if (Utils.statusCodeMatches(_httpRes.statusCode(), "200")) {
             if (Utils.contentTypeMatches(_contentType, "application/json")) {
-                ObjectMapper _mapper = JSON.getMapper();
-                java.util.List<studio.livepeer.livepeer.models.components.ViewershipMetric> _out = _mapper.readValue(
+                java.util.List<studio.livepeer.livepeer.models.components.ViewershipMetric> _out = Utils.mapper().readValue(
                     Utils.toUtf8AndClose(_httpRes.body()),
                     new TypeReference<java.util.List<studio.livepeer.livepeer.models.components.ViewershipMetric>>() {});
                 _res.withData(java.util.Optional.ofNullable(_out));
@@ -145,8 +144,7 @@ public class Metrics implements
         }
         if (Utils.statusCodeMatches(_httpRes.statusCode(), "default")) {
             if (Utils.contentTypeMatches(_contentType, "application/json")) {
-                ObjectMapper _mapper = JSON.getMapper();
-                studio.livepeer.livepeer.models.errors.Error _out = _mapper.readValue(
+                studio.livepeer.livepeer.models.errors.Error _out = Utils.mapper().readValue(
                     Utils.toUtf8AndClose(_httpRes.body()),
                     new TypeReference<studio.livepeer.livepeer.models.errors.Error>() {});
                 _res.withError(java.util.Optional.ofNullable(_out));
@@ -247,8 +245,7 @@ public class Metrics implements
         
         if (Utils.statusCodeMatches(_httpRes.statusCode(), "200")) {
             if (Utils.contentTypeMatches(_contentType, "application/json")) {
-                ObjectMapper _mapper = JSON.getMapper();
-                java.util.List<studio.livepeer.livepeer.models.components.ViewershipMetric> _out = _mapper.readValue(
+                java.util.List<studio.livepeer.livepeer.models.components.ViewershipMetric> _out = Utils.mapper().readValue(
                     Utils.toUtf8AndClose(_httpRes.body()),
                     new TypeReference<java.util.List<studio.livepeer.livepeer.models.components.ViewershipMetric>>() {});
                 _res.withData(java.util.Optional.ofNullable(_out));
@@ -271,8 +268,7 @@ public class Metrics implements
         }
         if (Utils.statusCodeMatches(_httpRes.statusCode(), "default")) {
             if (Utils.contentTypeMatches(_contentType, "application/json")) {
-                ObjectMapper _mapper = JSON.getMapper();
-                studio.livepeer.livepeer.models.errors.Error _out = _mapper.readValue(
+                studio.livepeer.livepeer.models.errors.Error _out = Utils.mapper().readValue(
                     Utils.toUtf8AndClose(_httpRes.body()),
                     new TypeReference<studio.livepeer.livepeer.models.errors.Error>() {});
                 _res.withError(java.util.Optional.ofNullable(_out));
@@ -383,8 +379,7 @@ public class Metrics implements
         
         if (Utils.statusCodeMatches(_httpRes.statusCode(), "200")) {
             if (Utils.contentTypeMatches(_contentType, "application/json")) {
-                ObjectMapper _mapper = JSON.getMapper();
-                studio.livepeer.livepeer.models.operations.GetPublicViewershipMetricsData _out = _mapper.readValue(
+                studio.livepeer.livepeer.models.operations.GetPublicViewershipMetricsData _out = Utils.mapper().readValue(
                     Utils.toUtf8AndClose(_httpRes.body()),
                     new TypeReference<studio.livepeer.livepeer.models.operations.GetPublicViewershipMetricsData>() {});
                 _res.withData(java.util.Optional.ofNullable(_out));
@@ -407,8 +402,7 @@ public class Metrics implements
         }
         if (Utils.statusCodeMatches(_httpRes.statusCode(), "default")) {
             if (Utils.contentTypeMatches(_contentType, "application/json")) {
-                ObjectMapper _mapper = JSON.getMapper();
-                studio.livepeer.livepeer.models.errors.Error _out = _mapper.readValue(
+                studio.livepeer.livepeer.models.errors.Error _out = Utils.mapper().readValue(
                     Utils.toUtf8AndClose(_httpRes.body()),
                     new TypeReference<studio.livepeer.livepeer.models.errors.Error>() {});
                 _res.withError(java.util.Optional.ofNullable(_out));
@@ -505,8 +499,7 @@ public class Metrics implements
         
         if (Utils.statusCodeMatches(_httpRes.statusCode(), "200")) {
             if (Utils.contentTypeMatches(_contentType, "application/json")) {
-                ObjectMapper _mapper = JSON.getMapper();
-                studio.livepeer.livepeer.models.components.UsageMetric _out = _mapper.readValue(
+                studio.livepeer.livepeer.models.components.UsageMetric _out = Utils.mapper().readValue(
                     Utils.toUtf8AndClose(_httpRes.body()),
                     new TypeReference<studio.livepeer.livepeer.models.components.UsageMetric>() {});
                 _res.withUsageMetric(java.util.Optional.ofNullable(_out));
@@ -529,8 +522,7 @@ public class Metrics implements
         }
         if (Utils.statusCodeMatches(_httpRes.statusCode(), "default")) {
             if (Utils.contentTypeMatches(_contentType, "application/json")) {
-                ObjectMapper _mapper = JSON.getMapper();
-                studio.livepeer.livepeer.models.errors.Error _out = _mapper.readValue(
+                studio.livepeer.livepeer.models.errors.Error _out = Utils.mapper().readValue(
                     Utils.toUtf8AndClose(_httpRes.body()),
                     new TypeReference<studio.livepeer.livepeer.models.errors.Error>() {});
                 _res.withError(java.util.Optional.ofNullable(_out));

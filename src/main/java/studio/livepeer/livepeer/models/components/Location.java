@@ -14,7 +14,6 @@ import java.lang.Deprecated;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import studio.livepeer.livepeer.utils.Utils;
-
 /**
  * Location - Approximate location of the pull source. The location is used to
  * determine the closest Livepeer region to pull the stream from.

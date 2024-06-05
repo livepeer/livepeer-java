@@ -22,6 +22,7 @@ Retrieve clips of a session
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -32,6 +33,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 
@@ -85,6 +87,7 @@ Retrieve sessions
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -95,6 +98,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 
@@ -141,6 +145,7 @@ Retrieve a session
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -151,6 +156,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 
@@ -204,6 +210,7 @@ Retrieve Recorded Sessions
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -214,6 +221,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 
@@ -225,7 +233,7 @@ public class Application {
 
             GetRecordedSessionsResponse res = sdk.session().getRecorded()
                 .parentId("<value>")
-                .record(1L)
+                .record(studio.livepeer.livepeer.models.operations.Record.of(true))
                 .call();
 
             if (res.data().isPresent()) {
@@ -244,10 +252,10 @@ public class Application {
 
 ### Parameters
 
-| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            | Example                                                                |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `parentId`                                                             | *String*                                                               | :heavy_check_mark:                                                     | ID of the parent stream                                                |                                                                        |
-| `record`                                                               | *Optional<? extends Long>*                                             | :heavy_minus_sign:                                                     | Flag indicating if the response should only include recorded<br/>sessions<br/> | 1                                                                      |
+| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                | Example                                                                                                    |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `parentId`                                                                                                 | *String*                                                                                                   | :heavy_check_mark:                                                                                         | ID of the parent stream                                                                                    |                                                                                                            |
+| `record`                                                                                                   | [Optional<? extends studio.livepeer.livepeer.models.operations.Record>](../../models/operations/Record.md) | :heavy_minus_sign:                                                                                         | Flag indicating if the response should only include recorded<br/>sessions<br/>                             | true                                                                                                       |
 
 
 ### Response

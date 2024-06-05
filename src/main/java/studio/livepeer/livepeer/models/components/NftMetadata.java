@@ -13,7 +13,6 @@ import java.lang.Deprecated;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import studio.livepeer.livepeer.utils.Utils;
-
 /**
  * NftMetadata - Additional data to add to the NFT metadata exported to
  * IPFS. Will be deep merged with the default metadata

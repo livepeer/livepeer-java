@@ -14,7 +14,6 @@ import java.lang.Deprecated;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import studio.livepeer.livepeer.utils.Utils;
-
 /**
  * Credentials - Credentials for the private input video storage
  */

@@ -19,7 +19,6 @@ import java.util.Optional;
 import org.openapitools.jackson.nullable.JsonNullable;
 import studio.livepeer.livepeer.utils.Utils;
 
-
 public class Stream {
 
     @JsonInclude(Include.NON_ABSENT)
@@ -162,7 +161,7 @@ public class Stream {
     private Optional<? extends String> playbackId;
 
     /**
-     * Whether the playback policy for a asset or stream is public or signed
+     * Whether the playback policy for an asset or stream is public or signed
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("playbackPolicy")
@@ -499,7 +498,7 @@ public class Stream {
     }
 
     /**
-     * Whether the playback policy for a asset or stream is public or signed
+     * Whether the playback policy for an asset or stream is public or signed
      */
     @SuppressWarnings("unchecked")
     @JsonIgnore
@@ -935,7 +934,7 @@ public class Stream {
     }
 
     /**
-     * Whether the playback policy for a asset or stream is public or signed
+     * Whether the playback policy for an asset or stream is public or signed
      */
     public Stream withPlaybackPolicy(PlaybackPolicy playbackPolicy) {
         Utils.checkNotNull(playbackPolicy, "playbackPolicy");
@@ -944,7 +943,7 @@ public class Stream {
     }
 
     /**
-     * Whether the playback policy for a asset or stream is public or signed
+     * Whether the playback policy for an asset or stream is public or signed
      */
     public Stream withPlaybackPolicy(JsonNullable<? extends PlaybackPolicy> playbackPolicy) {
         Utils.checkNotNull(playbackPolicy, "playbackPolicy");
@@ -1618,7 +1617,7 @@ public class Stream {
         }
 
         /**
-         * Whether the playback policy for a asset or stream is public or signed
+         * Whether the playback policy for an asset or stream is public or signed
          */
         public Builder playbackPolicy(PlaybackPolicy playbackPolicy) {
             Utils.checkNotNull(playbackPolicy, "playbackPolicy");
@@ -1627,7 +1626,7 @@ public class Stream {
         }
 
         /**
-         * Whether the playback policy for a asset or stream is public or signed
+         * Whether the playback policy for an asset or stream is public or signed
          */
         public Builder playbackPolicy(JsonNullable<? extends PlaybackPolicy> playbackPolicy) {
             Utils.checkNotNull(playbackPolicy, "playbackPolicy");

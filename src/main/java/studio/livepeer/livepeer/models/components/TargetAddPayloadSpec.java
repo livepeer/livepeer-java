@@ -17,7 +17,6 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Optional;
 import studio.livepeer.livepeer.utils.Utils;
-
 /**
  * TargetAddPayloadSpec - Inline multistream target object. Will automatically
  * create the target resource to be used by the created

@@ -30,6 +30,7 @@ Create a multiparticipant livestreaming room.
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -40,6 +41,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 
@@ -88,6 +90,7 @@ Retrieve a room
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -98,6 +101,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 
@@ -153,6 +157,7 @@ Delete a room
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -163,6 +168,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 
@@ -218,6 +224,7 @@ This allows you to leverage livestreaming features like recording and HLS output
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -228,6 +235,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 
@@ -285,6 +293,7 @@ Stop room RTMP egress
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -295,6 +304,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 
@@ -351,6 +361,7 @@ Alternatively the joining token can be used with a custom app.
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -361,6 +372,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 
@@ -422,6 +434,7 @@ Get user details
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -432,6 +445,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 
@@ -489,6 +503,7 @@ Update properties for a user.
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -499,6 +514,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 
@@ -559,6 +575,7 @@ Remove a user from the room
 package hello.world;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -569,6 +586,7 @@ import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.components.Security;
 import studio.livepeer.livepeer.models.operations.*;
+import studio.livepeer.livepeer.utils.EventStream;
 
 public class Application {
 

@@ -14,7 +14,6 @@ import java.lang.Deprecated;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import studio.livepeer.livepeer.utils.Utils;
-
 /**
  * Input2 - S3-like storage input video
  */

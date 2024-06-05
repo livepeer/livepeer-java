@@ -17,7 +17,6 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Optional;
 import studio.livepeer.livepeer.utils.Utils;
-
 /**
  * GetPublicViewershipMetricsData - A simplified metric object about aggregate viewership of an
  * asset. Either playbackId or dStorageUrl will be set.

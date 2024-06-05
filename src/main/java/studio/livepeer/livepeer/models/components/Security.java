@@ -16,7 +16,6 @@ import java.math.BigInteger;
 import studio.livepeer.livepeer.utils.SpeakeasyMetadata;
 import studio.livepeer.livepeer.utils.Utils;
 
-
 public class Security {
 
     @SpeakeasyMetadata("security:scheme=true,type=http,subtype=bearer,name=Authorization")

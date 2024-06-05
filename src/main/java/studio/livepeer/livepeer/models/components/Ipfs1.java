@@ -18,7 +18,6 @@ import java.math.BigInteger;
 import org.openapitools.jackson.nullable.JsonNullable;
 import studio.livepeer.livepeer.utils.Utils;
 
-
 public class Ipfs1 {
 
     @JsonInclude(Include.NON_ABSENT)

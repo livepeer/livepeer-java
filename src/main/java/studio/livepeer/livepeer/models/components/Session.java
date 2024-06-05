@@ -19,7 +19,6 @@ import java.util.Optional;
 import org.openapitools.jackson.nullable.JsonNullable;
 import studio.livepeer.livepeer.utils.Utils;
 
-
 public class Session {
 
     @JsonInclude(Include.NON_ABSENT)
