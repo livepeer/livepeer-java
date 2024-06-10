@@ -57,6 +57,15 @@ public class NewStreamPayload {
     @JsonProperty("record")
     private Optional<? extends Boolean> record;
 
+    /**
+     * Configuration for recording the stream. This can only be set if
+     * `record` is true.
+     * 
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("recordingSpec")
+    private Optional<? extends RecordingSpec> recordingSpec;
+
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("multistream")
     private Optional<? extends Multistream> multistream;
@@ -76,6 +85,7 @@ public class NewStreamPayload {
             @JsonProperty("playbackPolicy") JsonNullable<? extends PlaybackPolicy> playbackPolicy,
             @JsonProperty("profiles") JsonNullable<? extends java.util.List<FfmpegProfile>> profiles,
             @JsonProperty("record") Optional<? extends Boolean> record,
+            @JsonProperty("recordingSpec") Optional<? extends RecordingSpec> recordingSpec,
             @JsonProperty("multistream") Optional<? extends Multistream> multistream,
             @JsonProperty("userTags") Optional<? extends java.util.Map<String, UserTags>> userTags) {
         Utils.checkNotNull(name, "name");
@@ -84,6 +94,7 @@ public class NewStreamPayload {
         Utils.checkNotNull(playbackPolicy, "playbackPolicy");
         Utils.checkNotNull(profiles, "profiles");
         Utils.checkNotNull(record, "record");
+        Utils.checkNotNull(recordingSpec, "recordingSpec");
         Utils.checkNotNull(multistream, "multistream");
         Utils.checkNotNull(userTags, "userTags");
         this.name = name;
@@ -92,13 +103,14 @@ public class NewStreamPayload {
         this.playbackPolicy = playbackPolicy;
         this.profiles = profiles;
         this.record = record;
+        this.recordingSpec = recordingSpec;
         this.multistream = multistream;
         this.userTags = userTags;
     }
     
     public NewStreamPayload(
             String name) {
-        this(name, Optional.empty(), Optional.empty(), JsonNullable.undefined(), JsonNullable.undefined(), Optional.empty(), Optional.empty(), Optional.empty());
+        this(name, Optional.empty(), Optional.empty(), JsonNullable.undefined(), JsonNullable.undefined(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty());
     }
 
     @JsonIgnore
@@ -147,6 +159,17 @@ public class NewStreamPayload {
     @JsonIgnore
     public Optional<Boolean> record() {
         return (Optional<Boolean>) record;
+    }
+
+    /**
+     * Configuration for recording the stream. This can only be set if
+     * `record` is true.
+     * 
+     */
+    @SuppressWarnings("unchecked")
+    @JsonIgnore
+    public Optional<RecordingSpec> recordingSpec() {
+        return (Optional<RecordingSpec>) recordingSpec;
     }
 
     @SuppressWarnings("unchecked")
@@ -260,6 +283,28 @@ public class NewStreamPayload {
         return this;
     }
 
+    /**
+     * Configuration for recording the stream. This can only be set if
+     * `record` is true.
+     * 
+     */
+    public NewStreamPayload withRecordingSpec(RecordingSpec recordingSpec) {
+        Utils.checkNotNull(recordingSpec, "recordingSpec");
+        this.recordingSpec = Optional.ofNullable(recordingSpec);
+        return this;
+    }
+
+    /**
+     * Configuration for recording the stream. This can only be set if
+     * `record` is true.
+     * 
+     */
+    public NewStreamPayload withRecordingSpec(Optional<? extends RecordingSpec> recordingSpec) {
+        Utils.checkNotNull(recordingSpec, "recordingSpec");
+        this.recordingSpec = recordingSpec;
+        return this;
+    }
+
     public NewStreamPayload withMultistream(Multistream multistream) {
         Utils.checkNotNull(multistream, "multistream");
         this.multistream = Optional.ofNullable(multistream);
@@ -306,6 +351,7 @@ public class NewStreamPayload {
             java.util.Objects.deepEquals(this.playbackPolicy, other.playbackPolicy) &&
             java.util.Objects.deepEquals(this.profiles, other.profiles) &&
             java.util.Objects.deepEquals(this.record, other.record) &&
+            java.util.Objects.deepEquals(this.recordingSpec, other.recordingSpec) &&
             java.util.Objects.deepEquals(this.multistream, other.multistream) &&
             java.util.Objects.deepEquals(this.userTags, other.userTags);
     }
@@ -319,6 +365,7 @@ public class NewStreamPayload {
             playbackPolicy,
             profiles,
             record,
+            recordingSpec,
             multistream,
             userTags);
     }
@@ -332,6 +379,7 @@ public class NewStreamPayload {
                 "playbackPolicy", playbackPolicy,
                 "profiles", profiles,
                 "record", record,
+                "recordingSpec", recordingSpec,
                 "multistream", multistream,
                 "userTags", userTags);
     }
@@ -349,6 +397,8 @@ public class NewStreamPayload {
         private JsonNullable<? extends java.util.List<FfmpegProfile>> profiles = JsonNullable.undefined();
  
         private Optional<? extends Boolean> record = Optional.empty();
+ 
+        private Optional<? extends RecordingSpec> recordingSpec = Optional.empty();
  
         private Optional<? extends Multistream> multistream = Optional.empty();
  
@@ -450,6 +500,28 @@ public class NewStreamPayload {
             return this;
         }
 
+        /**
+         * Configuration for recording the stream. This can only be set if
+         * `record` is true.
+         * 
+         */
+        public Builder recordingSpec(RecordingSpec recordingSpec) {
+            Utils.checkNotNull(recordingSpec, "recordingSpec");
+            this.recordingSpec = Optional.ofNullable(recordingSpec);
+            return this;
+        }
+
+        /**
+         * Configuration for recording the stream. This can only be set if
+         * `record` is true.
+         * 
+         */
+        public Builder recordingSpec(Optional<? extends RecordingSpec> recordingSpec) {
+            Utils.checkNotNull(recordingSpec, "recordingSpec");
+            this.recordingSpec = recordingSpec;
+            return this;
+        }
+
         public Builder multistream(Multistream multistream) {
             Utils.checkNotNull(multistream, "multistream");
             this.multistream = Optional.ofNullable(multistream);
@@ -488,6 +560,7 @@ public class NewStreamPayload {
                 playbackPolicy,
                 profiles,
                 record,
+                recordingSpec,
                 multistream,
                 userTags);
         }

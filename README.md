@@ -16,7 +16,7 @@ The samples below show how a published SDK artifact is used:
 
 Gradle:
 ```groovy
-implementation 'studio.livepeer.livepeer:openapi:0.1.0'
+implementation 'studio.livepeer.livepeer:openapi:0.2.0'
 ```
 
 Maven:
@@ -24,7 +24,7 @@ Maven:
 <dependency>
     <groupId>studio.livepeer.livepeer</groupId>
     <artifactId>openapi</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
 </dependency>
 ```
 
@@ -104,6 +104,20 @@ public class Application {
                         .profile(Profile.H264_BASELINE)
                         .build()))
                 .record(false)
+                .recordingSpec(RecordingSpec.builder()
+                    .profiles(java.util.List.of(
+                        FfmpegProfile.builder()
+                            .width(1280L)
+                            .name("720p")
+                            .height(489382L)
+                            .bitrate(3000000L)
+                            .fps(30L)
+                            .fpsDen(1L)
+                            .quality(23L)
+                            .gop("2")
+                            .profile(Profile.H264_BASELINE)
+                            .build()))
+                    .build())
                 .multistream(Multistream.builder()
                     .targets(java.util.List.of(
                         Target.builder()
@@ -359,6 +373,20 @@ public class Application {
                         .profile(Profile.H264_BASELINE)
                         .build()))
                 .record(false)
+                .recordingSpec(RecordingSpec.builder()
+                    .profiles(java.util.List.of(
+                        FfmpegProfile.builder()
+                            .width(1280L)
+                            .name("720p")
+                            .height(489382L)
+                            .bitrate(3000000L)
+                            .fps(30L)
+                            .fpsDen(1L)
+                            .quality(23L)
+                            .gop("2")
+                            .profile(Profile.H264_BASELINE)
+                            .build()))
+                    .build())
                 .multistream(Multistream.builder()
                     .targets(java.util.List.of(
                         Target.builder()
@@ -452,6 +480,20 @@ public class Application {
                         .profile(Profile.H264_BASELINE)
                         .build()))
                 .record(false)
+                .recordingSpec(RecordingSpec.builder()
+                    .profiles(java.util.List.of(
+                        FfmpegProfile.builder()
+                            .width(1280L)
+                            .name("720p")
+                            .height(489382L)
+                            .bitrate(3000000L)
+                            .fps(30L)
+                            .fpsDen(1L)
+                            .quality(23L)
+                            .gop("2")
+                            .profile(Profile.H264_BASELINE)
+                            .build()))
+                    .build())
                 .multistream(Multistream.builder()
                     .targets(java.util.List.of(
                         Target.builder()
@@ -553,6 +595,20 @@ public class Application {
                         .profile(Profile.H264_BASELINE)
                         .build()))
                 .record(false)
+                .recordingSpec(RecordingSpec.builder()
+                    .profiles(java.util.List.of(
+                        FfmpegProfile.builder()
+                            .width(1280L)
+                            .name("720p")
+                            .height(489382L)
+                            .bitrate(3000000L)
+                            .fps(30L)
+                            .fpsDen(1L)
+                            .quality(23L)
+                            .gop("2")
+                            .profile(Profile.H264_BASELINE)
+                            .build()))
+                    .build())
                 .multistream(Multistream.builder()
                     .targets(java.util.List.of(
                         Target.builder()

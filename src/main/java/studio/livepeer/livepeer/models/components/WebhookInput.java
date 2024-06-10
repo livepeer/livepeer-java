@@ -23,6 +23,13 @@ public class WebhookInput {
     @JsonProperty("name")
     private String name;
 
+    /**
+     * The ID of the project
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("projectId")
+    private Optional<? extends String> projectId;
+
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("events")
     private Optional<? extends java.util.List<Events>> events;
@@ -47,16 +54,19 @@ public class WebhookInput {
     @JsonCreator
     public WebhookInput(
             @JsonProperty("name") String name,
+            @JsonProperty("projectId") Optional<? extends String> projectId,
             @JsonProperty("events") Optional<? extends java.util.List<Events>> events,
             @JsonProperty("url") String url,
             @JsonProperty("sharedSecret") Optional<? extends String> sharedSecret,
             @JsonProperty("streamId") Optional<? extends String> streamId) {
         Utils.checkNotNull(name, "name");
+        Utils.checkNotNull(projectId, "projectId");
         Utils.checkNotNull(events, "events");
         Utils.checkNotNull(url, "url");
         Utils.checkNotNull(sharedSecret, "sharedSecret");
         Utils.checkNotNull(streamId, "streamId");
         this.name = name;
+        this.projectId = projectId;
         this.events = events;
         this.url = url;
         this.sharedSecret = sharedSecret;
@@ -66,12 +76,21 @@ public class WebhookInput {
     public WebhookInput(
             String name,
             String url) {
-        this(name, Optional.empty(), url, Optional.empty(), Optional.empty());
+        this(name, Optional.empty(), Optional.empty(), url, Optional.empty(), Optional.empty());
     }
 
     @JsonIgnore
     public String name() {
         return name;
+    }
+
+    /**
+     * The ID of the project
+     */
+    @SuppressWarnings("unchecked")
+    @JsonIgnore
+    public Optional<String> projectId() {
+        return (Optional<String>) projectId;
     }
 
     @SuppressWarnings("unchecked")
@@ -110,6 +129,24 @@ public class WebhookInput {
     public WebhookInput withName(String name) {
         Utils.checkNotNull(name, "name");
         this.name = name;
+        return this;
+    }
+
+    /**
+     * The ID of the project
+     */
+    public WebhookInput withProjectId(String projectId) {
+        Utils.checkNotNull(projectId, "projectId");
+        this.projectId = Optional.ofNullable(projectId);
+        return this;
+    }
+
+    /**
+     * The ID of the project
+     */
+    public WebhookInput withProjectId(Optional<? extends String> projectId) {
+        Utils.checkNotNull(projectId, "projectId");
+        this.projectId = projectId;
         return this;
     }
 
@@ -178,6 +215,7 @@ public class WebhookInput {
         WebhookInput other = (WebhookInput) o;
         return 
             java.util.Objects.deepEquals(this.name, other.name) &&
+            java.util.Objects.deepEquals(this.projectId, other.projectId) &&
             java.util.Objects.deepEquals(this.events, other.events) &&
             java.util.Objects.deepEquals(this.url, other.url) &&
             java.util.Objects.deepEquals(this.sharedSecret, other.sharedSecret) &&
@@ -188,6 +226,7 @@ public class WebhookInput {
     public int hashCode() {
         return java.util.Objects.hash(
             name,
+            projectId,
             events,
             url,
             sharedSecret,
@@ -198,6 +237,7 @@ public class WebhookInput {
     public String toString() {
         return Utils.toString(WebhookInput.class,
                 "name", name,
+                "projectId", projectId,
                 "events", events,
                 "url", url,
                 "sharedSecret", sharedSecret,
@@ -207,6 +247,8 @@ public class WebhookInput {
     public final static class Builder {
  
         private String name;
+ 
+        private Optional<? extends String> projectId = Optional.empty();
  
         private Optional<? extends java.util.List<Events>> events = Optional.empty();
  
@@ -223,6 +265,24 @@ public class WebhookInput {
         public Builder name(String name) {
             Utils.checkNotNull(name, "name");
             this.name = name;
+            return this;
+        }
+
+        /**
+         * The ID of the project
+         */
+        public Builder projectId(String projectId) {
+            Utils.checkNotNull(projectId, "projectId");
+            this.projectId = Optional.ofNullable(projectId);
+            return this;
+        }
+
+        /**
+         * The ID of the project
+         */
+        public Builder projectId(Optional<? extends String> projectId) {
+            Utils.checkNotNull(projectId, "projectId");
+            this.projectId = projectId;
             return this;
         }
 
@@ -283,6 +343,7 @@ public class WebhookInput {
         public WebhookInput build() {
             return new WebhookInput(
                 name,
+                projectId,
                 events,
                 url,
                 sharedSecret,

@@ -109,6 +109,7 @@ public class Application {
             WebhookInput req = WebhookInput.builder()
                 .name("test_webhook")
                 .url("https://my-service.com/webhook")
+                .projectId("aac12556-4d65-4d34-9fb6-d1f0985eb0a9")
                 .events(java.util.List.of(
                     Events.STREAM_STARTED,
                     Events.STREAM_IDLE))
@@ -251,6 +252,7 @@ public class Application {
                 .webhook(WebhookInput.builder()
                     .name("test_webhook")
                     .url("https://my-service.com/webhook")
+                    .projectId("aac12556-4d65-4d34-9fb6-d1f0985eb0a9")
                     .events(java.util.List.of(
                         Events.STREAM_STARTED,
                         Events.STREAM_IDLE))
