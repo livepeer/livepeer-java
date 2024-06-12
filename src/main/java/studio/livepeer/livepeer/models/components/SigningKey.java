@@ -63,6 +63,13 @@ public class SigningKey {
     @JsonProperty("disabled")
     private Optional<? extends Boolean> disabled;
 
+    /**
+     * The ID of the project
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("projectId")
+    private Optional<? extends String> projectId;
+
     @JsonCreator
     public SigningKey(
             @JsonProperty("id") Optional<? extends String> id,
@@ -71,7 +78,8 @@ public class SigningKey {
             @JsonProperty("createdAt") Optional<? extends Double> createdAt,
             @JsonProperty("lastSeen") Optional<? extends Double> lastSeen,
             @JsonProperty("publicKey") String publicKey,
-            @JsonProperty("disabled") Optional<? extends Boolean> disabled) {
+            @JsonProperty("disabled") Optional<? extends Boolean> disabled,
+            @JsonProperty("projectId") Optional<? extends String> projectId) {
         Utils.checkNotNull(id, "id");
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(userId, "userId");
@@ -79,6 +87,7 @@ public class SigningKey {
         Utils.checkNotNull(lastSeen, "lastSeen");
         Utils.checkNotNull(publicKey, "publicKey");
         Utils.checkNotNull(disabled, "disabled");
+        Utils.checkNotNull(projectId, "projectId");
         this.id = id;
         this.name = name;
         this.userId = userId;
@@ -86,11 +95,12 @@ public class SigningKey {
         this.lastSeen = lastSeen;
         this.publicKey = publicKey;
         this.disabled = disabled;
+        this.projectId = projectId;
     }
     
     public SigningKey(
             String publicKey) {
-        this(Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), publicKey, Optional.empty());
+        this(Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), publicKey, Optional.empty(), Optional.empty());
     }
 
     @SuppressWarnings("unchecked")
@@ -148,6 +158,15 @@ public class SigningKey {
     @JsonIgnore
     public Optional<Boolean> disabled() {
         return (Optional<Boolean>) disabled;
+    }
+
+    /**
+     * The ID of the project
+     */
+    @SuppressWarnings("unchecked")
+    @JsonIgnore
+    public Optional<String> projectId() {
+        return (Optional<String>) projectId;
     }
 
     public final static Builder builder() {
@@ -263,6 +282,24 @@ public class SigningKey {
         this.disabled = disabled;
         return this;
     }
+
+    /**
+     * The ID of the project
+     */
+    public SigningKey withProjectId(String projectId) {
+        Utils.checkNotNull(projectId, "projectId");
+        this.projectId = Optional.ofNullable(projectId);
+        return this;
+    }
+
+    /**
+     * The ID of the project
+     */
+    public SigningKey withProjectId(Optional<? extends String> projectId) {
+        Utils.checkNotNull(projectId, "projectId");
+        this.projectId = projectId;
+        return this;
+    }
     
     @Override
     public boolean equals(java.lang.Object o) {
@@ -280,7 +317,8 @@ public class SigningKey {
             java.util.Objects.deepEquals(this.createdAt, other.createdAt) &&
             java.util.Objects.deepEquals(this.lastSeen, other.lastSeen) &&
             java.util.Objects.deepEquals(this.publicKey, other.publicKey) &&
-            java.util.Objects.deepEquals(this.disabled, other.disabled);
+            java.util.Objects.deepEquals(this.disabled, other.disabled) &&
+            java.util.Objects.deepEquals(this.projectId, other.projectId);
     }
     
     @Override
@@ -292,7 +330,8 @@ public class SigningKey {
             createdAt,
             lastSeen,
             publicKey,
-            disabled);
+            disabled,
+            projectId);
     }
     
     @Override
@@ -304,7 +343,8 @@ public class SigningKey {
                 "createdAt", createdAt,
                 "lastSeen", lastSeen,
                 "publicKey", publicKey,
-                "disabled", disabled);
+                "disabled", disabled,
+                "projectId", projectId);
     }
     
     public final static class Builder {
@@ -322,7 +362,9 @@ public class SigningKey {
  
         private String publicKey;
  
-        private Optional<? extends Boolean> disabled = Optional.empty();  
+        private Optional<? extends Boolean> disabled = Optional.empty();
+ 
+        private Optional<? extends String> projectId = Optional.empty();  
         
         private Builder() {
           // force use of static builder() method
@@ -437,6 +479,24 @@ public class SigningKey {
             this.disabled = disabled;
             return this;
         }
+
+        /**
+         * The ID of the project
+         */
+        public Builder projectId(String projectId) {
+            Utils.checkNotNull(projectId, "projectId");
+            this.projectId = Optional.ofNullable(projectId);
+            return this;
+        }
+
+        /**
+         * The ID of the project
+         */
+        public Builder projectId(Optional<? extends String> projectId) {
+            Utils.checkNotNull(projectId, "projectId");
+            this.projectId = projectId;
+            return this;
+        }
         
         public SigningKey build() {
             return new SigningKey(
@@ -446,7 +506,8 @@ public class SigningKey {
                 createdAt,
                 lastSeen,
                 publicKey,
-                disabled);
+                disabled,
+                projectId);
         }
     }
 }

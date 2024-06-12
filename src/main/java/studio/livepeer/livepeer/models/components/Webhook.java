@@ -44,6 +44,13 @@ public class Webhook {
     private Optional<? extends String> userId;
 
     /**
+     * The ID of the project
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("projectId")
+    private Optional<? extends String> projectId;
+
+    /**
      * Timestamp (in milliseconds) at which stream object was created
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -77,6 +84,7 @@ public class Webhook {
             @JsonProperty("name") String name,
             @JsonProperty("kind") Optional<? extends String> kind,
             @JsonProperty("userId") Optional<? extends String> userId,
+            @JsonProperty("projectId") Optional<? extends String> projectId,
             @JsonProperty("createdAt") Optional<? extends Double> createdAt,
             @JsonProperty("events") Optional<? extends java.util.List<Events>> events,
             @JsonProperty("url") String url,
@@ -86,6 +94,7 @@ public class Webhook {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(kind, "kind");
         Utils.checkNotNull(userId, "userId");
+        Utils.checkNotNull(projectId, "projectId");
         Utils.checkNotNull(createdAt, "createdAt");
         Utils.checkNotNull(events, "events");
         Utils.checkNotNull(url, "url");
@@ -95,6 +104,7 @@ public class Webhook {
         this.name = name;
         this.kind = kind;
         this.userId = userId;
+        this.projectId = projectId;
         this.createdAt = createdAt;
         this.events = events;
         this.url = url;
@@ -105,7 +115,7 @@ public class Webhook {
     public Webhook(
             String name,
             String url) {
-        this(Optional.empty(), name, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), url, Optional.empty(), Optional.empty());
+        this(Optional.empty(), name, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), url, Optional.empty(), Optional.empty());
     }
 
     @SuppressWarnings("unchecked")
@@ -137,6 +147,15 @@ public class Webhook {
     @JsonIgnore
     public Optional<String> userId() {
         return (Optional<String>) userId;
+    }
+
+    /**
+     * The ID of the project
+     */
+    @SuppressWarnings("unchecked")
+    @JsonIgnore
+    public Optional<String> projectId() {
+        return (Optional<String>) projectId;
     }
 
     /**
@@ -240,6 +259,24 @@ public class Webhook {
     }
 
     /**
+     * The ID of the project
+     */
+    public Webhook withProjectId(String projectId) {
+        Utils.checkNotNull(projectId, "projectId");
+        this.projectId = Optional.ofNullable(projectId);
+        return this;
+    }
+
+    /**
+     * The ID of the project
+     */
+    public Webhook withProjectId(Optional<? extends String> projectId) {
+        Utils.checkNotNull(projectId, "projectId");
+        this.projectId = projectId;
+        return this;
+    }
+
+    /**
      * Timestamp (in milliseconds) at which stream object was created
      */
     public Webhook withCreatedAt(double createdAt) {
@@ -325,6 +362,7 @@ public class Webhook {
             java.util.Objects.deepEquals(this.name, other.name) &&
             java.util.Objects.deepEquals(this.kind, other.kind) &&
             java.util.Objects.deepEquals(this.userId, other.userId) &&
+            java.util.Objects.deepEquals(this.projectId, other.projectId) &&
             java.util.Objects.deepEquals(this.createdAt, other.createdAt) &&
             java.util.Objects.deepEquals(this.events, other.events) &&
             java.util.Objects.deepEquals(this.url, other.url) &&
@@ -339,6 +377,7 @@ public class Webhook {
             name,
             kind,
             userId,
+            projectId,
             createdAt,
             events,
             url,
@@ -353,6 +392,7 @@ public class Webhook {
                 "name", name,
                 "kind", kind,
                 "userId", userId,
+                "projectId", projectId,
                 "createdAt", createdAt,
                 "events", events,
                 "url", url,
@@ -371,6 +411,8 @@ public class Webhook {
  
         @Deprecated
         private Optional<? extends String> userId = Optional.empty();
+ 
+        private Optional<? extends String> projectId = Optional.empty();
  
         private Optional<? extends Double> createdAt = Optional.empty();
  
@@ -441,6 +483,24 @@ public class Webhook {
         public Builder userId(Optional<? extends String> userId) {
             Utils.checkNotNull(userId, "userId");
             this.userId = userId;
+            return this;
+        }
+
+        /**
+         * The ID of the project
+         */
+        public Builder projectId(String projectId) {
+            Utils.checkNotNull(projectId, "projectId");
+            this.projectId = Optional.ofNullable(projectId);
+            return this;
+        }
+
+        /**
+         * The ID of the project
+         */
+        public Builder projectId(Optional<? extends String> projectId) {
+            Utils.checkNotNull(projectId, "projectId");
+            this.projectId = projectId;
             return this;
         }
 
@@ -522,6 +582,7 @@ public class Webhook {
                 name,
                 kind,
                 userId,
+                projectId,
                 createdAt,
                 events,
                 url,

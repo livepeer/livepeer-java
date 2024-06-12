@@ -121,6 +121,13 @@ public class Session {
     private Optional<? extends String> parentId;
 
     /**
+     * The ID of the project
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("projectId")
+    private Optional<? extends String> projectId;
+
+    /**
      * Whether the stream should be recorded. Uses default settings. For more customization, create and configure an object store.
      * 
      */
@@ -160,6 +167,15 @@ public class Session {
     @JsonProperty("profiles")
     private Optional<? extends java.util.List<FfmpegProfile>> profiles;
 
+    /**
+     * Configuration for recording the stream. This can only be set if
+     * `record` is true.
+     * 
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("recordingSpec")
+    private Optional<? extends RecordingSpec> recordingSpec;
+
     @JsonCreator
     public Session(
             @JsonProperty("id") Optional<? extends String> id,
@@ -179,12 +195,14 @@ public class Session {
             @JsonProperty("issues") JsonNullable<? extends java.util.List<String>> issues,
             @JsonProperty("createdAt") Optional<? extends Double> createdAt,
             @JsonProperty("parentId") Optional<? extends String> parentId,
+            @JsonProperty("projectId") Optional<? extends String> projectId,
             @JsonProperty("record") Optional<? extends Boolean> record,
             @JsonProperty("recordingStatus") Optional<? extends RecordingStatus> recordingStatus,
             @JsonProperty("recordingUrl") Optional<? extends String> recordingUrl,
             @JsonProperty("mp4Url") Optional<? extends String> mp4Url,
             @JsonProperty("playbackId") Optional<? extends String> playbackId,
-            @JsonProperty("profiles") Optional<? extends java.util.List<FfmpegProfile>> profiles) {
+            @JsonProperty("profiles") Optional<? extends java.util.List<FfmpegProfile>> profiles,
+            @JsonProperty("recordingSpec") Optional<? extends RecordingSpec> recordingSpec) {
         Utils.checkNotNull(id, "id");
         Utils.checkNotNull(kind, "kind");
         Utils.checkNotNull(userId, "userId");
@@ -202,12 +220,14 @@ public class Session {
         Utils.checkNotNull(issues, "issues");
         Utils.checkNotNull(createdAt, "createdAt");
         Utils.checkNotNull(parentId, "parentId");
+        Utils.checkNotNull(projectId, "projectId");
         Utils.checkNotNull(record, "record");
         Utils.checkNotNull(recordingStatus, "recordingStatus");
         Utils.checkNotNull(recordingUrl, "recordingUrl");
         Utils.checkNotNull(mp4Url, "mp4Url");
         Utils.checkNotNull(playbackId, "playbackId");
         Utils.checkNotNull(profiles, "profiles");
+        Utils.checkNotNull(recordingSpec, "recordingSpec");
         this.id = id;
         this.kind = kind;
         this.userId = userId;
@@ -225,17 +245,19 @@ public class Session {
         this.issues = issues;
         this.createdAt = createdAt;
         this.parentId = parentId;
+        this.projectId = projectId;
         this.record = record;
         this.recordingStatus = recordingStatus;
         this.recordingUrl = recordingUrl;
         this.mp4Url = mp4Url;
         this.playbackId = playbackId;
         this.profiles = profiles;
+        this.recordingSpec = recordingSpec;
     }
     
     public Session(
             String name) {
-        this(Optional.empty(), Optional.empty(), Optional.empty(), name, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), JsonNullable.undefined(), JsonNullable.undefined(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty());
+        this(Optional.empty(), Optional.empty(), Optional.empty(), name, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), JsonNullable.undefined(), JsonNullable.undefined(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty());
     }
 
     @SuppressWarnings("unchecked")
@@ -372,6 +394,15 @@ public class Session {
     }
 
     /**
+     * The ID of the project
+     */
+    @SuppressWarnings("unchecked")
+    @JsonIgnore
+    public Optional<String> projectId() {
+        return (Optional<String>) projectId;
+    }
+
+    /**
      * Whether the stream should be recorded. Uses default settings. For more customization, create and configure an object store.
      * 
      */
@@ -421,6 +452,17 @@ public class Session {
     @JsonIgnore
     public Optional<java.util.List<FfmpegProfile>> profiles() {
         return (Optional<java.util.List<FfmpegProfile>>) profiles;
+    }
+
+    /**
+     * Configuration for recording the stream. This can only be set if
+     * `record` is true.
+     * 
+     */
+    @SuppressWarnings("unchecked")
+    @JsonIgnore
+    public Optional<RecordingSpec> recordingSpec() {
+        return (Optional<RecordingSpec>) recordingSpec;
     }
 
     public final static Builder builder() {
@@ -690,6 +732,24 @@ public class Session {
     }
 
     /**
+     * The ID of the project
+     */
+    public Session withProjectId(String projectId) {
+        Utils.checkNotNull(projectId, "projectId");
+        this.projectId = Optional.ofNullable(projectId);
+        return this;
+    }
+
+    /**
+     * The ID of the project
+     */
+    public Session withProjectId(Optional<? extends String> projectId) {
+        Utils.checkNotNull(projectId, "projectId");
+        this.projectId = projectId;
+        return this;
+    }
+
+    /**
      * Whether the stream should be recorded. Uses default settings. For more customization, create and configure an object store.
      * 
      */
@@ -792,6 +852,28 @@ public class Session {
         this.profiles = profiles;
         return this;
     }
+
+    /**
+     * Configuration for recording the stream. This can only be set if
+     * `record` is true.
+     * 
+     */
+    public Session withRecordingSpec(RecordingSpec recordingSpec) {
+        Utils.checkNotNull(recordingSpec, "recordingSpec");
+        this.recordingSpec = Optional.ofNullable(recordingSpec);
+        return this;
+    }
+
+    /**
+     * Configuration for recording the stream. This can only be set if
+     * `record` is true.
+     * 
+     */
+    public Session withRecordingSpec(Optional<? extends RecordingSpec> recordingSpec) {
+        Utils.checkNotNull(recordingSpec, "recordingSpec");
+        this.recordingSpec = recordingSpec;
+        return this;
+    }
     
     @Override
     public boolean equals(java.lang.Object o) {
@@ -820,12 +902,14 @@ public class Session {
             java.util.Objects.deepEquals(this.issues, other.issues) &&
             java.util.Objects.deepEquals(this.createdAt, other.createdAt) &&
             java.util.Objects.deepEquals(this.parentId, other.parentId) &&
+            java.util.Objects.deepEquals(this.projectId, other.projectId) &&
             java.util.Objects.deepEquals(this.record, other.record) &&
             java.util.Objects.deepEquals(this.recordingStatus, other.recordingStatus) &&
             java.util.Objects.deepEquals(this.recordingUrl, other.recordingUrl) &&
             java.util.Objects.deepEquals(this.mp4Url, other.mp4Url) &&
             java.util.Objects.deepEquals(this.playbackId, other.playbackId) &&
-            java.util.Objects.deepEquals(this.profiles, other.profiles);
+            java.util.Objects.deepEquals(this.profiles, other.profiles) &&
+            java.util.Objects.deepEquals(this.recordingSpec, other.recordingSpec);
     }
     
     @Override
@@ -848,12 +932,14 @@ public class Session {
             issues,
             createdAt,
             parentId,
+            projectId,
             record,
             recordingStatus,
             recordingUrl,
             mp4Url,
             playbackId,
-            profiles);
+            profiles,
+            recordingSpec);
     }
     
     @Override
@@ -876,12 +962,14 @@ public class Session {
                 "issues", issues,
                 "createdAt", createdAt,
                 "parentId", parentId,
+                "projectId", projectId,
                 "record", record,
                 "recordingStatus", recordingStatus,
                 "recordingUrl", recordingUrl,
                 "mp4Url", mp4Url,
                 "playbackId", playbackId,
-                "profiles", profiles);
+                "profiles", profiles,
+                "recordingSpec", recordingSpec);
     }
     
     public final static class Builder {
@@ -922,6 +1010,8 @@ public class Session {
  
         private Optional<? extends String> parentId = Optional.empty();
  
+        private Optional<? extends String> projectId = Optional.empty();
+ 
         private Optional<? extends Boolean> record = Optional.empty();
  
         private Optional<? extends RecordingStatus> recordingStatus = Optional.empty();
@@ -932,7 +1022,9 @@ public class Session {
  
         private Optional<? extends String> playbackId = Optional.empty();
  
-        private Optional<? extends java.util.List<FfmpegProfile>> profiles = Optional.empty();  
+        private Optional<? extends java.util.List<FfmpegProfile>> profiles = Optional.empty();
+ 
+        private Optional<? extends RecordingSpec> recordingSpec = Optional.empty();  
         
         private Builder() {
           // force use of static builder() method
@@ -1201,6 +1293,24 @@ public class Session {
         }
 
         /**
+         * The ID of the project
+         */
+        public Builder projectId(String projectId) {
+            Utils.checkNotNull(projectId, "projectId");
+            this.projectId = Optional.ofNullable(projectId);
+            return this;
+        }
+
+        /**
+         * The ID of the project
+         */
+        public Builder projectId(Optional<? extends String> projectId) {
+            Utils.checkNotNull(projectId, "projectId");
+            this.projectId = projectId;
+            return this;
+        }
+
+        /**
          * Whether the stream should be recorded. Uses default settings. For more customization, create and configure an object store.
          * 
          */
@@ -1303,6 +1413,28 @@ public class Session {
             this.profiles = profiles;
             return this;
         }
+
+        /**
+         * Configuration for recording the stream. This can only be set if
+         * `record` is true.
+         * 
+         */
+        public Builder recordingSpec(RecordingSpec recordingSpec) {
+            Utils.checkNotNull(recordingSpec, "recordingSpec");
+            this.recordingSpec = Optional.ofNullable(recordingSpec);
+            return this;
+        }
+
+        /**
+         * Configuration for recording the stream. This can only be set if
+         * `record` is true.
+         * 
+         */
+        public Builder recordingSpec(Optional<? extends RecordingSpec> recordingSpec) {
+            Utils.checkNotNull(recordingSpec, "recordingSpec");
+            this.recordingSpec = recordingSpec;
+            return this;
+        }
         
         public Session build() {
             return new Session(
@@ -1323,12 +1455,14 @@ public class Session {
                 issues,
                 createdAt,
                 parentId,
+                projectId,
                 record,
                 recordingStatus,
                 recordingUrl,
                 mp4Url,
                 playbackId,
-                profiles);
+                profiles,
+                recordingSpec);
         }
     }
 }
