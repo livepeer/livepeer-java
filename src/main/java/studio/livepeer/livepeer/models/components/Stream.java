@@ -172,6 +172,13 @@ public class Stream {
     private Optional<? extends java.util.List<FfmpegProfile>> profiles;
 
     /**
+     * The ID of the project
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("projectId")
+    private Optional<? extends String> projectId;
+
+    /**
      * Should this stream be recorded? Uses default settings. For more
      * customization, create and configure an object store.
      * 
@@ -179,6 +186,15 @@ public class Stream {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("record")
     private Optional<? extends Boolean> record;
+
+    /**
+     * Configuration for recording the stream. This can only be set if
+     * `record` is true.
+     * 
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("recordingSpec")
+    private Optional<? extends StreamRecordingSpec> recordingSpec;
 
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("multistream")
@@ -237,7 +253,9 @@ public class Stream {
             @JsonProperty("playbackId") Optional<? extends String> playbackId,
             @JsonProperty("playbackPolicy") JsonNullable<? extends PlaybackPolicy> playbackPolicy,
             @JsonProperty("profiles") Optional<? extends java.util.List<FfmpegProfile>> profiles,
+            @JsonProperty("projectId") Optional<? extends String> projectId,
             @JsonProperty("record") Optional<? extends Boolean> record,
+            @JsonProperty("recordingSpec") Optional<? extends StreamRecordingSpec> recordingSpec,
             @JsonProperty("multistream") Optional<? extends StreamMultistream> multistream,
             @JsonProperty("suspended") Optional<? extends Boolean> suspended,
             @JsonProperty("lastTerminatedAt") JsonNullable<? extends Double> lastTerminatedAt,
@@ -268,7 +286,9 @@ public class Stream {
         Utils.checkNotNull(playbackId, "playbackId");
         Utils.checkNotNull(playbackPolicy, "playbackPolicy");
         Utils.checkNotNull(profiles, "profiles");
+        Utils.checkNotNull(projectId, "projectId");
         Utils.checkNotNull(record, "record");
+        Utils.checkNotNull(recordingSpec, "recordingSpec");
         Utils.checkNotNull(multistream, "multistream");
         Utils.checkNotNull(suspended, "suspended");
         Utils.checkNotNull(lastTerminatedAt, "lastTerminatedAt");
@@ -299,7 +319,9 @@ public class Stream {
         this.playbackId = playbackId;
         this.playbackPolicy = playbackPolicy;
         this.profiles = profiles;
+        this.projectId = projectId;
         this.record = record;
+        this.recordingSpec = recordingSpec;
         this.multistream = multistream;
         this.suspended = suspended;
         this.lastTerminatedAt = lastTerminatedAt;
@@ -309,7 +331,7 @@ public class Stream {
     
     public Stream(
             String name) {
-        this(Optional.empty(), name, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), JsonNullable.undefined(), JsonNullable.undefined(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), JsonNullable.undefined(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), JsonNullable.undefined(), Optional.empty(), Optional.empty());
+        this(Optional.empty(), name, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), JsonNullable.undefined(), JsonNullable.undefined(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), JsonNullable.undefined(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), JsonNullable.undefined(), Optional.empty(), Optional.empty());
     }
 
     @SuppressWarnings("unchecked")
@@ -513,6 +535,15 @@ public class Stream {
     }
 
     /**
+     * The ID of the project
+     */
+    @SuppressWarnings("unchecked")
+    @JsonIgnore
+    public Optional<String> projectId() {
+        return (Optional<String>) projectId;
+    }
+
+    /**
      * Should this stream be recorded? Uses default settings. For more
      * customization, create and configure an object store.
      * 
@@ -521,6 +552,17 @@ public class Stream {
     @JsonIgnore
     public Optional<Boolean> record() {
         return (Optional<Boolean>) record;
+    }
+
+    /**
+     * Configuration for recording the stream. This can only be set if
+     * `record` is true.
+     * 
+     */
+    @SuppressWarnings("unchecked")
+    @JsonIgnore
+    public Optional<StreamRecordingSpec> recordingSpec() {
+        return (Optional<StreamRecordingSpec>) recordingSpec;
     }
 
     @SuppressWarnings("unchecked")
@@ -964,6 +1006,24 @@ public class Stream {
     }
 
     /**
+     * The ID of the project
+     */
+    public Stream withProjectId(String projectId) {
+        Utils.checkNotNull(projectId, "projectId");
+        this.projectId = Optional.ofNullable(projectId);
+        return this;
+    }
+
+    /**
+     * The ID of the project
+     */
+    public Stream withProjectId(Optional<? extends String> projectId) {
+        Utils.checkNotNull(projectId, "projectId");
+        this.projectId = projectId;
+        return this;
+    }
+
+    /**
      * Should this stream be recorded? Uses default settings. For more
      * customization, create and configure an object store.
      * 
@@ -982,6 +1042,28 @@ public class Stream {
     public Stream withRecord(Optional<? extends Boolean> record) {
         Utils.checkNotNull(record, "record");
         this.record = record;
+        return this;
+    }
+
+    /**
+     * Configuration for recording the stream. This can only be set if
+     * `record` is true.
+     * 
+     */
+    public Stream withRecordingSpec(StreamRecordingSpec recordingSpec) {
+        Utils.checkNotNull(recordingSpec, "recordingSpec");
+        this.recordingSpec = Optional.ofNullable(recordingSpec);
+        return this;
+    }
+
+    /**
+     * Configuration for recording the stream. This can only be set if
+     * `record` is true.
+     * 
+     */
+    public Stream withRecordingSpec(Optional<? extends StreamRecordingSpec> recordingSpec) {
+        Utils.checkNotNull(recordingSpec, "recordingSpec");
+        this.recordingSpec = recordingSpec;
         return this;
     }
 
@@ -1100,7 +1182,9 @@ public class Stream {
             java.util.Objects.deepEquals(this.playbackId, other.playbackId) &&
             java.util.Objects.deepEquals(this.playbackPolicy, other.playbackPolicy) &&
             java.util.Objects.deepEquals(this.profiles, other.profiles) &&
+            java.util.Objects.deepEquals(this.projectId, other.projectId) &&
             java.util.Objects.deepEquals(this.record, other.record) &&
+            java.util.Objects.deepEquals(this.recordingSpec, other.recordingSpec) &&
             java.util.Objects.deepEquals(this.multistream, other.multistream) &&
             java.util.Objects.deepEquals(this.suspended, other.suspended) &&
             java.util.Objects.deepEquals(this.lastTerminatedAt, other.lastTerminatedAt) &&
@@ -1136,7 +1220,9 @@ public class Stream {
             playbackId,
             playbackPolicy,
             profiles,
+            projectId,
             record,
+            recordingSpec,
             multistream,
             suspended,
             lastTerminatedAt,
@@ -1172,7 +1258,9 @@ public class Stream {
                 "playbackId", playbackId,
                 "playbackPolicy", playbackPolicy,
                 "profiles", profiles,
+                "projectId", projectId,
                 "record", record,
+                "recordingSpec", recordingSpec,
                 "multistream", multistream,
                 "suspended", suspended,
                 "lastTerminatedAt", lastTerminatedAt,
@@ -1233,7 +1321,11 @@ public class Stream {
  
         private Optional<? extends java.util.List<FfmpegProfile>> profiles = Optional.empty();
  
+        private Optional<? extends String> projectId = Optional.empty();
+ 
         private Optional<? extends Boolean> record = Optional.empty();
+ 
+        private Optional<? extends StreamRecordingSpec> recordingSpec = Optional.empty();
  
         private Optional<? extends StreamMultistream> multistream = Optional.empty();
  
@@ -1647,6 +1739,24 @@ public class Stream {
         }
 
         /**
+         * The ID of the project
+         */
+        public Builder projectId(String projectId) {
+            Utils.checkNotNull(projectId, "projectId");
+            this.projectId = Optional.ofNullable(projectId);
+            return this;
+        }
+
+        /**
+         * The ID of the project
+         */
+        public Builder projectId(Optional<? extends String> projectId) {
+            Utils.checkNotNull(projectId, "projectId");
+            this.projectId = projectId;
+            return this;
+        }
+
+        /**
          * Should this stream be recorded? Uses default settings. For more
          * customization, create and configure an object store.
          * 
@@ -1665,6 +1775,28 @@ public class Stream {
         public Builder record(Optional<? extends Boolean> record) {
             Utils.checkNotNull(record, "record");
             this.record = record;
+            return this;
+        }
+
+        /**
+         * Configuration for recording the stream. This can only be set if
+         * `record` is true.
+         * 
+         */
+        public Builder recordingSpec(StreamRecordingSpec recordingSpec) {
+            Utils.checkNotNull(recordingSpec, "recordingSpec");
+            this.recordingSpec = Optional.ofNullable(recordingSpec);
+            return this;
+        }
+
+        /**
+         * Configuration for recording the stream. This can only be set if
+         * `record` is true.
+         * 
+         */
+        public Builder recordingSpec(Optional<? extends StreamRecordingSpec> recordingSpec) {
+            Utils.checkNotNull(recordingSpec, "recordingSpec");
+            this.recordingSpec = recordingSpec;
             return this;
         }
 
@@ -1775,7 +1907,9 @@ public class Stream {
                 playbackId,
                 playbackPolicy,
                 profiles,
+                projectId,
                 record,
+                recordingSpec,
                 multistream,
                 suspended,
                 lastTerminatedAt,

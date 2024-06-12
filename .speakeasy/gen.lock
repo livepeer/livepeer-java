@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: b4f7f2df-6c4d-4150-a18f-8b74fe44eb22
 management:
-  docChecksum: b534222e8195f9c182c64e92d4c02912
+  docChecksum: ff2202a25732837028e6242ecc0ab673
   docVersion: 1.0.0
-  speakeasyVersion: 1.299.10
-  generationVersion: 2.338.14
-  releaseVersion: 0.1.0
-  configChecksum: c5222aca6e39564311960ea019bd2c49
+  speakeasyVersion: 1.305.0
+  generationVersion: 2.340.3
+  releaseVersion: 0.2.0
+  configChecksum: 540d8e419c6024bd9e5e533cef90caac
   repoURL: https://github.com/livepeer/livepeer-java.git
 features:
   java:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.1
-    core: 3.21.1
+    core: 3.22.0
     deprecations: 2.81.1
     flattening: 2.81.1
     globalSecurity: 2.82.5
@@ -265,6 +265,7 @@ generatedFiles:
   - src/main/java/studio/livepeer/livepeer/models/components/StreamIsMobile.java
   - src/main/java/studio/livepeer/livepeer/models/components/StreamLocation.java
   - src/main/java/studio/livepeer/livepeer/models/components/StreamPull.java
+  - src/main/java/studio/livepeer/livepeer/models/components/StreamRecordingSpec.java
   - src/main/java/studio/livepeer/livepeer/models/components/StreamMultistream.java
   - src/main/java/studio/livepeer/livepeer/models/components/Renditions.java
   - src/main/java/studio/livepeer/livepeer/models/components/Stream.java
@@ -283,6 +284,7 @@ generatedFiles:
   - src/main/java/studio/livepeer/livepeer/models/components/Multistream.java
   - src/main/java/studio/livepeer/livepeer/models/components/TargetSpec.java
   - src/main/java/studio/livepeer/livepeer/models/components/Target.java
+  - src/main/java/studio/livepeer/livepeer/models/components/RecordingSpec.java
   - src/main/java/studio/livepeer/livepeer/models/components/InputCreatorIdType.java
   - src/main/java/studio/livepeer/livepeer/models/components/InputCreatorId1.java
   - src/main/java/studio/livepeer/livepeer/models/components/InputCreatorId.java
@@ -553,6 +555,7 @@ generatedFiles:
   - docs/models/components/StreamIsMobile.md
   - docs/models/components/StreamLocation.md
   - docs/models/components/StreamPull.md
+  - docs/models/components/StreamRecordingSpec.md
   - docs/models/components/StreamMultistream.md
   - docs/models/components/Renditions.md
   - docs/models/components/Stream.md
@@ -571,6 +574,7 @@ generatedFiles:
   - docs/models/components/Multistream.md
   - docs/models/components/TargetSpec.md
   - docs/models/components/Target.md
+  - docs/models/components/RecordingSpec.md
   - docs/models/components/InputCreatorIdType.md
   - docs/models/components/InputCreatorId1.md
   - docs/models/components/InputCreatorId.md
