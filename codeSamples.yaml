@@ -3,11 +3,11 @@ info:
   title: CodeSamples overlay for java target
   version: 0.0.0
 actions:
-  - target: $["paths"]["/room/{id}/egress"]["delete"]
+  - target: $["paths"]["/stream/{id}/multistream/{targetId}"]["delete"]
     update:
       x-codeSamples:
         - lang: java
-          label: stopRoomEgress
+          label: removeMultistreamTarget
           source: |-
             package hello.world;
 
@@ -33,8 +33,9 @@ actions:
                             .apiKey("<YOUR_BEARER_TOKEN_HERE>")
                             .build();
 
-                        StopRoomEgressResponse res = sdk.room().stopEgress()
+                        RemoveMultistreamTargetResponse res = sdk.stream().removeMultistreamTarget()
                             .id("<value>")
+                            .targetId("<value>")
                             .call();
 
                         // handle response
@@ -47,11 +48,11 @@ actions:
                     }
                 }
             }
-  - target: $["paths"]["/transcode"]["post"]
+  - target: $["paths"]["/multistream/target"]["get"]
     update:
       x-codeSamples:
         - lang: java
-          label: transcodeVideo
+          label: getMultistreamTargets
           source: |-
             package hello.world;
 
@@ -77,92 +78,7 @@ actions:
                             .apiKey("<YOUR_BEARER_TOKEN_HERE>")
                             .build();
 
-                        TranscodePayload req = TranscodePayload.builder()
-                            .input(Input.of(Input1.builder()
-                                        .url("https://s3.amazonaws.com/bucket/file.mp4")
-                                        .build()))
-                            .storage(TranscodePayloadStorage.of(Storage1.builder()
-                                        .type(StorageType.S3)
-                                        .endpoint("https://gateway.storjshare.io")
-                                        .bucket("outputbucket")
-                                        .credentials(StorageCredentials.builder()
-                                                .accessKeyId("AKIAIOSFODNN7EXAMPLE")
-                                                .secretAccessKey("wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY")
-                                                .build())
-                                        .build()))
-                            .outputs(Outputs.builder()
-                                    .hls(Hls.builder()
-                                        .path("/samplevideo/hls")
-                                        .build())
-                                    .mp4(Mp4.builder()
-                                        .path("/samplevideo/mp4")
-                                        .build())
-                                    .fmp4(Fmp4.builder()
-                                        .path("/samplevideo/fmp4")
-                                        .build())
-                                    .build())
-                            .profiles(java.util.List.of(
-                                TranscodeProfile.builder()
-                                    .bitrate(3000000L)
-                                    .width(1280L)
-                                    .name("720p")
-                                    .quality(23L)
-                                    .fps(30L)
-                                    .fpsDen(1L)
-                                    .gop("2")
-                                    .profile(TranscodeProfileProfile.H264_BASELINE)
-                                    .encoder(TranscodeProfileEncoder.H264)
-                                    .build()))
-                            .build();
-
-                        TranscodeVideoResponse res = sdk.transcode().create()
-                            .request(req)
-                            .call();
-
-                        if (res.task().isPresent()) {
-                            // handle response
-                        }
-                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-                }
-            }
-  - target: $["paths"]["/stream"]["get"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: getStreams
-          source: |-
-            package hello.world;
-
-            import java.math.BigDecimal;
-            import java.math.BigDecimal;
-            import java.math.BigInteger;
-            import java.time.LocalDate;
-            import java.time.OffsetDateTime;
-            import java.util.Optional;
-            import org.openapitools.jackson.nullable.JsonNullable;
-            import static java.util.Map.entry;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.*;
-            import studio.livepeer.livepeer.models.components.Security;
-            import studio.livepeer.livepeer.models.operations.*;
-            import studio.livepeer.livepeer.utils.EventStream;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        GetStreamsResponse res = sdk.stream().getAll()
-                            .streamsonly("<value>")
+                        GetMultistreamTargetsResponse res = sdk.multistream().getAll()
                             .call();
 
                         if (res.data().isPresent()) {
@@ -177,11 +93,11 @@ actions:
                     }
                 }
             }
-  - target: $["paths"]["/webhook/{id}"]["get"]
+  - target: $["paths"]["/webhook/{id}/log/{logId}"]["get"]
     update:
       x-codeSamples:
         - lang: java
-          label: getWebhook
+          label: getWebhookLog
           source: |-
             package hello.world;
 
@@ -207,62 +123,12 @@ actions:
                             .apiKey("<YOUR_BEARER_TOKEN_HERE>")
                             .build();
 
-                        GetWebhookResponse res = sdk.webhook().get()
+                        GetWebhookLogResponse res = sdk.webhook().getLog()
                             .id("<value>")
+                            .logId("<value>")
                             .call();
 
-                        if (res.webhook().isPresent()) {
-                            // handle response
-                        }
-                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-                }
-            }
-  - target: $["paths"]["/room/{id}/user"]["post"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: createRoomUser
-          source: |-
-            package hello.world;
-
-            import java.math.BigDecimal;
-            import java.math.BigDecimal;
-            import java.math.BigInteger;
-            import java.time.LocalDate;
-            import java.time.OffsetDateTime;
-            import java.util.Optional;
-            import org.openapitools.jackson.nullable.JsonNullable;
-            import static java.util.Map.entry;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.*;
-            import studio.livepeer.livepeer.models.components.Security;
-            import studio.livepeer.livepeer.models.operations.*;
-            import studio.livepeer.livepeer.utils.EventStream;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        CreateRoomUserResponse res = sdk.room().createUser()
-                            .id("<value>")
-                            .roomUserPayload(RoomUserPayload.builder()
-                                .name("name")
-                                .canPublish(true)
-                                .canPublishData(true)
-                                .build())
-                            .call();
-
-                        if (res.roomUserResponse().isPresent()) {
+                        if (res.webhookLog().isPresent()) {
                             // handle response
                         }
                     } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
@@ -321,11 +187,11 @@ actions:
                     }
                 }
             }
-  - target: $["paths"]["/session/{id}"]["get"]
+  - target: $["paths"]["/data/views/query/creator"]["get"]
     update:
       x-codeSamples:
         - lang: java
-          label: getSession
+          label: getCreatorViewershipMetrics
           source: |-
             package hello.world;
 
@@ -351,11 +217,14 @@ actions:
                             .apiKey("<YOUR_BEARER_TOKEN_HERE>")
                             .build();
 
-                        GetSessionResponse res = sdk.session().get()
-                            .id("<value>")
+                        GetCreatorViewershipMetricsRequest req = GetCreatorViewershipMetricsRequest.builder()
+                            .build();
+
+                        GetCreatorViewershipMetricsResponse res = sdk.metrics().getCreatorViewership()
+                            .request(req)
                             .call();
 
-                        if (res.session().isPresent()) {
+                        if (res.data().isPresent()) {
                             // handle response
                         }
                     } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
@@ -367,11 +236,11 @@ actions:
                     }
                 }
             }
-  - target: $["paths"]["/multistream/target/{id}"]["get"]
+  - target: $["paths"]["/access-control/signing-key/{keyId}"]["delete"]
     update:
       x-codeSamples:
         - lang: java
-          label: getMultistreamTarget
+          label: deleteSigningKey
           source: |-
             package hello.world;
 
@@ -397,60 +266,103 @@ actions:
                             .apiKey("<YOUR_BEARER_TOKEN_HERE>")
                             .build();
 
-                        GetMultistreamTargetResponse res = sdk.multistream().get()
-                            .id("<value>")
-                            .call();
-
-                        if (res.multistreamTarget().isPresent()) {
-                            // handle response
-                        }
-                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-                }
-            }
-  - target: $["paths"]["/multistream/target/{id}"]["patch"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: updateMultistreamTarget
-          source: |-
-            package hello.world;
-
-            import java.math.BigDecimal;
-            import java.math.BigDecimal;
-            import java.math.BigInteger;
-            import java.time.LocalDate;
-            import java.time.OffsetDateTime;
-            import java.util.Optional;
-            import org.openapitools.jackson.nullable.JsonNullable;
-            import static java.util.Map.entry;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.*;
-            import studio.livepeer.livepeer.models.components.Security;
-            import studio.livepeer.livepeer.models.operations.*;
-            import studio.livepeer.livepeer.utils.EventStream;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        UpdateMultistreamTargetResponse res = sdk.multistream().update()
-                            .id("<value>")
-                            .multistreamTargetPatchPayload(MultistreamTargetPatchPayload.builder()
-                                .url("rtmps://live.my-service.tv/channel/secretKey")
-                                .build())
+                        DeleteSigningKeyResponse res = sdk.accessControl().delete()
+                            .keyId("<value>")
                             .call();
 
                         // handle response
+                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+                        // handle exception
+                        throw e;
+                    } catch (Exception e) {
+                        // handle exception
+                        throw e;
+                    }
+                }
+            }
+  - target: $["paths"]["/stream/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getStream
+          source: |-
+            package hello.world;
+
+            import java.math.BigDecimal;
+            import java.math.BigDecimal;
+            import java.math.BigInteger;
+            import java.time.LocalDate;
+            import java.time.OffsetDateTime;
+            import java.util.Optional;
+            import org.openapitools.jackson.nullable.JsonNullable;
+            import static java.util.Map.entry;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.components.*;
+            import studio.livepeer.livepeer.models.components.Security;
+            import studio.livepeer.livepeer.models.operations.*;
+            import studio.livepeer.livepeer.utils.EventStream;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+                    try {
+                        Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                            .build();
+
+                        GetStreamResponse res = sdk.stream().get()
+                            .id("<value>")
+                            .call();
+
+                        if (res.stream().isPresent()) {
+                            // handle response
+                        }
+                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+                        // handle exception
+                        throw e;
+                    } catch (Exception e) {
+                        // handle exception
+                        throw e;
+                    }
+                }
+            }
+  - target: $["paths"]["/stream/{id}/clips"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getClips
+          source: |-
+            package hello.world;
+
+            import java.math.BigDecimal;
+            import java.math.BigDecimal;
+            import java.math.BigInteger;
+            import java.time.LocalDate;
+            import java.time.OffsetDateTime;
+            import java.util.Optional;
+            import org.openapitools.jackson.nullable.JsonNullable;
+            import static java.util.Map.entry;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.components.*;
+            import studio.livepeer.livepeer.models.components.Security;
+            import studio.livepeer.livepeer.models.operations.*;
+            import studio.livepeer.livepeer.utils.EventStream;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+                    try {
+                        Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                            .build();
+
+                        GetClipsResponse res = sdk.stream().getClips()
+                            .id("<value>")
+                            .call();
+
+                        if (res.data().isPresent()) {
+                            // handle response
+                        }
                     } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
                         // handle exception
                         throw e;
@@ -517,11 +429,11 @@ actions:
                     }
                 }
             }
-  - target: $["paths"]["/task/{taskId}"]["get"]
+  - target: $["paths"]["/asset"]["get"]
     update:
       x-codeSamples:
         - lang: java
-          label: getTask
+          label: getAssets
           source: |-
             package hello.world;
 
@@ -547,97 +459,7 @@ actions:
                             .apiKey("<YOUR_BEARER_TOKEN_HERE>")
                             .build();
 
-                        GetTaskResponse res = sdk.task().get()
-                            .taskId("<value>")
-                            .call();
-
-                        if (res.task().isPresent()) {
-                            // handle response
-                        }
-                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-                }
-            }
-  - target: $["paths"]["/stream/{id}/terminate"]["delete"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: terminateStream
-          source: |-
-            package hello.world;
-
-            import java.math.BigDecimal;
-            import java.math.BigDecimal;
-            import java.math.BigInteger;
-            import java.time.LocalDate;
-            import java.time.OffsetDateTime;
-            import java.util.Optional;
-            import org.openapitools.jackson.nullable.JsonNullable;
-            import static java.util.Map.entry;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.*;
-            import studio.livepeer.livepeer.models.components.Security;
-            import studio.livepeer.livepeer.models.operations.*;
-            import studio.livepeer.livepeer.utils.EventStream;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        TerminateStreamResponse res = sdk.stream().terminate()
-                            .id("<value>")
-                            .call();
-
-                        // handle response
-                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-                }
-            }
-  - target: $["paths"]["/webhook"]["get"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: getWebhooks
-          source: |-
-            package hello.world;
-
-            import java.math.BigDecimal;
-            import java.math.BigDecimal;
-            import java.math.BigInteger;
-            import java.time.LocalDate;
-            import java.time.OffsetDateTime;
-            import java.util.Optional;
-            import org.openapitools.jackson.nullable.JsonNullable;
-            import static java.util.Map.entry;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.*;
-            import studio.livepeer.livepeer.models.components.Security;
-            import studio.livepeer.livepeer.models.operations.*;
-            import studio.livepeer.livepeer.utils.EventStream;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        GetWebhooksResponse res = sdk.webhook().getAll()
+                        GetAssetsResponse res = sdk.asset().getAll()
                             .call();
 
                         if (res.data().isPresent()) {
@@ -652,11 +474,11 @@ actions:
                     }
                 }
             }
-  - target: $["paths"]["/access-control/signing-key/{keyId}"]["delete"]
+  - target: $["paths"]["/multistream/target/{id}"]["patch"]
     update:
       x-codeSamples:
         - lang: java
-          label: deleteSigningKey
+          label: updateMultistreamTarget
           source: |-
             package hello.world;
 
@@ -682,8 +504,149 @@ actions:
                             .apiKey("<YOUR_BEARER_TOKEN_HERE>")
                             .build();
 
-                        DeleteSigningKeyResponse res = sdk.accessControl().delete()
+                        UpdateMultistreamTargetResponse res = sdk.multistream().update()
+                            .id("<value>")
+                            .multistreamTargetPatchPayload(MultistreamTargetPatchPayload.builder()
+                                .url("rtmps://live.my-service.tv/channel/secretKey")
+                                .build())
+                            .call();
+
+                        // handle response
+                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+                        // handle exception
+                        throw e;
+                    } catch (Exception e) {
+                        // handle exception
+                        throw e;
+                    }
+                }
+            }
+  - target: $["paths"]["/stream/{parentId}/sessions"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getRecordedSessions
+          source: |-
+            package hello.world;
+
+            import java.math.BigDecimal;
+            import java.math.BigDecimal;
+            import java.math.BigInteger;
+            import java.time.LocalDate;
+            import java.time.OffsetDateTime;
+            import java.util.Optional;
+            import org.openapitools.jackson.nullable.JsonNullable;
+            import static java.util.Map.entry;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.components.*;
+            import studio.livepeer.livepeer.models.components.Security;
+            import studio.livepeer.livepeer.models.operations.*;
+            import studio.livepeer.livepeer.utils.EventStream;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+                    try {
+                        Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                            .build();
+
+                        GetRecordedSessionsResponse res = sdk.session().getRecorded()
+                            .parentId("<value>")
+                            .record(studio.livepeer.livepeer.models.operations.Record.of(true))
+                            .call();
+
+                        if (res.data().isPresent()) {
+                            // handle response
+                        }
+                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+                        // handle exception
+                        throw e;
+                    } catch (Exception e) {
+                        // handle exception
+                        throw e;
+                    }
+                }
+            }
+  - target: $["paths"]["/access-control/signing-key"]["post"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: createSigningKey
+          source: |-
+            package hello.world;
+
+            import java.math.BigDecimal;
+            import java.math.BigDecimal;
+            import java.math.BigInteger;
+            import java.time.LocalDate;
+            import java.time.OffsetDateTime;
+            import java.util.Optional;
+            import org.openapitools.jackson.nullable.JsonNullable;
+            import static java.util.Map.entry;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.components.*;
+            import studio.livepeer.livepeer.models.components.Security;
+            import studio.livepeer.livepeer.models.operations.*;
+            import studio.livepeer.livepeer.utils.EventStream;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+                    try {
+                        Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                            .build();
+
+                        CreateSigningKeyResponse res = sdk.accessControl().create()
+                            .call();
+
+                        if (res.signingKey().isPresent()) {
+                            // handle response
+                        }
+                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+                        // handle exception
+                        throw e;
+                    } catch (Exception e) {
+                        // handle exception
+                        throw e;
+                    }
+                }
+            }
+  - target: $["paths"]["/access-control/signing-key/{keyId}"]["patch"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: updateSigningKey
+          source: |-
+            package hello.world;
+
+            import java.math.BigDecimal;
+            import java.math.BigDecimal;
+            import java.math.BigInteger;
+            import java.time.LocalDate;
+            import java.time.OffsetDateTime;
+            import java.util.Optional;
+            import org.openapitools.jackson.nullable.JsonNullable;
+            import static java.util.Map.entry;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.components.*;
+            import studio.livepeer.livepeer.models.components.Security;
+            import studio.livepeer.livepeer.models.operations.*;
+            import studio.livepeer.livepeer.utils.EventStream;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+                    try {
+                        Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                            .build();
+
+                        UpdateSigningKeyResponse res = sdk.accessControl().update()
                             .keyId("<value>")
+                            .requestBody(UpdateSigningKeyRequestBody.builder()
+                                .build())
                             .call();
 
                         // handle response
@@ -696,11 +659,11 @@ actions:
                     }
                 }
             }
-  - target: $["paths"]["/asset/{assetId}"]["get"]
+  - target: $["paths"]["/multistream/target/{id}"]["delete"]
     update:
       x-codeSamples:
         - lang: java
-          label: getAsset
+          label: deleteMultistreamTarget
           source: |-
             package hello.world;
 
@@ -726,55 +689,8 @@ actions:
                             .apiKey("<YOUR_BEARER_TOKEN_HERE>")
                             .build();
 
-                        GetAssetResponse res = sdk.asset().get()
-                            .assetId("<value>")
-                            .call();
-
-                        if (res.asset().isPresent()) {
-                            // handle response
-                        }
-                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-                }
-            }
-  - target: $["paths"]["/room/{id}/user/{userId}"]["delete"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: deleteRoomUser
-          source: |-
-            package hello.world;
-
-            import java.math.BigDecimal;
-            import java.math.BigDecimal;
-            import java.math.BigInteger;
-            import java.time.LocalDate;
-            import java.time.OffsetDateTime;
-            import java.util.Optional;
-            import org.openapitools.jackson.nullable.JsonNullable;
-            import static java.util.Map.entry;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.*;
-            import studio.livepeer.livepeer.models.components.Security;
-            import studio.livepeer.livepeer.models.operations.*;
-            import studio.livepeer.livepeer.utils.EventStream;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        DeleteRoomUserResponse res = sdk.room().deleteUser()
+                        DeleteMultistreamTargetResponse res = sdk.multistream().delete()
                             .id("<value>")
-                            .userId("<value>")
                             .call();
 
                         // handle response
@@ -787,11 +703,11 @@ actions:
                     }
                 }
             }
-  - target: $["paths"]["/webhook/{id}/log/{logId}"]["get"]
+  - target: $["paths"]["/stream"]["get"]
     update:
       x-codeSamples:
         - lang: java
-          label: getWebhookLog
+          label: getStreams
           source: |-
             package hello.world;
 
@@ -817,14 +733,57 @@ actions:
                             .apiKey("<YOUR_BEARER_TOKEN_HERE>")
                             .build();
 
-                        GetWebhookLogResponse res = sdk.webhook().getLog()
-                            .id("<value>")
-                            .logId("<value>")
+                        GetStreamsResponse res = sdk.stream().getAll()
+                            .streamsonly("<value>")
                             .call();
 
-                        if (res.webhookLog().isPresent()) {
+                        if (res.data().isPresent()) {
                             // handle response
                         }
+                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+                        // handle exception
+                        throw e;
+                    } catch (Exception e) {
+                        // handle exception
+                        throw e;
+                    }
+                }
+            }
+  - target: $["paths"]["/stream/{id}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: deleteStream
+          source: |-
+            package hello.world;
+
+            import java.math.BigDecimal;
+            import java.math.BigDecimal;
+            import java.math.BigInteger;
+            import java.time.LocalDate;
+            import java.time.OffsetDateTime;
+            import java.util.Optional;
+            import org.openapitools.jackson.nullable.JsonNullable;
+            import static java.util.Map.entry;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.components.*;
+            import studio.livepeer.livepeer.models.components.Security;
+            import studio.livepeer.livepeer.models.operations.*;
+            import studio.livepeer.livepeer.utils.EventStream;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+                    try {
+                        Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                            .build();
+
+                        DeleteStreamResponse res = sdk.stream().delete()
+                            .id("<value>")
+                            .call();
+
+                        // handle response
                     } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
                         // handle exception
                         throw e;
@@ -904,11 +863,11 @@ actions:
                     }
                 }
             }
-  - target: $["paths"]["/asset/upload/url"]["post"]
+  - target: $["paths"]["/session/{id}"]["get"]
     update:
       x-codeSamples:
         - lang: java
-          label: uploadAsset
+          label: getSession
           source: |-
             package hello.world;
 
@@ -934,133 +893,11 @@ actions:
                             .apiKey("<YOUR_BEARER_TOKEN_HERE>")
                             .build();
 
-                        NewAssetFromUrlPayload req = NewAssetFromUrlPayload.builder()
-                            .name("filename.mp4")
-                            .url("https://s3.amazonaws.com/my-bucket/path/filename.mp4")
-                            .staticMp4(true)
-                            .playbackPolicy(PlaybackPolicy.builder()
-                                .type(Type.WEBHOOK)
-                                .webhookId("1bde4o2i6xycudoy")
-                                .webhookContext(java.util.Map.ofEntries(
-                                    entry("streamerId", "my-custom-id")))
-                                .refreshInterval(600d)
-                                .build())
-                            .profiles(java.util.List.of(
-                                TranscodeProfile.builder()
-                                    .bitrate(3000000L)
-                                    .width(1280L)
-                                    .name("720p")
-                                    .quality(23L)
-                                    .fps(30L)
-                                    .fpsDen(1L)
-                                    .gop("2")
-                                    .profile(TranscodeProfileProfile.H264_BASELINE)
-                                    .encoder(TranscodeProfileEncoder.H264)
-                                    .build()))
-                            .build();
-
-                        UploadAssetResponse res = sdk.asset().createViaUrl()
-                            .request(req)
-                            .call();
-
-                        if (res.twoHundredApplicationJsonData().isPresent()) {
-                            // handle response
-                        }
-                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-                }
-            }
-  - target: $["paths"]["/multistream/target"]["post"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: createMultistreamTarget
-          source: |-
-            package hello.world;
-
-            import java.math.BigDecimal;
-            import java.math.BigDecimal;
-            import java.math.BigInteger;
-            import java.time.LocalDate;
-            import java.time.OffsetDateTime;
-            import java.util.Optional;
-            import org.openapitools.jackson.nullable.JsonNullable;
-            import static java.util.Map.entry;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.*;
-            import studio.livepeer.livepeer.models.components.Security;
-            import studio.livepeer.livepeer.models.operations.*;
-            import studio.livepeer.livepeer.utils.EventStream;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        MultistreamTargetInput req = MultistreamTargetInput.builder()
-                            .url("rtmps://live.my-service.tv/channel/secretKey")
-                            .build();
-
-                        CreateMultistreamTargetResponse res = sdk.multistream().create()
-                            .request(req)
-                            .call();
-
-                        if (res.multistreamTarget().isPresent()) {
-                            // handle response
-                        }
-                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-                }
-            }
-  - target: $["paths"]["/webhook/{id}/log/{logId}/resend"]["post"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: resendWebhook
-          source: |-
-            package hello.world;
-
-            import java.math.BigDecimal;
-            import java.math.BigDecimal;
-            import java.math.BigInteger;
-            import java.time.LocalDate;
-            import java.time.OffsetDateTime;
-            import java.util.Optional;
-            import org.openapitools.jackson.nullable.JsonNullable;
-            import static java.util.Map.entry;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.*;
-            import studio.livepeer.livepeer.models.components.Security;
-            import studio.livepeer.livepeer.models.operations.*;
-            import studio.livepeer.livepeer.utils.EventStream;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        ResendWebhookResponse res = sdk.webhook().resendLog()
+                        GetSessionResponse res = sdk.session().get()
                             .id("<value>")
-                            .logId("<value>")
                             .call();
 
-                        if (res.webhookLog().isPresent()) {
+                        if (res.session().isPresent()) {
                             // handle response
                         }
                     } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
@@ -1072,11 +909,11 @@ actions:
                     }
                 }
             }
-  - target: $["paths"]["/stream/{id}/start-pull"]["post"]
+  - target: $["paths"]["/access-control/signing-key"]["get"]
     update:
       x-codeSamples:
         - lang: java
-          label: startPullStream
+          label: getSigningKeys
           source: |-
             package hello.world;
 
@@ -1102,7 +939,52 @@ actions:
                             .apiKey("<YOUR_BEARER_TOKEN_HERE>")
                             .build();
 
-                        StartPullStreamResponse res = sdk.stream().startPull()
+                        GetSigningKeysResponse res = sdk.accessControl().getAll()
+                            .call();
+
+                        if (res.data().isPresent()) {
+                            // handle response
+                        }
+                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+                        // handle exception
+                        throw e;
+                    } catch (Exception e) {
+                        // handle exception
+                        throw e;
+                    }
+                }
+            }
+  - target: $["paths"]["/room/{id}/egress"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: stopRoomEgress
+          source: |-
+            package hello.world;
+
+            import java.math.BigDecimal;
+            import java.math.BigDecimal;
+            import java.math.BigInteger;
+            import java.time.LocalDate;
+            import java.time.OffsetDateTime;
+            import java.util.Optional;
+            import org.openapitools.jackson.nullable.JsonNullable;
+            import static java.util.Map.entry;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.components.*;
+            import studio.livepeer.livepeer.models.components.Security;
+            import studio.livepeer.livepeer.models.operations.*;
+            import studio.livepeer.livepeer.utils.EventStream;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+                    try {
+                        Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                            .build();
+
+                        StopRoomEgressResponse res = sdk.room().stopEgress()
                             .id("<value>")
                             .call();
 
@@ -1116,11 +998,11 @@ actions:
                     }
                 }
             }
-  - target: $["paths"]["/session"]["get"]
+  - target: $["paths"]["/room/{id}/user"]["post"]
     update:
       x-codeSamples:
         - lang: java
-          label: getSessions
+          label: createRoomUser
           source: |-
             package hello.world;
 
@@ -1146,59 +1028,16 @@ actions:
                             .apiKey("<YOUR_BEARER_TOKEN_HERE>")
                             .build();
 
-                        GetSessionsResponse res = sdk.session().getAll()
+                        CreateRoomUserResponse res = sdk.room().createUser()
+                            .id("<value>")
+                            .roomUserPayload(RoomUserPayload.builder()
+                                .name("name")
+                                .canPublish(true)
+                                .canPublishData(true)
+                                .build())
                             .call();
 
-                        if (res.data().isPresent()) {
-                            // handle response
-                        }
-                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-                }
-            }
-  - target: $["paths"]["/data/views/query/creator"]["get"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: getCreatorViewershipMetrics
-          source: |-
-            package hello.world;
-
-            import java.math.BigDecimal;
-            import java.math.BigDecimal;
-            import java.math.BigInteger;
-            import java.time.LocalDate;
-            import java.time.OffsetDateTime;
-            import java.util.Optional;
-            import org.openapitools.jackson.nullable.JsonNullable;
-            import static java.util.Map.entry;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.*;
-            import studio.livepeer.livepeer.models.components.Security;
-            import studio.livepeer.livepeer.models.operations.*;
-            import studio.livepeer.livepeer.utils.EventStream;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        GetCreatorViewershipMetricsRequest req = GetCreatorViewershipMetricsRequest.builder()
-                            .build();
-
-                        GetCreatorViewershipMetricsResponse res = sdk.metrics().getCreatorViewership()
-                            .request(req)
-                            .call();
-
-                        if (res.data().isPresent()) {
+                        if (res.roomUserResponse().isPresent()) {
                             // handle response
                         }
                     } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
@@ -1309,11 +1148,11 @@ actions:
                     }
                 }
             }
-  - target: $["paths"]["/asset/{assetId}"]["patch"]
+  - target: $["paths"]["/multistream/target"]["post"]
     update:
       x-codeSamples:
         - lang: java
-          label: updateAsset
+          label: createMultistreamTarget
           source: |-
             package hello.world;
 
@@ -1339,289 +1178,15 @@ actions:
                             .apiKey("<YOUR_BEARER_TOKEN_HERE>")
                             .build();
 
-                        UpdateAssetResponse res = sdk.asset().update()
-                            .assetId("<value>")
-                            .assetPatchPayload(AssetPatchPayload.builder()
-                                .name("filename.mp4")
-                                .playbackPolicy(PlaybackPolicy.builder()
-                                    .type(Type.WEBHOOK)
-                                    .webhookId("1bde4o2i6xycudoy")
-                                    .webhookContext(java.util.Map.ofEntries(
-                                        entry("streamerId", "my-custom-id")))
-                                    .refreshInterval(600d)
-                                    .build())
-                                .build())
-                            .call();
-
-                        if (res.asset().isPresent()) {
-                            // handle response
-                        }
-                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-                }
-            }
-  - target: $["paths"]["/data/views/query/total/{playbackId}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: getPublicViewershipMetrics
-          source: |-
-            package hello.world;
-
-            import java.math.BigDecimal;
-            import java.math.BigDecimal;
-            import java.math.BigInteger;
-            import java.time.LocalDate;
-            import java.time.OffsetDateTime;
-            import java.util.Optional;
-            import org.openapitools.jackson.nullable.JsonNullable;
-            import static java.util.Map.entry;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.*;
-            import studio.livepeer.livepeer.models.components.Security;
-            import studio.livepeer.livepeer.models.operations.*;
-            import studio.livepeer.livepeer.utils.EventStream;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        MultistreamTargetInput req = MultistreamTargetInput.builder()
+                            .url("rtmps://live.my-service.tv/channel/secretKey")
                             .build();
 
-                        GetPublicViewershipMetricsResponse res = sdk.metrics().getPublicViewership()
-                            .playbackId("<value>")
-                            .call();
-
-                        if (res.data().isPresent()) {
-                            // handle response
-                        }
-                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-                }
-            }
-  - target: $["paths"]["/stream/{id}"]["patch"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: updateStream
-          source: |-
-            package hello.world;
-
-            import java.math.BigDecimal;
-            import java.math.BigDecimal;
-            import java.math.BigInteger;
-            import java.time.LocalDate;
-            import java.time.OffsetDateTime;
-            import java.util.Optional;
-            import org.openapitools.jackson.nullable.JsonNullable;
-            import static java.util.Map.entry;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.*;
-            import studio.livepeer.livepeer.models.components.Security;
-            import studio.livepeer.livepeer.models.operations.*;
-            import studio.livepeer.livepeer.utils.EventStream;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        UpdateStreamResponse res = sdk.stream().update()
-                            .id("<value>")
-                            .streamPatchPayload(StreamPatchPayload.builder()
-                                .record(false)
-                                .multistream(Multistream.builder()
-                                    .targets(java.util.List.of(
-                                        Target.builder()
-                                            .profile("720p0")
-                                            .videoOnly(false)
-                                            .id("PUSH123")
-                                            .spec(TargetSpec.builder()
-                                                .url("rtmps://live.my-service.tv/channel/secretKey")
-                                                .name("My target")
-                                                .build())
-                                            .build()))
-                                    .build())
-                                .playbackPolicy(PlaybackPolicy.builder()
-                                    .type(Type.WEBHOOK)
-                                    .webhookId("1bde4o2i6xycudoy")
-                                    .webhookContext(java.util.Map.ofEntries(
-                                        entry("streamerId", "my-custom-id")))
-                                    .refreshInterval(600d)
-                                    .build())
-                                .profiles(java.util.List.of(
-                                    FfmpegProfile.builder()
-                                        .width(1280L)
-                                        .name("720p")
-                                        .height(857478L)
-                                        .bitrate(3000000L)
-                                        .fps(30L)
-                                        .fpsDen(1L)
-                                        .quality(23L)
-                                        .gop("2")
-                                        .profile(Profile.H264_BASELINE)
-                                        .build()))
-                                .build())
-                            .call();
-
-                        // handle response
-                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-                }
-            }
-  - target: $["paths"]["/multistream/target/{id}"]["delete"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: deleteMultistreamTarget
-          source: |-
-            package hello.world;
-
-            import java.math.BigDecimal;
-            import java.math.BigDecimal;
-            import java.math.BigInteger;
-            import java.time.LocalDate;
-            import java.time.OffsetDateTime;
-            import java.util.Optional;
-            import org.openapitools.jackson.nullable.JsonNullable;
-            import static java.util.Map.entry;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.*;
-            import studio.livepeer.livepeer.models.components.Security;
-            import studio.livepeer.livepeer.models.operations.*;
-            import studio.livepeer.livepeer.utils.EventStream;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        DeleteMultistreamTargetResponse res = sdk.multistream().delete()
-                            .id("<value>")
-                            .call();
-
-                        // handle response
-                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-                }
-            }
-  - target: $["paths"]["/webhook/{id}/log"]["get"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: getWebhookLogs
-          source: |-
-            package hello.world;
-
-            import java.math.BigDecimal;
-            import java.math.BigDecimal;
-            import java.math.BigInteger;
-            import java.time.LocalDate;
-            import java.time.OffsetDateTime;
-            import java.util.Optional;
-            import org.openapitools.jackson.nullable.JsonNullable;
-            import static java.util.Map.entry;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.*;
-            import studio.livepeer.livepeer.models.components.Security;
-            import studio.livepeer.livepeer.models.operations.*;
-            import studio.livepeer.livepeer.utils.EventStream;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        GetWebhookLogsResponse res = sdk.webhook().getLogs()
-                            .id("<value>")
-                            .call();
-
-                        if (res.data().isPresent()) {
-                            // handle response
-                        }
-                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-                }
-            }
-  - target: $["paths"]["/clip"]["post"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: createClip
-          source: |-
-            package hello.world;
-
-            import java.math.BigDecimal;
-            import java.math.BigDecimal;
-            import java.math.BigInteger;
-            import java.time.LocalDate;
-            import java.time.OffsetDateTime;
-            import java.util.Optional;
-            import org.openapitools.jackson.nullable.JsonNullable;
-            import static java.util.Map.entry;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.*;
-            import studio.livepeer.livepeer.models.components.Security;
-            import studio.livepeer.livepeer.models.operations.*;
-            import studio.livepeer.livepeer.utils.EventStream;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        ClipPayload req = ClipPayload.builder()
-                            .playbackId("eaw4nk06ts2d0mzb")
-                            .startTime(1587667174725d)
-                            .endTime(1587667174725d)
-                            .name("My Clip")
-                            .sessionId("de7818e7-610a-4057-8f6f-b785dc1e6f88")
-                            .build();
-
-                        CreateClipResponse res = sdk.stream().createClip()
+                        CreateMultistreamTargetResponse res = sdk.multistream().create()
                             .request(req)
                             .call();
 
-                        if (res.data().isPresent()) {
+                        if (res.multistreamTarget().isPresent()) {
                             // handle response
                         }
                     } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
@@ -1633,11 +1198,11 @@ actions:
                     }
                 }
             }
-  - target: $["paths"]["/access-control/signing-key"]["get"]
+  - target: $["paths"]["/webhook/{id}"]["delete"]
     update:
       x-codeSamples:
         - lang: java
-          label: getSigningKeys
+          label: deleteWebhook
           source: |-
             package hello.world;
 
@@ -1663,7 +1228,124 @@ actions:
                             .apiKey("<YOUR_BEARER_TOKEN_HERE>")
                             .build();
 
-                        GetSigningKeysResponse res = sdk.accessControl().getAll()
+                        DeleteWebhookResponse res = sdk.webhook().delete()
+                            .id("<value>")
+                            .call();
+
+                        if (res.webhook().isPresent()) {
+                            // handle response
+                        }
+                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+                        // handle exception
+                        throw e;
+                    } catch (Exception e) {
+                        // handle exception
+                        throw e;
+                    }
+                }
+            }
+  - target: $["paths"]["/asset/upload/url"]["post"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: uploadAsset
+          source: |-
+            package hello.world;
+
+            import java.math.BigDecimal;
+            import java.math.BigDecimal;
+            import java.math.BigInteger;
+            import java.time.LocalDate;
+            import java.time.OffsetDateTime;
+            import java.util.Optional;
+            import org.openapitools.jackson.nullable.JsonNullable;
+            import static java.util.Map.entry;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.components.*;
+            import studio.livepeer.livepeer.models.components.Security;
+            import studio.livepeer.livepeer.models.operations.*;
+            import studio.livepeer.livepeer.utils.EventStream;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+                    try {
+                        Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                            .build();
+
+                        NewAssetFromUrlPayload req = NewAssetFromUrlPayload.builder()
+                            .name("filename.mp4")
+                            .url("https://s3.amazonaws.com/my-bucket/path/filename.mp4")
+                            .staticMp4(true)
+                            .playbackPolicy(PlaybackPolicy.builder()
+                                .type(Type.WEBHOOK)
+                                .webhookId("1bde4o2i6xycudoy")
+                                .webhookContext(java.util.Map.ofEntries(
+                                    entry("streamerId", "my-custom-id")))
+                                .refreshInterval(600d)
+                                .build())
+                            .profiles(java.util.List.of(
+                                TranscodeProfile.builder()
+                                    .bitrate(3000000L)
+                                    .width(1280L)
+                                    .name("720p")
+                                    .quality(23L)
+                                    .fps(30L)
+                                    .fpsDen(1L)
+                                    .gop("2")
+                                    .profile(TranscodeProfileProfile.H264_BASELINE)
+                                    .encoder(TranscodeProfileEncoder.H264)
+                                    .build()))
+                            .build();
+
+                        UploadAssetResponse res = sdk.asset().createViaUrl()
+                            .request(req)
+                            .call();
+
+                        if (res.twoHundredApplicationJsonData().isPresent()) {
+                            // handle response
+                        }
+                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+                        // handle exception
+                        throw e;
+                    } catch (Exception e) {
+                        // handle exception
+                        throw e;
+                    }
+                }
+            }
+  - target: $["paths"]["/session"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getSessions
+          source: |-
+            package hello.world;
+
+            import java.math.BigDecimal;
+            import java.math.BigDecimal;
+            import java.math.BigInteger;
+            import java.time.LocalDate;
+            import java.time.OffsetDateTime;
+            import java.util.Optional;
+            import org.openapitools.jackson.nullable.JsonNullable;
+            import static java.util.Map.entry;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.components.*;
+            import studio.livepeer.livepeer.models.components.Security;
+            import studio.livepeer.livepeer.models.operations.*;
+            import studio.livepeer.livepeer.utils.EventStream;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+                    try {
+                        Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                            .build();
+
+                        GetSessionsResponse res = sdk.session().getAll()
                             .call();
 
                         if (res.data().isPresent()) {
@@ -1678,11 +1360,11 @@ actions:
                     }
                 }
             }
-  - target: $["paths"]["/session/{id}/clips"]["get"]
+  - target: $["paths"]["/asset/{assetId}"]["delete"]
     update:
       x-codeSamples:
         - lang: java
-          label: getSessionClips
+          label: deleteAsset
           source: |-
             package hello.world;
 
@@ -1708,8 +1390,55 @@ actions:
                             .apiKey("<YOUR_BEARER_TOKEN_HERE>")
                             .build();
 
-                        GetSessionClipsResponse res = sdk.session().getClips()
-                            .id("<value>")
+                        DeleteAssetResponse res = sdk.asset().delete()
+                            .assetId("<value>")
+                            .call();
+
+                        // handle response
+                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+                        // handle exception
+                        throw e;
+                    } catch (Exception e) {
+                        // handle exception
+                        throw e;
+                    }
+                }
+            }
+  - target: $["paths"]["/data/views/query"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getViewershipMetrics
+          source: |-
+            package hello.world;
+
+            import java.math.BigDecimal;
+            import java.math.BigDecimal;
+            import java.math.BigInteger;
+            import java.time.LocalDate;
+            import java.time.OffsetDateTime;
+            import java.util.Optional;
+            import org.openapitools.jackson.nullable.JsonNullable;
+            import static java.util.Map.entry;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.components.*;
+            import studio.livepeer.livepeer.models.components.Security;
+            import studio.livepeer.livepeer.models.operations.*;
+            import studio.livepeer.livepeer.utils.EventStream;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+                    try {
+                        Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                            .build();
+
+                        GetViewershipMetricsRequest req = GetViewershipMetricsRequest.builder()
+                            .build();
+
+                        GetViewershipMetricsResponse res = sdk.metrics().getViewership()
+                            .request(req)
                             .call();
 
                         if (res.data().isPresent()) {
@@ -1829,11 +1558,11 @@ actions:
                     }
                 }
             }
-  - target: $["paths"]["/multistream/target"]["get"]
+  - target: $["paths"]["/multistream/target/{id}"]["get"]
     update:
       x-codeSamples:
         - lang: java
-          label: getMultistreamTargets
+          label: getMultistreamTarget
           source: |-
             package hello.world;
 
@@ -1859,55 +1588,11 @@ actions:
                             .apiKey("<YOUR_BEARER_TOKEN_HERE>")
                             .build();
 
-                        GetMultistreamTargetsResponse res = sdk.multistream().getAll()
+                        GetMultistreamTargetResponse res = sdk.multistream().get()
+                            .id("<value>")
                             .call();
 
-                        if (res.data().isPresent()) {
-                            // handle response
-                        }
-                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-                }
-            }
-  - target: $["paths"]["/asset"]["get"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: getAssets
-          source: |-
-            package hello.world;
-
-            import java.math.BigDecimal;
-            import java.math.BigDecimal;
-            import java.math.BigInteger;
-            import java.time.LocalDate;
-            import java.time.OffsetDateTime;
-            import java.util.Optional;
-            import org.openapitools.jackson.nullable.JsonNullable;
-            import static java.util.Map.entry;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.*;
-            import studio.livepeer.livepeer.models.components.Security;
-            import studio.livepeer.livepeer.models.operations.*;
-            import studio.livepeer.livepeer.utils.EventStream;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        GetAssetsResponse res = sdk.asset().getAll()
-                            .call();
-
-                        if (res.data().isPresent()) {
+                        if (res.multistreamTarget().isPresent()) {
                             // handle response
                         }
                     } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
@@ -1966,6 +1651,52 @@ actions:
                     }
                 }
             }
+  - target: $["paths"]["/webhook/{id}/log"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getWebhookLogs
+          source: |-
+            package hello.world;
+
+            import java.math.BigDecimal;
+            import java.math.BigDecimal;
+            import java.math.BigInteger;
+            import java.time.LocalDate;
+            import java.time.OffsetDateTime;
+            import java.util.Optional;
+            import org.openapitools.jackson.nullable.JsonNullable;
+            import static java.util.Map.entry;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.components.*;
+            import studio.livepeer.livepeer.models.components.Security;
+            import studio.livepeer.livepeer.models.operations.*;
+            import studio.livepeer.livepeer.utils.EventStream;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+                    try {
+                        Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                            .build();
+
+                        GetWebhookLogsResponse res = sdk.webhook().getLogs()
+                            .id("<value>")
+                            .call();
+
+                        if (res.data().isPresent()) {
+                            // handle response
+                        }
+                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+                        // handle exception
+                        throw e;
+                    } catch (Exception e) {
+                        // handle exception
+                        throw e;
+                    }
+                }
+            }
   - target: $["paths"]["/room/{id}/user/{userId}"]["put"]
     update:
       x-codeSamples:
@@ -2015,11 +1746,11 @@ actions:
                     }
                 }
             }
-  - target: $["paths"]["/access-control/signing-key/{keyId}"]["patch"]
+  - target: $["paths"]["/stream/{id}/start-pull"]["post"]
     update:
       x-codeSamples:
         - lang: java
-          label: updateSigningKey
+          label: startPullStream
           source: |-
             package hello.world;
 
@@ -2045,144 +1776,7 @@ actions:
                             .apiKey("<YOUR_BEARER_TOKEN_HERE>")
                             .build();
 
-                        UpdateSigningKeyResponse res = sdk.accessControl().update()
-                            .keyId("<value>")
-                            .requestBody(UpdateSigningKeyRequestBody.builder()
-                                .build())
-                            .call();
-
-                        // handle response
-                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-                }
-            }
-  - target: $["paths"]["/room"]["post"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: createRoom
-          source: |-
-            package hello.world;
-
-            import java.math.BigDecimal;
-            import java.math.BigDecimal;
-            import java.math.BigInteger;
-            import java.time.LocalDate;
-            import java.time.OffsetDateTime;
-            import java.util.Optional;
-            import org.openapitools.jackson.nullable.JsonNullable;
-            import static java.util.Map.entry;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.*;
-            import studio.livepeer.livepeer.models.components.Security;
-            import studio.livepeer.livepeer.models.operations.*;
-            import studio.livepeer.livepeer.utils.EventStream;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        CreateRoomResponse res = sdk.room().create()
-                            .call();
-
-                        if (res.createRoomResponse().isPresent()) {
-                            // handle response
-                        }
-                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-                }
-            }
-  - target: $["paths"]["/room/{id}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: getRoom
-          source: |-
-            package hello.world;
-
-            import java.math.BigDecimal;
-            import java.math.BigDecimal;
-            import java.math.BigInteger;
-            import java.time.LocalDate;
-            import java.time.OffsetDateTime;
-            import java.util.Optional;
-            import org.openapitools.jackson.nullable.JsonNullable;
-            import static java.util.Map.entry;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.*;
-            import studio.livepeer.livepeer.models.components.Security;
-            import studio.livepeer.livepeer.models.operations.*;
-            import studio.livepeer.livepeer.utils.EventStream;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        GetRoomResponse res = sdk.room().get()
-                            .id("<value>")
-                            .call();
-
-                        if (res.room().isPresent()) {
-                            // handle response
-                        }
-                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-                }
-            }
-  - target: $["paths"]["/room/{id}"]["delete"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: deleteRoom
-          source: |-
-            package hello.world;
-
-            import java.math.BigDecimal;
-            import java.math.BigDecimal;
-            import java.math.BigInteger;
-            import java.time.LocalDate;
-            import java.time.OffsetDateTime;
-            import java.util.Optional;
-            import org.openapitools.jackson.nullable.JsonNullable;
-            import static java.util.Map.entry;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.*;
-            import studio.livepeer.livepeer.models.components.Security;
-            import studio.livepeer.livepeer.models.operations.*;
-            import studio.livepeer.livepeer.utils.EventStream;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        DeleteRoomResponse res = sdk.room().delete()
+                        StartPullStreamResponse res = sdk.stream().startPull()
                             .id("<value>")
                             .call();
 
@@ -2196,11 +1790,11 @@ actions:
                     }
                 }
             }
-  - target: $["paths"]["/task"]["get"]
+  - target: $["paths"]["/stream/{id}/terminate"]["delete"]
     update:
       x-codeSamples:
         - lang: java
-          label: getTasks
+          label: terminateStream
           source: |-
             package hello.world;
 
@@ -2226,243 +1820,11 @@ actions:
                             .apiKey("<YOUR_BEARER_TOKEN_HERE>")
                             .build();
 
-                        GetTasksResponse res = sdk.task().getAll()
-                            .call();
-
-                        if (res.data().isPresent()) {
-                            // handle response
-                        }
-                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-                }
-            }
-  - target: $["paths"]["/webhook/{id}"]["delete"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: deleteWebhook
-          source: |-
-            package hello.world;
-
-            import java.math.BigDecimal;
-            import java.math.BigDecimal;
-            import java.math.BigInteger;
-            import java.time.LocalDate;
-            import java.time.OffsetDateTime;
-            import java.util.Optional;
-            import org.openapitools.jackson.nullable.JsonNullable;
-            import static java.util.Map.entry;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.*;
-            import studio.livepeer.livepeer.models.components.Security;
-            import studio.livepeer.livepeer.models.operations.*;
-            import studio.livepeer.livepeer.utils.EventStream;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        DeleteWebhookResponse res = sdk.webhook().delete()
-                            .id("<value>")
-                            .call();
-
-                        if (res.webhook().isPresent()) {
-                            // handle response
-                        }
-                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-                }
-            }
-  - target: $["paths"]["/stream/{parentId}/sessions"]["get"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: getRecordedSessions
-          source: |-
-            package hello.world;
-
-            import java.math.BigDecimal;
-            import java.math.BigDecimal;
-            import java.math.BigInteger;
-            import java.time.LocalDate;
-            import java.time.OffsetDateTime;
-            import java.util.Optional;
-            import org.openapitools.jackson.nullable.JsonNullable;
-            import static java.util.Map.entry;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.*;
-            import studio.livepeer.livepeer.models.components.Security;
-            import studio.livepeer.livepeer.models.operations.*;
-            import studio.livepeer.livepeer.utils.EventStream;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        GetRecordedSessionsResponse res = sdk.session().getRecorded()
-                            .parentId("<value>")
-                            .record(studio.livepeer.livepeer.models.operations.Record.of(true))
-                            .call();
-
-                        if (res.data().isPresent()) {
-                            // handle response
-                        }
-                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-                }
-            }
-  - target: $["paths"]["/access-control/signing-key"]["post"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: createSigningKey
-          source: |-
-            package hello.world;
-
-            import java.math.BigDecimal;
-            import java.math.BigDecimal;
-            import java.math.BigInteger;
-            import java.time.LocalDate;
-            import java.time.OffsetDateTime;
-            import java.util.Optional;
-            import org.openapitools.jackson.nullable.JsonNullable;
-            import static java.util.Map.entry;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.*;
-            import studio.livepeer.livepeer.models.components.Security;
-            import studio.livepeer.livepeer.models.operations.*;
-            import studio.livepeer.livepeer.utils.EventStream;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        CreateSigningKeyResponse res = sdk.accessControl().create()
-                            .call();
-
-                        if (res.signingKey().isPresent()) {
-                            // handle response
-                        }
-                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-                }
-            }
-  - target: $["paths"]["/stream/{id}"]["delete"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: deleteStream
-          source: |-
-            package hello.world;
-
-            import java.math.BigDecimal;
-            import java.math.BigDecimal;
-            import java.math.BigInteger;
-            import java.time.LocalDate;
-            import java.time.OffsetDateTime;
-            import java.util.Optional;
-            import org.openapitools.jackson.nullable.JsonNullable;
-            import static java.util.Map.entry;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.*;
-            import studio.livepeer.livepeer.models.components.Security;
-            import studio.livepeer.livepeer.models.operations.*;
-            import studio.livepeer.livepeer.utils.EventStream;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        DeleteStreamResponse res = sdk.stream().delete()
+                        TerminateStreamResponse res = sdk.stream().terminate()
                             .id("<value>")
                             .call();
 
                         // handle response
-                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-                }
-            }
-  - target: $["paths"]["/playback/{id}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: getPlaybackInfo
-          source: |-
-            package hello.world;
-
-            import java.math.BigDecimal;
-            import java.math.BigDecimal;
-            import java.math.BigInteger;
-            import java.time.LocalDate;
-            import java.time.OffsetDateTime;
-            import java.util.Optional;
-            import org.openapitools.jackson.nullable.JsonNullable;
-            import static java.util.Map.entry;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.*;
-            import studio.livepeer.livepeer.models.components.Security;
-            import studio.livepeer.livepeer.models.operations.*;
-            import studio.livepeer.livepeer.utils.EventStream;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        GetPlaybackInfoResponse res = sdk.playback().get()
-                            .id("<value>")
-                            .call();
-
-                        if (res.playbackInfo().isPresent()) {
-                            // handle response
-                        }
-                    } catch (studio.livepeer.livepeer.models.errors.Error e) {
-                        // handle exception
-                        throw e;
                     } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
                         // handle exception
                         throw e;
@@ -2528,11 +1890,11 @@ actions:
                     }
                 }
             }
-  - target: $["paths"]["/stream/{id}"]["get"]
+  - target: $["paths"]["/room"]["post"]
     update:
       x-codeSamples:
         - lang: java
-          label: getStream
+          label: createRoom
           source: |-
             package hello.world;
 
@@ -2558,11 +1920,10 @@ actions:
                             .apiKey("<YOUR_BEARER_TOKEN_HERE>")
                             .build();
 
-                        GetStreamResponse res = sdk.stream().get()
-                            .id("<value>")
+                        CreateRoomResponse res = sdk.room().create()
                             .call();
 
-                        if (res.stream().isPresent()) {
+                        if (res.createRoomResponse().isPresent()) {
                             // handle response
                         }
                     } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
@@ -2574,11 +1935,11 @@ actions:
                     }
                 }
             }
-  - target: $["paths"]["/stream/{id}/multistream/{targetId}"]["delete"]
+  - target: $["paths"]["/transcode"]["post"]
     update:
       x-codeSamples:
         - lang: java
-          label: removeMultistreamTarget
+          label: transcodeVideo
           source: |-
             package hello.world;
 
@@ -2604,9 +1965,126 @@ actions:
                             .apiKey("<YOUR_BEARER_TOKEN_HERE>")
                             .build();
 
-                        RemoveMultistreamTargetResponse res = sdk.stream().removeMultistreamTarget()
+                        TranscodePayload req = TranscodePayload.builder()
+                            .input(Input.of(Input1.builder()
+                                        .url("https://s3.amazonaws.com/bucket/file.mp4")
+                                        .build()))
+                            .storage(TranscodePayloadStorage.of(Storage1.builder()
+                                        .type(StorageType.S3)
+                                        .endpoint("https://gateway.storjshare.io")
+                                        .bucket("outputbucket")
+                                        .credentials(StorageCredentials.builder()
+                                                .accessKeyId("AKIAIOSFODNN7EXAMPLE")
+                                                .secretAccessKey("wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY")
+                                                .build())
+                                        .build()))
+                            .outputs(Outputs.builder()
+                                    .hls(Hls.builder()
+                                        .path("/samplevideo/hls")
+                                        .build())
+                                    .mp4(Mp4.builder()
+                                        .path("/samplevideo/mp4")
+                                        .build())
+                                    .fmp4(Fmp4.builder()
+                                        .path("/samplevideo/fmp4")
+                                        .build())
+                                    .build())
+                            .profiles(java.util.List.of(
+                                TranscodeProfile.builder()
+                                    .bitrate(3000000L)
+                                    .width(1280L)
+                                    .name("720p")
+                                    .quality(23L)
+                                    .fps(30L)
+                                    .fpsDen(1L)
+                                    .gop("2")
+                                    .profile(TranscodeProfileProfile.H264_BASELINE)
+                                    .encoder(TranscodeProfileEncoder.H264)
+                                    .build()))
+                            .build();
+
+                        TranscodeVideoResponse res = sdk.transcode().create()
+                            .request(req)
+                            .call();
+
+                        if (res.task().isPresent()) {
+                            // handle response
+                        }
+                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+                        // handle exception
+                        throw e;
+                    } catch (Exception e) {
+                        // handle exception
+                        throw e;
+                    }
+                }
+            }
+  - target: $["paths"]["/stream/{id}"]["patch"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: updateStream
+          source: |-
+            package hello.world;
+
+            import java.math.BigDecimal;
+            import java.math.BigDecimal;
+            import java.math.BigInteger;
+            import java.time.LocalDate;
+            import java.time.OffsetDateTime;
+            import java.util.Optional;
+            import org.openapitools.jackson.nullable.JsonNullable;
+            import static java.util.Map.entry;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.components.*;
+            import studio.livepeer.livepeer.models.components.Security;
+            import studio.livepeer.livepeer.models.operations.*;
+            import studio.livepeer.livepeer.utils.EventStream;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+                    try {
+                        Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                            .build();
+
+                        UpdateStreamResponse res = sdk.stream().update()
                             .id("<value>")
-                            .targetId("<value>")
+                            .streamPatchPayload(StreamPatchPayload.builder()
+                                .record(false)
+                                .multistream(Multistream.builder()
+                                    .targets(java.util.List.of(
+                                        Target.builder()
+                                            .profile("720p0")
+                                            .videoOnly(false)
+                                            .id("PUSH123")
+                                            .spec(TargetSpec.builder()
+                                                .url("rtmps://live.my-service.tv/channel/secretKey")
+                                                .name("My target")
+                                                .build())
+                                            .build()))
+                                    .build())
+                                .playbackPolicy(PlaybackPolicy.builder()
+                                    .type(Type.WEBHOOK)
+                                    .webhookId("1bde4o2i6xycudoy")
+                                    .webhookContext(java.util.Map.ofEntries(
+                                        entry("streamerId", "my-custom-id")))
+                                    .refreshInterval(600d)
+                                    .build())
+                                .profiles(java.util.List.of(
+                                    FfmpegProfile.builder()
+                                        .width(1280L)
+                                        .name("720p")
+                                        .height(857478L)
+                                        .bitrate(3000000L)
+                                        .fps(30L)
+                                        .fpsDen(1L)
+                                        .quality(23L)
+                                        .gop("2")
+                                        .profile(Profile.H264_BASELINE)
+                                        .build()))
+                                .build())
                             .call();
 
                         // handle response
@@ -2619,11 +2097,11 @@ actions:
                     }
                 }
             }
-  - target: $["paths"]["/data/views/query"]["get"]
+  - target: $["paths"]["/webhook/{id}/log/{logId}/resend"]["post"]
     update:
       x-codeSamples:
         - lang: java
-          label: getViewershipMetrics
+          label: resendWebhook
           source: |-
             package hello.world;
 
@@ -2649,14 +2127,489 @@ actions:
                             .apiKey("<YOUR_BEARER_TOKEN_HERE>")
                             .build();
 
-                        GetViewershipMetricsRequest req = GetViewershipMetricsRequest.builder()
+                        ResendWebhookResponse res = sdk.webhook().resendLog()
+                            .id("<value>")
+                            .logId("<value>")
+                            .call();
+
+                        if (res.webhookLog().isPresent()) {
+                            // handle response
+                        }
+                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+                        // handle exception
+                        throw e;
+                    } catch (Exception e) {
+                        // handle exception
+                        throw e;
+                    }
+                }
+            }
+  - target: $["paths"]["/room/{id}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: deleteRoom
+          source: |-
+            package hello.world;
+
+            import java.math.BigDecimal;
+            import java.math.BigDecimal;
+            import java.math.BigInteger;
+            import java.time.LocalDate;
+            import java.time.OffsetDateTime;
+            import java.util.Optional;
+            import org.openapitools.jackson.nullable.JsonNullable;
+            import static java.util.Map.entry;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.components.*;
+            import studio.livepeer.livepeer.models.components.Security;
+            import studio.livepeer.livepeer.models.operations.*;
+            import studio.livepeer.livepeer.utils.EventStream;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+                    try {
+                        Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
                             .build();
 
-                        GetViewershipMetricsResponse res = sdk.metrics().getViewership()
+                        DeleteRoomResponse res = sdk.room().delete()
+                            .id("<value>")
+                            .call();
+
+                        // handle response
+                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+                        // handle exception
+                        throw e;
+                    } catch (Exception e) {
+                        // handle exception
+                        throw e;
+                    }
+                }
+            }
+  - target: $["paths"]["/data/views/query/total/{playbackId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getPublicViewershipMetrics
+          source: |-
+            package hello.world;
+
+            import java.math.BigDecimal;
+            import java.math.BigDecimal;
+            import java.math.BigInteger;
+            import java.time.LocalDate;
+            import java.time.OffsetDateTime;
+            import java.util.Optional;
+            import org.openapitools.jackson.nullable.JsonNullable;
+            import static java.util.Map.entry;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.components.*;
+            import studio.livepeer.livepeer.models.components.Security;
+            import studio.livepeer.livepeer.models.operations.*;
+            import studio.livepeer.livepeer.utils.EventStream;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+                    try {
+                        Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                            .build();
+
+                        GetPublicViewershipMetricsResponse res = sdk.metrics().getPublicViewership()
+                            .playbackId("<value>")
+                            .call();
+
+                        if (res.data().isPresent()) {
+                            // handle response
+                        }
+                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+                        // handle exception
+                        throw e;
+                    } catch (Exception e) {
+                        // handle exception
+                        throw e;
+                    }
+                }
+            }
+  - target: $["paths"]["/clip"]["post"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: createClip
+          source: |-
+            package hello.world;
+
+            import java.math.BigDecimal;
+            import java.math.BigDecimal;
+            import java.math.BigInteger;
+            import java.time.LocalDate;
+            import java.time.OffsetDateTime;
+            import java.util.Optional;
+            import org.openapitools.jackson.nullable.JsonNullable;
+            import static java.util.Map.entry;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.components.*;
+            import studio.livepeer.livepeer.models.components.Security;
+            import studio.livepeer.livepeer.models.operations.*;
+            import studio.livepeer.livepeer.utils.EventStream;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+                    try {
+                        Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                            .build();
+
+                        ClipPayload req = ClipPayload.builder()
+                            .playbackId("eaw4nk06ts2d0mzb")
+                            .startTime(1587667174725d)
+                            .endTime(1587667174725d)
+                            .name("My Clip")
+                            .sessionId("de7818e7-610a-4057-8f6f-b785dc1e6f88")
+                            .build();
+
+                        CreateClipResponse res = sdk.stream().createClip()
                             .request(req)
                             .call();
 
                         if (res.data().isPresent()) {
+                            // handle response
+                        }
+                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+                        // handle exception
+                        throw e;
+                    } catch (Exception e) {
+                        // handle exception
+                        throw e;
+                    }
+                }
+            }
+  - target: $["paths"]["/webhook"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getWebhooks
+          source: |-
+            package hello.world;
+
+            import java.math.BigDecimal;
+            import java.math.BigDecimal;
+            import java.math.BigInteger;
+            import java.time.LocalDate;
+            import java.time.OffsetDateTime;
+            import java.util.Optional;
+            import org.openapitools.jackson.nullable.JsonNullable;
+            import static java.util.Map.entry;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.components.*;
+            import studio.livepeer.livepeer.models.components.Security;
+            import studio.livepeer.livepeer.models.operations.*;
+            import studio.livepeer.livepeer.utils.EventStream;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+                    try {
+                        Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                            .build();
+
+                        GetWebhooksResponse res = sdk.webhook().getAll()
+                            .call();
+
+                        if (res.data().isPresent()) {
+                            // handle response
+                        }
+                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+                        // handle exception
+                        throw e;
+                    } catch (Exception e) {
+                        // handle exception
+                        throw e;
+                    }
+                }
+            }
+  - target: $["paths"]["/asset/{assetId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getAsset
+          source: |-
+            package hello.world;
+
+            import java.math.BigDecimal;
+            import java.math.BigDecimal;
+            import java.math.BigInteger;
+            import java.time.LocalDate;
+            import java.time.OffsetDateTime;
+            import java.util.Optional;
+            import org.openapitools.jackson.nullable.JsonNullable;
+            import static java.util.Map.entry;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.components.*;
+            import studio.livepeer.livepeer.models.components.Security;
+            import studio.livepeer.livepeer.models.operations.*;
+            import studio.livepeer.livepeer.utils.EventStream;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+                    try {
+                        Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                            .build();
+
+                        GetAssetResponse res = sdk.asset().get()
+                            .assetId("<value>")
+                            .call();
+
+                        if (res.asset().isPresent()) {
+                            // handle response
+                        }
+                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+                        // handle exception
+                        throw e;
+                    } catch (Exception e) {
+                        // handle exception
+                        throw e;
+                    }
+                }
+            }
+  - target: $["paths"]["/asset/{assetId}"]["patch"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: updateAsset
+          source: |-
+            package hello.world;
+
+            import java.math.BigDecimal;
+            import java.math.BigDecimal;
+            import java.math.BigInteger;
+            import java.time.LocalDate;
+            import java.time.OffsetDateTime;
+            import java.util.Optional;
+            import org.openapitools.jackson.nullable.JsonNullable;
+            import static java.util.Map.entry;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.components.*;
+            import studio.livepeer.livepeer.models.components.Security;
+            import studio.livepeer.livepeer.models.operations.*;
+            import studio.livepeer.livepeer.utils.EventStream;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+                    try {
+                        Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                            .build();
+
+                        UpdateAssetResponse res = sdk.asset().update()
+                            .assetId("<value>")
+                            .assetPatchPayload(AssetPatchPayload.builder()
+                                .name("filename.mp4")
+                                .playbackPolicy(PlaybackPolicy.builder()
+                                    .type(Type.WEBHOOK)
+                                    .webhookId("1bde4o2i6xycudoy")
+                                    .webhookContext(java.util.Map.ofEntries(
+                                        entry("streamerId", "my-custom-id")))
+                                    .refreshInterval(600d)
+                                    .build())
+                                .build())
+                            .call();
+
+                        if (res.asset().isPresent()) {
+                            // handle response
+                        }
+                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+                        // handle exception
+                        throw e;
+                    } catch (Exception e) {
+                        // handle exception
+                        throw e;
+                    }
+                }
+            }
+  - target: $["paths"]["/room/{id}/user/{userId}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: deleteRoomUser
+          source: |-
+            package hello.world;
+
+            import java.math.BigDecimal;
+            import java.math.BigDecimal;
+            import java.math.BigInteger;
+            import java.time.LocalDate;
+            import java.time.OffsetDateTime;
+            import java.util.Optional;
+            import org.openapitools.jackson.nullable.JsonNullable;
+            import static java.util.Map.entry;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.components.*;
+            import studio.livepeer.livepeer.models.components.Security;
+            import studio.livepeer.livepeer.models.operations.*;
+            import studio.livepeer.livepeer.utils.EventStream;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+                    try {
+                        Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                            .build();
+
+                        DeleteRoomUserResponse res = sdk.room().deleteUser()
+                            .id("<value>")
+                            .userId("<value>")
+                            .call();
+
+                        // handle response
+                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+                        // handle exception
+                        throw e;
+                    } catch (Exception e) {
+                        // handle exception
+                        throw e;
+                    }
+                }
+            }
+  - target: $["paths"]["/session/{id}/clips"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getSessionClips
+          source: |-
+            package hello.world;
+
+            import java.math.BigDecimal;
+            import java.math.BigDecimal;
+            import java.math.BigInteger;
+            import java.time.LocalDate;
+            import java.time.OffsetDateTime;
+            import java.util.Optional;
+            import org.openapitools.jackson.nullable.JsonNullable;
+            import static java.util.Map.entry;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.components.*;
+            import studio.livepeer.livepeer.models.components.Security;
+            import studio.livepeer.livepeer.models.operations.*;
+            import studio.livepeer.livepeer.utils.EventStream;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+                    try {
+                        Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                            .build();
+
+                        GetSessionClipsResponse res = sdk.session().getClips()
+                            .id("<value>")
+                            .call();
+
+                        if (res.data().isPresent()) {
+                            // handle response
+                        }
+                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+                        // handle exception
+                        throw e;
+                    } catch (Exception e) {
+                        // handle exception
+                        throw e;
+                    }
+                }
+            }
+  - target: $["paths"]["/playback/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getPlaybackInfo
+          source: |-
+            package hello.world;
+
+            import java.math.BigDecimal;
+            import java.math.BigDecimal;
+            import java.math.BigInteger;
+            import java.time.LocalDate;
+            import java.time.OffsetDateTime;
+            import java.util.Optional;
+            import org.openapitools.jackson.nullable.JsonNullable;
+            import static java.util.Map.entry;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.components.*;
+            import studio.livepeer.livepeer.models.components.Security;
+            import studio.livepeer.livepeer.models.operations.*;
+            import studio.livepeer.livepeer.utils.EventStream;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+                    try {
+                        Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                            .build();
+
+                        GetPlaybackInfoResponse res = sdk.playback().get()
+                            .id("<value>")
+                            .call();
+
+                        if (res.playbackInfo().isPresent()) {
+                            // handle response
+                        }
+                    } catch (studio.livepeer.livepeer.models.errors.Error e) {
+                        // handle exception
+                        throw e;
+                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+                        // handle exception
+                        throw e;
+                    } catch (Exception e) {
+                        // handle exception
+                        throw e;
+                    }
+                }
+            }
+  - target: $["paths"]["/webhook/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getWebhook
+          source: |-
+            package hello.world;
+
+            import java.math.BigDecimal;
+            import java.math.BigDecimal;
+            import java.math.BigInteger;
+            import java.time.LocalDate;
+            import java.time.OffsetDateTime;
+            import java.util.Optional;
+            import org.openapitools.jackson.nullable.JsonNullable;
+            import static java.util.Map.entry;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.components.*;
+            import studio.livepeer.livepeer.models.components.Security;
+            import studio.livepeer.livepeer.models.operations.*;
+            import studio.livepeer.livepeer.utils.EventStream;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+                    try {
+                        Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                            .build();
+
+                        GetWebhookResponse res = sdk.webhook().get()
+                            .id("<value>")
+                            .call();
+
+                        if (res.webhook().isPresent()) {
                             // handle response
                         }
                     } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
@@ -2717,11 +2670,11 @@ actions:
                     }
                 }
             }
-  - target: $["paths"]["/stream/{id}/clips"]["get"]
+  - target: $["paths"]["/room/{id}"]["get"]
     update:
       x-codeSamples:
         - lang: java
-          label: getClips
+          label: getRoom
           source: |-
             package hello.world;
 
@@ -2747,8 +2700,53 @@ actions:
                             .apiKey("<YOUR_BEARER_TOKEN_HERE>")
                             .build();
 
-                        GetClipsResponse res = sdk.stream().getClips()
+                        GetRoomResponse res = sdk.room().get()
                             .id("<value>")
+                            .call();
+
+                        if (res.room().isPresent()) {
+                            // handle response
+                        }
+                    } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+                        // handle exception
+                        throw e;
+                    } catch (Exception e) {
+                        // handle exception
+                        throw e;
+                    }
+                }
+            }
+  - target: $["paths"]["/task"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getTasks
+          source: |-
+            package hello.world;
+
+            import java.math.BigDecimal;
+            import java.math.BigDecimal;
+            import java.math.BigInteger;
+            import java.time.LocalDate;
+            import java.time.OffsetDateTime;
+            import java.util.Optional;
+            import org.openapitools.jackson.nullable.JsonNullable;
+            import static java.util.Map.entry;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.components.*;
+            import studio.livepeer.livepeer.models.components.Security;
+            import studio.livepeer.livepeer.models.operations.*;
+            import studio.livepeer.livepeer.utils.EventStream;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+                    try {
+                        Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                            .build();
+
+                        GetTasksResponse res = sdk.task().getAll()
                             .call();
 
                         if (res.data().isPresent()) {
@@ -2763,11 +2761,11 @@ actions:
                     }
                 }
             }
-  - target: $["paths"]["/asset/{assetId}"]["delete"]
+  - target: $["paths"]["/task/{taskId}"]["get"]
     update:
       x-codeSamples:
         - lang: java
-          label: deleteAsset
+          label: getTask
           source: |-
             package hello.world;
 
@@ -2793,11 +2791,13 @@ actions:
                             .apiKey("<YOUR_BEARER_TOKEN_HERE>")
                             .build();
 
-                        DeleteAssetResponse res = sdk.asset().delete()
-                            .assetId("<value>")
+                        GetTaskResponse res = sdk.task().get()
+                            .taskId("<value>")
                             .call();
 
-                        // handle response
+                        if (res.task().isPresent()) {
+                            // handle response
+                        }
                     } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
                         // handle exception
                         throw e;
