@@ -21,12 +21,17 @@ class SDKConfiguration {
     public int serverIdx = 0;
     public String language = "java";
     public String openapiDocVersion = "1.0.0";
-    public String sdkVersion = "0.2.0";
-    public String genVersion = "2.340.3";
-    public String userAgent = "speakeasy-sdk/java 0.2.0 2.340.3 1.0.0 studio.livepeer.livepeer";
+    public String sdkVersion = "0.3.0";
+    public String genVersion = "2.342.6";
+    public String userAgent = "speakeasy-sdk/java 0.3.0 2.342.6 1.0.0 studio.livepeer.livepeer";
 
-    private studio.livepeer.livepeer.utils.Hooks _hooks = new studio.livepeer.livepeer.utils.Hooks();
+    private studio.livepeer.livepeer.utils.Hooks _hooks = createHooks();
 
+    private static studio.livepeer.livepeer.utils.Hooks createHooks() {
+        studio.livepeer.livepeer.utils.Hooks hooks = new studio.livepeer.livepeer.utils.Hooks();
+        return hooks;
+    }
+    
     public studio.livepeer.livepeer.utils.Hooks hooks() {
         return _hooks;
     }

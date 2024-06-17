@@ -1,4 +1,4 @@
-speakeasyVersion: 1.306.0
+speakeasyVersion: 1.308.1
 sources:
     Livepeer:
         sourceNamespace: livepeer
@@ -8,8 +8,8 @@ sources:
             - latest
     livepeer-studio-api:
         sourceNamespace: livepeer-studio-api
-        sourceRevisionDigest: sha256:e01cf679e1076dc1cc70132aca2c0c0e4973cbeb5d6cebd8421fb37812292ffe
-        sourceBlobDigest: sha256:f3f589ac6b75a8f7b3dd45888d5d89c36a529c46b503d09b01e7b6443c9f6641
+        sourceRevisionDigest: sha256:a82f003c53514527fb80565b00e18f12a35caf6e6166f55a36bd47467d492a76
+        sourceBlobDigest: sha256:b7075420d6962db1878bfbd0269be6b8a6ff34dc16bcc395e8386c3a275cc58b
         tags:
             - latest
             - main
@@ -17,8 +17,8 @@ targets:
     livepeer-java:
         source: livepeer-studio-api
         sourceNamespace: livepeer-studio-api
-        sourceRevisionDigest: sha256:e01cf679e1076dc1cc70132aca2c0c0e4973cbeb5d6cebd8421fb37812292ffe
-        sourceBlobDigest: sha256:f3f589ac6b75a8f7b3dd45888d5d89c36a529c46b503d09b01e7b6443c9f6641
+        sourceRevisionDigest: sha256:a82f003c53514527fb80565b00e18f12a35caf6e6166f55a36bd47467d492a76
+        sourceBlobDigest: sha256:b7075420d6962db1878bfbd0269be6b8a6ff34dc16bcc395e8386c3a275cc58b
         outLocation: /github/workspace/repo
     my-first-target:
         source: Livepeer

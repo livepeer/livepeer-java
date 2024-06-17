@@ -43,6 +43,7 @@ public class Asset implements
         this.sdkConfiguration = sdkConfiguration;
     }
 
+
     /**
      * Retrieve assets
      * @return The call builder
@@ -74,7 +75,7 @@ public class Asset implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getAssets", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getAssets", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -82,18 +83,18 @@ public class Asset implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getAssets", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getAssets", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getAssets", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getAssets", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getAssets", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getAssets", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -154,6 +155,7 @@ public class Asset implements
             "Unexpected status code received: " + _httpRes.statusCode(), 
             Utils.toByteArrayAndClose(_httpRes.body()));
     }
+
 
 
     /**
@@ -341,7 +343,7 @@ public class Asset implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("requestUpload", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("requestUpload", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -349,18 +351,18 @@ public class Asset implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("requestUpload", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("requestUpload", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("requestUpload", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("requestUpload", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("requestUpload", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("requestUpload", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -423,6 +425,7 @@ public class Asset implements
     }
 
 
+
     /**
      * Upload asset via URL
      * @return The call builder
@@ -464,7 +467,7 @@ public class Asset implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("uploadAsset", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("uploadAsset", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -472,18 +475,18 @@ public class Asset implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("uploadAsset", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("uploadAsset", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("uploadAsset", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("uploadAsset", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("uploadAsset", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("uploadAsset", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -561,6 +564,7 @@ public class Asset implements
     }
 
 
+
     /**
      * Retrieves an asset
      * @return The call builder
@@ -602,7 +606,7 @@ public class Asset implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getAsset", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getAsset", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -610,18 +614,18 @@ public class Asset implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getAsset", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getAsset", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getAsset", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getAsset", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getAsset", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getAsset", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -684,6 +688,7 @@ public class Asset implements
     }
 
 
+
     /**
      * Patch an asset
      * @return The call builder
@@ -736,7 +741,7 @@ public class Asset implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("updateAsset", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("updateAsset", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -744,18 +749,18 @@ public class Asset implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("updateAsset", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("updateAsset", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("updateAsset", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("updateAsset", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("updateAsset", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("updateAsset", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -818,6 +823,7 @@ public class Asset implements
     }
 
 
+
     /**
      * Delete an asset
      * @return The call builder
@@ -859,7 +865,7 @@ public class Asset implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("deleteAsset", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("deleteAsset", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -867,18 +873,18 @@ public class Asset implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("deleteAsset", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("deleteAsset", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("deleteAsset", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("deleteAsset", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("deleteAsset", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("deleteAsset", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }

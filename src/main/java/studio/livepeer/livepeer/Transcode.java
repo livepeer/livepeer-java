@@ -38,6 +38,7 @@ public class Transcode implements
         this.sdkConfiguration = sdkConfiguration;
     }
 
+
     /**
      * Transcode a video
      * `POST /transcode` transcodes a video file and uploads the results to the
@@ -323,7 +324,7 @@ public class Transcode implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("transcodeVideo", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("transcodeVideo", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -331,18 +332,18 @@ public class Transcode implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("transcodeVideo", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("transcodeVideo", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("transcodeVideo", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("transcodeVideo", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("transcodeVideo", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("transcodeVideo", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }

@@ -12,19 +12,21 @@ For full documentation and examples, please visit [docs.livepeer.org](https://do
 
 ### Getting started
 
+JDK 11 or later is required.
+
 The samples below show how a published SDK artifact is used:
 
 Gradle:
 ```groovy
-implementation 'studio.livepeer.livepeer:openapi:0.2.0'
+implementation 'studio.livepeer:livepeer:0.3.0'
 ```
 
 Maven:
 ```xml
 <dependency>
-    <groupId>studio.livepeer.livepeer</groupId>
-    <artifactId>openapi</artifactId>
-    <version>0.2.0</version>
+    <groupId>studio.livepeer</groupId>
+    <artifactId>livepeer</artifactId>
+    <version>0.3.0</version>
 </dependency>
 ```
 

@@ -37,6 +37,7 @@ public class Playback implements
         this.sdkConfiguration = sdkConfiguration;
     }
 
+
     /**
      * Retrieve Playback Info
      * @return The call builder
@@ -78,7 +79,7 @@ public class Playback implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getPlaybackInfo", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getPlaybackInfo", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -86,18 +87,18 @@ public class Playback implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "404", "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getPlaybackInfo", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getPlaybackInfo", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getPlaybackInfo", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getPlaybackInfo", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getPlaybackInfo", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getPlaybackInfo", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }

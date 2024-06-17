@@ -41,6 +41,7 @@ public class Metrics implements
         this.sdkConfiguration = sdkConfiguration;
     }
 
+
     /**
      * Query viewership metrics
      * Requires a private (non-CORS) API key to be used.
@@ -83,7 +84,7 @@ public class Metrics implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getViewershipMetrics", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getViewershipMetrics", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -91,18 +92,18 @@ public class Metrics implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getViewershipMetrics", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getViewershipMetrics", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getViewershipMetrics", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getViewershipMetrics", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getViewershipMetrics", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getViewershipMetrics", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -165,6 +166,7 @@ public class Metrics implements
     }
 
 
+
     /**
      * Query creator viewership metrics
      * Requires a proof of ownership to be sent in the request, which for now is just the assetId or streamId parameters (1 of those must be in the query-string).
@@ -207,7 +209,7 @@ public class Metrics implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getCreatorViewershipMetrics", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getCreatorViewershipMetrics", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -215,18 +217,18 @@ public class Metrics implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getCreatorViewershipMetrics", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getCreatorViewershipMetrics", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getCreatorViewershipMetrics", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getCreatorViewershipMetrics", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getCreatorViewershipMetrics", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getCreatorViewershipMetrics", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -289,6 +291,7 @@ public class Metrics implements
     }
 
 
+
     /**
      * Query public total views metrics
      * Allows querying for the public metrics for viewership about a video.
@@ -341,7 +344,7 @@ public class Metrics implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getPublicViewershipMetrics", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getPublicViewershipMetrics", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -349,18 +352,18 @@ public class Metrics implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getPublicViewershipMetrics", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getPublicViewershipMetrics", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getPublicViewershipMetrics", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getPublicViewershipMetrics", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getPublicViewershipMetrics", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getPublicViewershipMetrics", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -423,6 +426,7 @@ public class Metrics implements
     }
 
 
+
     /**
      * Query usage metrics
      * @return The call builder
@@ -461,7 +465,7 @@ public class Metrics implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getUsageMetrics", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getUsageMetrics", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -469,18 +473,18 @@ public class Metrics implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getUsageMetrics", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getUsageMetrics", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getUsageMetrics", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getUsageMetrics", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getUsageMetrics", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getUsageMetrics", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
