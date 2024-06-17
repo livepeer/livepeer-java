@@ -38,6 +38,7 @@ public class Task implements
         this.sdkConfiguration = sdkConfiguration;
     }
 
+
     /**
      * Retrieve Tasks
      * @return The call builder
@@ -69,7 +70,7 @@ public class Task implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getTasks", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getTasks", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -77,18 +78,18 @@ public class Task implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getTasks", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getTasks", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getTasks", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getTasks", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getTasks", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getTasks", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -151,6 +152,7 @@ public class Task implements
     }
 
 
+
     /**
      * Retrieve a Task
      * @return The call builder
@@ -192,7 +194,7 @@ public class Task implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getTask", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getTask", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -200,18 +202,18 @@ public class Task implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getTask", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getTask", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getTask", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getTask", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getTask", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getTask", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }

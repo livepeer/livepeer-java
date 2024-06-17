@@ -45,6 +45,7 @@ public class Webhook implements
         this.sdkConfiguration = sdkConfiguration;
     }
 
+
     /**
      * Retrieve a Webhook
      * @return The call builder
@@ -76,7 +77,7 @@ public class Webhook implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getWebhooks", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getWebhooks", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -84,18 +85,18 @@ public class Webhook implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getWebhooks", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getWebhooks", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getWebhooks", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getWebhooks", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getWebhooks", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getWebhooks", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -158,6 +159,7 @@ public class Webhook implements
     }
 
 
+
     /**
      * Create a webhook
      * To create a new webhook, you need to make an API call with the events you want to listen for and the URL that will be called when those events occur.
@@ -203,7 +205,7 @@ public class Webhook implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("createWebhook", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("createWebhook", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -211,18 +213,18 @@ public class Webhook implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("createWebhook", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("createWebhook", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("createWebhook", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("createWebhook", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("createWebhook", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("createWebhook", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -285,6 +287,7 @@ public class Webhook implements
     }
 
 
+
     /**
      * Retrieve a webhook
      * @return The call builder
@@ -326,7 +329,7 @@ public class Webhook implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getWebhook", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getWebhook", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -334,18 +337,18 @@ public class Webhook implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getWebhook", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getWebhook", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getWebhook", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getWebhook", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getWebhook", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getWebhook", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -408,6 +411,7 @@ public class Webhook implements
     }
 
 
+
     /**
      * Update a webhook
      * @return The call builder
@@ -460,7 +464,7 @@ public class Webhook implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("updateWebhook", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("updateWebhook", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -468,18 +472,18 @@ public class Webhook implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("updateWebhook", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("updateWebhook", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("updateWebhook", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("updateWebhook", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("updateWebhook", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("updateWebhook", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -542,6 +546,7 @@ public class Webhook implements
     }
 
 
+
     /**
      * Delete a webhook
      * @return The call builder
@@ -583,7 +588,7 @@ public class Webhook implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("deleteWebhook", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("deleteWebhook", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -591,18 +596,18 @@ public class Webhook implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("deleteWebhook", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("deleteWebhook", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("deleteWebhook", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("deleteWebhook", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("deleteWebhook", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("deleteWebhook", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -665,6 +670,7 @@ public class Webhook implements
     }
 
 
+
     /**
      * Retrieve webhook logs
      * @return The call builder
@@ -706,7 +712,7 @@ public class Webhook implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getWebhookLogs", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getWebhookLogs", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -714,18 +720,18 @@ public class Webhook implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getWebhookLogs", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getWebhookLogs", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getWebhookLogs", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getWebhookLogs", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getWebhookLogs", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getWebhookLogs", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -788,6 +794,7 @@ public class Webhook implements
     }
 
 
+
     /**
      * Retrieve a webhook log
      * @return The call builder
@@ -832,7 +839,7 @@ public class Webhook implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getWebhookLog", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getWebhookLog", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -840,18 +847,18 @@ public class Webhook implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getWebhookLog", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getWebhookLog", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getWebhookLog", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getWebhookLog", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getWebhookLog", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getWebhookLog", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -914,6 +921,7 @@ public class Webhook implements
     }
 
 
+
     /**
      * Resend a webhook
      * Use this API to resend the same webhook request. This is useful when
@@ -966,7 +974,7 @@ public class Webhook implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("resendWebhook", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("resendWebhook", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -974,18 +982,18 @@ public class Webhook implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("resendWebhook", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("resendWebhook", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("resendWebhook", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("resendWebhook", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("resendWebhook", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("resendWebhook", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }

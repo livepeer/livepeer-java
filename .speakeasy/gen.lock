@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: b4f7f2df-6c4d-4150-a18f-8b74fe44eb22
 management:
-  docChecksum: ff2202a25732837028e6242ecc0ab673
+  docChecksum: 542222dd6207ab2554389496b78b5e76
   docVersion: 1.0.0
-  speakeasyVersion: 1.305.0
-  generationVersion: 2.340.3
-  releaseVersion: 0.2.0
-  configChecksum: 540d8e419c6024bd9e5e533cef90caac
+  speakeasyVersion: 1.308.1
+  generationVersion: 2.342.6
+  releaseVersion: 0.3.0
+  configChecksum: f44218f4ba6cddd58e0635faecf3747e
   repoURL: https://github.com/livepeer/livepeer-java.git
 features:
   java:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.1
-    core: 3.22.0
+    core: 3.23.2
     deprecations: 2.81.1
     flattening: 2.81.1
     globalSecurity: 2.82.5
@@ -115,6 +115,7 @@ generatedFiles:
   - src/main/java/studio/livepeer/livepeer/utils/HTTPClient.java
   - src/main/java/studio/livepeer/livepeer/utils/HTTPRequest.java
   - src/main/java/studio/livepeer/livepeer/utils/HeaderMetadata.java
+  - src/main/java/studio/livepeer/livepeer/utils/Helpers.java
   - src/main/java/studio/livepeer/livepeer/utils/Hook.java
   - src/main/java/studio/livepeer/livepeer/utils/Hooks.java
   - src/main/java/studio/livepeer/livepeer/utils/JSON.java
@@ -139,6 +140,7 @@ generatedFiles:
   - src/main/java/studio/livepeer/livepeer/utils/TypedObject.java
   - src/main/java/studio/livepeer/livepeer/utils/Types.java
   - src/main/java/studio/livepeer/livepeer/utils/Utils.java
+  - src/main/java/studio/livepeer/livepeer/models/errors/AuthException.java
   - src/main/java/studio/livepeer/livepeer/models/errors/SDKError.java
   - src/main/java/studio/livepeer/livepeer/models/operations/CreateStreamResponse.java
   - src/main/java/studio/livepeer/livepeer/models/operations/GetStreamsRequest.java

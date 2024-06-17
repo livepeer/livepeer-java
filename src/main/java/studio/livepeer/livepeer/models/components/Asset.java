@@ -74,6 +74,17 @@ public class Asset {
     @JsonProperty("creatorId")
     private Optional<? extends CreatorId> creatorId;
 
+    /**
+     * Requested profiles for the asset to be transcoded into. Currently
+     * only supported for livestream recording assets, configured through
+     * the `stream.recordingSpec` field. If this is not present it means
+     * that default profiles were derived from the input metadata.
+     * 
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("profiles")
+    private Optional<? extends java.util.List<FfmpegProfile>> profiles;
+
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("storage")
     private Optional<? extends AssetStorage> storage;
@@ -145,6 +156,7 @@ public class Asset {
             @JsonProperty("playbackPolicy") JsonNullable<? extends PlaybackPolicy> playbackPolicy,
             @JsonProperty("source") Source source,
             @JsonProperty("creatorId") Optional<? extends CreatorId> creatorId,
+            @JsonProperty("profiles") Optional<? extends java.util.List<FfmpegProfile>> profiles,
             @JsonProperty("storage") Optional<? extends AssetStorage> storage,
             @JsonProperty("status") Optional<? extends AssetStatus> status,
             @JsonProperty("name") String name,
@@ -163,6 +175,7 @@ public class Asset {
         Utils.checkNotNull(playbackPolicy, "playbackPolicy");
         Utils.checkNotNull(source, "source");
         Utils.checkNotNull(creatorId, "creatorId");
+        Utils.checkNotNull(profiles, "profiles");
         Utils.checkNotNull(storage, "storage");
         Utils.checkNotNull(status, "status");
         Utils.checkNotNull(name, "name");
@@ -181,6 +194,7 @@ public class Asset {
         this.playbackPolicy = playbackPolicy;
         this.source = source;
         this.creatorId = creatorId;
+        this.profiles = profiles;
         this.storage = storage;
         this.status = status;
         this.name = name;
@@ -196,7 +210,7 @@ public class Asset {
             String id,
             Source source,
             String name) {
-        this(id, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), JsonNullable.undefined(), source, Optional.empty(), Optional.empty(), Optional.empty(), name, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), JsonNullable.undefined(), Optional.empty());
+        this(id, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), JsonNullable.undefined(), source, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), name, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), JsonNullable.undefined(), Optional.empty());
     }
 
     @JsonIgnore
@@ -268,6 +282,19 @@ public class Asset {
     @JsonIgnore
     public Optional<CreatorId> creatorId() {
         return (Optional<CreatorId>) creatorId;
+    }
+
+    /**
+     * Requested profiles for the asset to be transcoded into. Currently
+     * only supported for livestream recording assets, configured through
+     * the `stream.recordingSpec` field. If this is not present it means
+     * that default profiles were derived from the input metadata.
+     * 
+     */
+    @SuppressWarnings("unchecked")
+    @JsonIgnore
+    public Optional<java.util.List<FfmpegProfile>> profiles() {
+        return (Optional<java.util.List<FfmpegProfile>>) profiles;
     }
 
     @SuppressWarnings("unchecked")
@@ -486,6 +513,32 @@ public class Asset {
         return this;
     }
 
+    /**
+     * Requested profiles for the asset to be transcoded into. Currently
+     * only supported for livestream recording assets, configured through
+     * the `stream.recordingSpec` field. If this is not present it means
+     * that default profiles were derived from the input metadata.
+     * 
+     */
+    public Asset withProfiles(java.util.List<FfmpegProfile> profiles) {
+        Utils.checkNotNull(profiles, "profiles");
+        this.profiles = Optional.ofNullable(profiles);
+        return this;
+    }
+
+    /**
+     * Requested profiles for the asset to be transcoded into. Currently
+     * only supported for livestream recording assets, configured through
+     * the `stream.recordingSpec` field. If this is not present it means
+     * that default profiles were derived from the input metadata.
+     * 
+     */
+    public Asset withProfiles(Optional<? extends java.util.List<FfmpegProfile>> profiles) {
+        Utils.checkNotNull(profiles, "profiles");
+        this.profiles = profiles;
+        return this;
+    }
+
     public Asset withStorage(AssetStorage storage) {
         Utils.checkNotNull(storage, "storage");
         this.storage = Optional.ofNullable(storage);
@@ -653,6 +706,7 @@ public class Asset {
             java.util.Objects.deepEquals(this.playbackPolicy, other.playbackPolicy) &&
             java.util.Objects.deepEquals(this.source, other.source) &&
             java.util.Objects.deepEquals(this.creatorId, other.creatorId) &&
+            java.util.Objects.deepEquals(this.profiles, other.profiles) &&
             java.util.Objects.deepEquals(this.storage, other.storage) &&
             java.util.Objects.deepEquals(this.status, other.status) &&
             java.util.Objects.deepEquals(this.name, other.name) &&
@@ -676,6 +730,7 @@ public class Asset {
             playbackPolicy,
             source,
             creatorId,
+            profiles,
             storage,
             status,
             name,
@@ -699,6 +754,7 @@ public class Asset {
                 "playbackPolicy", playbackPolicy,
                 "source", source,
                 "creatorId", creatorId,
+                "profiles", profiles,
                 "storage", storage,
                 "status", status,
                 "name", name,
@@ -730,6 +786,8 @@ public class Asset {
         private Source source;
  
         private Optional<? extends CreatorId> creatorId = Optional.empty();
+ 
+        private Optional<? extends java.util.List<FfmpegProfile>> profiles = Optional.empty();
  
         private Optional<? extends AssetStorage> storage = Optional.empty();
  
@@ -884,6 +942,32 @@ public class Asset {
         public Builder creatorId(Optional<? extends CreatorId> creatorId) {
             Utils.checkNotNull(creatorId, "creatorId");
             this.creatorId = creatorId;
+            return this;
+        }
+
+        /**
+         * Requested profiles for the asset to be transcoded into. Currently
+         * only supported for livestream recording assets, configured through
+         * the `stream.recordingSpec` field. If this is not present it means
+         * that default profiles were derived from the input metadata.
+         * 
+         */
+        public Builder profiles(java.util.List<FfmpegProfile> profiles) {
+            Utils.checkNotNull(profiles, "profiles");
+            this.profiles = Optional.ofNullable(profiles);
+            return this;
+        }
+
+        /**
+         * Requested profiles for the asset to be transcoded into. Currently
+         * only supported for livestream recording assets, configured through
+         * the `stream.recordingSpec` field. If this is not present it means
+         * that default profiles were derived from the input metadata.
+         * 
+         */
+        public Builder profiles(Optional<? extends java.util.List<FfmpegProfile>> profiles) {
+            Utils.checkNotNull(profiles, "profiles");
+            this.profiles = profiles;
             return this;
         }
 
@@ -1046,6 +1130,7 @@ public class Asset {
                 playbackPolicy,
                 source,
                 creatorId,
+                profiles,
                 storage,
                 status,
                 name,

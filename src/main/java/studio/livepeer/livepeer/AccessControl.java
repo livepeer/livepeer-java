@@ -42,6 +42,7 @@ public class AccessControl implements
         this.sdkConfiguration = sdkConfiguration;
     }
 
+
     /**
      * Create a signing key
      * The publicKey is a representation of the public key, encoded as base 64 and is passed as a string, and  the privateKey is displayed only on creation. This is the only moment where the client can save the private key, otherwise it will be lost. Remember to decode your string when signing JWTs.
@@ -79,7 +80,7 @@ public class AccessControl implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("createSigningKey", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("createSigningKey", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -87,18 +88,18 @@ public class AccessControl implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("createSigningKey", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("createSigningKey", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("createSigningKey", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("createSigningKey", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("createSigningKey", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("createSigningKey", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -161,6 +162,7 @@ public class AccessControl implements
     }
 
 
+
     /**
      * Retrieves signing keys
      * @return The call builder
@@ -192,7 +194,7 @@ public class AccessControl implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getSigningKeys", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getSigningKeys", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -200,18 +202,18 @@ public class AccessControl implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getSigningKeys", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getSigningKeys", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getSigningKeys", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getSigningKeys", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getSigningKeys", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getSigningKeys", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -274,6 +276,7 @@ public class AccessControl implements
     }
 
 
+
     /**
      * Delete Signing Key
      * @return The call builder
@@ -315,7 +318,7 @@ public class AccessControl implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("deleteSigningKey", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("deleteSigningKey", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -323,18 +326,18 @@ public class AccessControl implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("deleteSigningKey", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("deleteSigningKey", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("deleteSigningKey", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("deleteSigningKey", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("deleteSigningKey", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("deleteSigningKey", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -386,6 +389,7 @@ public class AccessControl implements
     }
 
 
+
     /**
      * Retrieves a signing key
      * @return The call builder
@@ -427,7 +431,7 @@ public class AccessControl implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getSigningKey", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getSigningKey", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -435,18 +439,18 @@ public class AccessControl implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getSigningKey", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getSigningKey", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getSigningKey", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getSigningKey", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getSigningKey", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getSigningKey", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -509,6 +513,7 @@ public class AccessControl implements
     }
 
 
+
     /**
      * Update a signing key
      * @return The call builder
@@ -561,7 +566,7 @@ public class AccessControl implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("updateSigningKey", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("updateSigningKey", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -569,18 +574,18 @@ public class AccessControl implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("updateSigningKey", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("updateSigningKey", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("updateSigningKey", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("updateSigningKey", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("updateSigningKey", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("updateSigningKey", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }

@@ -46,6 +46,7 @@ public class Room implements
         this.sdkConfiguration = sdkConfiguration;
     }
 
+
     /**
      * Create a room
      * Create a multiparticipant livestreaming room.
@@ -85,7 +86,7 @@ public class Room implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("createRoom", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("createRoom", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -93,18 +94,18 @@ public class Room implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("createRoom", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("createRoom", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("createRoom", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("createRoom", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("createRoom", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("createRoom", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -167,6 +168,7 @@ public class Room implements
     }
 
 
+
     /**
      * Retrieve a room
      * @return The call builder
@@ -212,7 +214,7 @@ public class Room implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getRoom", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getRoom", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -220,18 +222,18 @@ public class Room implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getRoom", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getRoom", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getRoom", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getRoom", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getRoom", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getRoom", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -294,6 +296,7 @@ public class Room implements
     }
 
 
+
     /**
      * Delete a room
      * @return The call builder
@@ -339,7 +342,7 @@ public class Room implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("deleteRoom", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("deleteRoom", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -347,18 +350,18 @@ public class Room implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("deleteRoom", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("deleteRoom", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("deleteRoom", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("deleteRoom", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("deleteRoom", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("deleteRoom", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -408,6 +411,7 @@ public class Room implements
             "Unexpected status code received: " + _httpRes.statusCode(), 
             Utils.toByteArrayAndClose(_httpRes.body()));
     }
+
 
 
     /**
@@ -472,7 +476,7 @@ public class Room implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("startRoomEgress", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("startRoomEgress", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -480,18 +484,18 @@ public class Room implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("startRoomEgress", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("startRoomEgress", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("startRoomEgress", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("startRoomEgress", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("startRoomEgress", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("startRoomEgress", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -543,6 +547,7 @@ public class Room implements
     }
 
 
+
     /**
      * Stop room RTMP egress
      * @return The call builder
@@ -588,7 +593,7 @@ public class Room implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("stopRoomEgress", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("stopRoomEgress", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -596,18 +601,18 @@ public class Room implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("stopRoomEgress", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("stopRoomEgress", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("stopRoomEgress", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("stopRoomEgress", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("stopRoomEgress", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("stopRoomEgress", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -657,6 +662,7 @@ public class Room implements
             "Unexpected status code received: " + _httpRes.statusCode(), 
             Utils.toByteArrayAndClose(_httpRes.body()));
     }
+
 
 
     /**
@@ -723,7 +729,7 @@ public class Room implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("createRoomUser", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("createRoomUser", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -731,18 +737,18 @@ public class Room implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("createRoomUser", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("createRoomUser", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("createRoomUser", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("createRoomUser", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("createRoomUser", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("createRoomUser", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -805,6 +811,7 @@ public class Room implements
     }
 
 
+
     /**
      * Get user details
      * @return The call builder
@@ -853,7 +860,7 @@ public class Room implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getRoomUser", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getRoomUser", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -861,18 +868,18 @@ public class Room implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getRoomUser", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getRoomUser", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getRoomUser", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getRoomUser", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getRoomUser", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getRoomUser", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -933,6 +940,7 @@ public class Room implements
             "Unexpected status code received: " + _httpRes.statusCode(), 
             Utils.toByteArrayAndClose(_httpRes.body()));
     }
+
 
 
     /**
@@ -996,7 +1004,7 @@ public class Room implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("updateRoomUser", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("updateRoomUser", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -1004,18 +1012,18 @@ public class Room implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("updateRoomUser", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("updateRoomUser", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("updateRoomUser", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("updateRoomUser", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("updateRoomUser", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("updateRoomUser", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -1067,6 +1075,7 @@ public class Room implements
     }
 
 
+
     /**
      * Remove a user from the room
      * @return The call builder
@@ -1115,7 +1124,7 @@ public class Room implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("deleteRoomUser", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("deleteRoomUser", Optional.empty(), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -1123,18 +1132,18 @@ public class Room implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("deleteRoomUser", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("deleteRoomUser", Optional.empty(), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("deleteRoomUser", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("deleteRoomUser", Optional.empty(), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("deleteRoomUser", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("deleteRoomUser", Optional.empty(), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
