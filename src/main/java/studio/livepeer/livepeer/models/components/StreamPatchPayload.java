@@ -56,6 +56,10 @@ public class StreamPatchPayload {
     @JsonProperty("profiles")
     private JsonNullable<? extends java.util.List<FfmpegProfile>> profiles;
 
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("recordingSpec")
+    private Optional<? extends RecordingSpec> recordingSpec;
+
     /**
      * User input tags associated with the stream
      */
@@ -71,6 +75,7 @@ public class StreamPatchPayload {
             @JsonProperty("multistream") Optional<? extends Multistream> multistream,
             @JsonProperty("playbackPolicy") JsonNullable<? extends PlaybackPolicy> playbackPolicy,
             @JsonProperty("profiles") JsonNullable<? extends java.util.List<FfmpegProfile>> profiles,
+            @JsonProperty("recordingSpec") Optional<? extends RecordingSpec> recordingSpec,
             @JsonProperty("userTags") Optional<? extends java.util.Map<String, UserTags>> userTags) {
         Utils.checkNotNull(creatorId, "creatorId");
         Utils.checkNotNull(record, "record");
@@ -78,6 +83,7 @@ public class StreamPatchPayload {
         Utils.checkNotNull(multistream, "multistream");
         Utils.checkNotNull(playbackPolicy, "playbackPolicy");
         Utils.checkNotNull(profiles, "profiles");
+        Utils.checkNotNull(recordingSpec, "recordingSpec");
         Utils.checkNotNull(userTags, "userTags");
         this.creatorId = creatorId;
         this.record = record;
@@ -85,11 +91,12 @@ public class StreamPatchPayload {
         this.multistream = multistream;
         this.playbackPolicy = playbackPolicy;
         this.profiles = profiles;
+        this.recordingSpec = recordingSpec;
         this.userTags = userTags;
     }
     
     public StreamPatchPayload() {
-        this(Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), JsonNullable.undefined(), JsonNullable.undefined(), Optional.empty());
+        this(Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), JsonNullable.undefined(), JsonNullable.undefined(), Optional.empty(), Optional.empty());
     }
 
     @SuppressWarnings("unchecked")
@@ -137,6 +144,12 @@ public class StreamPatchPayload {
     @JsonIgnore
     public JsonNullable<java.util.List<FfmpegProfile>> profiles() {
         return (JsonNullable<java.util.List<FfmpegProfile>>) profiles;
+    }
+
+    @SuppressWarnings("unchecked")
+    @JsonIgnore
+    public Optional<RecordingSpec> recordingSpec() {
+        return (Optional<RecordingSpec>) recordingSpec;
     }
 
     /**
@@ -246,6 +259,18 @@ public class StreamPatchPayload {
         return this;
     }
 
+    public StreamPatchPayload withRecordingSpec(RecordingSpec recordingSpec) {
+        Utils.checkNotNull(recordingSpec, "recordingSpec");
+        this.recordingSpec = Optional.ofNullable(recordingSpec);
+        return this;
+    }
+
+    public StreamPatchPayload withRecordingSpec(Optional<? extends RecordingSpec> recordingSpec) {
+        Utils.checkNotNull(recordingSpec, "recordingSpec");
+        this.recordingSpec = recordingSpec;
+        return this;
+    }
+
     /**
      * User input tags associated with the stream
      */
@@ -280,6 +305,7 @@ public class StreamPatchPayload {
             java.util.Objects.deepEquals(this.multistream, other.multistream) &&
             java.util.Objects.deepEquals(this.playbackPolicy, other.playbackPolicy) &&
             java.util.Objects.deepEquals(this.profiles, other.profiles) &&
+            java.util.Objects.deepEquals(this.recordingSpec, other.recordingSpec) &&
             java.util.Objects.deepEquals(this.userTags, other.userTags);
     }
     
@@ -292,6 +318,7 @@ public class StreamPatchPayload {
             multistream,
             playbackPolicy,
             profiles,
+            recordingSpec,
             userTags);
     }
     
@@ -304,6 +331,7 @@ public class StreamPatchPayload {
                 "multistream", multistream,
                 "playbackPolicy", playbackPolicy,
                 "profiles", profiles,
+                "recordingSpec", recordingSpec,
                 "userTags", userTags);
     }
     
@@ -320,6 +348,8 @@ public class StreamPatchPayload {
         private JsonNullable<? extends PlaybackPolicy> playbackPolicy = JsonNullable.undefined();
  
         private JsonNullable<? extends java.util.List<FfmpegProfile>> profiles = JsonNullable.undefined();
+ 
+        private Optional<? extends RecordingSpec> recordingSpec = Optional.empty();
  
         private Optional<? extends java.util.Map<String, UserTags>> userTags = Optional.empty();  
         
@@ -421,6 +451,18 @@ public class StreamPatchPayload {
             return this;
         }
 
+        public Builder recordingSpec(RecordingSpec recordingSpec) {
+            Utils.checkNotNull(recordingSpec, "recordingSpec");
+            this.recordingSpec = Optional.ofNullable(recordingSpec);
+            return this;
+        }
+
+        public Builder recordingSpec(Optional<? extends RecordingSpec> recordingSpec) {
+            Utils.checkNotNull(recordingSpec, "recordingSpec");
+            this.recordingSpec = recordingSpec;
+            return this;
+        }
+
         /**
          * User input tags associated with the stream
          */
@@ -447,6 +489,7 @@ public class StreamPatchPayload {
                 multistream,
                 playbackPolicy,
                 profiles,
+                recordingSpec,
                 userTags);
         }
     }

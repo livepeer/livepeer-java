@@ -60,6 +60,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -67,12 +68,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetWebhooksResponse>](../../models/operations/GetWebhooksResponse.md)**
+**[studio.livepeer.livepeer.models.operations.GetWebhooksResponse](../../models/operations/GetWebhooksResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## create
 
@@ -131,6 +132,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -144,12 +146,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.CreateWebhookResponse>](../../models/operations/CreateWebhookResponse.md)**
+**[studio.livepeer.livepeer.models.operations.CreateWebhookResponse](../../models/operations/CreateWebhookResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## get
 
@@ -196,6 +198,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -209,12 +212,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetWebhookResponse>](../../models/operations/GetWebhookResponse.md)**
+**[studio.livepeer.livepeer.models.operations.GetWebhookResponse](../../models/operations/GetWebhookResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## update
 
@@ -271,6 +274,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -285,12 +289,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.UpdateWebhookResponse>](../../models/operations/UpdateWebhookResponse.md)**
+**[studio.livepeer.livepeer.models.operations.UpdateWebhookResponse](../../models/operations/UpdateWebhookResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## delete
 
@@ -337,6 +341,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -350,12 +355,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.DeleteWebhookResponse>](../../models/operations/DeleteWebhookResponse.md)**
+**[studio.livepeer.livepeer.models.operations.DeleteWebhookResponse](../../models/operations/DeleteWebhookResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## getLogs
 
@@ -402,6 +407,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -415,12 +421,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetWebhookLogsResponse>](../../models/operations/GetWebhookLogsResponse.md)**
+**[studio.livepeer.livepeer.models.operations.GetWebhookLogsResponse](../../models/operations/GetWebhookLogsResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## getLog
 
@@ -468,6 +474,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -482,12 +489,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetWebhookLogResponse>](../../models/operations/GetWebhookLogResponse.md)**
+**[studio.livepeer.livepeer.models.operations.GetWebhookLogResponse](../../models/operations/GetWebhookLogResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## resendLog
 
@@ -538,6 +545,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -552,9 +560,9 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.ResendWebhookResponse>](../../models/operations/ResendWebhookResponse.md)**
+**[studio.livepeer.livepeer.models.operations.ResendWebhookResponse](../../models/operations/ResendWebhookResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |

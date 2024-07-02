@@ -83,7 +83,7 @@ public class Session implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getSessionClips", Optional.empty(), sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getSessionClips", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -91,18 +91,18 @@ public class Session implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getSessionClips", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getSessionClips", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getSessionClips", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getSessionClips", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getSessionClips", Optional.empty(), sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getSessionClips", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -197,7 +197,7 @@ public class Session implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getSessions", Optional.empty(), sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getSessions", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -205,18 +205,18 @@ public class Session implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getSessions", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getSessions", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getSessions", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getSessions", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getSessions", Optional.empty(), sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getSessions", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -321,7 +321,7 @@ public class Session implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getSession", Optional.empty(), sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getSession", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -329,18 +329,18 @@ public class Session implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getSession", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getSession", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getSession", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getSession", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getSession", Optional.empty(), sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getSession", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -465,7 +465,7 @@ public class Session implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getRecordedSessions", Optional.empty(), sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getRecordedSessions", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -473,18 +473,18 @@ public class Session implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getRecordedSessions", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getRecordedSessions", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getRecordedSessions", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getRecordedSessions", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getRecordedSessions", Optional.empty(), sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getRecordedSessions", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }

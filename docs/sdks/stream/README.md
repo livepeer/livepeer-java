@@ -94,18 +94,18 @@ public class Application {
                         .profile(Profile.H264_BASELINE)
                         .build()))
                 .record(false)
-                .recordingSpec(RecordingSpec.builder()
+                .recordingSpec(NewStreamPayloadRecordingSpec.builder()
                     .profiles(java.util.List.of(
-                        FfmpegProfile.builder()
+                        TranscodeProfile.builder()
+                            .bitrate(3000000L)
                             .width(1280L)
                             .name("720p")
-                            .height(489382L)
-                            .bitrate(3000000L)
+                            .quality(23L)
                             .fps(30L)
                             .fpsDen(1L)
-                            .quality(23L)
                             .gop("2")
-                            .profile(Profile.H264_BASELINE)
+                            .profile(TranscodeProfileProfile.H264_BASELINE)
+                            .encoder(TranscodeProfileEncoder.H264)
                             .build()))
                     .build())
                 .multistream(Multistream.builder()
@@ -136,6 +136,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -149,12 +150,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.CreateStreamResponse>](../../models/operations/CreateStreamResponse.md)**
+**[studio.livepeer.livepeer.models.operations.CreateStreamResponse](../../models/operations/CreateStreamResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## getAll
 
@@ -201,6 +202,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -214,12 +216,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetStreamsResponse>](../../models/operations/GetStreamsResponse.md)**
+**[studio.livepeer.livepeer.models.operations.GetStreamsResponse](../../models/operations/GetStreamsResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## get
 
@@ -266,6 +268,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -279,12 +282,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetStreamResponse>](../../models/operations/GetStreamResponse.md)**
+**[studio.livepeer.livepeer.models.operations.GetStreamResponse](../../models/operations/GetStreamResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## update
 
@@ -352,6 +355,20 @@ public class Application {
                             .gop("2")
                             .profile(Profile.H264_BASELINE)
                             .build()))
+                    .recordingSpec(RecordingSpec.builder()
+                        .profiles(java.util.List.of(
+                            TranscodeProfile.builder()
+                                .bitrate(3000000L)
+                                .width(1280L)
+                                .name("720p")
+                                .quality(23L)
+                                .fps(30L)
+                                .fpsDen(1L)
+                                .gop("2")
+                                .profile(TranscodeProfileProfile.H264_BASELINE)
+                                .encoder(TranscodeProfileEncoder.H264)
+                                .build()))
+                        .build())
                     .build())
                 .call();
 
@@ -363,6 +380,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -377,12 +395,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.UpdateStreamResponse>](../../models/operations/UpdateStreamResponse.md)**
+**[studio.livepeer.livepeer.models.operations.UpdateStreamResponse](../../models/operations/UpdateStreamResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## delete
 
@@ -431,6 +449,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -444,12 +463,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.DeleteStreamResponse>](../../models/operations/DeleteStreamResponse.md)**
+**[studio.livepeer.livepeer.models.operations.DeleteStreamResponse](../../models/operations/DeleteStreamResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## terminate
 
@@ -502,6 +521,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -515,12 +535,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.TerminateStreamResponse>](../../models/operations/TerminateStreamResponse.md)**
+**[studio.livepeer.livepeer.models.operations.TerminateStreamResponse](../../models/operations/TerminateStreamResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## startPull
 
@@ -572,6 +592,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -585,12 +606,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.StartPullStreamResponse>](../../models/operations/StartPullStreamResponse.md)**
+**[studio.livepeer.livepeer.models.operations.StartPullStreamResponse](../../models/operations/StartPullStreamResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## createClip
 
@@ -645,6 +666,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -658,12 +680,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.CreateClipResponse>](../../models/operations/CreateClipResponse.md)**
+**[studio.livepeer.livepeer.models.operations.CreateClipResponse](../../models/operations/CreateClipResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## getClips
 
@@ -710,6 +732,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -723,12 +746,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetClipsResponse>](../../models/operations/GetClipsResponse.md)**
+**[studio.livepeer.livepeer.models.operations.GetClipsResponse](../../models/operations/GetClipsResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## addMultistreamTarget
 
@@ -782,6 +805,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -796,12 +820,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.AddMultistreamTargetResponse>](../../models/operations/AddMultistreamTargetResponse.md)**
+**[studio.livepeer.livepeer.models.operations.AddMultistreamTargetResponse](../../models/operations/AddMultistreamTargetResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## removeMultistreamTarget
 
@@ -847,6 +871,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -861,9 +886,9 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.RemoveMultistreamTargetResponse>](../../models/operations/RemoveMultistreamTargetResponse.md)**
+**[studio.livepeer.livepeer.models.operations.RemoveMultistreamTargetResponse](../../models/operations/RemoveMultistreamTargetResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |

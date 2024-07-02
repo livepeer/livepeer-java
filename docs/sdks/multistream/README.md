@@ -57,6 +57,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -64,12 +65,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetMultistreamTargetsResponse>](../../models/operations/GetMultistreamTargetsResponse.md)**
+**[studio.livepeer.livepeer.models.operations.GetMultistreamTargetsResponse](../../models/operations/GetMultistreamTargetsResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## create
 
@@ -120,6 +121,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -133,12 +135,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.CreateMultistreamTargetResponse>](../../models/operations/CreateMultistreamTargetResponse.md)**
+**[studio.livepeer.livepeer.models.operations.CreateMultistreamTargetResponse](../../models/operations/CreateMultistreamTargetResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## get
 
@@ -185,6 +187,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -198,12 +201,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetMultistreamTargetResponse>](../../models/operations/GetMultistreamTargetResponse.md)**
+**[studio.livepeer.livepeer.models.operations.GetMultistreamTargetResponse](../../models/operations/GetMultistreamTargetResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## update
 
@@ -251,6 +254,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -265,12 +269,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.UpdateMultistreamTargetResponse>](../../models/operations/UpdateMultistreamTargetResponse.md)**
+**[studio.livepeer.livepeer.models.operations.UpdateMultistreamTargetResponse](../../models/operations/UpdateMultistreamTargetResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## delete
 
@@ -317,6 +321,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -330,9 +335,9 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.DeleteMultistreamTargetResponse>](../../models/operations/DeleteMultistreamTargetResponse.md)**
+**[studio.livepeer.livepeer.models.operations.DeleteMultistreamTargetResponse](../../models/operations/DeleteMultistreamTargetResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |

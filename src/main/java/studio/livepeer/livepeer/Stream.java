@@ -119,7 +119,7 @@ public class Stream implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("createStream", Optional.empty(), sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("createStream", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -127,18 +127,18 @@ public class Stream implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("createStream", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("createStream", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("createStream", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("createStream", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("createStream", Optional.empty(), sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("createStream", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -254,7 +254,7 @@ public class Stream implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getStreams", Optional.empty(), sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getStreams", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -262,18 +262,18 @@ public class Stream implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getStreams", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getStreams", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getStreams", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getStreams", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getStreams", Optional.empty(), sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getStreams", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -378,7 +378,7 @@ public class Stream implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getStream", Optional.empty(), sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getStream", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -386,18 +386,18 @@ public class Stream implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getStream", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getStream", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getStream", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getStream", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getStream", Optional.empty(), sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getStream", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -513,7 +513,7 @@ public class Stream implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("updateStream", Optional.empty(), sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("updateStream", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -521,18 +521,18 @@ public class Stream implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("updateStream", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("updateStream", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("updateStream", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("updateStream", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("updateStream", Optional.empty(), sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("updateStream", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -636,7 +636,7 @@ public class Stream implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("deleteStream", Optional.empty(), sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("deleteStream", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -644,18 +644,18 @@ public class Stream implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("deleteStream", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("deleteStream", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("deleteStream", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("deleteStream", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("deleteStream", Optional.empty(), sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("deleteStream", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -767,7 +767,7 @@ public class Stream implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("terminateStream", Optional.empty(), sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("terminateStream", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -775,18 +775,18 @@ public class Stream implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("terminateStream", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("terminateStream", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("terminateStream", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("terminateStream", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("terminateStream", Optional.empty(), sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("terminateStream", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -896,7 +896,7 @@ public class Stream implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("startPullStream", Optional.empty(), sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("startPullStream", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -904,18 +904,18 @@ public class Stream implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("startPullStream", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("startPullStream", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("startPullStream", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("startPullStream", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("startPullStream", Optional.empty(), sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("startPullStream", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -1009,7 +1009,7 @@ public class Stream implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("createClip", Optional.empty(), sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("createClip", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -1017,18 +1017,18 @@ public class Stream implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("createClip", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("createClip", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("createClip", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("createClip", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("createClip", Optional.empty(), sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("createClip", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -1133,7 +1133,7 @@ public class Stream implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getClips", Optional.empty(), sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getClips", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -1141,18 +1141,18 @@ public class Stream implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getClips", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getClips", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getClips", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getClips", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getClips", Optional.empty(), sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getClips", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -1268,7 +1268,7 @@ public class Stream implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("addMultistreamTarget", Optional.empty(), sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("addMultistreamTarget", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -1276,18 +1276,18 @@ public class Stream implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("addMultistreamTarget", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("addMultistreamTarget", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("addMultistreamTarget", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("addMultistreamTarget", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("addMultistreamTarget", Optional.empty(), sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("addMultistreamTarget", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -1384,7 +1384,7 @@ public class Stream implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("removeMultistreamTarget", Optional.empty(), sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("removeMultistreamTarget", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -1392,18 +1392,18 @@ public class Stream implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("removeMultistreamTarget", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("removeMultistreamTarget", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("removeMultistreamTarget", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("removeMultistreamTarget", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("removeMultistreamTarget", Optional.empty(), sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("removeMultistreamTarget", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }

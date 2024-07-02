@@ -84,7 +84,7 @@ public class Metrics implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getViewershipMetrics", Optional.empty(), sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getViewershipMetrics", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -92,18 +92,18 @@ public class Metrics implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getViewershipMetrics", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getViewershipMetrics", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getViewershipMetrics", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getViewershipMetrics", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getViewershipMetrics", Optional.empty(), sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getViewershipMetrics", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -209,7 +209,7 @@ public class Metrics implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getCreatorViewershipMetrics", Optional.empty(), sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getCreatorViewershipMetrics", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -217,18 +217,18 @@ public class Metrics implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getCreatorViewershipMetrics", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getCreatorViewershipMetrics", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getCreatorViewershipMetrics", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getCreatorViewershipMetrics", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getCreatorViewershipMetrics", Optional.empty(), sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getCreatorViewershipMetrics", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -344,7 +344,7 @@ public class Metrics implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getPublicViewershipMetrics", Optional.empty(), sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getPublicViewershipMetrics", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -352,18 +352,18 @@ public class Metrics implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getPublicViewershipMetrics", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getPublicViewershipMetrics", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getPublicViewershipMetrics", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getPublicViewershipMetrics", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getPublicViewershipMetrics", Optional.empty(), sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getPublicViewershipMetrics", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -465,7 +465,7 @@ public class Metrics implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getUsageMetrics", Optional.empty(), sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getUsageMetrics", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -473,18 +473,18 @@ public class Metrics implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getUsageMetrics", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getUsageMetrics", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getUsageMetrics", Optional.empty(), sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getUsageMetrics", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getUsageMetrics", Optional.empty(), sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getUsageMetrics", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }

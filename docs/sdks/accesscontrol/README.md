@@ -59,6 +59,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -66,12 +67,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.CreateSigningKeyResponse>](../../models/operations/CreateSigningKeyResponse.md)**
+**[studio.livepeer.livepeer.models.operations.CreateSigningKeyResponse](../../models/operations/CreateSigningKeyResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## getAll
 
@@ -117,6 +118,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -124,12 +126,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetSigningKeysResponse>](../../models/operations/GetSigningKeysResponse.md)**
+**[studio.livepeer.livepeer.models.operations.GetSigningKeysResponse](../../models/operations/GetSigningKeysResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## delete
 
@@ -174,6 +176,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -187,12 +190,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.DeleteSigningKeyResponse>](../../models/operations/DeleteSigningKeyResponse.md)**
+**[studio.livepeer.livepeer.models.operations.DeleteSigningKeyResponse](../../models/operations/DeleteSigningKeyResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## get
 
@@ -239,6 +242,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -252,12 +256,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetSigningKeyResponse>](../../models/operations/GetSigningKeyResponse.md)**
+**[studio.livepeer.livepeer.models.operations.GetSigningKeyResponse](../../models/operations/GetSigningKeyResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## update
 
@@ -304,6 +308,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -318,9 +323,9 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.UpdateSigningKeyResponse>](../../models/operations/UpdateSigningKeyResponse.md)**
+**[studio.livepeer.livepeer.models.operations.UpdateSigningKeyResponse](../../models/operations/UpdateSigningKeyResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |

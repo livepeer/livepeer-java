@@ -18,20 +18,20 @@ import java.math.BigInteger;
 import org.openapitools.jackson.nullable.JsonNullable;
 import studio.livepeer.livepeer.utils.Utils;
 
-public class RecordingSpec {
+public class NewStreamPayloadRecordingSpec {
 
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("profiles")
     private JsonNullable<? extends java.util.List<TranscodeProfile>> profiles;
 
     @JsonCreator
-    public RecordingSpec(
+    public NewStreamPayloadRecordingSpec(
             @JsonProperty("profiles") JsonNullable<? extends java.util.List<TranscodeProfile>> profiles) {
         Utils.checkNotNull(profiles, "profiles");
         this.profiles = profiles;
     }
     
-    public RecordingSpec() {
+    public NewStreamPayloadRecordingSpec() {
         this(JsonNullable.undefined());
     }
 
@@ -45,13 +45,13 @@ public class RecordingSpec {
         return new Builder();
     }
 
-    public RecordingSpec withProfiles(java.util.List<TranscodeProfile> profiles) {
+    public NewStreamPayloadRecordingSpec withProfiles(java.util.List<TranscodeProfile> profiles) {
         Utils.checkNotNull(profiles, "profiles");
         this.profiles = JsonNullable.of(profiles);
         return this;
     }
 
-    public RecordingSpec withProfiles(JsonNullable<? extends java.util.List<TranscodeProfile>> profiles) {
+    public NewStreamPayloadRecordingSpec withProfiles(JsonNullable<? extends java.util.List<TranscodeProfile>> profiles) {
         Utils.checkNotNull(profiles, "profiles");
         this.profiles = profiles;
         return this;
@@ -65,7 +65,7 @@ public class RecordingSpec {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        RecordingSpec other = (RecordingSpec) o;
+        NewStreamPayloadRecordingSpec other = (NewStreamPayloadRecordingSpec) o;
         return 
             java.util.Objects.deepEquals(this.profiles, other.profiles);
     }
@@ -78,7 +78,7 @@ public class RecordingSpec {
     
     @Override
     public String toString() {
-        return Utils.toString(RecordingSpec.class,
+        return Utils.toString(NewStreamPayloadRecordingSpec.class,
                 "profiles", profiles);
     }
     
@@ -102,8 +102,8 @@ public class RecordingSpec {
             return this;
         }
         
-        public RecordingSpec build() {
-            return new RecordingSpec(
+        public NewStreamPayloadRecordingSpec build() {
+            return new NewStreamPayloadRecordingSpec(
                 profiles);
         }
     }

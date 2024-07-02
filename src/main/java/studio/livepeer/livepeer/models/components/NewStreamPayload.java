@@ -57,14 +57,9 @@ public class NewStreamPayload {
     @JsonProperty("record")
     private Optional<? extends Boolean> record;
 
-    /**
-     * Configuration for recording the stream. This can only be set if
-     * `record` is true.
-     * 
-     */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("recordingSpec")
-    private Optional<? extends RecordingSpec> recordingSpec;
+    private Optional<? extends NewStreamPayloadRecordingSpec> recordingSpec;
 
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("multistream")
@@ -85,7 +80,7 @@ public class NewStreamPayload {
             @JsonProperty("playbackPolicy") JsonNullable<? extends PlaybackPolicy> playbackPolicy,
             @JsonProperty("profiles") JsonNullable<? extends java.util.List<FfmpegProfile>> profiles,
             @JsonProperty("record") Optional<? extends Boolean> record,
-            @JsonProperty("recordingSpec") Optional<? extends RecordingSpec> recordingSpec,
+            @JsonProperty("recordingSpec") Optional<? extends NewStreamPayloadRecordingSpec> recordingSpec,
             @JsonProperty("multistream") Optional<? extends Multistream> multistream,
             @JsonProperty("userTags") Optional<? extends java.util.Map<String, UserTags>> userTags) {
         Utils.checkNotNull(name, "name");
@@ -161,15 +156,10 @@ public class NewStreamPayload {
         return (Optional<Boolean>) record;
     }
 
-    /**
-     * Configuration for recording the stream. This can only be set if
-     * `record` is true.
-     * 
-     */
     @SuppressWarnings("unchecked")
     @JsonIgnore
-    public Optional<RecordingSpec> recordingSpec() {
-        return (Optional<RecordingSpec>) recordingSpec;
+    public Optional<NewStreamPayloadRecordingSpec> recordingSpec() {
+        return (Optional<NewStreamPayloadRecordingSpec>) recordingSpec;
     }
 
     @SuppressWarnings("unchecked")
@@ -283,23 +273,13 @@ public class NewStreamPayload {
         return this;
     }
 
-    /**
-     * Configuration for recording the stream. This can only be set if
-     * `record` is true.
-     * 
-     */
-    public NewStreamPayload withRecordingSpec(RecordingSpec recordingSpec) {
+    public NewStreamPayload withRecordingSpec(NewStreamPayloadRecordingSpec recordingSpec) {
         Utils.checkNotNull(recordingSpec, "recordingSpec");
         this.recordingSpec = Optional.ofNullable(recordingSpec);
         return this;
     }
 
-    /**
-     * Configuration for recording the stream. This can only be set if
-     * `record` is true.
-     * 
-     */
-    public NewStreamPayload withRecordingSpec(Optional<? extends RecordingSpec> recordingSpec) {
+    public NewStreamPayload withRecordingSpec(Optional<? extends NewStreamPayloadRecordingSpec> recordingSpec) {
         Utils.checkNotNull(recordingSpec, "recordingSpec");
         this.recordingSpec = recordingSpec;
         return this;
@@ -398,7 +378,7 @@ public class NewStreamPayload {
  
         private Optional<? extends Boolean> record = Optional.empty();
  
-        private Optional<? extends RecordingSpec> recordingSpec = Optional.empty();
+        private Optional<? extends NewStreamPayloadRecordingSpec> recordingSpec = Optional.empty();
  
         private Optional<? extends Multistream> multistream = Optional.empty();
  
@@ -500,23 +480,13 @@ public class NewStreamPayload {
             return this;
         }
 
-        /**
-         * Configuration for recording the stream. This can only be set if
-         * `record` is true.
-         * 
-         */
-        public Builder recordingSpec(RecordingSpec recordingSpec) {
+        public Builder recordingSpec(NewStreamPayloadRecordingSpec recordingSpec) {
             Utils.checkNotNull(recordingSpec, "recordingSpec");
             this.recordingSpec = Optional.ofNullable(recordingSpec);
             return this;
         }
 
-        /**
-         * Configuration for recording the stream. This can only be set if
-         * `record` is true.
-         * 
-         */
-        public Builder recordingSpec(Optional<? extends RecordingSpec> recordingSpec) {
+        public Builder recordingSpec(Optional<? extends NewStreamPayloadRecordingSpec> recordingSpec) {
             Utils.checkNotNull(recordingSpec, "recordingSpec");
             this.recordingSpec = recordingSpec;
             return this;
