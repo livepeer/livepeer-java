@@ -54,6 +54,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -61,12 +62,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetTasksResponse>](../../models/operations/GetTasksResponse.md)**
+**[studio.livepeer.livepeer.models.operations.GetTasksResponse](../../models/operations/GetTasksResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## get
 
@@ -113,6 +114,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -126,9 +128,9 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetTaskResponse>](../../models/operations/GetTaskResponse.md)**
+**[studio.livepeer.livepeer.models.operations.GetTaskResponse](../../models/operations/GetTaskResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |

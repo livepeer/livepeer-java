@@ -18,7 +18,7 @@ The samples below show how a published SDK artifact is used:
 
 Gradle:
 ```groovy
-implementation 'studio.livepeer:livepeer:0.3.0'
+implementation 'studio.livepeer:livepeer:0.4.0'
 ```
 
 Maven:
@@ -26,7 +26,7 @@ Maven:
 <dependency>
     <groupId>studio.livepeer</groupId>
     <artifactId>livepeer</artifactId>
-    <version>0.3.0</version>
+    <version>0.4.0</version>
 </dependency>
 ```
 
@@ -106,18 +106,18 @@ public class Application {
                         .profile(Profile.H264_BASELINE)
                         .build()))
                 .record(false)
-                .recordingSpec(RecordingSpec.builder()
+                .recordingSpec(NewStreamPayloadRecordingSpec.builder()
                     .profiles(java.util.List.of(
-                        FfmpegProfile.builder()
+                        TranscodeProfile.builder()
+                            .bitrate(3000000L)
                             .width(1280L)
                             .name("720p")
-                            .height(489382L)
-                            .bitrate(3000000L)
+                            .quality(23L)
                             .fps(30L)
                             .fpsDen(1L)
-                            .quality(23L)
                             .gop("2")
-                            .profile(Profile.H264_BASELINE)
+                            .profile(TranscodeProfileProfile.H264_BASELINE)
+                            .encoder(TranscodeProfileEncoder.H264)
                             .build()))
                     .build())
                 .multistream(Multistream.builder()
@@ -148,6 +148,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -254,7 +255,7 @@ Handling errors in this SDK should largely match your expectations.  All operati
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/Error    | 404                    | application/json       |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ### Example
 
@@ -300,6 +301,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -375,18 +377,18 @@ public class Application {
                         .profile(Profile.H264_BASELINE)
                         .build()))
                 .record(false)
-                .recordingSpec(RecordingSpec.builder()
+                .recordingSpec(NewStreamPayloadRecordingSpec.builder()
                     .profiles(java.util.List.of(
-                        FfmpegProfile.builder()
+                        TranscodeProfile.builder()
+                            .bitrate(3000000L)
                             .width(1280L)
                             .name("720p")
-                            .height(489382L)
-                            .bitrate(3000000L)
+                            .quality(23L)
                             .fps(30L)
                             .fpsDen(1L)
-                            .quality(23L)
                             .gop("2")
-                            .profile(Profile.H264_BASELINE)
+                            .profile(TranscodeProfileProfile.H264_BASELINE)
+                            .encoder(TranscodeProfileEncoder.H264)
                             .build()))
                     .build())
                 .multistream(Multistream.builder()
@@ -417,6 +419,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -482,18 +485,18 @@ public class Application {
                         .profile(Profile.H264_BASELINE)
                         .build()))
                 .record(false)
-                .recordingSpec(RecordingSpec.builder()
+                .recordingSpec(NewStreamPayloadRecordingSpec.builder()
                     .profiles(java.util.List.of(
-                        FfmpegProfile.builder()
+                        TranscodeProfile.builder()
+                            .bitrate(3000000L)
                             .width(1280L)
                             .name("720p")
-                            .height(489382L)
-                            .bitrate(3000000L)
+                            .quality(23L)
                             .fps(30L)
                             .fpsDen(1L)
-                            .quality(23L)
                             .gop("2")
-                            .profile(Profile.H264_BASELINE)
+                            .profile(TranscodeProfileProfile.H264_BASELINE)
+                            .encoder(TranscodeProfileEncoder.H264)
                             .build()))
                     .build())
                 .multistream(Multistream.builder()
@@ -524,6 +527,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -597,18 +601,18 @@ public class Application {
                         .profile(Profile.H264_BASELINE)
                         .build()))
                 .record(false)
-                .recordingSpec(RecordingSpec.builder()
+                .recordingSpec(NewStreamPayloadRecordingSpec.builder()
                     .profiles(java.util.List.of(
-                        FfmpegProfile.builder()
+                        TranscodeProfile.builder()
+                            .bitrate(3000000L)
                             .width(1280L)
                             .name("720p")
-                            .height(489382L)
-                            .bitrate(3000000L)
+                            .quality(23L)
                             .fps(30L)
                             .fpsDen(1L)
-                            .quality(23L)
                             .gop("2")
-                            .profile(Profile.H264_BASELINE)
+                            .profile(TranscodeProfileProfile.H264_BASELINE)
+                            .encoder(TranscodeProfileEncoder.H264)
                             .build()))
                     .build())
                 .multistream(Multistream.builder()
@@ -639,6 +643,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```

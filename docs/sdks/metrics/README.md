@@ -61,6 +61,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -74,12 +75,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetViewershipMetricsResponse>](../../models/operations/GetViewershipMetricsResponse.md)**
+**[studio.livepeer.livepeer.models.operations.GetViewershipMetricsResponse](../../models/operations/GetViewershipMetricsResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## getCreatorViewership
 
@@ -130,6 +131,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -143,12 +145,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetCreatorViewershipMetricsResponse>](../../models/operations/GetCreatorViewershipMetricsResponse.md)**
+**[studio.livepeer.livepeer.models.operations.GetCreatorViewershipMetricsResponse](../../models/operations/GetCreatorViewershipMetricsResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## getPublicViewership
 
@@ -198,6 +200,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -211,12 +214,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetPublicViewershipMetricsResponse>](../../models/operations/GetPublicViewershipMetricsResponse.md)**
+**[studio.livepeer.livepeer.models.operations.GetPublicViewershipMetricsResponse](../../models/operations/GetPublicViewershipMetricsResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## getUsage
 
@@ -266,6 +269,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -279,9 +283,9 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetUsageMetricsResponse>](../../models/operations/GetUsageMetricsResponse.md)**
+**[studio.livepeer.livepeer.models.operations.GetUsageMetricsResponse](../../models/operations/GetUsageMetricsResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |

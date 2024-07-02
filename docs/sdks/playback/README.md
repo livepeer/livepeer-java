@@ -57,6 +57,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -70,10 +71,10 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetPlaybackInfoResponse>](../../models/operations/GetPlaybackInfoResponse.md)**
+**[studio.livepeer.livepeer.models.operations.GetPlaybackInfoResponse](../../models/operations/GetPlaybackInfoResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/Error    | 404                    | application/json       |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |

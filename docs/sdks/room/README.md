@@ -64,6 +64,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -71,12 +72,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.CreateRoomResponse>](../../models/operations/CreateRoomResponse.md)**
+**[studio.livepeer.livepeer.models.operations.CreateRoomResponse](../../models/operations/CreateRoomResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## ~~get~~
 
@@ -125,6 +126,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -138,12 +140,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetRoomResponse>](../../models/operations/GetRoomResponse.md)**
+**[studio.livepeer.livepeer.models.operations.GetRoomResponse](../../models/operations/GetRoomResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## ~~delete~~
 
@@ -190,6 +192,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -203,12 +206,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.DeleteRoomResponse>](../../models/operations/DeleteRoomResponse.md)**
+**[studio.livepeer.livepeer.models.operations.DeleteRoomResponse](../../models/operations/DeleteRoomResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## ~~startEgress~~
 
@@ -260,6 +263,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -274,12 +278,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.StartRoomEgressResponse>](../../models/operations/StartRoomEgressResponse.md)**
+**[studio.livepeer.livepeer.models.operations.StartRoomEgressResponse](../../models/operations/StartRoomEgressResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## ~~stopEgress~~
 
@@ -326,6 +330,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -339,12 +344,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.StopRoomEgressResponse>](../../models/operations/StopRoomEgressResponse.md)**
+**[studio.livepeer.livepeer.models.operations.StopRoomEgressResponse](../../models/operations/StopRoomEgressResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## ~~createUser~~
 
@@ -401,6 +406,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -415,12 +421,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.CreateRoomUserResponse>](../../models/operations/CreateRoomUserResponse.md)**
+**[studio.livepeer.livepeer.models.operations.CreateRoomUserResponse](../../models/operations/CreateRoomUserResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## ~~getUser~~
 
@@ -470,6 +476,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -484,12 +491,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetRoomUserResponse>](../../models/operations/GetRoomUserResponse.md)**
+**[studio.livepeer.livepeer.models.operations.GetRoomUserResponse](../../models/operations/GetRoomUserResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## ~~updateUser~~
 
@@ -541,6 +548,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -556,12 +564,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.UpdateRoomUserResponse>](../../models/operations/UpdateRoomUserResponse.md)**
+**[studio.livepeer.livepeer.models.operations.UpdateRoomUserResponse](../../models/operations/UpdateRoomUserResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## ~~deleteUser~~
 
@@ -609,6 +617,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -623,9 +632,9 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.DeleteRoomUserResponse>](../../models/operations/DeleteRoomUserResponse.md)**
+**[studio.livepeer.livepeer.models.operations.DeleteRoomUserResponse](../../models/operations/DeleteRoomUserResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |

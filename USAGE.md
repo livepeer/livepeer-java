@@ -55,18 +55,18 @@ public class Application {
                         .profile(Profile.H264_BASELINE)
                         .build()))
                 .record(false)
-                .recordingSpec(RecordingSpec.builder()
+                .recordingSpec(NewStreamPayloadRecordingSpec.builder()
                     .profiles(java.util.List.of(
-                        FfmpegProfile.builder()
+                        TranscodeProfile.builder()
+                            .bitrate(3000000L)
                             .width(1280L)
                             .name("720p")
-                            .height(489382L)
-                            .bitrate(3000000L)
+                            .quality(23L)
                             .fps(30L)
                             .fpsDen(1L)
-                            .quality(23L)
                             .gop("2")
-                            .profile(Profile.H264_BASELINE)
+                            .profile(TranscodeProfileProfile.H264_BASELINE)
+                            .encoder(TranscodeProfileEncoder.H264)
                             .build()))
                     .build())
                 .multistream(Multistream.builder()
@@ -97,6 +97,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```

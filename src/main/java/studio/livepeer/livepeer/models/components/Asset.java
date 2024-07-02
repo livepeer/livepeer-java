@@ -75,15 +75,16 @@ public class Asset {
     private Optional<? extends CreatorId> creatorId;
 
     /**
-     * Requested profiles for the asset to be transcoded into. Currently
-     * only supported for livestream recording assets, configured through
-     * the `stream.recordingSpec` field. If this is not present it means
-     * that default profiles were derived from the input metadata.
+     * Requested profiles for the asset to be transcoded into. Configured
+     * on the upload APIs payload or through the `stream.recordingSpec`
+     * field for recordings. If not specified, default profiles are derived
+     * based on the source input. If this is a recording, the source will
+     * not be present in this list but will be available for playback.
      * 
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("profiles")
-    private Optional<? extends java.util.List<FfmpegProfile>> profiles;
+    private Optional<? extends java.util.List<TranscodeProfile>> profiles;
 
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("storage")
@@ -156,7 +157,7 @@ public class Asset {
             @JsonProperty("playbackPolicy") JsonNullable<? extends PlaybackPolicy> playbackPolicy,
             @JsonProperty("source") Source source,
             @JsonProperty("creatorId") Optional<? extends CreatorId> creatorId,
-            @JsonProperty("profiles") Optional<? extends java.util.List<FfmpegProfile>> profiles,
+            @JsonProperty("profiles") Optional<? extends java.util.List<TranscodeProfile>> profiles,
             @JsonProperty("storage") Optional<? extends AssetStorage> storage,
             @JsonProperty("status") Optional<? extends AssetStatus> status,
             @JsonProperty("name") String name,
@@ -285,16 +286,17 @@ public class Asset {
     }
 
     /**
-     * Requested profiles for the asset to be transcoded into. Currently
-     * only supported for livestream recording assets, configured through
-     * the `stream.recordingSpec` field. If this is not present it means
-     * that default profiles were derived from the input metadata.
+     * Requested profiles for the asset to be transcoded into. Configured
+     * on the upload APIs payload or through the `stream.recordingSpec`
+     * field for recordings. If not specified, default profiles are derived
+     * based on the source input. If this is a recording, the source will
+     * not be present in this list but will be available for playback.
      * 
      */
     @SuppressWarnings("unchecked")
     @JsonIgnore
-    public Optional<java.util.List<FfmpegProfile>> profiles() {
-        return (Optional<java.util.List<FfmpegProfile>>) profiles;
+    public Optional<java.util.List<TranscodeProfile>> profiles() {
+        return (Optional<java.util.List<TranscodeProfile>>) profiles;
     }
 
     @SuppressWarnings("unchecked")
@@ -514,26 +516,28 @@ public class Asset {
     }
 
     /**
-     * Requested profiles for the asset to be transcoded into. Currently
-     * only supported for livestream recording assets, configured through
-     * the `stream.recordingSpec` field. If this is not present it means
-     * that default profiles were derived from the input metadata.
+     * Requested profiles for the asset to be transcoded into. Configured
+     * on the upload APIs payload or through the `stream.recordingSpec`
+     * field for recordings. If not specified, default profiles are derived
+     * based on the source input. If this is a recording, the source will
+     * not be present in this list but will be available for playback.
      * 
      */
-    public Asset withProfiles(java.util.List<FfmpegProfile> profiles) {
+    public Asset withProfiles(java.util.List<TranscodeProfile> profiles) {
         Utils.checkNotNull(profiles, "profiles");
         this.profiles = Optional.ofNullable(profiles);
         return this;
     }
 
     /**
-     * Requested profiles for the asset to be transcoded into. Currently
-     * only supported for livestream recording assets, configured through
-     * the `stream.recordingSpec` field. If this is not present it means
-     * that default profiles were derived from the input metadata.
+     * Requested profiles for the asset to be transcoded into. Configured
+     * on the upload APIs payload or through the `stream.recordingSpec`
+     * field for recordings. If not specified, default profiles are derived
+     * based on the source input. If this is a recording, the source will
+     * not be present in this list but will be available for playback.
      * 
      */
-    public Asset withProfiles(Optional<? extends java.util.List<FfmpegProfile>> profiles) {
+    public Asset withProfiles(Optional<? extends java.util.List<TranscodeProfile>> profiles) {
         Utils.checkNotNull(profiles, "profiles");
         this.profiles = profiles;
         return this;
@@ -787,7 +791,7 @@ public class Asset {
  
         private Optional<? extends CreatorId> creatorId = Optional.empty();
  
-        private Optional<? extends java.util.List<FfmpegProfile>> profiles = Optional.empty();
+        private Optional<? extends java.util.List<TranscodeProfile>> profiles = Optional.empty();
  
         private Optional<? extends AssetStorage> storage = Optional.empty();
  
@@ -946,26 +950,28 @@ public class Asset {
         }
 
         /**
-         * Requested profiles for the asset to be transcoded into. Currently
-         * only supported for livestream recording assets, configured through
-         * the `stream.recordingSpec` field. If this is not present it means
-         * that default profiles were derived from the input metadata.
+         * Requested profiles for the asset to be transcoded into. Configured
+         * on the upload APIs payload or through the `stream.recordingSpec`
+         * field for recordings. If not specified, default profiles are derived
+         * based on the source input. If this is a recording, the source will
+         * not be present in this list but will be available for playback.
          * 
          */
-        public Builder profiles(java.util.List<FfmpegProfile> profiles) {
+        public Builder profiles(java.util.List<TranscodeProfile> profiles) {
             Utils.checkNotNull(profiles, "profiles");
             this.profiles = Optional.ofNullable(profiles);
             return this;
         }
 
         /**
-         * Requested profiles for the asset to be transcoded into. Currently
-         * only supported for livestream recording assets, configured through
-         * the `stream.recordingSpec` field. If this is not present it means
-         * that default profiles were derived from the input metadata.
+         * Requested profiles for the asset to be transcoded into. Configured
+         * on the upload APIs payload or through the `stream.recordingSpec`
+         * field for recordings. If not specified, default profiles are derived
+         * based on the source input. If this is a recording, the source will
+         * not be present in this list but will be available for playback.
          * 
          */
-        public Builder profiles(Optional<? extends java.util.List<FfmpegProfile>> profiles) {
+        public Builder profiles(Optional<? extends java.util.List<TranscodeProfile>> profiles) {
             Utils.checkNotNull(profiles, "profiles");
             this.profiles = profiles;
             return this;

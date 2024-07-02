@@ -26,18 +26,18 @@ import studio.livepeer.livepeer.utils.Utils;
 public class StreamRecordingSpec {
 
     /**
-     * Profiles to record the stream in. If not specified, the stream
-     * will be recorded in the same profiles as the stream itself. Keep
-     * in mind that the source rendition will always be recorded.
+     * Profiles to process the recording of this stream into. If not
+     * specified, default profiles will be derived based on the stream
+     * input. Keep in mind that the source rendition is always kept.
      * 
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("profiles")
-    private Optional<? extends java.util.List<FfmpegProfile>> profiles;
+    private Optional<? extends java.util.List<TranscodeProfile>> profiles;
 
     @JsonCreator
     public StreamRecordingSpec(
-            @JsonProperty("profiles") Optional<? extends java.util.List<FfmpegProfile>> profiles) {
+            @JsonProperty("profiles") Optional<? extends java.util.List<TranscodeProfile>> profiles) {
         Utils.checkNotNull(profiles, "profiles");
         this.profiles = profiles;
     }
@@ -47,15 +47,15 @@ public class StreamRecordingSpec {
     }
 
     /**
-     * Profiles to record the stream in. If not specified, the stream
-     * will be recorded in the same profiles as the stream itself. Keep
-     * in mind that the source rendition will always be recorded.
+     * Profiles to process the recording of this stream into. If not
+     * specified, default profiles will be derived based on the stream
+     * input. Keep in mind that the source rendition is always kept.
      * 
      */
     @SuppressWarnings("unchecked")
     @JsonIgnore
-    public Optional<java.util.List<FfmpegProfile>> profiles() {
-        return (Optional<java.util.List<FfmpegProfile>>) profiles;
+    public Optional<java.util.List<TranscodeProfile>> profiles() {
+        return (Optional<java.util.List<TranscodeProfile>>) profiles;
     }
 
     public final static Builder builder() {
@@ -63,24 +63,24 @@ public class StreamRecordingSpec {
     }
 
     /**
-     * Profiles to record the stream in. If not specified, the stream
-     * will be recorded in the same profiles as the stream itself. Keep
-     * in mind that the source rendition will always be recorded.
+     * Profiles to process the recording of this stream into. If not
+     * specified, default profiles will be derived based on the stream
+     * input. Keep in mind that the source rendition is always kept.
      * 
      */
-    public StreamRecordingSpec withProfiles(java.util.List<FfmpegProfile> profiles) {
+    public StreamRecordingSpec withProfiles(java.util.List<TranscodeProfile> profiles) {
         Utils.checkNotNull(profiles, "profiles");
         this.profiles = Optional.ofNullable(profiles);
         return this;
     }
 
     /**
-     * Profiles to record the stream in. If not specified, the stream
-     * will be recorded in the same profiles as the stream itself. Keep
-     * in mind that the source rendition will always be recorded.
+     * Profiles to process the recording of this stream into. If not
+     * specified, default profiles will be derived based on the stream
+     * input. Keep in mind that the source rendition is always kept.
      * 
      */
-    public StreamRecordingSpec withProfiles(Optional<? extends java.util.List<FfmpegProfile>> profiles) {
+    public StreamRecordingSpec withProfiles(Optional<? extends java.util.List<TranscodeProfile>> profiles) {
         Utils.checkNotNull(profiles, "profiles");
         this.profiles = profiles;
         return this;
@@ -113,31 +113,31 @@ public class StreamRecordingSpec {
     
     public final static class Builder {
  
-        private Optional<? extends java.util.List<FfmpegProfile>> profiles = Optional.empty();  
+        private Optional<? extends java.util.List<TranscodeProfile>> profiles = Optional.empty();  
         
         private Builder() {
           // force use of static builder() method
         }
 
         /**
-         * Profiles to record the stream in. If not specified, the stream
-         * will be recorded in the same profiles as the stream itself. Keep
-         * in mind that the source rendition will always be recorded.
+         * Profiles to process the recording of this stream into. If not
+         * specified, default profiles will be derived based on the stream
+         * input. Keep in mind that the source rendition is always kept.
          * 
          */
-        public Builder profiles(java.util.List<FfmpegProfile> profiles) {
+        public Builder profiles(java.util.List<TranscodeProfile> profiles) {
             Utils.checkNotNull(profiles, "profiles");
             this.profiles = Optional.ofNullable(profiles);
             return this;
         }
 
         /**
-         * Profiles to record the stream in. If not specified, the stream
-         * will be recorded in the same profiles as the stream itself. Keep
-         * in mind that the source rendition will always be recorded.
+         * Profiles to process the recording of this stream into. If not
+         * specified, default profiles will be derived based on the stream
+         * input. Keep in mind that the source rendition is always kept.
          * 
          */
-        public Builder profiles(Optional<? extends java.util.List<FfmpegProfile>> profiles) {
+        public Builder profiles(Optional<? extends java.util.List<TranscodeProfile>> profiles) {
             Utils.checkNotNull(profiles, "profiles");
             this.profiles = profiles;
             return this;

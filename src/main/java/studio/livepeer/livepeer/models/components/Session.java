@@ -163,6 +163,12 @@ public class Session {
     @JsonProperty("playbackId")
     private Optional<? extends String> playbackId;
 
+    /**
+     * Profiles to transcode the stream into. If not specified, a default
+     * set of profiles will be used with 240p, 360p, 480p and 720p
+     * resolutions. Keep in mind that the source rendition is always kept.
+     * 
+     */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("profiles")
     private Optional<? extends java.util.List<FfmpegProfile>> profiles;
@@ -448,6 +454,12 @@ public class Session {
         return (Optional<String>) playbackId;
     }
 
+    /**
+     * Profiles to transcode the stream into. If not specified, a default
+     * set of profiles will be used with 240p, 360p, 480p and 720p
+     * resolutions. Keep in mind that the source rendition is always kept.
+     * 
+     */
     @SuppressWarnings("unchecked")
     @JsonIgnore
     public Optional<java.util.List<FfmpegProfile>> profiles() {
@@ -841,12 +853,24 @@ public class Session {
         return this;
     }
 
+    /**
+     * Profiles to transcode the stream into. If not specified, a default
+     * set of profiles will be used with 240p, 360p, 480p and 720p
+     * resolutions. Keep in mind that the source rendition is always kept.
+     * 
+     */
     public Session withProfiles(java.util.List<FfmpegProfile> profiles) {
         Utils.checkNotNull(profiles, "profiles");
         this.profiles = Optional.ofNullable(profiles);
         return this;
     }
 
+    /**
+     * Profiles to transcode the stream into. If not specified, a default
+     * set of profiles will be used with 240p, 360p, 480p and 720p
+     * resolutions. Keep in mind that the source rendition is always kept.
+     * 
+     */
     public Session withProfiles(Optional<? extends java.util.List<FfmpegProfile>> profiles) {
         Utils.checkNotNull(profiles, "profiles");
         this.profiles = profiles;
@@ -1402,12 +1426,24 @@ public class Session {
             return this;
         }
 
+        /**
+         * Profiles to transcode the stream into. If not specified, a default
+         * set of profiles will be used with 240p, 360p, 480p and 720p
+         * resolutions. Keep in mind that the source rendition is always kept.
+         * 
+         */
         public Builder profiles(java.util.List<FfmpegProfile> profiles) {
             Utils.checkNotNull(profiles, "profiles");
             this.profiles = Optional.ofNullable(profiles);
             return this;
         }
 
+        /**
+         * Profiles to transcode the stream into. If not specified, a default
+         * set of profiles will be used with 240p, 360p, 480p and 720p
+         * resolutions. Keep in mind that the source rendition is always kept.
+         * 
+         */
         public Builder profiles(Optional<? extends java.util.List<FfmpegProfile>> profiles) {
             Utils.checkNotNull(profiles, "profiles");
             this.profiles = profiles;

@@ -213,6 +213,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -226,9 +227,9 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.TranscodeVideoResponse>](../../models/operations/TranscodeVideoResponse.md)**
+**[studio.livepeer.livepeer.models.operations.TranscodeVideoResponse](../../models/operations/TranscodeVideoResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |

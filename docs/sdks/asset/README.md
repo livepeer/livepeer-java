@@ -58,6 +58,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -65,12 +66,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetAssetsResponse>](../../models/operations/GetAssetsResponse.md)**
+**[studio.livepeer.livepeer.models.operations.GetAssetsResponse](../../models/operations/GetAssetsResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## create
 
@@ -212,6 +213,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -225,12 +227,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.RequestUploadResponse>](../../models/operations/RequestUploadResponse.md)**
+**[studio.livepeer.livepeer.models.operations.RequestUploadResponse](../../models/operations/RequestUploadResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## createViaUrl
 
@@ -302,6 +304,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -315,12 +318,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.UploadAssetResponse>](../../models/operations/UploadAssetResponse.md)**
+**[studio.livepeer.livepeer.models.operations.UploadAssetResponse](../../models/operations/UploadAssetResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## get
 
@@ -367,6 +370,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -380,12 +384,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetAssetResponse>](../../models/operations/GetAssetResponse.md)**
+**[studio.livepeer.livepeer.models.operations.GetAssetResponse](../../models/operations/GetAssetResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## update
 
@@ -442,6 +446,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -456,12 +461,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.UpdateAssetResponse>](../../models/operations/UpdateAssetResponse.md)**
+**[studio.livepeer.livepeer.models.operations.UpdateAssetResponse](../../models/operations/UpdateAssetResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## delete
 
@@ -506,6 +511,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -519,9 +525,9 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.DeleteAssetResponse>](../../models/operations/DeleteAssetResponse.md)**
+**[studio.livepeer.livepeer.models.operations.DeleteAssetResponse](../../models/operations/DeleteAssetResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
