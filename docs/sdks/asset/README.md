@@ -23,19 +23,10 @@ Retrieve assets
 ```java
 package hello.world;
 
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.*;
-import studio.livepeer.livepeer.models.components.Security;
-import studio.livepeer.livepeer.models.operations.*;
-import studio.livepeer.livepeer.utils.EventStream;
+import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.operations.GetAssetsResponse;
 
 public class Application {
 
@@ -51,26 +42,29 @@ public class Application {
             if (res.data().isPresent()) {
                 // handle response
             }
-        } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
 
 
+
+
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetAssetsResponse>](../../models/operations/GetAssetsResponse.md)**
+**[GetAssetsResponse](../../models/operations/GetAssetsResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## create
 
@@ -152,19 +146,18 @@ definition above.
 ```java
 package hello.world;
 
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
+import java.util.List;
+import java.util.Map;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.*;
-import studio.livepeer.livepeer.models.components.Security;
-import studio.livepeer.livepeer.models.operations.*;
-import studio.livepeer.livepeer.utils.EventStream;
+import studio.livepeer.livepeer.models.components.NewAssetPayload;
+import studio.livepeer.livepeer.models.components.PlaybackPolicy;
+import studio.livepeer.livepeer.models.components.TranscodeProfile;
+import studio.livepeer.livepeer.models.components.TranscodeProfileEncoder;
+import studio.livepeer.livepeer.models.components.TranscodeProfileProfile;
+import studio.livepeer.livepeer.models.components.Type;
+import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.operations.RequestUploadResponse;
 
 public class Application {
 
@@ -180,15 +173,16 @@ public class Application {
                 .playbackPolicy(PlaybackPolicy.builder()
                     .type(Type.WEBHOOK)
                     .webhookId("1bde4o2i6xycudoy")
-                    .webhookContext(java.util.Map.ofEntries(
-                        entry("streamerId", "my-custom-id")))
+                    .webhookContext(Map.ofEntries(
+                        Map.entry("streamerId", "my-custom-id")))
                     .refreshInterval(600d)
                     .build())
-                .profiles(java.util.List.of(
+                .profiles(List.of(
                     TranscodeProfile.builder()
                         .bitrate(3000000L)
                         .width(1280L)
                         .name("720p")
+                        .height(720L)
                         .quality(23L)
                         .fps(30L)
                         .fpsDen(1L)
@@ -205,32 +199,35 @@ public class Application {
             if (res.data().isPresent()) {
                 // handle response
             }
-        } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
 
+
+
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `request`                                                                                            | [studio.livepeer.livepeer.models.components.NewAssetPayload](../../models/shared/NewAssetPayload.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
+| Parameter                                                 | Type                                                      | Required                                                  | Description                                               |
+| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| `request`                                                 | [NewAssetPayload](../../models/shared/NewAssetPayload.md) | :heavy_check_mark:                                        | The request object to use for the request.                |
 
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.RequestUploadResponse>](../../models/operations/RequestUploadResponse.md)**
+**[RequestUploadResponse](../../models/operations/RequestUploadResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## createViaUrl
 
@@ -241,19 +238,18 @@ Upload asset via URL
 ```java
 package hello.world;
 
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
+import java.util.List;
+import java.util.Map;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.*;
-import studio.livepeer.livepeer.models.components.Security;
-import studio.livepeer.livepeer.models.operations.*;
-import studio.livepeer.livepeer.utils.EventStream;
+import studio.livepeer.livepeer.models.components.NewAssetFromUrlPayload;
+import studio.livepeer.livepeer.models.components.PlaybackPolicy;
+import studio.livepeer.livepeer.models.components.TranscodeProfile;
+import studio.livepeer.livepeer.models.components.TranscodeProfileEncoder;
+import studio.livepeer.livepeer.models.components.TranscodeProfileProfile;
+import studio.livepeer.livepeer.models.components.Type;
+import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.operations.UploadAssetResponse;
 
 public class Application {
 
@@ -270,15 +266,16 @@ public class Application {
                 .playbackPolicy(PlaybackPolicy.builder()
                     .type(Type.WEBHOOK)
                     .webhookId("1bde4o2i6xycudoy")
-                    .webhookContext(java.util.Map.ofEntries(
-                        entry("streamerId", "my-custom-id")))
+                    .webhookContext(Map.ofEntries(
+                        Map.entry("streamerId", "my-custom-id")))
                     .refreshInterval(600d)
                     .build())
-                .profiles(java.util.List.of(
+                .profiles(List.of(
                     TranscodeProfile.builder()
                         .bitrate(3000000L)
                         .width(1280L)
                         .name("720p")
+                        .height(720L)
                         .quality(23L)
                         .fps(30L)
                         .fpsDen(1L)
@@ -295,32 +292,35 @@ public class Application {
             if (res.twoHundredApplicationJsonData().isPresent()) {
                 // handle response
             }
-        } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
 
+
+
 ### Parameters
 
-| Parameter                                                                                                          | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
-| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                          | [studio.livepeer.livepeer.models.components.NewAssetFromUrlPayload](../../models/shared/NewAssetFromUrlPayload.md) | :heavy_check_mark:                                                                                                 | The request object to use for the request.                                                                         |
+| Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `request`                                                               | [NewAssetFromUrlPayload](../../models/shared/NewAssetFromUrlPayload.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
 
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.UploadAssetResponse>](../../models/operations/UploadAssetResponse.md)**
+**[UploadAssetResponse](../../models/operations/UploadAssetResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## get
 
@@ -331,19 +331,10 @@ Retrieves an asset
 ```java
 package hello.world;
 
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.*;
-import studio.livepeer.livepeer.models.components.Security;
-import studio.livepeer.livepeer.models.operations.*;
-import studio.livepeer.livepeer.utils.EventStream;
+import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.operations.GetAssetResponse;
 
 public class Application {
 
@@ -360,16 +351,19 @@ public class Application {
             if (res.asset().isPresent()) {
                 // handle response
             }
-        } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
+
+
 
 ### Parameters
 
@@ -380,12 +374,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetAssetResponse>](../../models/operations/GetAssetResponse.md)**
+**[GetAssetResponse](../../models/operations/GetAssetResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## update
 
@@ -396,19 +390,14 @@ Patch an asset
 ```java
 package hello.world;
 
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
+import java.util.Map;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.*;
-import studio.livepeer.livepeer.models.components.Security;
-import studio.livepeer.livepeer.models.operations.*;
-import studio.livepeer.livepeer.utils.EventStream;
+import studio.livepeer.livepeer.models.components.AssetPatchPayload;
+import studio.livepeer.livepeer.models.components.PlaybackPolicy;
+import studio.livepeer.livepeer.models.components.Type;
+import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.operations.UpdateAssetResponse;
 
 public class Application {
 
@@ -425,8 +414,8 @@ public class Application {
                     .playbackPolicy(PlaybackPolicy.builder()
                         .type(Type.WEBHOOK)
                         .webhookId("1bde4o2i6xycudoy")
-                        .webhookContext(java.util.Map.ofEntries(
-                            entry("streamerId", "my-custom-id")))
+                        .webhookContext(Map.ofEntries(
+                            Map.entry("streamerId", "my-custom-id")))
                         .refreshInterval(600d)
                         .build())
                     .build())
@@ -435,33 +424,36 @@ public class Application {
             if (res.asset().isPresent()) {
                 // handle response
             }
-        } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
 
+
+
 ### Parameters
 
-| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `assetId`                                                                                                    | *String*                                                                                                     | :heavy_check_mark:                                                                                           | ID of the asset                                                                                              |
-| `assetPatchPayload`                                                                                          | [studio.livepeer.livepeer.models.components.AssetPatchPayload](../../models/components/AssetPatchPayload.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| Parameter                                                         | Type                                                              | Required                                                          | Description                                                       |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `assetId`                                                         | *String*                                                          | :heavy_check_mark:                                                | ID of the asset                                                   |
+| `assetPatchPayload`                                               | [AssetPatchPayload](../../models/components/AssetPatchPayload.md) | :heavy_check_mark:                                                | N/A                                                               |
 
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.UpdateAssetResponse>](../../models/operations/UpdateAssetResponse.md)**
+**[UpdateAssetResponse](../../models/operations/UpdateAssetResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## delete
 
@@ -472,19 +464,10 @@ Delete an asset
 ```java
 package hello.world;
 
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.*;
-import studio.livepeer.livepeer.models.components.Security;
-import studio.livepeer.livepeer.models.operations.*;
-import studio.livepeer.livepeer.utils.EventStream;
+import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.operations.DeleteAssetResponse;
 
 public class Application {
 
@@ -499,16 +482,19 @@ public class Application {
                 .call();
 
             // handle response
-        } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
+
+
 
 ### Parameters
 
@@ -519,9 +505,9 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.DeleteAssetResponse>](../../models/operations/DeleteAssetResponse.md)**
+**[DeleteAssetResponse](../../models/operations/DeleteAssetResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |

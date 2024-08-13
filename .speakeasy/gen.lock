@@ -1,21 +1,21 @@
 lockVersion: 2.0.0
 id: b4f7f2df-6c4d-4150-a18f-8b74fe44eb22
 management:
-  docChecksum: 542222dd6207ab2554389496b78b5e76
+  docChecksum: b5a2c208bc36f884f74846e5b9777fb8
   docVersion: 1.0.0
-  speakeasyVersion: 1.308.1
-  generationVersion: 2.342.6
-  releaseVersion: 0.3.0
-  configChecksum: f44218f4ba6cddd58e0635faecf3747e
+  speakeasyVersion: 1.363.1
+  generationVersion: 2.396.0
+  releaseVersion: 0.4.0
+  configChecksum: 7d6f5183f0f9da49f264d8b474501c0d
   repoURL: https://github.com/livepeer/livepeer-java.git
 features:
   java:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.1
-    core: 3.23.2
+    core: 3.28.1
     deprecations: 2.81.1
     flattening: 2.81.1
-    globalSecurity: 2.82.5
+    globalSecurity: 2.82.7
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.1
@@ -23,7 +23,7 @@ features:
     nameOverrides: 2.81.3
     nullables: 0.1.0
     sdkHooks: 0.1.0
-    unions: 0.0.4
+    unions: 0.0.5
 generatedFiles:
   - src/main/java/studio/livepeer/livepeer/SecuritySource.java
   - src/main/java/studio/livepeer/livepeer/SDKConfiguration.java
@@ -81,6 +81,7 @@ generatedFiles:
   - src/main/java/studio/livepeer/livepeer/models/operations/GetRoomUserRequestBuilder.java
   - src/main/java/studio/livepeer/livepeer/models/operations/UpdateRoomUserRequestBuilder.java
   - src/main/java/studio/livepeer/livepeer/models/operations/DeleteRoomUserRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetRealtimeViewershipNowRequestBuilder.java
   - src/main/java/studio/livepeer/livepeer/models/operations/GetViewershipMetricsRequestBuilder.java
   - src/main/java/studio/livepeer/livepeer/models/operations/GetCreatorViewershipMetricsRequestBuilder.java
   - src/main/java/studio/livepeer/livepeer/models/operations/GetPublicViewershipMetricsRequestBuilder.java
@@ -226,16 +227,19 @@ generatedFiles:
   - src/main/java/studio/livepeer/livepeer/models/operations/UpdateRoomUserResponse.java
   - src/main/java/studio/livepeer/livepeer/models/operations/DeleteRoomUserRequest.java
   - src/main/java/studio/livepeer/livepeer/models/operations/DeleteRoomUserResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/BreakdownBy.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetRealtimeViewershipNowRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetRealtimeViewershipNowResponse.java
   - src/main/java/studio/livepeer/livepeer/models/operations/From.java
   - src/main/java/studio/livepeer/livepeer/models/operations/To.java
   - src/main/java/studio/livepeer/livepeer/models/operations/TimeStep.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/BreakdownBy.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/QueryParamBreakdownBy.java
   - src/main/java/studio/livepeer/livepeer/models/operations/GetViewershipMetricsRequest.java
   - src/main/java/studio/livepeer/livepeer/models/operations/GetViewershipMetricsResponse.java
   - src/main/java/studio/livepeer/livepeer/models/operations/QueryParamFrom.java
   - src/main/java/studio/livepeer/livepeer/models/operations/QueryParamTo.java
   - src/main/java/studio/livepeer/livepeer/models/operations/QueryParamTimeStep.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/QueryParamBreakdownBy.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetCreatorViewershipMetricsQueryParamBreakdownBy.java
   - src/main/java/studio/livepeer/livepeer/models/operations/GetCreatorViewershipMetricsRequest.java
   - src/main/java/studio/livepeer/livepeer/models/operations/GetCreatorViewershipMetricsResponse.java
   - src/main/java/studio/livepeer/livepeer/models/operations/GetPublicViewershipMetricsRequest.java
@@ -272,6 +276,9 @@ generatedFiles:
   - src/main/java/studio/livepeer/livepeer/models/components/Renditions.java
   - src/main/java/studio/livepeer/livepeer/models/components/Stream.java
   - src/main/java/studio/livepeer/livepeer/models/components/TargetOutput.java
+  - src/main/java/studio/livepeer/livepeer/models/components/TranscodeProfileProfile.java
+  - src/main/java/studio/livepeer/livepeer/models/components/TranscodeProfileEncoder.java
+  - src/main/java/studio/livepeer/livepeer/models/components/TranscodeProfile.java
   - src/main/java/studio/livepeer/livepeer/models/components/Profile.java
   - src/main/java/studio/livepeer/livepeer/models/components/Encoder.java
   - src/main/java/studio/livepeer/livepeer/models/components/FfmpegProfile.java
@@ -280,13 +287,13 @@ generatedFiles:
   - src/main/java/studio/livepeer/livepeer/models/components/CreatorIdType.java
   - src/main/java/studio/livepeer/livepeer/models/components/CreatorId1.java
   - src/main/java/studio/livepeer/livepeer/models/components/CreatorId.java
+  - src/main/java/studio/livepeer/livepeer/models/components/NewStreamPayloadRecordingSpec.java
   - src/main/java/studio/livepeer/livepeer/models/components/NewStreamPayload.java
   - src/main/java/studio/livepeer/livepeer/models/components/UserTags3.java
   - src/main/java/studio/livepeer/livepeer/models/components/UserTags.java
   - src/main/java/studio/livepeer/livepeer/models/components/Multistream.java
   - src/main/java/studio/livepeer/livepeer/models/components/TargetSpec.java
   - src/main/java/studio/livepeer/livepeer/models/components/Target.java
-  - src/main/java/studio/livepeer/livepeer/models/components/RecordingSpec.java
   - src/main/java/studio/livepeer/livepeer/models/components/InputCreatorIdType.java
   - src/main/java/studio/livepeer/livepeer/models/components/InputCreatorId1.java
   - src/main/java/studio/livepeer/livepeer/models/components/InputCreatorId.java
@@ -295,6 +302,7 @@ generatedFiles:
   - src/main/java/studio/livepeer/livepeer/models/components/Location.java
   - src/main/java/studio/livepeer/livepeer/models/components/Pull.java
   - src/main/java/studio/livepeer/livepeer/models/components/StreamPatchPayload.java
+  - src/main/java/studio/livepeer/livepeer/models/components/RecordingSpec.java
   - src/main/java/studio/livepeer/livepeer/models/components/AssetType.java
   - src/main/java/studio/livepeer/livepeer/models/components/AssetSource3Type.java
   - src/main/java/studio/livepeer/livepeer/models/components/Source3.java
@@ -339,9 +347,6 @@ generatedFiles:
   - src/main/java/studio/livepeer/livepeer/models/components/NewAssetPayloadStorage.java
   - src/main/java/studio/livepeer/livepeer/models/components/NewAssetPayloadEncryption.java
   - src/main/java/studio/livepeer/livepeer/models/components/NewAssetPayload.java
-  - src/main/java/studio/livepeer/livepeer/models/components/TranscodeProfileProfile.java
-  - src/main/java/studio/livepeer/livepeer/models/components/TranscodeProfileEncoder.java
-  - src/main/java/studio/livepeer/livepeer/models/components/TranscodeProfile.java
   - src/main/java/studio/livepeer/livepeer/models/components/NftMetadataTemplate.java
   - src/main/java/studio/livepeer/livepeer/models/components/NftMetadata.java
   - src/main/java/studio/livepeer/livepeer/models/components/Spec.java
@@ -361,6 +366,7 @@ generatedFiles:
   - src/main/java/studio/livepeer/livepeer/models/components/RoomUserPayload.java
   - src/main/java/studio/livepeer/livepeer/models/components/GetRoomUserResponse.java
   - src/main/java/studio/livepeer/livepeer/models/components/RoomUserUpdatePayload.java
+  - src/main/java/studio/livepeer/livepeer/models/components/RealtimeViewershipMetric.java
   - src/main/java/studio/livepeer/livepeer/models/components/ViewershipMetric.java
   - src/main/java/studio/livepeer/livepeer/models/components/UsageMetric.java
   - src/main/java/studio/livepeer/livepeer/models/components/SigningKey.java
@@ -516,16 +522,19 @@ generatedFiles:
   - docs/models/operations/UpdateRoomUserResponse.md
   - docs/models/operations/DeleteRoomUserRequest.md
   - docs/models/operations/DeleteRoomUserResponse.md
+  - docs/models/operations/BreakdownBy.md
+  - docs/models/operations/GetRealtimeViewershipNowRequest.md
+  - docs/models/operations/GetRealtimeViewershipNowResponse.md
   - docs/models/operations/From.md
   - docs/models/operations/To.md
   - docs/models/operations/TimeStep.md
-  - docs/models/operations/BreakdownBy.md
+  - docs/models/operations/QueryParamBreakdownBy.md
   - docs/models/operations/GetViewershipMetricsRequest.md
   - docs/models/operations/GetViewershipMetricsResponse.md
   - docs/models/operations/QueryParamFrom.md
   - docs/models/operations/QueryParamTo.md
   - docs/models/operations/QueryParamTimeStep.md
-  - docs/models/operations/QueryParamBreakdownBy.md
+  - docs/models/operations/GetCreatorViewershipMetricsQueryParamBreakdownBy.md
   - docs/models/operations/GetCreatorViewershipMetricsRequest.md
   - docs/models/operations/GetCreatorViewershipMetricsResponse.md
   - docs/models/operations/GetPublicViewershipMetricsRequest.md
@@ -562,6 +571,9 @@ generatedFiles:
   - docs/models/components/Renditions.md
   - docs/models/components/Stream.md
   - docs/models/components/TargetOutput.md
+  - docs/models/components/TranscodeProfileProfile.md
+  - docs/models/components/TranscodeProfileEncoder.md
+  - docs/models/components/TranscodeProfile.md
   - docs/models/components/Profile.md
   - docs/models/components/Encoder.md
   - docs/models/components/FfmpegProfile.md
@@ -570,13 +582,13 @@ generatedFiles:
   - docs/models/components/CreatorIdType.md
   - docs/models/components/CreatorId1.md
   - docs/models/components/CreatorId.md
+  - docs/models/components/NewStreamPayloadRecordingSpec.md
   - docs/models/components/NewStreamPayload.md
   - docs/models/components/UserTags3.md
   - docs/models/components/UserTags.md
   - docs/models/components/Multistream.md
   - docs/models/components/TargetSpec.md
   - docs/models/components/Target.md
-  - docs/models/components/RecordingSpec.md
   - docs/models/components/InputCreatorIdType.md
   - docs/models/components/InputCreatorId1.md
   - docs/models/components/InputCreatorId.md
@@ -585,6 +597,7 @@ generatedFiles:
   - docs/models/components/Location.md
   - docs/models/components/Pull.md
   - docs/models/components/StreamPatchPayload.md
+  - docs/models/components/RecordingSpec.md
   - docs/models/components/AssetType.md
   - docs/models/components/AssetSource3Type.md
   - docs/models/components/Source3.md
@@ -629,9 +642,6 @@ generatedFiles:
   - docs/models/components/NewAssetPayloadStorage.md
   - docs/models/components/NewAssetPayloadEncryption.md
   - docs/models/components/NewAssetPayload.md
-  - docs/models/components/TranscodeProfileProfile.md
-  - docs/models/components/TranscodeProfileEncoder.md
-  - docs/models/components/TranscodeProfile.md
   - docs/models/components/NftMetadataTemplate.md
   - docs/models/components/NftMetadata.md
   - docs/models/components/Spec.md
@@ -651,6 +661,7 @@ generatedFiles:
   - docs/models/components/RoomUserPayload.md
   - docs/models/components/GetRoomUserResponse.md
   - docs/models/components/RoomUserUpdatePayload.md
+  - docs/models/components/RealtimeViewershipMetric.md
   - docs/models/components/ViewershipMetric.md
   - docs/models/components/UsageMetric.md
   - docs/models/components/SigningKey.md
@@ -735,3 +746,4 @@ generatedFiles:
   - docs/sdks/transcode/README.md
   - docs/sdks/playback/README.md
   - USAGE.md
+  - CONTRIBUTING.md
