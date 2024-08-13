@@ -21,19 +21,10 @@ Retrieve clips of a session
 ```java
 package hello.world;
 
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.*;
-import studio.livepeer.livepeer.models.components.Security;
-import studio.livepeer.livepeer.models.operations.*;
-import studio.livepeer.livepeer.utils.EventStream;
+import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.operations.GetSessionClipsResponse;
 
 public class Application {
 
@@ -50,16 +41,19 @@ public class Application {
             if (res.data().isPresent()) {
                 // handle response
             }
-        } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
+
+
 
 ### Parameters
 
@@ -70,12 +64,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetSessionClipsResponse>](../../models/operations/GetSessionClipsResponse.md)**
+**[GetSessionClipsResponse](../../models/operations/GetSessionClipsResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## getAll
 
@@ -86,19 +80,10 @@ Retrieve sessions
 ```java
 package hello.world;
 
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.*;
-import studio.livepeer.livepeer.models.components.Security;
-import studio.livepeer.livepeer.models.operations.*;
-import studio.livepeer.livepeer.utils.EventStream;
+import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.operations.GetSessionsResponse;
 
 public class Application {
 
@@ -114,26 +99,29 @@ public class Application {
             if (res.data().isPresent()) {
                 // handle response
             }
-        } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
 
 
+
+
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetSessionsResponse>](../../models/operations/GetSessionsResponse.md)**
+**[GetSessionsResponse](../../models/operations/GetSessionsResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## get
 
@@ -144,19 +132,10 @@ Retrieve a session
 ```java
 package hello.world;
 
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.*;
-import studio.livepeer.livepeer.models.components.Security;
-import studio.livepeer.livepeer.models.operations.*;
-import studio.livepeer.livepeer.utils.EventStream;
+import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.operations.GetSessionResponse;
 
 public class Application {
 
@@ -173,16 +152,19 @@ public class Application {
             if (res.session().isPresent()) {
                 // handle response
             }
-        } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
+
+
 
 ### Parameters
 
@@ -193,12 +175,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetSessionResponse>](../../models/operations/GetSessionResponse.md)**
+**[GetSessionResponse](../../models/operations/GetSessionResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## getRecorded
 
@@ -209,19 +191,11 @@ Retrieve Recorded Sessions
 ```java
 package hello.world;
 
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.*;
-import studio.livepeer.livepeer.models.components.Security;
-import studio.livepeer.livepeer.models.operations.*;
-import studio.livepeer.livepeer.utils.EventStream;
+import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.operations.GetRecordedSessionsResponse;
+import studio.livepeer.livepeer.models.operations.Record;
 
 public class Application {
 
@@ -233,36 +207,39 @@ public class Application {
 
             GetRecordedSessionsResponse res = sdk.session().getRecorded()
                 .parentId("<value>")
-                .record(studio.livepeer.livepeer.models.operations.Record.of(true))
+                .record(Record.of(true))
                 .call();
 
             if (res.data().isPresent()) {
                 // handle response
             }
-        } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
 
+
+
 ### Parameters
 
-| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                | Example                                                                                                    |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `parentId`                                                                                                 | *String*                                                                                                   | :heavy_check_mark:                                                                                         | ID of the parent stream                                                                                    |                                                                                                            |
-| `record`                                                                                                   | [Optional<? extends studio.livepeer.livepeer.models.operations.Record>](../../models/operations/Record.md) | :heavy_minus_sign:                                                                                         | Flag indicating if the response should only include recorded<br/>sessions<br/>                             | true                                                                                                       |
+| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            | Example                                                                |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `parentId`                                                             | *String*                                                               | :heavy_check_mark:                                                     | ID of the parent stream                                                |                                                                        |
+| `record`                                                               | [Optional<Record>](../../models/operations/Record.md)                  | :heavy_minus_sign:                                                     | Flag indicating if the response should only include recorded<br/>sessions<br/> | true                                                                   |
 
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetRecordedSessionsResponse>](../../models/operations/GetRecordedSessionsResponse.md)**
+**[GetRecordedSessionsResponse](../../models/operations/GetRecordedSessionsResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |

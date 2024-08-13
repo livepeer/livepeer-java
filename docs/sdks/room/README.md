@@ -29,19 +29,10 @@ Create a multiparticipant livestreaming room.
 ```java
 package hello.world;
 
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.*;
-import studio.livepeer.livepeer.models.components.Security;
-import studio.livepeer.livepeer.models.operations.*;
-import studio.livepeer.livepeer.utils.EventStream;
+import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.operations.CreateRoomResponse;
 
 public class Application {
 
@@ -57,26 +48,29 @@ public class Application {
             if (res.createRoomResponse().isPresent()) {
                 // handle response
             }
-        } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
 
 
+
+
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.CreateRoomResponse>](../../models/operations/CreateRoomResponse.md)**
+**[CreateRoomResponse](../../models/operations/CreateRoomResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## ~~get~~
 
@@ -89,19 +83,10 @@ Retrieve a room
 ```java
 package hello.world;
 
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.*;
-import studio.livepeer.livepeer.models.components.Security;
-import studio.livepeer.livepeer.models.operations.*;
-import studio.livepeer.livepeer.utils.EventStream;
+import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.operations.GetRoomResponse;
 
 public class Application {
 
@@ -118,16 +103,19 @@ public class Application {
             if (res.room().isPresent()) {
                 // handle response
             }
-        } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
+
+
 
 ### Parameters
 
@@ -138,12 +126,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetRoomResponse>](../../models/operations/GetRoomResponse.md)**
+**[GetRoomResponse](../../models/operations/GetRoomResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## ~~delete~~
 
@@ -156,19 +144,10 @@ Delete a room
 ```java
 package hello.world;
 
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.*;
-import studio.livepeer.livepeer.models.components.Security;
-import studio.livepeer.livepeer.models.operations.*;
-import studio.livepeer.livepeer.utils.EventStream;
+import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.operations.DeleteRoomResponse;
 
 public class Application {
 
@@ -183,16 +162,19 @@ public class Application {
                 .call();
 
             // handle response
-        } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
+
+
 
 ### Parameters
 
@@ -203,12 +185,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.DeleteRoomResponse>](../../models/operations/DeleteRoomResponse.md)**
+**[DeleteRoomResponse](../../models/operations/DeleteRoomResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## ~~startEgress~~
 
@@ -223,19 +205,11 @@ This allows you to leverage livestreaming features like recording and HLS output
 ```java
 package hello.world;
 
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.*;
-import studio.livepeer.livepeer.models.components.Security;
-import studio.livepeer.livepeer.models.operations.*;
-import studio.livepeer.livepeer.utils.EventStream;
+import studio.livepeer.livepeer.models.components.RoomEgressPayload;
+import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.operations.StartRoomEgressResponse;
 
 public class Application {
 
@@ -253,33 +227,36 @@ public class Application {
                 .call();
 
             // handle response
-        } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
 
+
+
 ### Parameters
 
-| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `id`                                                                                                         | *String*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
-| `roomEgressPayload`                                                                                          | [studio.livepeer.livepeer.models.components.RoomEgressPayload](../../models/components/RoomEgressPayload.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| Parameter                                                         | Type                                                              | Required                                                          | Description                                                       |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `id`                                                              | *String*                                                          | :heavy_check_mark:                                                | N/A                                                               |
+| `roomEgressPayload`                                               | [RoomEgressPayload](../../models/components/RoomEgressPayload.md) | :heavy_check_mark:                                                | N/A                                                               |
 
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.StartRoomEgressResponse>](../../models/operations/StartRoomEgressResponse.md)**
+**[StartRoomEgressResponse](../../models/operations/StartRoomEgressResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## ~~stopEgress~~
 
@@ -292,19 +269,10 @@ Stop room RTMP egress
 ```java
 package hello.world;
 
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.*;
-import studio.livepeer.livepeer.models.components.Security;
-import studio.livepeer.livepeer.models.operations.*;
-import studio.livepeer.livepeer.utils.EventStream;
+import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.operations.StopRoomEgressResponse;
 
 public class Application {
 
@@ -319,16 +287,19 @@ public class Application {
                 .call();
 
             // handle response
-        } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
+
+
 
 ### Parameters
 
@@ -339,12 +310,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.StopRoomEgressResponse>](../../models/operations/StopRoomEgressResponse.md)**
+**[StopRoomEgressResponse](../../models/operations/StopRoomEgressResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## ~~createUser~~
 
@@ -360,19 +331,11 @@ Alternatively the joining token can be used with a custom app.
 ```java
 package hello.world;
 
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.*;
-import studio.livepeer.livepeer.models.components.Security;
-import studio.livepeer.livepeer.models.operations.*;
-import studio.livepeer.livepeer.utils.EventStream;
+import studio.livepeer.livepeer.models.components.RoomUserPayload;
+import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.operations.CreateRoomUserResponse;
 
 public class Application {
 
@@ -394,33 +357,36 @@ public class Application {
             if (res.roomUserResponse().isPresent()) {
                 // handle response
             }
-        } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
 
+
+
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `id`                                                                                                     | *String*                                                                                                 | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
-| `roomUserPayload`                                                                                        | [studio.livepeer.livepeer.models.components.RoomUserPayload](../../models/components/RoomUserPayload.md) | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
+| Parameter                                                     | Type                                                          | Required                                                      | Description                                                   |
+| ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
+| `id`                                                          | *String*                                                      | :heavy_check_mark:                                            | N/A                                                           |
+| `roomUserPayload`                                             | [RoomUserPayload](../../models/components/RoomUserPayload.md) | :heavy_check_mark:                                            | N/A                                                           |
 
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.CreateRoomUserResponse>](../../models/operations/CreateRoomUserResponse.md)**
+**[CreateRoomUserResponse](../../models/operations/CreateRoomUserResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## ~~getUser~~
 
@@ -433,19 +399,10 @@ Get user details
 ```java
 package hello.world;
 
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.*;
-import studio.livepeer.livepeer.models.components.Security;
-import studio.livepeer.livepeer.models.operations.*;
-import studio.livepeer.livepeer.utils.EventStream;
+import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.operations.GetRoomUserResponse;
 
 public class Application {
 
@@ -463,16 +420,19 @@ public class Application {
             if (res.getRoomUserResponse().isPresent()) {
                 // handle response
             }
-        } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
+
+
 
 ### Parameters
 
@@ -484,12 +444,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetRoomUserResponse>](../../models/operations/GetRoomUserResponse.md)**
+**[GetRoomUserResponse](../../models/operations/GetRoomUserResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## ~~updateUser~~
 
@@ -502,19 +462,11 @@ Update properties for a user.
 ```java
 package hello.world;
 
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.*;
-import studio.livepeer.livepeer.models.components.Security;
-import studio.livepeer.livepeer.models.operations.*;
-import studio.livepeer.livepeer.utils.EventStream;
+import studio.livepeer.livepeer.models.components.RoomUserUpdatePayload;
+import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.operations.UpdateRoomUserResponse;
 
 public class Application {
 
@@ -534,34 +486,37 @@ public class Application {
                 .call();
 
             // handle response
-        } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
 
+
+
 ### Parameters
 
-| Parameter                                                                                                            | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
-| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `id`                                                                                                                 | *String*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
-| `userId`                                                                                                             | *String*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
-| `roomUserUpdatePayload`                                                                                              | [studio.livepeer.livepeer.models.components.RoomUserUpdatePayload](../../models/components/RoomUserUpdatePayload.md) | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
+| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `id`                                                                      | *String*                                                                  | :heavy_check_mark:                                                        | N/A                                                                       |
+| `userId`                                                                  | *String*                                                                  | :heavy_check_mark:                                                        | N/A                                                                       |
+| `roomUserUpdatePayload`                                                   | [RoomUserUpdatePayload](../../models/components/RoomUserUpdatePayload.md) | :heavy_check_mark:                                                        | N/A                                                                       |
 
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.UpdateRoomUserResponse>](../../models/operations/UpdateRoomUserResponse.md)**
+**[UpdateRoomUserResponse](../../models/operations/UpdateRoomUserResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## ~~deleteUser~~
 
@@ -574,19 +529,10 @@ Remove a user from the room
 ```java
 package hello.world;
 
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.*;
-import studio.livepeer.livepeer.models.components.Security;
-import studio.livepeer.livepeer.models.operations.*;
-import studio.livepeer.livepeer.utils.EventStream;
+import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.operations.DeleteRoomUserResponse;
 
 public class Application {
 
@@ -602,16 +548,19 @@ public class Application {
                 .call();
 
             // handle response
-        } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
+
+
 
 ### Parameters
 
@@ -623,9 +572,9 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.DeleteRoomUserResponse>](../../models/operations/DeleteRoomUserResponse.md)**
+**[DeleteRoomUserResponse](../../models/operations/DeleteRoomUserResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |

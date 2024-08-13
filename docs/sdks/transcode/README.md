@@ -139,19 +139,25 @@ This endpoint currently supports the following output types:
 ```java
 package hello.world;
 
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
+import java.util.List;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.*;
-import studio.livepeer.livepeer.models.components.Security;
-import studio.livepeer.livepeer.models.operations.*;
-import studio.livepeer.livepeer.utils.EventStream;
+import studio.livepeer.livepeer.models.components.Fmp4;
+import studio.livepeer.livepeer.models.components.Hls;
+import studio.livepeer.livepeer.models.components.Input1;
+import studio.livepeer.livepeer.models.components.Input;
+import studio.livepeer.livepeer.models.components.Mp4;
+import studio.livepeer.livepeer.models.components.Outputs;
+import studio.livepeer.livepeer.models.components.Storage1;
+import studio.livepeer.livepeer.models.components.StorageCredentials;
+import studio.livepeer.livepeer.models.components.StorageType;
+import studio.livepeer.livepeer.models.components.TranscodePayload;
+import studio.livepeer.livepeer.models.components.TranscodePayloadStorage;
+import studio.livepeer.livepeer.models.components.TranscodeProfile;
+import studio.livepeer.livepeer.models.components.TranscodeProfileEncoder;
+import studio.livepeer.livepeer.models.components.TranscodeProfileProfile;
+import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.operations.TranscodeVideoResponse;
 
 public class Application {
 
@@ -185,11 +191,12 @@ public class Application {
                             .path("/samplevideo/fmp4")
                             .build())
                         .build())
-                .profiles(java.util.List.of(
+                .profiles(List.of(
                     TranscodeProfile.builder()
                         .bitrate(3000000L)
                         .width(1280L)
                         .name("720p")
+                        .height(720L)
                         .quality(23L)
                         .fps(30L)
                         .fpsDen(1L)
@@ -206,29 +213,32 @@ public class Application {
             if (res.task().isPresent()) {
                 // handle response
             }
-        } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
 
+
+
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                              | [studio.livepeer.livepeer.models.components.TranscodePayload](../../models/shared/TranscodePayload.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
+| Parameter                                                   | Type                                                        | Required                                                    | Description                                                 |
+| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
+| `request`                                                   | [TranscodePayload](../../models/shared/TranscodePayload.md) | :heavy_check_mark:                                          | The request object to use for the request.                  |
 
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.TranscodeVideoResponse>](../../models/operations/TranscodeVideoResponse.md)**
+**[TranscodeVideoResponse](../../models/operations/TranscodeVideoResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |

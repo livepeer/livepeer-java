@@ -25,19 +25,10 @@ Retrieve a Webhook
 ```java
 package hello.world;
 
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.*;
-import studio.livepeer.livepeer.models.components.Security;
-import studio.livepeer.livepeer.models.operations.*;
-import studio.livepeer.livepeer.utils.EventStream;
+import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.operations.GetWebhooksResponse;
 
 public class Application {
 
@@ -53,26 +44,29 @@ public class Application {
             if (res.data().isPresent()) {
                 // handle response
             }
-        } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
 
 
+
+
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetWebhooksResponse>](../../models/operations/GetWebhooksResponse.md)**
+**[GetWebhooksResponse](../../models/operations/GetWebhooksResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## create
 
@@ -84,19 +78,13 @@ To create a new webhook, you need to make an API call with the events you want t
 ```java
 package hello.world;
 
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
+import java.util.List;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.*;
-import studio.livepeer.livepeer.models.components.Security;
-import studio.livepeer.livepeer.models.operations.*;
-import studio.livepeer.livepeer.utils.EventStream;
+import studio.livepeer.livepeer.models.components.Events;
+import studio.livepeer.livepeer.models.components.WebhookInput;
+import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.operations.CreateWebhookResponse;
 
 public class Application {
 
@@ -110,7 +98,7 @@ public class Application {
                 .name("test_webhook")
                 .url("https://my-service.com/webhook")
                 .projectId("aac12556-4d65-4d34-9fb6-d1f0985eb0a9")
-                .events(java.util.List.of(
+                .events(List.of(
                     Events.STREAM_STARTED,
                     Events.STREAM_IDLE))
                 .sharedSecret("my-secret")
@@ -124,32 +112,35 @@ public class Application {
             if (res.webhook().isPresent()) {
                 // handle response
             }
-        } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
 
+
+
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [studio.livepeer.livepeer.models.components.WebhookInput](../../models/shared/WebhookInput.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| Parameter                                           | Type                                                | Required                                            | Description                                         |
+| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
+| `request`                                           | [WebhookInput](../../models/shared/WebhookInput.md) | :heavy_check_mark:                                  | The request object to use for the request.          |
 
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.CreateWebhookResponse>](../../models/operations/CreateWebhookResponse.md)**
+**[CreateWebhookResponse](../../models/operations/CreateWebhookResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## get
 
@@ -160,19 +151,10 @@ Retrieve a webhook
 ```java
 package hello.world;
 
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.*;
-import studio.livepeer.livepeer.models.components.Security;
-import studio.livepeer.livepeer.models.operations.*;
-import studio.livepeer.livepeer.utils.EventStream;
+import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.operations.GetWebhookResponse;
 
 public class Application {
 
@@ -189,16 +171,19 @@ public class Application {
             if (res.webhook().isPresent()) {
                 // handle response
             }
-        } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
+
+
 
 ### Parameters
 
@@ -209,12 +194,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetWebhookResponse>](../../models/operations/GetWebhookResponse.md)**
+**[GetWebhookResponse](../../models/operations/GetWebhookResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## update
 
@@ -225,19 +210,13 @@ Update a webhook
 ```java
 package hello.world;
 
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
+import java.util.List;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.*;
-import studio.livepeer.livepeer.models.components.Security;
-import studio.livepeer.livepeer.models.operations.*;
-import studio.livepeer.livepeer.utils.EventStream;
+import studio.livepeer.livepeer.models.components.Events;
+import studio.livepeer.livepeer.models.components.WebhookInput;
+import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.operations.UpdateWebhookResponse;
 
 public class Application {
 
@@ -253,7 +232,7 @@ public class Application {
                     .name("test_webhook")
                     .url("https://my-service.com/webhook")
                     .projectId("aac12556-4d65-4d34-9fb6-d1f0985eb0a9")
-                    .events(java.util.List.of(
+                    .events(List.of(
                         Events.STREAM_STARTED,
                         Events.STREAM_IDLE))
                     .sharedSecret("my-secret")
@@ -264,33 +243,36 @@ public class Application {
             if (res.webhook().isPresent()) {
                 // handle response
             }
-        } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
 
+
+
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `id`                                                                                               | *String*                                                                                           | :heavy_check_mark:                                                                                 | N/A                                                                                                |
-| `webhook`                                                                                          | [studio.livepeer.livepeer.models.components.WebhookInput](../../models/components/WebhookInput.md) | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| Parameter                                               | Type                                                    | Required                                                | Description                                             |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| `id`                                                    | *String*                                                | :heavy_check_mark:                                      | N/A                                                     |
+| `webhook`                                               | [WebhookInput](../../models/components/WebhookInput.md) | :heavy_check_mark:                                      | N/A                                                     |
 
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.UpdateWebhookResponse>](../../models/operations/UpdateWebhookResponse.md)**
+**[UpdateWebhookResponse](../../models/operations/UpdateWebhookResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## delete
 
@@ -301,19 +283,10 @@ Delete a webhook
 ```java
 package hello.world;
 
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.*;
-import studio.livepeer.livepeer.models.components.Security;
-import studio.livepeer.livepeer.models.operations.*;
-import studio.livepeer.livepeer.utils.EventStream;
+import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.operations.DeleteWebhookResponse;
 
 public class Application {
 
@@ -330,16 +303,19 @@ public class Application {
             if (res.webhook().isPresent()) {
                 // handle response
             }
-        } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
+
+
 
 ### Parameters
 
@@ -350,12 +326,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.DeleteWebhookResponse>](../../models/operations/DeleteWebhookResponse.md)**
+**[DeleteWebhookResponse](../../models/operations/DeleteWebhookResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## getLogs
 
@@ -366,19 +342,10 @@ Retrieve webhook logs
 ```java
 package hello.world;
 
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.*;
-import studio.livepeer.livepeer.models.components.Security;
-import studio.livepeer.livepeer.models.operations.*;
-import studio.livepeer.livepeer.utils.EventStream;
+import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.operations.GetWebhookLogsResponse;
 
 public class Application {
 
@@ -395,16 +362,19 @@ public class Application {
             if (res.data().isPresent()) {
                 // handle response
             }
-        } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
+
+
 
 ### Parameters
 
@@ -415,12 +385,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetWebhookLogsResponse>](../../models/operations/GetWebhookLogsResponse.md)**
+**[GetWebhookLogsResponse](../../models/operations/GetWebhookLogsResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## getLog
 
@@ -431,19 +401,10 @@ Retrieve a webhook log
 ```java
 package hello.world;
 
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.*;
-import studio.livepeer.livepeer.models.components.Security;
-import studio.livepeer.livepeer.models.operations.*;
-import studio.livepeer.livepeer.utils.EventStream;
+import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.operations.GetWebhookLogResponse;
 
 public class Application {
 
@@ -461,16 +422,19 @@ public class Application {
             if (res.webhookLog().isPresent()) {
                 // handle response
             }
-        } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
+
+
 
 ### Parameters
 
@@ -482,12 +446,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.GetWebhookLogResponse>](../../models/operations/GetWebhookLogResponse.md)**
+**[GetWebhookLogResponse](../../models/operations/GetWebhookLogResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## resendLog
 
@@ -501,19 +465,10 @@ to check or fix the behaviour in your handler.
 ```java
 package hello.world;
 
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.*;
-import studio.livepeer.livepeer.models.components.Security;
-import studio.livepeer.livepeer.models.operations.*;
-import studio.livepeer.livepeer.utils.EventStream;
+import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.operations.ResendWebhookResponse;
 
 public class Application {
 
@@ -531,16 +486,19 @@ public class Application {
             if (res.webhookLog().isPresent()) {
                 // handle response
             }
-        } catch (studio.livepeer.livepeer.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
+
+
 
 ### Parameters
 
@@ -552,9 +510,9 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends studio.livepeer.livepeer.models.operations.ResendWebhookResponse>](../../models/operations/ResendWebhookResponse.md)**
+**[ResendWebhookResponse](../../models/operations/ResendWebhookResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
