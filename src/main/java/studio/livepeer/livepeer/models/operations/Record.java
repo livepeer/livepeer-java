@@ -87,9 +87,9 @@ public class Record {
     public static final class _Deserializer extends OneOfDeserializer<Record> {
 
         public _Deserializer() {
-            super(Record.class,
-                  TypeReferenceWithShape.of(new TypeReference<java.lang.Boolean>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<java.lang.Long>() {}, JsonShape.DEFAULT));
+            super(Record.class, false,
+                  TypeReferenceWithShape.of(new TypeReference<java.lang.Long>() {}, JsonShape.DEFAULT),
+                  TypeReferenceWithShape.of(new TypeReference<java.lang.Boolean>() {}, JsonShape.DEFAULT));
         }
     }
     

@@ -82,9 +82,9 @@ public class Three {
     public static final class _Deserializer extends OneOfDeserializer<Three> {
 
         public _Deserializer() {
-            super(Three.class,
-                  TypeReferenceWithShape.of(new TypeReference<java.lang.String>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<java.lang.Double>() {}, JsonShape.DEFAULT));
+            super(Three.class, false,
+                  TypeReferenceWithShape.of(new TypeReference<java.lang.Double>() {}, JsonShape.DEFAULT),
+                  TypeReferenceWithShape.of(new TypeReference<java.lang.String>() {}, JsonShape.DEFAULT));
         }
     }
     

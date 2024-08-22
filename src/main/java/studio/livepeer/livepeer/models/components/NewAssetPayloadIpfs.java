@@ -88,9 +88,9 @@ public class NewAssetPayloadIpfs {
     public static final class _Deserializer extends OneOfDeserializer<NewAssetPayloadIpfs> {
 
         public _Deserializer() {
-            super(NewAssetPayloadIpfs.class,
-                  TypeReferenceWithShape.of(new TypeReference<studio.livepeer.livepeer.models.components.NewAssetPayloadIpfs1>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<java.lang.Boolean>() {}, JsonShape.DEFAULT));
+            super(NewAssetPayloadIpfs.class, false,
+                  TypeReferenceWithShape.of(new TypeReference<java.lang.Boolean>() {}, JsonShape.DEFAULT),
+                  TypeReferenceWithShape.of(new TypeReference<studio.livepeer.livepeer.models.components.NewAssetPayloadIpfs1>() {}, JsonShape.DEFAULT));
         }
     }
     

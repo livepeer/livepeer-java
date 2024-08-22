@@ -4,7 +4,6 @@
 
 package studio.livepeer.livepeer.models.components;
 
-
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum Live {

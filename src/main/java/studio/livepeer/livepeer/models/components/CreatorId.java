@@ -76,7 +76,7 @@ public class CreatorId {
     public static final class _Deserializer extends OneOfDeserializer<CreatorId> {
 
         public _Deserializer() {
-            super(CreatorId.class,
+            super(CreatorId.class, false,
                   TypeReferenceWithShape.of(new TypeReference<studio.livepeer.livepeer.models.components.CreatorId1>() {}, JsonShape.DEFAULT));
         }
     }

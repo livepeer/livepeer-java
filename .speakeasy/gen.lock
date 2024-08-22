@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: b4f7f2df-6c4d-4150-a18f-8b74fe44eb22
 management:
-  docChecksum: b5a2c208bc36f884f74846e5b9777fb8
+  docChecksum: 59634240879b8bce1b699c21c7f4f276
   docVersion: 1.0.0
-  speakeasyVersion: 1.363.1
-  generationVersion: 2.396.0
-  releaseVersion: 0.4.0
-  configChecksum: 7d6f5183f0f9da49f264d8b474501c0d
+  speakeasyVersion: 1.377.1
+  generationVersion: 2.404.1
+  releaseVersion: 0.5.0
+  configChecksum: 3b33f25e938c6a67453f8e636f88064a
   repoURL: https://github.com/livepeer/livepeer-java.git
 features:
   java:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.1
-    core: 3.28.1
+    core: 3.29.4
     deprecations: 2.81.1
     flattening: 2.81.1
     globalSecurity: 2.82.7
@@ -588,7 +588,6 @@ generatedFiles:
   - docs/models/components/UserTags.md
   - docs/models/components/Multistream.md
   - docs/models/components/TargetSpec.md
-  - docs/models/components/Target.md
   - docs/models/components/InputCreatorIdType.md
   - docs/models/components/InputCreatorId1.md
   - docs/models/components/InputCreatorId.md
@@ -627,13 +626,11 @@ generatedFiles:
   - docs/models/components/TargetAddPayloadSpec.md
   - docs/models/components/TargetAddPayload.md
   - docs/models/components/MultistreamTarget.md
-  - docs/models/components/MultistreamTargetInput.md
   - docs/models/components/MultistreamTargetPatchPayload.md
   - docs/models/components/Events.md
   - docs/models/components/LastFailure.md
   - docs/models/components/Status.md
   - docs/models/components/Webhook.md
-  - docs/models/components/WebhookInput.md
   - docs/models/components/Request.md
   - docs/models/components/Response.md
   - docs/models/components/WebhookLog.md
@@ -646,7 +643,6 @@ generatedFiles:
   - docs/models/components/NftMetadata.md
   - docs/models/components/Spec.md
   - docs/models/components/NewAssetFromUrlPayload.md
-  - docs/models/components/Encryption.md
   - docs/models/components/Ipfs1.md
   - docs/models/components/Ipfs.md
   - docs/models/components/Storage.md

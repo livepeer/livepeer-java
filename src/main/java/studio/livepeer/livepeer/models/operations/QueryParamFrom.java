@@ -86,9 +86,9 @@ public class QueryParamFrom {
     public static final class _Deserializer extends OneOfDeserializer<QueryParamFrom> {
 
         public _Deserializer() {
-            super(QueryParamFrom.class,
-                  TypeReferenceWithShape.of(new TypeReference<java.time.OffsetDateTime>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<java.lang.Long>() {}, JsonShape.DEFAULT));
+            super(QueryParamFrom.class, false,
+                  TypeReferenceWithShape.of(new TypeReference<java.lang.Long>() {}, JsonShape.DEFAULT),
+                  TypeReferenceWithShape.of(new TypeReference<java.time.OffsetDateTime>() {}, JsonShape.DEFAULT));
         }
     }
     

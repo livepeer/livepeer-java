@@ -53,17 +53,16 @@ public class Application {
 }
 ```
 
-
-
-
 ### Response
 
 **[GetMultistreamTargetsResponse](../../models/operations/GetMultistreamTargetsResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## create
 
@@ -111,23 +110,22 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | `request`                                                               | [MultistreamTargetInput](../../models/shared/MultistreamTargetInput.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
 
-
 ### Response
 
 **[CreateMultistreamTargetResponse](../../models/operations/CreateMultistreamTargetResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## get
 
@@ -170,23 +168,22 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter                    | Type                         | Required                     | Description                  |
 | ---------------------------- | ---------------------------- | ---------------------------- | ---------------------------- |
 | `id`                         | *String*                     | :heavy_check_mark:           | ID of the multistream target |
 
-
 ### Response
 
 **[GetMultistreamTargetResponse](../../models/operations/GetMultistreamTargetResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## update
 
@@ -231,8 +228,6 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
@@ -240,15 +235,16 @@ public class Application {
 | `id`                                                                                      | *String*                                                                                  | :heavy_check_mark:                                                                        | ID of the multistream target                                                              |
 | `multistreamTargetPatchPayload`                                                           | [MultistreamTargetPatchPayload](../../models/components/MultistreamTargetPatchPayload.md) | :heavy_check_mark:                                                                        | N/A                                                                                       |
 
-
 ### Response
 
 **[UpdateMultistreamTargetResponse](../../models/operations/UpdateMultistreamTargetResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## delete
 
@@ -291,18 +287,16 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter                    | Type                         | Required                     | Description                  |
 | ---------------------------- | ---------------------------- | ---------------------------- | ---------------------------- |
 | `id`                         | *String*                     | :heavy_check_mark:           | ID of the multistream target |
 
-
 ### Response
 
 **[DeleteMultistreamTargetResponse](../../models/operations/DeleteMultistreamTargetResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |

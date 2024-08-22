@@ -87,9 +87,9 @@ public class Pinata {
     public static final class _Deserializer extends OneOfDeserializer<Pinata> {
 
         public _Deserializer() {
-            super(Pinata.class,
-                  TypeReferenceWithShape.of(new TypeReference<studio.livepeer.livepeer.models.components.Pinata1>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<studio.livepeer.livepeer.models.components.Pinata2>() {}, JsonShape.DEFAULT));
+            super(Pinata.class, false,
+                  TypeReferenceWithShape.of(new TypeReference<studio.livepeer.livepeer.models.components.Pinata2>() {}, JsonShape.DEFAULT),
+                  TypeReferenceWithShape.of(new TypeReference<studio.livepeer.livepeer.models.components.Pinata1>() {}, JsonShape.DEFAULT));
         }
     }
     

@@ -50,17 +50,16 @@ public class Application {
 }
 ```
 
-
-
-
 ### Response
 
 **[GetTasksResponse](../../models/operations/GetTasksResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## get
 
@@ -103,18 +102,16 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter          | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `taskId`           | *String*           | :heavy_check_mark: | ID of the task     |
 
-
 ### Response
 
 **[GetTaskResponse](../../models/operations/GetTaskResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |

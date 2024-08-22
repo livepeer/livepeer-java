@@ -85,9 +85,9 @@ public class IsMobile {
     public static final class _Deserializer extends OneOfDeserializer<IsMobile> {
 
         public _Deserializer() {
-            super(IsMobile.class,
-                  TypeReferenceWithShape.of(new TypeReference<studio.livepeer.livepeer.models.components.One>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<java.lang.Boolean>() {}, JsonShape.DEFAULT));
+            super(IsMobile.class, false,
+                  TypeReferenceWithShape.of(new TypeReference<java.lang.Boolean>() {}, JsonShape.DEFAULT),
+                  TypeReferenceWithShape.of(new TypeReference<studio.livepeer.livepeer.models.components.One>() {}, JsonShape.DEFAULT));
         }
     }
     
