@@ -53,18 +53,16 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
 | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | `id`                                                                   | *String*                                                               | :heavy_check_mark:                                                     | The playback ID from the asset or livestream, e.g. `eaw4nk06ts2d0mzb`. |
 
-
 ### Response
 
 **[GetPlaybackInfoResponse](../../models/operations/GetPlaybackInfoResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |

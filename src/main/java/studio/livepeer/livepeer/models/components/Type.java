@@ -4,12 +4,11 @@
 
 package studio.livepeer.livepeer.models.components;
 
-
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.lang.String;
 
 public enum Type {
-    PUBLIC_("public"),
+    PUBLIC("public"),
     JWT("jwt"),
     WEBHOOK("webhook");
 

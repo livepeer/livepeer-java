@@ -225,18 +225,16 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                   | Type                                                        | Required                                                    | Description                                                 |
 | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
 | `request`                                                   | [TranscodePayload](../../models/shared/TranscodePayload.md) | :heavy_check_mark:                                          | The request object to use for the request.                  |
 
-
 ### Response
 
 **[TranscodeVideoResponse](../../models/operations/TranscodeVideoResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |

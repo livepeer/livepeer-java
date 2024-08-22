@@ -18,7 +18,7 @@ The samples below show how a published SDK artifact is used:
 
 Gradle:
 ```groovy
-implementation 'studio.livepeer:livepeer:0.4.0'
+implementation 'studio.livepeer:livepeer:0.5.0'
 ```
 
 Maven:
@@ -26,7 +26,7 @@ Maven:
 <dependency>
     <groupId>studio.livepeer</groupId>
     <artifactId>livepeer</artifactId>
-    <version>0.4.0</version>
+    <version>0.5.0</version>
 </dependency>
 ```
 

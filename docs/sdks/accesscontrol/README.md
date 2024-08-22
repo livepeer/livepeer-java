@@ -55,17 +55,16 @@ public class Application {
 }
 ```
 
-
-
-
 ### Response
 
 **[CreateSigningKeyResponse](../../models/operations/CreateSigningKeyResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## getAll
 
@@ -107,17 +106,16 @@ public class Application {
 }
 ```
 
-
-
-
 ### Response
 
 **[GetSigningKeysResponse](../../models/operations/GetSigningKeysResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## delete
 
@@ -158,23 +156,22 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter             | Type                  | Required              | Description           |
 | --------------------- | --------------------- | --------------------- | --------------------- |
 | `keyId`               | *String*              | :heavy_check_mark:    | ID of the signing key |
 
-
 ### Response
 
 **[DeleteSigningKeyResponse](../../models/operations/DeleteSigningKeyResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## get
 
@@ -217,23 +214,22 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter             | Type                  | Required              | Description           |
 | --------------------- | --------------------- | --------------------- | --------------------- |
 | `keyId`               | *String*              | :heavy_check_mark:    | ID of the signing key |
 
-
 ### Response
 
 **[GetSigningKeyResponse](../../models/operations/GetSigningKeyResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## update
 
@@ -277,8 +273,6 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
@@ -286,10 +280,10 @@ public class Application {
 | `keyId`                                                                               | *String*                                                                              | :heavy_check_mark:                                                                    | ID of the signing key                                                                 |
 | `requestBody`                                                                         | [UpdateSigningKeyRequestBody](../../models/operations/UpdateSigningKeyRequestBody.md) | :heavy_check_mark:                                                                    | N/A                                                                                   |
 
-
 ### Response
 
 **[UpdateSigningKeyResponse](../../models/operations/UpdateSigningKeyResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |

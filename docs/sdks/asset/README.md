@@ -54,17 +54,16 @@ public class Application {
 }
 ```
 
-
-
-
 ### Response
 
 **[GetAssetsResponse](../../models/operations/GetAssetsResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## create
 
@@ -211,23 +210,22 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                 | Type                                                      | Required                                                  | Description                                               |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
 | `request`                                                 | [NewAssetPayload](../../models/shared/NewAssetPayload.md) | :heavy_check_mark:                                        | The request object to use for the request.                |
 
-
 ### Response
 
 **[RequestUploadResponse](../../models/operations/RequestUploadResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## createViaUrl
 
@@ -304,23 +302,22 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | `request`                                                               | [NewAssetFromUrlPayload](../../models/shared/NewAssetFromUrlPayload.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
 
-
 ### Response
 
 **[UploadAssetResponse](../../models/operations/UploadAssetResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## get
 
@@ -363,23 +360,22 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter          | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `assetId`          | *String*           | :heavy_check_mark: | ID of the asset    |
 
-
 ### Response
 
 **[GetAssetResponse](../../models/operations/GetAssetResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## update
 
@@ -436,8 +432,6 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                         | Type                                                              | Required                                                          | Description                                                       |
@@ -445,15 +439,16 @@ public class Application {
 | `assetId`                                                         | *String*                                                          | :heavy_check_mark:                                                | ID of the asset                                                   |
 | `assetPatchPayload`                                               | [AssetPatchPayload](../../models/components/AssetPatchPayload.md) | :heavy_check_mark:                                                | N/A                                                               |
 
-
 ### Response
 
 **[UpdateAssetResponse](../../models/operations/UpdateAssetResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## delete
 
@@ -494,18 +489,16 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter          | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `assetId`          | *String*           | :heavy_check_mark: | ID of the asset    |
 
-
 ### Response
 
 **[DeleteAssetResponse](../../models/operations/DeleteAssetResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |

@@ -86,9 +86,9 @@ public class From {
     public static final class _Deserializer extends OneOfDeserializer<From> {
 
         public _Deserializer() {
-            super(From.class,
-                  TypeReferenceWithShape.of(new TypeReference<java.time.OffsetDateTime>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<java.lang.Long>() {}, JsonShape.DEFAULT));
+            super(From.class, false,
+                  TypeReferenceWithShape.of(new TypeReference<java.lang.Long>() {}, JsonShape.DEFAULT),
+                  TypeReferenceWithShape.of(new TypeReference<java.time.OffsetDateTime>() {}, JsonShape.DEFAULT));
         }
     }
     

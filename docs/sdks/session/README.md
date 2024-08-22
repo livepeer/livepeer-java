@@ -53,23 +53,22 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter                | Type                     | Required                 | Description              |
 | ------------------------ | ------------------------ | ------------------------ | ------------------------ |
 | `id`                     | *String*                 | :heavy_check_mark:       | ID of the parent session |
 
-
 ### Response
 
 **[GetSessionClipsResponse](../../models/operations/GetSessionClipsResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## getAll
 
@@ -111,17 +110,16 @@ public class Application {
 }
 ```
 
-
-
-
 ### Response
 
 **[GetSessionsResponse](../../models/operations/GetSessionsResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## get
 
@@ -164,23 +162,22 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter          | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `id`               | *String*           | :heavy_check_mark: | ID of the session  |
 
-
 ### Response
 
 **[GetSessionResponse](../../models/operations/GetSessionResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## getRecorded
 
@@ -225,8 +222,6 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            | Example                                                                |
@@ -234,10 +229,10 @@ public class Application {
 | `parentId`                                                             | *String*                                                               | :heavy_check_mark:                                                     | ID of the parent stream                                                |                                                                        |
 | `record`                                                               | [Optional<Record>](../../models/operations/Record.md)                  | :heavy_minus_sign:                                                     | Flag indicating if the response should only include recorded<br/>sessions<br/> | true                                                                   |
 
-
 ### Response
 
 **[GetRecordedSessionsResponse](../../models/operations/GetRecordedSessionsResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |

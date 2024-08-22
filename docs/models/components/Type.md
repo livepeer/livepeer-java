@@ -5,6 +5,6 @@
 
 | Name      | Value     |
 | --------- | --------- |
-| `PUBLIC_` | public    |
+| `PUBLIC`  | public    |
 | `JWT`     | jwt       |
 | `WEBHOOK` | webhook   |

@@ -82,9 +82,9 @@ public class UserTags3 {
     public static final class _Deserializer extends OneOfDeserializer<UserTags3> {
 
         public _Deserializer() {
-            super(UserTags3.class,
-                  TypeReferenceWithShape.of(new TypeReference<java.lang.String>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<java.lang.Double>() {}, JsonShape.DEFAULT));
+            super(UserTags3.class, false,
+                  TypeReferenceWithShape.of(new TypeReference<java.lang.Double>() {}, JsonShape.DEFAULT),
+                  TypeReferenceWithShape.of(new TypeReference<java.lang.String>() {}, JsonShape.DEFAULT));
         }
     }
     

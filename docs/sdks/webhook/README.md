@@ -56,17 +56,16 @@ public class Application {
 }
 ```
 
-
-
-
 ### Response
 
 **[GetWebhooksResponse](../../models/operations/GetWebhooksResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## create
 
@@ -124,23 +123,22 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter                                           | Type                                                | Required                                            | Description                                         |
 | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
 | `request`                                           | [WebhookInput](../../models/shared/WebhookInput.md) | :heavy_check_mark:                                  | The request object to use for the request.          |
 
-
 ### Response
 
 **[CreateWebhookResponse](../../models/operations/CreateWebhookResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## get
 
@@ -183,23 +181,22 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter          | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `id`               | *String*           | :heavy_check_mark: | N/A                |
 
-
 ### Response
 
 **[GetWebhookResponse](../../models/operations/GetWebhookResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## update
 
@@ -255,8 +252,6 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter                                               | Type                                                    | Required                                                | Description                                             |
@@ -264,15 +259,16 @@ public class Application {
 | `id`                                                    | *String*                                                | :heavy_check_mark:                                      | N/A                                                     |
 | `webhook`                                               | [WebhookInput](../../models/components/WebhookInput.md) | :heavy_check_mark:                                      | N/A                                                     |
 
-
 ### Response
 
 **[UpdateWebhookResponse](../../models/operations/UpdateWebhookResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## delete
 
@@ -315,23 +311,22 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter          | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `id`               | *String*           | :heavy_check_mark: | N/A                |
 
-
 ### Response
 
 **[DeleteWebhookResponse](../../models/operations/DeleteWebhookResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## getLogs
 
@@ -374,23 +369,22 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter          | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `id`               | *String*           | :heavy_check_mark: | N/A                |
 
-
 ### Response
 
 **[GetWebhookLogsResponse](../../models/operations/GetWebhookLogsResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## getLog
 
@@ -434,8 +428,6 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter          | Type               | Required           | Description        |
@@ -443,15 +435,16 @@ public class Application {
 | `id`               | *String*           | :heavy_check_mark: | N/A                |
 | `logId`            | *String*           | :heavy_check_mark: | N/A                |
 
-
 ### Response
 
 **[GetWebhookLogResponse](../../models/operations/GetWebhookLogResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## resendLog
 
@@ -498,8 +491,6 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter          | Type               | Required           | Description        |
@@ -507,10 +498,10 @@ public class Application {
 | `id`               | *String*           | :heavy_check_mark: | N/A                |
 | `logId`            | *String*           | :heavy_check_mark: | N/A                |
 
-
 ### Response
 
 **[ResendWebhookResponse](../../models/operations/ResendWebhookResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |

@@ -60,17 +60,16 @@ public class Application {
 }
 ```
 
-
-
-
 ### Response
 
 **[CreateRoomResponse](../../models/operations/CreateRoomResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## ~~get~~
 
@@ -115,23 +114,22 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter          | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `id`               | *String*           | :heavy_check_mark: | N/A                |
 
-
 ### Response
 
 **[GetRoomResponse](../../models/operations/GetRoomResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## ~~delete~~
 
@@ -174,23 +172,22 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter          | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `id`               | *String*           | :heavy_check_mark: | N/A                |
 
-
 ### Response
 
 **[DeleteRoomResponse](../../models/operations/DeleteRoomResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## ~~startEgress~~
 
@@ -239,8 +236,6 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                         | Type                                                              | Required                                                          | Description                                                       |
@@ -248,15 +243,16 @@ public class Application {
 | `id`                                                              | *String*                                                          | :heavy_check_mark:                                                | N/A                                                               |
 | `roomEgressPayload`                                               | [RoomEgressPayload](../../models/components/RoomEgressPayload.md) | :heavy_check_mark:                                                | N/A                                                               |
 
-
 ### Response
 
 **[StartRoomEgressResponse](../../models/operations/StartRoomEgressResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## ~~stopEgress~~
 
@@ -299,23 +295,22 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter          | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `id`               | *String*           | :heavy_check_mark: | N/A                |
 
-
 ### Response
 
 **[StopRoomEgressResponse](../../models/operations/StopRoomEgressResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## ~~createUser~~
 
@@ -369,8 +364,6 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                     | Type                                                          | Required                                                      | Description                                                   |
@@ -378,15 +371,16 @@ public class Application {
 | `id`                                                          | *String*                                                      | :heavy_check_mark:                                            | N/A                                                           |
 | `roomUserPayload`                                             | [RoomUserPayload](../../models/components/RoomUserPayload.md) | :heavy_check_mark:                                            | N/A                                                           |
 
-
 ### Response
 
 **[CreateRoomUserResponse](../../models/operations/CreateRoomUserResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## ~~getUser~~
 
@@ -432,8 +426,6 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter          | Type               | Required           | Description        |
@@ -441,15 +433,16 @@ public class Application {
 | `id`               | *String*           | :heavy_check_mark: | N/A                |
 | `userId`           | *String*           | :heavy_check_mark: | N/A                |
 
-
 ### Response
 
 **[GetRoomUserResponse](../../models/operations/GetRoomUserResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## ~~updateUser~~
 
@@ -498,8 +491,6 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
@@ -508,15 +499,16 @@ public class Application {
 | `userId`                                                                  | *String*                                                                  | :heavy_check_mark:                                                        | N/A                                                                       |
 | `roomUserUpdatePayload`                                                   | [RoomUserUpdatePayload](../../models/components/RoomUserUpdatePayload.md) | :heavy_check_mark:                                                        | N/A                                                                       |
 
-
 ### Response
 
 **[UpdateRoomUserResponse](../../models/operations/UpdateRoomUserResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## ~~deleteUser~~
 
@@ -560,8 +552,6 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter          | Type               | Required           | Description        |
@@ -569,10 +559,10 @@ public class Application {
 | `id`               | *String*           | :heavy_check_mark: | N/A                |
 | `userId`           | *String*           | :heavy_check_mark: | N/A                |
 
-
 ### Response
 
 **[DeleteRoomUserResponse](../../models/operations/DeleteRoomUserResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |

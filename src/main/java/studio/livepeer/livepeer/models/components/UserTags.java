@@ -89,10 +89,10 @@ public class UserTags {
     public static final class _Deserializer extends OneOfDeserializer<UserTags> {
 
         public _Deserializer() {
-            super(UserTags.class,
-                  TypeReferenceWithShape.of(new TypeReference<java.lang.String>() {}, JsonShape.DEFAULT),
+            super(UserTags.class, false,
+                  TypeReferenceWithShape.of(new TypeReference<java.util.List<studio.livepeer.livepeer.models.components.UserTags3>>() {}, JsonShape.DEFAULT),
                   TypeReferenceWithShape.of(new TypeReference<java.lang.Double>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<java.util.List<studio.livepeer.livepeer.models.components.UserTags3>>() {}, JsonShape.DEFAULT));
+                  TypeReferenceWithShape.of(new TypeReference<java.lang.String>() {}, JsonShape.DEFAULT));
         }
     }
     

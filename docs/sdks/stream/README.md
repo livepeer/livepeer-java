@@ -149,23 +149,22 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                   | Type                                                        | Required                                                    | Description                                                 |
 | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
 | `request`                                                   | [NewStreamPayload](../../models/shared/NewStreamPayload.md) | :heavy_check_mark:                                          | The request object to use for the request.                  |
 
-
 ### Response
 
 **[CreateStreamResponse](../../models/operations/CreateStreamResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## getAll
 
@@ -208,23 +207,22 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter          | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `streamsonly`      | *Optional<String>* | :heavy_minus_sign: | N/A                |
 
-
 ### Response
 
 **[GetStreamsResponse](../../models/operations/GetStreamsResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## get
 
@@ -267,23 +265,22 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter          | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `id`               | *String*           | :heavy_check_mark: | ID of the stream   |
 
-
 ### Response
 
 **[GetStreamResponse](../../models/operations/GetStreamResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## update
 
@@ -387,8 +384,6 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
@@ -396,15 +391,16 @@ public class Application {
 | `id`                                                                | *String*                                                            | :heavy_check_mark:                                                  | ID of the stream                                                    |
 | `streamPatchPayload`                                                | [StreamPatchPayload](../../models/components/StreamPatchPayload.md) | :heavy_check_mark:                                                  | N/A                                                                 |
 
-
 ### Response
 
 **[UpdateStreamResponse](../../models/operations/UpdateStreamResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## delete
 
@@ -449,23 +445,22 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter          | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `id`               | *String*           | :heavy_check_mark: | ID of the stream   |
 
-
 ### Response
 
 **[DeleteStreamResponse](../../models/operations/DeleteStreamResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## terminate
 
@@ -514,23 +509,22 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter          | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `id`               | *String*           | :heavy_check_mark: | ID of the stream   |
 
-
 ### Response
 
 **[TerminateStreamResponse](../../models/operations/TerminateStreamResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## startPull
 
@@ -578,23 +572,22 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter          | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `id`               | *String*           | :heavy_check_mark: | ID of the stream   |
 
-
 ### Response
 
 **[StartPullStreamResponse](../../models/operations/StartPullStreamResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## createClip
 
@@ -646,23 +639,22 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter                                         | Type                                              | Required                                          | Description                                       |
 | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
 | `request`                                         | [ClipPayload](../../models/shared/ClipPayload.md) | :heavy_check_mark:                                | The request object to use for the request.        |
 
-
 ### Response
 
 **[CreateClipResponse](../../models/operations/CreateClipResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## getClips
 
@@ -705,23 +697,22 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter                                              | Type                                                   | Required                                               | Description                                            |
 | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
 | `id`                                                   | *String*                                               | :heavy_check_mark:                                     | ID of the parent stream or playbackId of parent stream |
 
-
 ### Response
 
 **[GetClipsResponse](../../models/operations/GetClipsResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## addMultistreamTarget
 
@@ -773,8 +764,6 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                       | Type                                                            | Required                                                        | Description                                                     |
@@ -782,15 +771,16 @@ public class Application {
 | `id`                                                            | *String*                                                        | :heavy_check_mark:                                              | ID of the parent stream                                         |
 | `targetAddPayload`                                              | [TargetAddPayload](../../models/components/TargetAddPayload.md) | :heavy_check_mark:                                              | N/A                                                             |
 
-
 ### Response
 
 **[AddMultistreamTargetResponse](../../models/operations/AddMultistreamTargetResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
 
 ## removeMultistreamTarget
 
@@ -832,8 +822,6 @@ public class Application {
 }
 ```
 
-
-
 ### Parameters
 
 | Parameter                    | Type                         | Required                     | Description                  |
@@ -841,10 +829,10 @@ public class Application {
 | `id`                         | *String*                     | :heavy_check_mark:           | ID of the parent stream      |
 | `targetId`                   | *String*                     | :heavy_check_mark:           | ID of the multistream target |
 
-
 ### Response
 
 **[RemoveMultistreamTargetResponse](../../models/operations/RemoveMultistreamTargetResponse.md)**
+
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |

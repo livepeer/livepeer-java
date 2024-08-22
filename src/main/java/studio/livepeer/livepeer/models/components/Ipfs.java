@@ -88,9 +88,9 @@ public class Ipfs {
     public static final class _Deserializer extends OneOfDeserializer<Ipfs> {
 
         public _Deserializer() {
-            super(Ipfs.class,
-                  TypeReferenceWithShape.of(new TypeReference<studio.livepeer.livepeer.models.components.Ipfs1>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<java.lang.Boolean>() {}, JsonShape.DEFAULT));
+            super(Ipfs.class, false,
+                  TypeReferenceWithShape.of(new TypeReference<java.lang.Boolean>() {}, JsonShape.DEFAULT),
+                  TypeReferenceWithShape.of(new TypeReference<studio.livepeer.livepeer.models.components.Ipfs1>() {}, JsonShape.DEFAULT));
         }
     }
     
