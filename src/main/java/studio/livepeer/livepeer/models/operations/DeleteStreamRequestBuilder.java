@@ -16,7 +16,7 @@ public class DeleteStreamRequestBuilder {
         this.sdk = sdk;
     }
 
-    public DeleteStreamRequestBuilder id(java.lang.String id) {
+    public DeleteStreamRequestBuilder id(String id) {
         Utils.checkNotNull(id, "id");
         this.id = id;
         return this;

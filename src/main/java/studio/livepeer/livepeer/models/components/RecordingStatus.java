@@ -14,6 +14,7 @@ public enum RecordingStatus {
     WAITING("waiting"),
     READY("ready"),
     FAILED("failed"),
+    DELETED("deleted"),
     NONE("none");
 
     @JsonValue

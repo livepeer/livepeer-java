@@ -61,7 +61,7 @@ tasks.withType(Javadoc) {
 }
 
 group = "studio.livepeer"
-version = "0.5.0"
+version = "0.6.0"
 
 sourcesJar {
     archiveBaseName = "livepeer"
@@ -78,7 +78,7 @@ publishing {
         maven(MavenPublication) {
             groupId = 'studio.livepeer'
             artifactId = 'livepeer'
-            version = '0.5.0'
+            version = '0.6.0'
 
             from components.java
 

@@ -16,7 +16,7 @@ public class CreateStreamRequestBuilder {
         this.sdk = sdk;
     }
 
-    public CreateStreamRequestBuilder request(studio.livepeer.livepeer.models.components.NewStreamPayload request) {
+    public CreateStreamRequestBuilder request(NewStreamPayload request) {
         Utils.checkNotNull(request, "request");
         this.request = request;
         return this;

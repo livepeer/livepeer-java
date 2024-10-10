@@ -16,7 +16,7 @@ public class GetSessionRequestBuilder {
         this.sdk = sdk;
     }
 
-    public GetSessionRequestBuilder id(java.lang.String id) {
+    public GetSessionRequestBuilder id(String id) {
         Utils.checkNotNull(id, "id");
         this.id = id;
         return this;

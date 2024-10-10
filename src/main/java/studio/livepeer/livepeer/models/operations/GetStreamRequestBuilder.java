@@ -16,7 +16,7 @@ public class GetStreamRequestBuilder {
         this.sdk = sdk;
     }
 
-    public GetStreamRequestBuilder id(java.lang.String id) {
+    public GetStreamRequestBuilder id(String id) {
         Utils.checkNotNull(id, "id");
         this.id = id;
         return this;

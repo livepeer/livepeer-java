@@ -17,13 +17,13 @@ public class RemoveMultistreamTargetRequestBuilder {
         this.sdk = sdk;
     }
 
-    public RemoveMultistreamTargetRequestBuilder id(java.lang.String id) {
+    public RemoveMultistreamTargetRequestBuilder id(String id) {
         Utils.checkNotNull(id, "id");
         this.id = id;
         return this;
     }
 
-    public RemoveMultistreamTargetRequestBuilder targetId(java.lang.String targetId) {
+    public RemoveMultistreamTargetRequestBuilder targetId(String targetId) {
         Utils.checkNotNull(targetId, "targetId");
         this.targetId = targetId;
         return this;

@@ -16,7 +16,7 @@ public class GetPlaybackInfoRequestBuilder {
         this.sdk = sdk;
     }
 
-    public GetPlaybackInfoRequestBuilder id(java.lang.String id) {
+    public GetPlaybackInfoRequestBuilder id(String id) {
         Utils.checkNotNull(id, "id");
         this.id = id;
         return this;

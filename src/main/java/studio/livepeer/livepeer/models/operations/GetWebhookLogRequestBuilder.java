@@ -17,13 +17,13 @@ public class GetWebhookLogRequestBuilder {
         this.sdk = sdk;
     }
 
-    public GetWebhookLogRequestBuilder id(java.lang.String id) {
+    public GetWebhookLogRequestBuilder id(String id) {
         Utils.checkNotNull(id, "id");
         this.id = id;
         return this;
     }
 
-    public GetWebhookLogRequestBuilder logId(java.lang.String logId) {
+    public GetWebhookLogRequestBuilder logId(String logId) {
         Utils.checkNotNull(logId, "logId");
         this.logId = logId;
         return this;

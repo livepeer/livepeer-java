@@ -361,8 +361,7 @@ public class GetRoomUserResponse {
         public GetRoomUserResponse build() {
             if (isPublisher == null) {
                 isPublisher = _SINGLETON_VALUE_IsPublisher.value();
-            }
-            return new GetRoomUserResponse(
+            }            return new GetRoomUserResponse(
                 id,
                 joinedAt,
                 name,

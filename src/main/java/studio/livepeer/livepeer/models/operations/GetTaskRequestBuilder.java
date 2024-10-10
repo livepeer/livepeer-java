@@ -16,7 +16,7 @@ public class GetTaskRequestBuilder {
         this.sdk = sdk;
     }
 
-    public GetTaskRequestBuilder taskId(java.lang.String taskId) {
+    public GetTaskRequestBuilder taskId(String taskId) {
         Utils.checkNotNull(taskId, "taskId");
         this.taskId = taskId;
         return this;

@@ -26,36 +26,27 @@ package hello.world;
 import java.lang.Exception;
 import java.util.List;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.BreakdownBy;
 import studio.livepeer.livepeer.models.operations.GetRealtimeViewershipNowResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            GetRealtimeViewershipNowResponse res = sdk.metrics().getRealtimeViewership()
-                .playbackId("<value>")
-                .creatorId("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+            .build();
+
+        GetRealtimeViewershipNowResponse res = sdk.metrics().getRealtimeViewership()
+                .playbackId("<id>")
+                .creatorId("<id>")
                 .breakdownBy(List.of(
                     BreakdownBy.PLAYBACK_ID))
                 .call();
 
-            if (res.data().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.data().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -74,10 +65,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## getViewership
 
@@ -91,36 +81,27 @@ package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.GetViewershipMetricsRequest;
 import studio.livepeer.livepeer.models.operations.GetViewershipMetricsResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
+
+        Livepeer sdk = Livepeer.builder()
                 .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+            .build();
+
+        GetViewershipMetricsRequest req = GetViewershipMetricsRequest.builder()
                 .build();
 
-            GetViewershipMetricsRequest req = GetViewershipMetricsRequest.builder()
-                .build();
-
-            GetViewershipMetricsResponse res = sdk.metrics().getViewership()
+        GetViewershipMetricsResponse res = sdk.metrics().getViewership()
                 .request(req)
                 .call();
 
-            if (res.data().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.data().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -137,10 +118,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## getCreatorViewership
 
@@ -154,36 +134,27 @@ package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.GetCreatorViewershipMetricsRequest;
 import studio.livepeer.livepeer.models.operations.GetCreatorViewershipMetricsResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
+
+        Livepeer sdk = Livepeer.builder()
                 .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+            .build();
+
+        GetCreatorViewershipMetricsRequest req = GetCreatorViewershipMetricsRequest.builder()
                 .build();
 
-            GetCreatorViewershipMetricsRequest req = GetCreatorViewershipMetricsRequest.builder()
-                .build();
-
-            GetCreatorViewershipMetricsResponse res = sdk.metrics().getCreatorViewership()
+        GetCreatorViewershipMetricsResponse res = sdk.metrics().getCreatorViewership()
                 .request(req)
                 .call();
 
-            if (res.data().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.data().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -200,10 +171,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## getPublicViewership
 
@@ -219,32 +189,23 @@ package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.GetPublicViewershipMetricsResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            GetPublicViewershipMetricsResponse res = sdk.metrics().getPublicViewership()
-                .playbackId("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+            .build();
+
+        GetPublicViewershipMetricsResponse res = sdk.metrics().getPublicViewership()
+                .playbackId("<id>")
                 .call();
 
-            if (res.data().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.data().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -261,10 +222,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## getUsage
 
@@ -277,36 +237,27 @@ package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.GetUsageMetricsRequest;
 import studio.livepeer.livepeer.models.operations.GetUsageMetricsResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
+
+        Livepeer sdk = Livepeer.builder()
                 .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+            .build();
+
+        GetUsageMetricsRequest req = GetUsageMetricsRequest.builder()
                 .build();
 
-            GetUsageMetricsRequest req = GetUsageMetricsRequest.builder()
-                .build();
-
-            GetUsageMetricsResponse res = sdk.metrics().getUsage()
+        GetUsageMetricsResponse res = sdk.metrics().getUsage()
                 .request(req)
                 .call();
 
-            if (res.usageMetric().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.usageMetric().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -323,6 +274,6 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |

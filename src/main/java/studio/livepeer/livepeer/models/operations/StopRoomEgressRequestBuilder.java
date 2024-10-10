@@ -16,7 +16,7 @@ public class StopRoomEgressRequestBuilder {
         this.sdk = sdk;
     }
 
-    public StopRoomEgressRequestBuilder id(java.lang.String id) {
+    public StopRoomEgressRequestBuilder id(String id) {
         Utils.checkNotNull(id, "id");
         this.id = id;
         return this;

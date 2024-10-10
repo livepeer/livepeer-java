@@ -16,7 +16,7 @@ public class DeleteAssetRequestBuilder {
         this.sdk = sdk;
     }
 
-    public DeleteAssetRequestBuilder assetId(java.lang.String assetId) {
+    public DeleteAssetRequestBuilder assetId(String assetId) {
         Utils.checkNotNull(assetId, "assetId");
         this.assetId = assetId;
         return this;

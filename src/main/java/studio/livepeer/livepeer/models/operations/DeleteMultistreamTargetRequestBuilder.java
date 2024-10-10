@@ -16,7 +16,7 @@ public class DeleteMultistreamTargetRequestBuilder {
         this.sdk = sdk;
     }
 
-    public DeleteMultistreamTargetRequestBuilder id(java.lang.String id) {
+    public DeleteMultistreamTargetRequestBuilder id(String id) {
         Utils.checkNotNull(id, "id");
         this.id = id;
         return this;

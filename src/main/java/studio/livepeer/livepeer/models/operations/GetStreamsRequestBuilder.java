@@ -17,13 +17,13 @@ public class GetStreamsRequestBuilder {
         this.sdk = sdk;
     }
                 
-    public GetStreamsRequestBuilder streamsonly(java.lang.String streamsonly) {
+    public GetStreamsRequestBuilder streamsonly(String streamsonly) {
         Utils.checkNotNull(streamsonly, "streamsonly");
         this.streamsonly = Optional.of(streamsonly);
         return this;
     }
 
-    public GetStreamsRequestBuilder streamsonly(java.util.Optional<java.lang.String> streamsonly) {
+    public GetStreamsRequestBuilder streamsonly(Optional<String> streamsonly) {
         Utils.checkNotNull(streamsonly, "streamsonly");
         this.streamsonly = streamsonly;
         return this;

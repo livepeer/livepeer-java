@@ -16,7 +16,7 @@ public class GetWebhookRequestBuilder {
         this.sdk = sdk;
     }
 
-    public GetWebhookRequestBuilder id(java.lang.String id) {
+    public GetWebhookRequestBuilder id(String id) {
         Utils.checkNotNull(id, "id");
         this.id = id;
         return this;

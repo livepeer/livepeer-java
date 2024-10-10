@@ -11,6 +11,7 @@ import studio.livepeer.livepeer.models.operations.SDKMethodInterfaces.*;
 import studio.livepeer.livepeer.utils.HTTPClient;
 import studio.livepeer.livepeer.utils.RetryConfig;
 import studio.livepeer.livepeer.utils.SpeakeasyHTTPClient;
+import studio.livepeer.livepeer.utils.Utils;
 
 /**
  * Livepeer API Reference: Welcome to the Livepeer API reference docs. Here you will find all the
@@ -224,7 +225,7 @@ public class Livepeer {
          * @return The builder instance.
          */
         public Builder serverURL(String serverUrl, Map<String, String> params) {
-            this.sdkConfiguration.serverUrl = studio.livepeer.livepeer.utils.Utils.templateUrl(serverUrl, params);
+            this.sdkConfiguration.serverUrl = Utils.templateUrl(serverUrl, params);
             return this;
         }
         

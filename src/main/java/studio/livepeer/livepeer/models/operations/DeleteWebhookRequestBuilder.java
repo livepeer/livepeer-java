@@ -16,7 +16,7 @@ public class DeleteWebhookRequestBuilder {
         this.sdk = sdk;
     }
 
-    public DeleteWebhookRequestBuilder id(java.lang.String id) {
+    public DeleteWebhookRequestBuilder id(String id) {
         Utils.checkNotNull(id, "id");
         this.id = id;
         return this;

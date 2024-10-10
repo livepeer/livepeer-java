@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: b4f7f2df-6c4d-4150-a18f-8b74fe44eb22
 management:
-  docChecksum: 59634240879b8bce1b699c21c7f4f276
+  docChecksum: 15b03577412e825b1bed730cb677f220
   docVersion: 1.0.0
-  speakeasyVersion: 1.377.1
-  generationVersion: 2.404.1
-  releaseVersion: 0.5.0
-  configChecksum: 3b33f25e938c6a67453f8e636f88064a
+  speakeasyVersion: 1.414.1
+  generationVersion: 2.437.1
+  releaseVersion: 0.6.0
+  configChecksum: bf3dd6586cf095c222bd18a161dcabef
   repoURL: https://github.com/livepeer/livepeer-java.git
 features:
   java:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.1
-    core: 3.29.4
+    core: 3.30.4
     deprecations: 2.81.1
     flattening: 2.81.1
     globalSecurity: 2.82.7
@@ -25,85 +25,693 @@ features:
     sdkHooks: 0.1.0
     unions: 0.0.5
 generatedFiles:
-  - src/main/java/studio/livepeer/livepeer/SecuritySource.java
-  - src/main/java/studio/livepeer/livepeer/SDKConfiguration.java
-  - src/main/java/studio/livepeer/livepeer/Stream.java
-  - src/main/java/studio/livepeer/livepeer/Multistream.java
-  - src/main/java/studio/livepeer/livepeer/Webhook.java
-  - src/main/java/studio/livepeer/livepeer/Asset.java
-  - src/main/java/studio/livepeer/livepeer/Session.java
-  - src/main/java/studio/livepeer/livepeer/Room.java
-  - src/main/java/studio/livepeer/livepeer/Metrics.java
-  - src/main/java/studio/livepeer/livepeer/AccessControl.java
-  - src/main/java/studio/livepeer/livepeer/Task.java
-  - src/main/java/studio/livepeer/livepeer/Transcode.java
-  - src/main/java/studio/livepeer/livepeer/Playback.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/CreateStreamRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetStreamsRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetStreamRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateStreamRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteStreamRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/TerminateStreamRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/StartPullStreamRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/CreateClipRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetClipsRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/AddMultistreamTargetRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/RemoveMultistreamTargetRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetMultistreamTargetsRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/CreateMultistreamTargetRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetMultistreamTargetRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateMultistreamTargetRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteMultistreamTargetRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetWebhooksRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/CreateWebhookRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetWebhookRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateWebhookRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteWebhookRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetWebhookLogsRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetWebhookLogRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/ResendWebhookRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetAssetsRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/RequestUploadRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/UploadAssetRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetAssetRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateAssetRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteAssetRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetSessionClipsRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetSessionsRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetSessionRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetRecordedSessionsRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/CreateRoomRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetRoomRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteRoomRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/StartRoomEgressRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/StopRoomEgressRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/CreateRoomUserRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetRoomUserRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateRoomUserRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteRoomUserRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetRealtimeViewershipNowRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetViewershipMetricsRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetCreatorViewershipMetricsRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetPublicViewershipMetricsRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetUsageMetricsRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/CreateSigningKeyRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetSigningKeysRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteSigningKeyRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetSigningKeyRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateSigningKeyRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetTasksRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetTaskRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/TranscodeVideoRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetPlaybackInfoRequestBuilder.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/SDKMethodInterfaces.java
-  - src/main/java/studio/livepeer/livepeer/Livepeer.java
   - .gitattributes
+  - CONTRIBUTING.md
+  - USAGE.md
   - build.gradle
+  - docs/models/components/Asset.md
+  - docs/models/components/AssetIpfs.md
+  - docs/models/components/AssetNftMetadata.md
+  - docs/models/components/AssetNftMetadataTemplate.md
+  - docs/models/components/AssetPatchPayload.md
+  - docs/models/components/AssetPhase.md
+  - docs/models/components/AssetSource3Type.md
+  - docs/models/components/AssetSourceType.md
+  - docs/models/components/AssetSpec.md
+  - docs/models/components/AssetStatus.md
+  - docs/models/components/AssetStorage.md
+  - docs/models/components/AssetType.md
+  - docs/models/components/AssetVideoSpecType.md
+  - docs/models/components/Attestation.md
+  - docs/models/components/AttestationIpfs.md
+  - docs/models/components/AttestationStorage.md
+  - docs/models/components/Attestations.md
+  - docs/models/components/CatalystPipelineStrategy.md
+  - docs/models/components/Clip.md
+  - docs/models/components/ClipPayload.md
+  - docs/models/components/ClipStrategy.md
+  - docs/models/components/Content.md
+  - docs/models/components/CreateRoomResponse.md
+  - docs/models/components/CreatorId.md
+  - docs/models/components/CreatorId1.md
+  - docs/models/components/CreatorIdType.md
+  - docs/models/components/Credentials.md
+  - docs/models/components/Custom.md
+  - docs/models/components/Domain.md
+  - docs/models/components/DvrPlayback.md
+  - docs/models/components/Encoder.md
+  - docs/models/components/Encryption.md
+  - docs/models/components/EncryptionOutput.md
+  - docs/models/components/Error.md
+  - docs/models/components/Events.md
+  - docs/models/components/Export.md
+  - docs/models/components/ExportData.md
+  - docs/models/components/ExportTaskParams.md
+  - docs/models/components/ExportTaskParams1.md
+  - docs/models/components/ExportTaskParams2.md
+  - docs/models/components/FfmpegProfile.md
+  - docs/models/components/Fmp4.md
+  - docs/models/components/GetRoomUserResponse.md
+  - docs/models/components/Hash.md
+  - docs/models/components/Hls.md
+  - docs/models/components/Hrn.md
+  - docs/models/components/Input.md
+  - docs/models/components/Input1.md
+  - docs/models/components/Input2.md
+  - docs/models/components/InputCreatorId.md
+  - docs/models/components/InputCreatorId1.md
+  - docs/models/components/InputCreatorIdType.md
+  - docs/models/components/InputType.md
+  - docs/models/components/Ipfs.md
+  - docs/models/components/Ipfs1.md
+  - docs/models/components/IpfsExportParams.md
+  - docs/models/components/IpfsFileInfo.md
+  - docs/models/components/IsMobile.md
+  - docs/models/components/IsMobile1.md
+  - docs/models/components/LastFailure.md
+  - docs/models/components/Live.md
+  - docs/models/components/Location.md
+  - docs/models/components/Message.md
+  - docs/models/components/Meta.md
+  - docs/models/components/Mp4.md
+  - docs/models/components/Multistream.md
+  - docs/models/components/MultistreamTarget.md
+  - docs/models/components/MultistreamTargetInput.md
+  - docs/models/components/MultistreamTargetPatchPayload.md
+  - docs/models/components/Name.md
+  - docs/models/components/NewAssetFromUrlPayload.md
+  - docs/models/components/NewAssetPayload.md
+  - docs/models/components/NewAssetPayloadEncryption.md
+  - docs/models/components/NewAssetPayloadIpfs.md
+  - docs/models/components/NewAssetPayloadIpfs1.md
+  - docs/models/components/NewAssetPayloadStorage.md
+  - docs/models/components/NewStreamPayload.md
+  - docs/models/components/NewStreamPayloadRecordingSpec.md
+  - docs/models/components/NftMetadata.md
+  - docs/models/components/NftMetadataTemplate.md
+  - docs/models/components/One.md
+  - docs/models/components/Output.md
+  - docs/models/components/Outputs.md
+  - docs/models/components/Params.md
+  - docs/models/components/Participants.md
+  - docs/models/components/Phase.md
+  - docs/models/components/Pinata.md
+  - docs/models/components/Pinata1.md
+  - docs/models/components/Pinata2.md
+  - docs/models/components/PlaybackInfo.md
+  - docs/models/components/PlaybackInfoHrn.md
+  - docs/models/components/PlaybackInfoMetaDvrPlaybackType.md
+  - docs/models/components/PlaybackInfoMetaType.md
+  - docs/models/components/PlaybackInfoSource.md
+  - docs/models/components/PlaybackInfoType.md
+  - docs/models/components/PlaybackPolicy.md
+  - docs/models/components/PrimaryType.md
+  - docs/models/components/Profile.md
+  - docs/models/components/Pull.md
+  - docs/models/components/RealtimeViewershipMetric.md
+  - docs/models/components/RecordingSpec.md
+  - docs/models/components/RecordingStatus.md
+  - docs/models/components/Renditions.md
+  - docs/models/components/Request.md
+  - docs/models/components/Response.md
+  - docs/models/components/Room.md
+  - docs/models/components/RoomEgressPayload.md
+  - docs/models/components/RoomUserPayload.md
+  - docs/models/components/RoomUserResponse.md
+  - docs/models/components/RoomUserUpdatePayload.md
+  - docs/models/components/Security.md
+  - docs/models/components/Session.md
+  - docs/models/components/SignatureType.md
+  - docs/models/components/SigningKey.md
+  - docs/models/components/Source.md
+  - docs/models/components/Source1.md
+  - docs/models/components/Source3.md
+  - docs/models/components/SourceType.md
+  - docs/models/components/Spec.md
+  - docs/models/components/Status.md
+  - docs/models/components/Storage.md
+  - docs/models/components/Storage1.md
+  - docs/models/components/Storage2.md
+  - docs/models/components/StorageCredentials.md
+  - docs/models/components/StorageStatus.md
+  - docs/models/components/StorageType.md
+  - docs/models/components/Stream.md
+  - docs/models/components/StreamIsMobile.md
+  - docs/models/components/StreamLocation.md
+  - docs/models/components/StreamMultistream.md
+  - docs/models/components/StreamPatchPayload.md
+  - docs/models/components/StreamPull.md
+  - docs/models/components/StreamRecordingSpec.md
+  - docs/models/components/StreamUserTags.md
+  - docs/models/components/Target.md
+  - docs/models/components/TargetAddPayload.md
+  - docs/models/components/TargetAddPayloadSpec.md
+  - docs/models/components/TargetOutput.md
+  - docs/models/components/TargetSpec.md
+  - docs/models/components/Task.md
+  - docs/models/components/TaskExportData.md
+  - docs/models/components/TaskHls.md
+  - docs/models/components/TaskInput.md
+  - docs/models/components/TaskIpfs.md
+  - docs/models/components/TaskMp4.md
+  - docs/models/components/TaskOutputIpfs.md
+  - docs/models/components/TaskOutputs.md
+  - docs/models/components/TaskPhase.md
+  - docs/models/components/TaskStatus.md
+  - docs/models/components/TaskStorage.md
+  - docs/models/components/TaskType.md
+  - docs/models/components/Tasks.md
+  - docs/models/components/Three.md
+  - docs/models/components/Tracks.md
+  - docs/models/components/TranscodeFile.md
+  - docs/models/components/TranscodePayload.md
+  - docs/models/components/TranscodePayloadStorage.md
+  - docs/models/components/TranscodePayloadStorageCredentials.md
+  - docs/models/components/TranscodePayloadStorageType.md
+  - docs/models/components/TranscodeProfile.md
+  - docs/models/components/TranscodeProfileEncoder.md
+  - docs/models/components/TranscodeProfileProfile.md
+  - docs/models/components/Two.md
+  - docs/models/components/Type.md
+  - docs/models/components/Upload.md
+  - docs/models/components/UsageMetric.md
+  - docs/models/components/UserTags.md
+  - docs/models/components/UserTags3.md
+  - docs/models/components/Version.md
+  - docs/models/components/VideoSpec.md
+  - docs/models/components/ViewershipMetric.md
+  - docs/models/components/Webhook.md
+  - docs/models/components/WebhookInput.md
+  - docs/models/components/WebhookLog.md
+  - docs/models/errors/Error.md
+  - docs/models/operations/AddMultistreamTargetRequest.md
+  - docs/models/operations/AddMultistreamTargetResponse.md
+  - docs/models/operations/BreakdownBy.md
+  - docs/models/operations/CreateClipData.md
+  - docs/models/operations/CreateClipResponse.md
+  - docs/models/operations/CreateClipTask.md
+  - docs/models/operations/CreateMultistreamTargetResponse.md
+  - docs/models/operations/CreateRoomResponse.md
+  - docs/models/operations/CreateRoomUserRequest.md
+  - docs/models/operations/CreateRoomUserResponse.md
+  - docs/models/operations/CreateSigningKeyResponse.md
+  - docs/models/operations/CreateStreamResponse.md
+  - docs/models/operations/CreateWebhookResponse.md
+  - docs/models/operations/DeleteAssetRequest.md
+  - docs/models/operations/DeleteAssetResponse.md
+  - docs/models/operations/DeleteMultistreamTargetRequest.md
+  - docs/models/operations/DeleteMultistreamTargetResponse.md
+  - docs/models/operations/DeleteRoomRequest.md
+  - docs/models/operations/DeleteRoomResponse.md
+  - docs/models/operations/DeleteRoomUserRequest.md
+  - docs/models/operations/DeleteRoomUserResponse.md
+  - docs/models/operations/DeleteSigningKeyRequest.md
+  - docs/models/operations/DeleteSigningKeyResponse.md
+  - docs/models/operations/DeleteStreamRequest.md
+  - docs/models/operations/DeleteStreamResponse.md
+  - docs/models/operations/DeleteWebhookRequest.md
+  - docs/models/operations/DeleteWebhookResponse.md
+  - docs/models/operations/From.md
+  - docs/models/operations/GetAssetRequest.md
+  - docs/models/operations/GetAssetResponse.md
+  - docs/models/operations/GetAssetsResponse.md
+  - docs/models/operations/GetClipsRequest.md
+  - docs/models/operations/GetClipsResponse.md
+  - docs/models/operations/GetCreatorViewershipMetricsQueryParamBreakdownBy.md
+  - docs/models/operations/GetCreatorViewershipMetricsRequest.md
+  - docs/models/operations/GetCreatorViewershipMetricsResponse.md
+  - docs/models/operations/GetMultistreamTargetRequest.md
+  - docs/models/operations/GetMultistreamTargetResponse.md
+  - docs/models/operations/GetMultistreamTargetsResponse.md
+  - docs/models/operations/GetPlaybackInfoRequest.md
+  - docs/models/operations/GetPlaybackInfoResponse.md
+  - docs/models/operations/GetPublicViewershipMetricsData.md
+  - docs/models/operations/GetPublicViewershipMetricsRequest.md
+  - docs/models/operations/GetPublicViewershipMetricsResponse.md
+  - docs/models/operations/GetRealtimeViewershipNowRequest.md
+  - docs/models/operations/GetRealtimeViewershipNowResponse.md
+  - docs/models/operations/GetRecordedSessionsRequest.md
+  - docs/models/operations/GetRecordedSessionsResponse.md
+  - docs/models/operations/GetRoomRequest.md
+  - docs/models/operations/GetRoomResponse.md
+  - docs/models/operations/GetRoomUserRequest.md
+  - docs/models/operations/GetRoomUserResponse.md
+  - docs/models/operations/GetSessionClipsRequest.md
+  - docs/models/operations/GetSessionClipsResponse.md
+  - docs/models/operations/GetSessionRequest.md
+  - docs/models/operations/GetSessionResponse.md
+  - docs/models/operations/GetSessionsResponse.md
+  - docs/models/operations/GetSigningKeyRequest.md
+  - docs/models/operations/GetSigningKeyResponse.md
+  - docs/models/operations/GetSigningKeysResponse.md
+  - docs/models/operations/GetStreamRequest.md
+  - docs/models/operations/GetStreamResponse.md
+  - docs/models/operations/GetStreamsRequest.md
+  - docs/models/operations/GetStreamsResponse.md
+  - docs/models/operations/GetTaskRequest.md
+  - docs/models/operations/GetTaskResponse.md
+  - docs/models/operations/GetTasksResponse.md
+  - docs/models/operations/GetUsageMetricsQueryParamBreakdownBy.md
+  - docs/models/operations/GetUsageMetricsQueryParamTimeStep.md
+  - docs/models/operations/GetUsageMetricsRequest.md
+  - docs/models/operations/GetUsageMetricsResponse.md
+  - docs/models/operations/GetViewershipMetricsRequest.md
+  - docs/models/operations/GetViewershipMetricsResponse.md
+  - docs/models/operations/GetWebhookLogRequest.md
+  - docs/models/operations/GetWebhookLogResponse.md
+  - docs/models/operations/GetWebhookLogsRequest.md
+  - docs/models/operations/GetWebhookLogsResponse.md
+  - docs/models/operations/GetWebhookRequest.md
+  - docs/models/operations/GetWebhookResponse.md
+  - docs/models/operations/GetWebhooksResponse.md
+  - docs/models/operations/QueryParamBreakdownBy.md
+  - docs/models/operations/QueryParamFrom.md
+  - docs/models/operations/QueryParamTimeStep.md
+  - docs/models/operations/QueryParamTo.md
+  - docs/models/operations/Record.md
+  - docs/models/operations/RemoveMultistreamTargetRequest.md
+  - docs/models/operations/RemoveMultistreamTargetResponse.md
+  - docs/models/operations/RequestUploadData.md
+  - docs/models/operations/RequestUploadResponse.md
+  - docs/models/operations/ResendWebhookRequest.md
+  - docs/models/operations/ResendWebhookResponse.md
+  - docs/models/operations/StartPullStreamRequest.md
+  - docs/models/operations/StartPullStreamResponse.md
+  - docs/models/operations/StartRoomEgressRequest.md
+  - docs/models/operations/StartRoomEgressResponse.md
+  - docs/models/operations/StopRoomEgressRequest.md
+  - docs/models/operations/StopRoomEgressResponse.md
+  - docs/models/operations/Task.md
+  - docs/models/operations/TerminateStreamRequest.md
+  - docs/models/operations/TerminateStreamResponse.md
+  - docs/models/operations/TimeStep.md
+  - docs/models/operations/To.md
+  - docs/models/operations/TranscodeVideoResponse.md
+  - docs/models/operations/UpdateAssetRequest.md
+  - docs/models/operations/UpdateAssetResponse.md
+  - docs/models/operations/UpdateMultistreamTargetRequest.md
+  - docs/models/operations/UpdateMultistreamTargetResponse.md
+  - docs/models/operations/UpdateRoomUserRequest.md
+  - docs/models/operations/UpdateRoomUserResponse.md
+  - docs/models/operations/UpdateSigningKeyRequest.md
+  - docs/models/operations/UpdateSigningKeyRequestBody.md
+  - docs/models/operations/UpdateSigningKeyResponse.md
+  - docs/models/operations/UpdateStreamRequest.md
+  - docs/models/operations/UpdateStreamResponse.md
+  - docs/models/operations/UpdateWebhookRequest.md
+  - docs/models/operations/UpdateWebhookResponse.md
+  - docs/models/operations/UploadAssetAssetTask.md
+  - docs/models/operations/UploadAssetData.md
+  - docs/models/operations/UploadAssetDataOutput.md
+  - docs/models/operations/UploadAssetResponse.md
+  - docs/models/operations/UploadAssetTask.md
+  - docs/sdks/accesscontrol/README.md
+  - docs/sdks/asset/README.md
+  - docs/sdks/livepeer/README.md
+  - docs/sdks/metrics/README.md
+  - docs/sdks/multistream/README.md
+  - docs/sdks/playback/README.md
+  - docs/sdks/room/README.md
+  - docs/sdks/session/README.md
+  - docs/sdks/stream/README.md
+  - docs/sdks/task/README.md
+  - docs/sdks/transcode/README.md
+  - docs/sdks/webhook/README.md
   - gradle/wrapper/gradle-wrapper.jar
   - gradle/wrapper/gradle-wrapper.properties
   - gradlew
   - gradlew.bat
   - settings.gradle
+  - src/main/java/studio/livepeer/livepeer/AccessControl.java
+  - src/main/java/studio/livepeer/livepeer/Asset.java
+  - src/main/java/studio/livepeer/livepeer/Livepeer.java
+  - src/main/java/studio/livepeer/livepeer/Metrics.java
+  - src/main/java/studio/livepeer/livepeer/Multistream.java
+  - src/main/java/studio/livepeer/livepeer/Playback.java
+  - src/main/java/studio/livepeer/livepeer/Room.java
+  - src/main/java/studio/livepeer/livepeer/SDKConfiguration.java
+  - src/main/java/studio/livepeer/livepeer/SecuritySource.java
+  - src/main/java/studio/livepeer/livepeer/Session.java
+  - src/main/java/studio/livepeer/livepeer/Stream.java
+  - src/main/java/studio/livepeer/livepeer/Task.java
+  - src/main/java/studio/livepeer/livepeer/Transcode.java
+  - src/main/java/studio/livepeer/livepeer/Webhook.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Asset.java
+  - src/main/java/studio/livepeer/livepeer/models/components/AssetIpfs.java
+  - src/main/java/studio/livepeer/livepeer/models/components/AssetNftMetadata.java
+  - src/main/java/studio/livepeer/livepeer/models/components/AssetNftMetadataTemplate.java
+  - src/main/java/studio/livepeer/livepeer/models/components/AssetPatchPayload.java
+  - src/main/java/studio/livepeer/livepeer/models/components/AssetPhase.java
+  - src/main/java/studio/livepeer/livepeer/models/components/AssetSource3Type.java
+  - src/main/java/studio/livepeer/livepeer/models/components/AssetSourceType.java
+  - src/main/java/studio/livepeer/livepeer/models/components/AssetSpec.java
+  - src/main/java/studio/livepeer/livepeer/models/components/AssetStatus.java
+  - src/main/java/studio/livepeer/livepeer/models/components/AssetStorage.java
+  - src/main/java/studio/livepeer/livepeer/models/components/AssetType.java
+  - src/main/java/studio/livepeer/livepeer/models/components/AssetVideoSpecType.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Attestation.java
+  - src/main/java/studio/livepeer/livepeer/models/components/AttestationIpfs.java
+  - src/main/java/studio/livepeer/livepeer/models/components/AttestationStorage.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Attestations.java
+  - src/main/java/studio/livepeer/livepeer/models/components/CatalystPipelineStrategy.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Clip.java
+  - src/main/java/studio/livepeer/livepeer/models/components/ClipPayload.java
+  - src/main/java/studio/livepeer/livepeer/models/components/ClipStrategy.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Content.java
+  - src/main/java/studio/livepeer/livepeer/models/components/CreateRoomResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/components/CreatorId.java
+  - src/main/java/studio/livepeer/livepeer/models/components/CreatorId1.java
+  - src/main/java/studio/livepeer/livepeer/models/components/CreatorIdType.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Credentials.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Custom.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Domain.java
+  - src/main/java/studio/livepeer/livepeer/models/components/DvrPlayback.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Encoder.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Encryption.java
+  - src/main/java/studio/livepeer/livepeer/models/components/EncryptionOutput.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Error.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Events.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Export.java
+  - src/main/java/studio/livepeer/livepeer/models/components/ExportData.java
+  - src/main/java/studio/livepeer/livepeer/models/components/ExportTaskParams.java
+  - src/main/java/studio/livepeer/livepeer/models/components/ExportTaskParams1.java
+  - src/main/java/studio/livepeer/livepeer/models/components/ExportTaskParams2.java
+  - src/main/java/studio/livepeer/livepeer/models/components/FfmpegProfile.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Fmp4.java
+  - src/main/java/studio/livepeer/livepeer/models/components/GetRoomUserResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Hash.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Hls.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Hrn.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Input.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Input1.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Input2.java
+  - src/main/java/studio/livepeer/livepeer/models/components/InputCreatorId.java
+  - src/main/java/studio/livepeer/livepeer/models/components/InputCreatorId1.java
+  - src/main/java/studio/livepeer/livepeer/models/components/InputCreatorIdType.java
+  - src/main/java/studio/livepeer/livepeer/models/components/InputType.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Ipfs.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Ipfs1.java
+  - src/main/java/studio/livepeer/livepeer/models/components/IpfsExportParams.java
+  - src/main/java/studio/livepeer/livepeer/models/components/IpfsFileInfo.java
+  - src/main/java/studio/livepeer/livepeer/models/components/IsMobile.java
+  - src/main/java/studio/livepeer/livepeer/models/components/IsMobile1.java
+  - src/main/java/studio/livepeer/livepeer/models/components/LastFailure.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Live.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Location.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Message.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Meta.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Mp4.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Multistream.java
+  - src/main/java/studio/livepeer/livepeer/models/components/MultistreamTarget.java
+  - src/main/java/studio/livepeer/livepeer/models/components/MultistreamTargetInput.java
+  - src/main/java/studio/livepeer/livepeer/models/components/MultistreamTargetPatchPayload.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Name.java
+  - src/main/java/studio/livepeer/livepeer/models/components/NewAssetFromUrlPayload.java
+  - src/main/java/studio/livepeer/livepeer/models/components/NewAssetPayload.java
+  - src/main/java/studio/livepeer/livepeer/models/components/NewAssetPayloadEncryption.java
+  - src/main/java/studio/livepeer/livepeer/models/components/NewAssetPayloadIpfs.java
+  - src/main/java/studio/livepeer/livepeer/models/components/NewAssetPayloadIpfs1.java
+  - src/main/java/studio/livepeer/livepeer/models/components/NewAssetPayloadStorage.java
+  - src/main/java/studio/livepeer/livepeer/models/components/NewStreamPayload.java
+  - src/main/java/studio/livepeer/livepeer/models/components/NewStreamPayloadRecordingSpec.java
+  - src/main/java/studio/livepeer/livepeer/models/components/NftMetadata.java
+  - src/main/java/studio/livepeer/livepeer/models/components/NftMetadataTemplate.java
+  - src/main/java/studio/livepeer/livepeer/models/components/One.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Output.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Outputs.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Params.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Participants.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Phase.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Pinata.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Pinata1.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Pinata2.java
+  - src/main/java/studio/livepeer/livepeer/models/components/PlaybackInfo.java
+  - src/main/java/studio/livepeer/livepeer/models/components/PlaybackInfoHrn.java
+  - src/main/java/studio/livepeer/livepeer/models/components/PlaybackInfoMetaDvrPlaybackType.java
+  - src/main/java/studio/livepeer/livepeer/models/components/PlaybackInfoMetaType.java
+  - src/main/java/studio/livepeer/livepeer/models/components/PlaybackInfoSource.java
+  - src/main/java/studio/livepeer/livepeer/models/components/PlaybackInfoType.java
+  - src/main/java/studio/livepeer/livepeer/models/components/PlaybackPolicy.java
+  - src/main/java/studio/livepeer/livepeer/models/components/PrimaryType.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Profile.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Pull.java
+  - src/main/java/studio/livepeer/livepeer/models/components/RealtimeViewershipMetric.java
+  - src/main/java/studio/livepeer/livepeer/models/components/RecordingSpec.java
+  - src/main/java/studio/livepeer/livepeer/models/components/RecordingStatus.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Renditions.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Request.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Response.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Room.java
+  - src/main/java/studio/livepeer/livepeer/models/components/RoomEgressPayload.java
+  - src/main/java/studio/livepeer/livepeer/models/components/RoomUserPayload.java
+  - src/main/java/studio/livepeer/livepeer/models/components/RoomUserResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/components/RoomUserUpdatePayload.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Security.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Session.java
+  - src/main/java/studio/livepeer/livepeer/models/components/SignatureType.java
+  - src/main/java/studio/livepeer/livepeer/models/components/SigningKey.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Source.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Source1.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Source3.java
+  - src/main/java/studio/livepeer/livepeer/models/components/SourceType.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Spec.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Status.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Storage.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Storage1.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Storage2.java
+  - src/main/java/studio/livepeer/livepeer/models/components/StorageCredentials.java
+  - src/main/java/studio/livepeer/livepeer/models/components/StorageStatus.java
+  - src/main/java/studio/livepeer/livepeer/models/components/StorageType.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Stream.java
+  - src/main/java/studio/livepeer/livepeer/models/components/StreamIsMobile.java
+  - src/main/java/studio/livepeer/livepeer/models/components/StreamLocation.java
+  - src/main/java/studio/livepeer/livepeer/models/components/StreamMultistream.java
+  - src/main/java/studio/livepeer/livepeer/models/components/StreamPatchPayload.java
+  - src/main/java/studio/livepeer/livepeer/models/components/StreamPull.java
+  - src/main/java/studio/livepeer/livepeer/models/components/StreamRecordingSpec.java
+  - src/main/java/studio/livepeer/livepeer/models/components/StreamUserTags.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Target.java
+  - src/main/java/studio/livepeer/livepeer/models/components/TargetAddPayload.java
+  - src/main/java/studio/livepeer/livepeer/models/components/TargetAddPayloadSpec.java
+  - src/main/java/studio/livepeer/livepeer/models/components/TargetOutput.java
+  - src/main/java/studio/livepeer/livepeer/models/components/TargetSpec.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Task.java
+  - src/main/java/studio/livepeer/livepeer/models/components/TaskExportData.java
+  - src/main/java/studio/livepeer/livepeer/models/components/TaskHls.java
+  - src/main/java/studio/livepeer/livepeer/models/components/TaskInput.java
+  - src/main/java/studio/livepeer/livepeer/models/components/TaskIpfs.java
+  - src/main/java/studio/livepeer/livepeer/models/components/TaskMp4.java
+  - src/main/java/studio/livepeer/livepeer/models/components/TaskOutputIpfs.java
+  - src/main/java/studio/livepeer/livepeer/models/components/TaskOutputs.java
+  - src/main/java/studio/livepeer/livepeer/models/components/TaskPhase.java
+  - src/main/java/studio/livepeer/livepeer/models/components/TaskStatus.java
+  - src/main/java/studio/livepeer/livepeer/models/components/TaskStorage.java
+  - src/main/java/studio/livepeer/livepeer/models/components/TaskType.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Tasks.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Three.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Tracks.java
+  - src/main/java/studio/livepeer/livepeer/models/components/TranscodeFile.java
+  - src/main/java/studio/livepeer/livepeer/models/components/TranscodePayload.java
+  - src/main/java/studio/livepeer/livepeer/models/components/TranscodePayloadStorage.java
+  - src/main/java/studio/livepeer/livepeer/models/components/TranscodePayloadStorageCredentials.java
+  - src/main/java/studio/livepeer/livepeer/models/components/TranscodePayloadStorageType.java
+  - src/main/java/studio/livepeer/livepeer/models/components/TranscodeProfile.java
+  - src/main/java/studio/livepeer/livepeer/models/components/TranscodeProfileEncoder.java
+  - src/main/java/studio/livepeer/livepeer/models/components/TranscodeProfileProfile.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Two.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Type.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Upload.java
+  - src/main/java/studio/livepeer/livepeer/models/components/UsageMetric.java
+  - src/main/java/studio/livepeer/livepeer/models/components/UserTags.java
+  - src/main/java/studio/livepeer/livepeer/models/components/UserTags3.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Version.java
+  - src/main/java/studio/livepeer/livepeer/models/components/VideoSpec.java
+  - src/main/java/studio/livepeer/livepeer/models/components/ViewershipMetric.java
+  - src/main/java/studio/livepeer/livepeer/models/components/Webhook.java
+  - src/main/java/studio/livepeer/livepeer/models/components/WebhookInput.java
+  - src/main/java/studio/livepeer/livepeer/models/components/WebhookLog.java
+  - src/main/java/studio/livepeer/livepeer/models/errors/AuthException.java
+  - src/main/java/studio/livepeer/livepeer/models/errors/Error.java
+  - src/main/java/studio/livepeer/livepeer/models/errors/SDKError.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/AddMultistreamTargetRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/AddMultistreamTargetRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/AddMultistreamTargetResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/BreakdownBy.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/CreateClipData.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/CreateClipRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/CreateClipResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/CreateClipTask.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/CreateMultistreamTargetRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/CreateMultistreamTargetResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/CreateRoomRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/CreateRoomResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/CreateRoomUserRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/CreateRoomUserRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/CreateRoomUserResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/CreateSigningKeyRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/CreateSigningKeyResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/CreateStreamRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/CreateStreamResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/CreateWebhookRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/CreateWebhookResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteAssetRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteAssetRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteAssetResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteMultistreamTargetRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteMultistreamTargetRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteMultistreamTargetResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteRoomRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteRoomRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteRoomResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteRoomUserRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteRoomUserRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteRoomUserResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteSigningKeyRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteSigningKeyRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteSigningKeyResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteStreamRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteStreamRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteStreamResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteWebhookRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteWebhookRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteWebhookResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/From.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetAssetRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetAssetRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetAssetResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetAssetsRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetAssetsResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetClipsRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetClipsRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetClipsResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetCreatorViewershipMetricsQueryParamBreakdownBy.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetCreatorViewershipMetricsRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetCreatorViewershipMetricsRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetCreatorViewershipMetricsResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetMultistreamTargetRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetMultistreamTargetRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetMultistreamTargetResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetMultistreamTargetsRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetMultistreamTargetsResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetPlaybackInfoRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetPlaybackInfoRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetPlaybackInfoResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetPublicViewershipMetricsData.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetPublicViewershipMetricsRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetPublicViewershipMetricsRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetPublicViewershipMetricsResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetRealtimeViewershipNowRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetRealtimeViewershipNowRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetRealtimeViewershipNowResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetRecordedSessionsRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetRecordedSessionsRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetRecordedSessionsResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetRoomRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetRoomRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetRoomResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetRoomUserRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetRoomUserRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetRoomUserResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetSessionClipsRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetSessionClipsRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetSessionClipsResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetSessionRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetSessionRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetSessionResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetSessionsRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetSessionsResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetSigningKeyRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetSigningKeyRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetSigningKeyResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetSigningKeysRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetSigningKeysResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetStreamRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetStreamRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetStreamResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetStreamsRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetStreamsRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetStreamsResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetTaskRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetTaskRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetTaskResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetTasksRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetTasksResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetUsageMetricsQueryParamBreakdownBy.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetUsageMetricsQueryParamTimeStep.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetUsageMetricsRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetUsageMetricsRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetUsageMetricsResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetViewershipMetricsRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetViewershipMetricsRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetViewershipMetricsResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetWebhookLogRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetWebhookLogRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetWebhookLogResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetWebhookLogsRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetWebhookLogsRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetWebhookLogsResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetWebhookRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetWebhookRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetWebhookResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetWebhooksRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/GetWebhooksResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/QueryParamBreakdownBy.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/QueryParamFrom.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/QueryParamTimeStep.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/QueryParamTo.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/Record.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/RemoveMultistreamTargetRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/RemoveMultistreamTargetRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/RemoveMultistreamTargetResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/RequestUploadData.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/RequestUploadRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/RequestUploadResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/ResendWebhookRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/ResendWebhookRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/ResendWebhookResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/SDKMethodInterfaces.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/StartPullStreamRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/StartPullStreamRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/StartPullStreamResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/StartRoomEgressRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/StartRoomEgressRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/StartRoomEgressResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/StopRoomEgressRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/StopRoomEgressRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/StopRoomEgressResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/Task.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/TerminateStreamRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/TerminateStreamRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/TerminateStreamResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/TimeStep.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/To.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/TranscodeVideoRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/TranscodeVideoResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateAssetRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateAssetRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateAssetResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateMultistreamTargetRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateMultistreamTargetRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateMultistreamTargetResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateRoomUserRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateRoomUserRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateRoomUserResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateSigningKeyRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateSigningKeyRequestBody.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateSigningKeyRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateSigningKeyResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateStreamRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateStreamRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateStreamResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateWebhookRequest.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateWebhookRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateWebhookResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/UploadAssetAssetTask.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/UploadAssetData.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/UploadAssetDataOutput.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/UploadAssetRequestBuilder.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/UploadAssetResponse.java
+  - src/main/java/studio/livepeer/livepeer/models/operations/UploadAssetTask.java
   - src/main/java/studio/livepeer/livepeer/utils/BackoffStrategy.java
   - src/main/java/studio/livepeer/livepeer/utils/BigDecimalString.java
   - src/main/java/studio/livepeer/livepeer/utils/BigIntegerString.java
@@ -141,605 +749,522 @@ generatedFiles:
   - src/main/java/studio/livepeer/livepeer/utils/TypedObject.java
   - src/main/java/studio/livepeer/livepeer/utils/Types.java
   - src/main/java/studio/livepeer/livepeer/utils/Utils.java
-  - src/main/java/studio/livepeer/livepeer/models/errors/AuthException.java
-  - src/main/java/studio/livepeer/livepeer/models/errors/SDKError.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/CreateStreamResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetStreamsRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetStreamsResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetStreamRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetStreamResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateStreamRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateStreamResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteStreamRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteStreamResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/TerminateStreamRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/TerminateStreamResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/StartPullStreamRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/StartPullStreamResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/CreateClipTask.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/CreateClipData.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/CreateClipResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetClipsRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetClipsResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/AddMultistreamTargetRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/AddMultistreamTargetResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/RemoveMultistreamTargetRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/RemoveMultistreamTargetResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetMultistreamTargetsResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/CreateMultistreamTargetResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetMultistreamTargetRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetMultistreamTargetResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateMultistreamTargetRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateMultistreamTargetResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteMultistreamTargetRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteMultistreamTargetResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetWebhooksResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/CreateWebhookResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetWebhookRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetWebhookResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateWebhookRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateWebhookResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteWebhookRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteWebhookResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetWebhookLogsRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetWebhookLogsResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetWebhookLogRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetWebhookLogResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/ResendWebhookRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/ResendWebhookResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetAssetsResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/Task.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/RequestUploadData.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/RequestUploadResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/UploadAssetAssetTask.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/UploadAssetDataOutput.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/UploadAssetTask.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/UploadAssetData.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/UploadAssetResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetAssetRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetAssetResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateAssetRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateAssetResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteAssetRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteAssetResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetSessionClipsRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetSessionClipsResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetSessionsResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetSessionRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetSessionResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/Record.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetRecordedSessionsRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetRecordedSessionsResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/CreateRoomResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetRoomRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetRoomResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteRoomRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteRoomResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/StartRoomEgressRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/StartRoomEgressResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/StopRoomEgressRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/StopRoomEgressResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/CreateRoomUserRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/CreateRoomUserResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetRoomUserRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetRoomUserResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateRoomUserRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateRoomUserResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteRoomUserRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteRoomUserResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/BreakdownBy.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetRealtimeViewershipNowRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetRealtimeViewershipNowResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/From.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/To.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/TimeStep.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/QueryParamBreakdownBy.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetViewershipMetricsRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetViewershipMetricsResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/QueryParamFrom.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/QueryParamTo.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/QueryParamTimeStep.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetCreatorViewershipMetricsQueryParamBreakdownBy.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetCreatorViewershipMetricsRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetCreatorViewershipMetricsResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetPublicViewershipMetricsRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetPublicViewershipMetricsData.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetPublicViewershipMetricsResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetUsageMetricsQueryParamTimeStep.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetUsageMetricsQueryParamBreakdownBy.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetUsageMetricsRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetUsageMetricsResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/CreateSigningKeyResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetSigningKeysResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteSigningKeyRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/DeleteSigningKeyResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetSigningKeyRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetSigningKeyResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateSigningKeyRequestBody.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateSigningKeyRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/UpdateSigningKeyResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetTasksResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetTaskRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetTaskResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/TranscodeVideoResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetPlaybackInfoRequest.java
-  - src/main/java/studio/livepeer/livepeer/models/operations/GetPlaybackInfoResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/errors/Error.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Three.java
-  - src/main/java/studio/livepeer/livepeer/models/components/StreamUserTags.java
-  - src/main/java/studio/livepeer/livepeer/models/components/IsMobile1.java
-  - src/main/java/studio/livepeer/livepeer/models/components/StreamIsMobile.java
-  - src/main/java/studio/livepeer/livepeer/models/components/StreamLocation.java
-  - src/main/java/studio/livepeer/livepeer/models/components/StreamPull.java
-  - src/main/java/studio/livepeer/livepeer/models/components/StreamRecordingSpec.java
-  - src/main/java/studio/livepeer/livepeer/models/components/StreamMultistream.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Renditions.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Stream.java
-  - src/main/java/studio/livepeer/livepeer/models/components/TargetOutput.java
-  - src/main/java/studio/livepeer/livepeer/models/components/TranscodeProfileProfile.java
-  - src/main/java/studio/livepeer/livepeer/models/components/TranscodeProfileEncoder.java
-  - src/main/java/studio/livepeer/livepeer/models/components/TranscodeProfile.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Profile.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Encoder.java
-  - src/main/java/studio/livepeer/livepeer/models/components/FfmpegProfile.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Type.java
-  - src/main/java/studio/livepeer/livepeer/models/components/PlaybackPolicy.java
-  - src/main/java/studio/livepeer/livepeer/models/components/CreatorIdType.java
-  - src/main/java/studio/livepeer/livepeer/models/components/CreatorId1.java
-  - src/main/java/studio/livepeer/livepeer/models/components/CreatorId.java
-  - src/main/java/studio/livepeer/livepeer/models/components/NewStreamPayloadRecordingSpec.java
-  - src/main/java/studio/livepeer/livepeer/models/components/NewStreamPayload.java
-  - src/main/java/studio/livepeer/livepeer/models/components/UserTags3.java
-  - src/main/java/studio/livepeer/livepeer/models/components/UserTags.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Multistream.java
-  - src/main/java/studio/livepeer/livepeer/models/components/TargetSpec.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Target.java
-  - src/main/java/studio/livepeer/livepeer/models/components/InputCreatorIdType.java
-  - src/main/java/studio/livepeer/livepeer/models/components/InputCreatorId1.java
-  - src/main/java/studio/livepeer/livepeer/models/components/InputCreatorId.java
-  - src/main/java/studio/livepeer/livepeer/models/components/One.java
-  - src/main/java/studio/livepeer/livepeer/models/components/IsMobile.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Location.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Pull.java
-  - src/main/java/studio/livepeer/livepeer/models/components/StreamPatchPayload.java
-  - src/main/java/studio/livepeer/livepeer/models/components/RecordingSpec.java
-  - src/main/java/studio/livepeer/livepeer/models/components/AssetType.java
-  - src/main/java/studio/livepeer/livepeer/models/components/AssetSource3Type.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Source3.java
-  - src/main/java/studio/livepeer/livepeer/models/components/AssetSourceType.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Two.java
-  - src/main/java/studio/livepeer/livepeer/models/components/SourceType.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Source1.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Source.java
-  - src/main/java/studio/livepeer/livepeer/models/components/AssetNftMetadataTemplate.java
-  - src/main/java/studio/livepeer/livepeer/models/components/AssetNftMetadata.java
-  - src/main/java/studio/livepeer/livepeer/models/components/AssetSpec.java
-  - src/main/java/studio/livepeer/livepeer/models/components/AssetIpfs.java
-  - src/main/java/studio/livepeer/livepeer/models/components/AssetStorage.java
-  - src/main/java/studio/livepeer/livepeer/models/components/AssetPhase.java
-  - src/main/java/studio/livepeer/livepeer/models/components/AssetStatus.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Hash.java
-  - src/main/java/studio/livepeer/livepeer/models/components/AssetVideoSpecType.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Tracks.java
-  - src/main/java/studio/livepeer/livepeer/models/components/VideoSpec.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Asset.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Phase.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Tasks.java
-  - src/main/java/studio/livepeer/livepeer/models/components/StorageStatus.java
-  - src/main/java/studio/livepeer/livepeer/models/components/IpfsFileInfo.java
-  - src/main/java/studio/livepeer/livepeer/models/components/EncryptionOutput.java
-  - src/main/java/studio/livepeer/livepeer/models/components/ClipPayload.java
-  - src/main/java/studio/livepeer/livepeer/models/components/TargetAddPayloadSpec.java
-  - src/main/java/studio/livepeer/livepeer/models/components/TargetAddPayload.java
-  - src/main/java/studio/livepeer/livepeer/models/components/MultistreamTarget.java
-  - src/main/java/studio/livepeer/livepeer/models/components/MultistreamTargetInput.java
-  - src/main/java/studio/livepeer/livepeer/models/components/MultistreamTargetPatchPayload.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Events.java
-  - src/main/java/studio/livepeer/livepeer/models/components/LastFailure.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Status.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Webhook.java
-  - src/main/java/studio/livepeer/livepeer/models/components/WebhookInput.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Request.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Response.java
-  - src/main/java/studio/livepeer/livepeer/models/components/WebhookLog.java
-  - src/main/java/studio/livepeer/livepeer/models/components/NewAssetPayloadIpfs1.java
-  - src/main/java/studio/livepeer/livepeer/models/components/NewAssetPayloadIpfs.java
-  - src/main/java/studio/livepeer/livepeer/models/components/NewAssetPayloadStorage.java
-  - src/main/java/studio/livepeer/livepeer/models/components/NewAssetPayloadEncryption.java
-  - src/main/java/studio/livepeer/livepeer/models/components/NewAssetPayload.java
-  - src/main/java/studio/livepeer/livepeer/models/components/NftMetadataTemplate.java
-  - src/main/java/studio/livepeer/livepeer/models/components/NftMetadata.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Spec.java
-  - src/main/java/studio/livepeer/livepeer/models/components/NewAssetFromUrlPayload.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Encryption.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Ipfs1.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Ipfs.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Storage.java
-  - src/main/java/studio/livepeer/livepeer/models/components/AssetPatchPayload.java
-  - src/main/java/studio/livepeer/livepeer/models/components/RecordingStatus.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Session.java
-  - src/main/java/studio/livepeer/livepeer/models/components/CreateRoomResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Participants.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Room.java
-  - src/main/java/studio/livepeer/livepeer/models/components/RoomEgressPayload.java
-  - src/main/java/studio/livepeer/livepeer/models/components/RoomUserResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/components/RoomUserPayload.java
-  - src/main/java/studio/livepeer/livepeer/models/components/GetRoomUserResponse.java
-  - src/main/java/studio/livepeer/livepeer/models/components/RoomUserUpdatePayload.java
-  - src/main/java/studio/livepeer/livepeer/models/components/RealtimeViewershipMetric.java
-  - src/main/java/studio/livepeer/livepeer/models/components/ViewershipMetric.java
-  - src/main/java/studio/livepeer/livepeer/models/components/UsageMetric.java
-  - src/main/java/studio/livepeer/livepeer/models/components/SigningKey.java
-  - src/main/java/studio/livepeer/livepeer/models/components/TaskType.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Upload.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Content.java
-  - src/main/java/studio/livepeer/livepeer/models/components/TaskExportData.java
-  - src/main/java/studio/livepeer/livepeer/models/components/TaskInput.java
-  - src/main/java/studio/livepeer/livepeer/models/components/TaskStorage.java
-  - src/main/java/studio/livepeer/livepeer/models/components/TaskHls.java
-  - src/main/java/studio/livepeer/livepeer/models/components/TaskMp4.java
-  - src/main/java/studio/livepeer/livepeer/models/components/TaskOutputs.java
-  - src/main/java/studio/livepeer/livepeer/models/components/TranscodeFile.java
-  - src/main/java/studio/livepeer/livepeer/models/components/ClipStrategy.java
-  - src/main/java/studio/livepeer/livepeer/models/components/CatalystPipelineStrategy.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Clip.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Params.java
-  - src/main/java/studio/livepeer/livepeer/models/components/TaskPhase.java
-  - src/main/java/studio/livepeer/livepeer/models/components/TaskStatus.java
-  - src/main/java/studio/livepeer/livepeer/models/components/TaskIpfs.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Export.java
-  - src/main/java/studio/livepeer/livepeer/models/components/TaskOutputIpfs.java
-  - src/main/java/studio/livepeer/livepeer/models/components/ExportData.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Output.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Task.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Pinata2.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Pinata1.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Pinata.java
-  - src/main/java/studio/livepeer/livepeer/models/components/IpfsExportParams.java
-  - src/main/java/studio/livepeer/livepeer/models/components/ExportTaskParams2.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Custom.java
-  - src/main/java/studio/livepeer/livepeer/models/components/ExportTaskParams1.java
-  - src/main/java/studio/livepeer/livepeer/models/components/ExportTaskParams.java
-  - src/main/java/studio/livepeer/livepeer/models/components/InputType.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Credentials.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Input2.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Input1.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Input.java
-  - src/main/java/studio/livepeer/livepeer/models/components/TranscodePayloadStorageType.java
-  - src/main/java/studio/livepeer/livepeer/models/components/TranscodePayloadStorageCredentials.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Storage2.java
-  - src/main/java/studio/livepeer/livepeer/models/components/StorageType.java
-  - src/main/java/studio/livepeer/livepeer/models/components/StorageCredentials.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Storage1.java
-  - src/main/java/studio/livepeer/livepeer/models/components/TranscodePayloadStorage.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Hls.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Mp4.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Fmp4.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Outputs.java
-  - src/main/java/studio/livepeer/livepeer/models/components/TranscodePayload.java
-  - src/main/java/studio/livepeer/livepeer/models/components/PlaybackInfoType.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Live.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Hrn.java
-  - src/main/java/studio/livepeer/livepeer/models/components/PlaybackInfoMetaType.java
-  - src/main/java/studio/livepeer/livepeer/models/components/PlaybackInfoSource.java
-  - src/main/java/studio/livepeer/livepeer/models/components/PlaybackInfoHrn.java
-  - src/main/java/studio/livepeer/livepeer/models/components/PlaybackInfoMetaDvrPlaybackType.java
-  - src/main/java/studio/livepeer/livepeer/models/components/DvrPlayback.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Meta.java
-  - src/main/java/studio/livepeer/livepeer/models/components/PlaybackInfo.java
-  - src/main/java/studio/livepeer/livepeer/models/components/PrimaryType.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Name.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Version.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Domain.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Attestations.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Message.java
-  - src/main/java/studio/livepeer/livepeer/models/components/SignatureType.java
-  - src/main/java/studio/livepeer/livepeer/models/components/AttestationIpfs.java
-  - src/main/java/studio/livepeer/livepeer/models/components/AttestationStorage.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Attestation.java
-  - src/main/java/studio/livepeer/livepeer/models/components/Security.java
-  - docs/models/operations/CreateStreamResponse.md
-  - docs/models/operations/GetStreamsRequest.md
-  - docs/models/operations/GetStreamsResponse.md
-  - docs/models/operations/GetStreamRequest.md
-  - docs/models/operations/GetStreamResponse.md
-  - docs/models/operations/UpdateStreamRequest.md
-  - docs/models/operations/UpdateStreamResponse.md
-  - docs/models/operations/DeleteStreamRequest.md
-  - docs/models/operations/DeleteStreamResponse.md
-  - docs/models/operations/TerminateStreamRequest.md
-  - docs/models/operations/TerminateStreamResponse.md
-  - docs/models/operations/StartPullStreamRequest.md
-  - docs/models/operations/StartPullStreamResponse.md
-  - docs/models/operations/CreateClipTask.md
-  - docs/models/operations/CreateClipData.md
-  - docs/models/operations/CreateClipResponse.md
-  - docs/models/operations/GetClipsRequest.md
-  - docs/models/operations/GetClipsResponse.md
-  - docs/models/operations/AddMultistreamTargetRequest.md
-  - docs/models/operations/AddMultistreamTargetResponse.md
-  - docs/models/operations/RemoveMultistreamTargetRequest.md
-  - docs/models/operations/RemoveMultistreamTargetResponse.md
-  - docs/models/operations/GetMultistreamTargetsResponse.md
-  - docs/models/operations/CreateMultistreamTargetResponse.md
-  - docs/models/operations/GetMultistreamTargetRequest.md
-  - docs/models/operations/GetMultistreamTargetResponse.md
-  - docs/models/operations/UpdateMultistreamTargetRequest.md
-  - docs/models/operations/UpdateMultistreamTargetResponse.md
-  - docs/models/operations/DeleteMultistreamTargetRequest.md
-  - docs/models/operations/DeleteMultistreamTargetResponse.md
-  - docs/models/operations/GetWebhooksResponse.md
-  - docs/models/operations/CreateWebhookResponse.md
-  - docs/models/operations/GetWebhookRequest.md
-  - docs/models/operations/GetWebhookResponse.md
-  - docs/models/operations/UpdateWebhookRequest.md
-  - docs/models/operations/UpdateWebhookResponse.md
-  - docs/models/operations/DeleteWebhookRequest.md
-  - docs/models/operations/DeleteWebhookResponse.md
-  - docs/models/operations/GetWebhookLogsRequest.md
-  - docs/models/operations/GetWebhookLogsResponse.md
-  - docs/models/operations/GetWebhookLogRequest.md
-  - docs/models/operations/GetWebhookLogResponse.md
-  - docs/models/operations/ResendWebhookRequest.md
-  - docs/models/operations/ResendWebhookResponse.md
-  - docs/models/operations/GetAssetsResponse.md
-  - docs/models/operations/Task.md
-  - docs/models/operations/RequestUploadData.md
-  - docs/models/operations/RequestUploadResponse.md
-  - docs/models/operations/UploadAssetAssetTask.md
-  - docs/models/operations/UploadAssetDataOutput.md
-  - docs/models/operations/UploadAssetTask.md
-  - docs/models/operations/UploadAssetData.md
-  - docs/models/operations/UploadAssetResponse.md
-  - docs/models/operations/GetAssetRequest.md
-  - docs/models/operations/GetAssetResponse.md
-  - docs/models/operations/UpdateAssetRequest.md
-  - docs/models/operations/UpdateAssetResponse.md
-  - docs/models/operations/DeleteAssetRequest.md
-  - docs/models/operations/DeleteAssetResponse.md
-  - docs/models/operations/GetSessionClipsRequest.md
-  - docs/models/operations/GetSessionClipsResponse.md
-  - docs/models/operations/GetSessionsResponse.md
-  - docs/models/operations/GetSessionRequest.md
-  - docs/models/operations/GetSessionResponse.md
-  - docs/models/operations/Record.md
-  - docs/models/operations/GetRecordedSessionsRequest.md
-  - docs/models/operations/GetRecordedSessionsResponse.md
-  - docs/models/operations/CreateRoomResponse.md
-  - docs/models/operations/GetRoomRequest.md
-  - docs/models/operations/GetRoomResponse.md
-  - docs/models/operations/DeleteRoomRequest.md
-  - docs/models/operations/DeleteRoomResponse.md
-  - docs/models/operations/StartRoomEgressRequest.md
-  - docs/models/operations/StartRoomEgressResponse.md
-  - docs/models/operations/StopRoomEgressRequest.md
-  - docs/models/operations/StopRoomEgressResponse.md
-  - docs/models/operations/CreateRoomUserRequest.md
-  - docs/models/operations/CreateRoomUserResponse.md
-  - docs/models/operations/GetRoomUserRequest.md
-  - docs/models/operations/GetRoomUserResponse.md
-  - docs/models/operations/UpdateRoomUserRequest.md
-  - docs/models/operations/UpdateRoomUserResponse.md
-  - docs/models/operations/DeleteRoomUserRequest.md
-  - docs/models/operations/DeleteRoomUserResponse.md
-  - docs/models/operations/BreakdownBy.md
-  - docs/models/operations/GetRealtimeViewershipNowRequest.md
-  - docs/models/operations/GetRealtimeViewershipNowResponse.md
-  - docs/models/operations/From.md
-  - docs/models/operations/To.md
-  - docs/models/operations/TimeStep.md
-  - docs/models/operations/QueryParamBreakdownBy.md
-  - docs/models/operations/GetViewershipMetricsRequest.md
-  - docs/models/operations/GetViewershipMetricsResponse.md
-  - docs/models/operations/QueryParamFrom.md
-  - docs/models/operations/QueryParamTo.md
-  - docs/models/operations/QueryParamTimeStep.md
-  - docs/models/operations/GetCreatorViewershipMetricsQueryParamBreakdownBy.md
-  - docs/models/operations/GetCreatorViewershipMetricsRequest.md
-  - docs/models/operations/GetCreatorViewershipMetricsResponse.md
-  - docs/models/operations/GetPublicViewershipMetricsRequest.md
-  - docs/models/operations/GetPublicViewershipMetricsData.md
-  - docs/models/operations/GetPublicViewershipMetricsResponse.md
-  - docs/models/operations/GetUsageMetricsQueryParamTimeStep.md
-  - docs/models/operations/GetUsageMetricsQueryParamBreakdownBy.md
-  - docs/models/operations/GetUsageMetricsRequest.md
-  - docs/models/operations/GetUsageMetricsResponse.md
-  - docs/models/operations/CreateSigningKeyResponse.md
-  - docs/models/operations/GetSigningKeysResponse.md
-  - docs/models/operations/DeleteSigningKeyRequest.md
-  - docs/models/operations/DeleteSigningKeyResponse.md
-  - docs/models/operations/GetSigningKeyRequest.md
-  - docs/models/operations/GetSigningKeyResponse.md
-  - docs/models/operations/UpdateSigningKeyRequestBody.md
-  - docs/models/operations/UpdateSigningKeyRequest.md
-  - docs/models/operations/UpdateSigningKeyResponse.md
-  - docs/models/operations/GetTasksResponse.md
-  - docs/models/operations/GetTaskRequest.md
-  - docs/models/operations/GetTaskResponse.md
-  - docs/models/operations/TranscodeVideoResponse.md
-  - docs/models/operations/GetPlaybackInfoRequest.md
-  - docs/models/operations/GetPlaybackInfoResponse.md
-  - docs/models/errors/Error.md
-  - docs/models/components/Three.md
-  - docs/models/components/StreamUserTags.md
-  - docs/models/components/IsMobile1.md
-  - docs/models/components/StreamIsMobile.md
-  - docs/models/components/StreamLocation.md
-  - docs/models/components/StreamPull.md
-  - docs/models/components/StreamRecordingSpec.md
-  - docs/models/components/StreamMultistream.md
-  - docs/models/components/Renditions.md
-  - docs/models/components/Stream.md
-  - docs/models/components/TargetOutput.md
-  - docs/models/components/TranscodeProfileProfile.md
-  - docs/models/components/TranscodeProfileEncoder.md
-  - docs/models/components/TranscodeProfile.md
-  - docs/models/components/Profile.md
-  - docs/models/components/Encoder.md
-  - docs/models/components/FfmpegProfile.md
-  - docs/models/components/Type.md
-  - docs/models/components/PlaybackPolicy.md
-  - docs/models/components/CreatorIdType.md
-  - docs/models/components/CreatorId1.md
-  - docs/models/components/CreatorId.md
-  - docs/models/components/NewStreamPayloadRecordingSpec.md
-  - docs/models/components/NewStreamPayload.md
-  - docs/models/components/UserTags3.md
-  - docs/models/components/UserTags.md
-  - docs/models/components/Multistream.md
-  - docs/models/components/TargetSpec.md
-  - docs/models/components/InputCreatorIdType.md
-  - docs/models/components/InputCreatorId1.md
-  - docs/models/components/InputCreatorId.md
-  - docs/models/components/One.md
-  - docs/models/components/IsMobile.md
-  - docs/models/components/Location.md
-  - docs/models/components/Pull.md
-  - docs/models/components/StreamPatchPayload.md
-  - docs/models/components/RecordingSpec.md
-  - docs/models/components/AssetType.md
-  - docs/models/components/AssetSource3Type.md
-  - docs/models/components/Source3.md
-  - docs/models/components/AssetSourceType.md
-  - docs/models/components/Two.md
-  - docs/models/components/SourceType.md
-  - docs/models/components/Source1.md
-  - docs/models/components/Source.md
-  - docs/models/components/AssetNftMetadataTemplate.md
-  - docs/models/components/AssetNftMetadata.md
-  - docs/models/components/AssetSpec.md
-  - docs/models/components/AssetIpfs.md
-  - docs/models/components/AssetStorage.md
-  - docs/models/components/AssetPhase.md
-  - docs/models/components/AssetStatus.md
-  - docs/models/components/Hash.md
-  - docs/models/components/AssetVideoSpecType.md
-  - docs/models/components/Tracks.md
-  - docs/models/components/VideoSpec.md
-  - docs/models/components/Asset.md
-  - docs/models/components/Phase.md
-  - docs/models/components/Tasks.md
-  - docs/models/components/StorageStatus.md
-  - docs/models/components/IpfsFileInfo.md
-  - docs/models/components/EncryptionOutput.md
-  - docs/models/components/ClipPayload.md
-  - docs/models/components/TargetAddPayloadSpec.md
-  - docs/models/components/TargetAddPayload.md
-  - docs/models/components/MultistreamTarget.md
-  - docs/models/components/MultistreamTargetPatchPayload.md
-  - docs/models/components/Events.md
-  - docs/models/components/LastFailure.md
-  - docs/models/components/Status.md
-  - docs/models/components/Webhook.md
-  - docs/models/components/Request.md
-  - docs/models/components/Response.md
-  - docs/models/components/WebhookLog.md
-  - docs/models/components/NewAssetPayloadIpfs1.md
-  - docs/models/components/NewAssetPayloadIpfs.md
-  - docs/models/components/NewAssetPayloadStorage.md
-  - docs/models/components/NewAssetPayloadEncryption.md
-  - docs/models/components/NewAssetPayload.md
-  - docs/models/components/NftMetadataTemplate.md
-  - docs/models/components/NftMetadata.md
-  - docs/models/components/Spec.md
-  - docs/models/components/NewAssetFromUrlPayload.md
-  - docs/models/components/Ipfs1.md
-  - docs/models/components/Ipfs.md
-  - docs/models/components/Storage.md
-  - docs/models/components/AssetPatchPayload.md
-  - docs/models/components/RecordingStatus.md
-  - docs/models/components/Session.md
-  - docs/models/components/CreateRoomResponse.md
-  - docs/models/components/Participants.md
-  - docs/models/components/Room.md
-  - docs/models/components/RoomEgressPayload.md
-  - docs/models/components/RoomUserResponse.md
-  - docs/models/components/RoomUserPayload.md
-  - docs/models/components/GetRoomUserResponse.md
-  - docs/models/components/RoomUserUpdatePayload.md
-  - docs/models/components/RealtimeViewershipMetric.md
-  - docs/models/components/ViewershipMetric.md
-  - docs/models/components/UsageMetric.md
-  - docs/models/components/SigningKey.md
-  - docs/models/components/TaskType.md
-  - docs/models/components/Upload.md
-  - docs/models/components/Content.md
-  - docs/models/components/TaskExportData.md
-  - docs/models/components/TaskInput.md
-  - docs/models/components/TaskStorage.md
-  - docs/models/components/TaskHls.md
-  - docs/models/components/TaskMp4.md
-  - docs/models/components/TaskOutputs.md
-  - docs/models/components/TranscodeFile.md
-  - docs/models/components/ClipStrategy.md
-  - docs/models/components/CatalystPipelineStrategy.md
-  - docs/models/components/Clip.md
-  - docs/models/components/Params.md
-  - docs/models/components/TaskPhase.md
-  - docs/models/components/TaskStatus.md
-  - docs/models/components/TaskIpfs.md
-  - docs/models/components/Export.md
-  - docs/models/components/TaskOutputIpfs.md
-  - docs/models/components/ExportData.md
-  - docs/models/components/Output.md
-  - docs/models/components/Task.md
-  - docs/models/components/Pinata2.md
-  - docs/models/components/Pinata1.md
-  - docs/models/components/Pinata.md
-  - docs/models/components/IpfsExportParams.md
-  - docs/models/components/ExportTaskParams2.md
-  - docs/models/components/Custom.md
-  - docs/models/components/ExportTaskParams1.md
-  - docs/models/components/ExportTaskParams.md
-  - docs/models/components/InputType.md
-  - docs/models/components/Credentials.md
-  - docs/models/components/Input2.md
-  - docs/models/components/Input1.md
-  - docs/models/components/Input.md
-  - docs/models/components/TranscodePayloadStorageType.md
-  - docs/models/components/TranscodePayloadStorageCredentials.md
-  - docs/models/components/Storage2.md
-  - docs/models/components/StorageType.md
-  - docs/models/components/StorageCredentials.md
-  - docs/models/components/Storage1.md
-  - docs/models/components/TranscodePayloadStorage.md
-  - docs/models/components/Hls.md
-  - docs/models/components/Mp4.md
-  - docs/models/components/Fmp4.md
-  - docs/models/components/Outputs.md
-  - docs/models/components/TranscodePayload.md
-  - docs/models/components/PlaybackInfoType.md
-  - docs/models/components/Live.md
-  - docs/models/components/Hrn.md
-  - docs/models/components/PlaybackInfoMetaType.md
-  - docs/models/components/PlaybackInfoSource.md
-  - docs/models/components/PlaybackInfoHrn.md
-  - docs/models/components/PlaybackInfoMetaDvrPlaybackType.md
-  - docs/models/components/DvrPlayback.md
-  - docs/models/components/Meta.md
-  - docs/models/components/PlaybackInfo.md
-  - docs/models/components/PrimaryType.md
-  - docs/models/components/Name.md
-  - docs/models/components/Version.md
-  - docs/models/components/Domain.md
-  - docs/models/components/Attestations.md
-  - docs/models/components/Message.md
-  - docs/models/components/SignatureType.md
-  - docs/models/components/AttestationIpfs.md
-  - docs/models/components/AttestationStorage.md
-  - docs/models/components/Attestation.md
-  - docs/models/components/Security.md
-  - docs/sdks/livepeer/README.md
-  - docs/sdks/stream/README.md
-  - docs/sdks/multistream/README.md
-  - docs/sdks/webhook/README.md
-  - docs/sdks/asset/README.md
-  - docs/sdks/session/README.md
-  - docs/sdks/room/README.md
-  - docs/sdks/metrics/README.md
-  - docs/sdks/accesscontrol/README.md
-  - docs/sdks/task/README.md
-  - docs/sdks/transcode/README.md
-  - docs/sdks/playback/README.md
-  - USAGE.md
-  - CONTRIBUTING.md
+examples:
+  createStream:
+    speakeasy-default-create-stream:
+      requestBody:
+        application/json: {"name": "test_stream", "pull": {"source": "https://myservice.com/live/stream.flv", "headers": {"Authorization": "Bearer 123"}, "location": {"lat": 39.739, "lon": -104.988}}, "playbackPolicy": {"type": "webhook", "webhookId": "1bde4o2i6xycudoy", "webhookContext": {"streamerId": "my-custom-id"}, "refreshInterval": 600}, "profiles": [{"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "fps": 30, "fpsDen": 1, "quality": 23, "gop": "2", "profile": "H264Baseline"}], "record": false, "recordingSpec": {"profiles": [{"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}, {"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}]}, "multistream": {"targets": [{"profile": "720p0", "videoOnly": false, "id": "PUSH123", "spec": {"name": "My target", "url": "rtmps://live.my-service.tv/channel/secretKey"}}]}}
+      responses:
+        "201":
+          application/json: {"id": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "name": "test_stream", "creatorId": {"type": "unverified", "value": "user123"}, "lastSeen": 1587667174725, "sourceSegments": 1, "transcodedSegments": 2, "sourceSegmentsDuration": 1, "transcodedSegmentsDuration": 2, "sourceBytes": 1, "transcodedBytes": 2, "ingestRate": 1, "outgoingRate": 2, "isActive": true, "createdByTokenName": "abc-123-xyz-456", "createdAt": 1587667174725, "parentId": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "streamKey": "hgebdhhigq", "pull": {"source": "https://myservice.com/live/stream.flv", "headers": {"Authorization": "Bearer 123"}, "location": {"lat": 39.739, "lon": -104.988}}, "playbackId": "eaw4nk06ts2d0mzb", "playbackPolicy": {"type": "webhook", "webhookId": "1bde4o2i6xycudoy", "webhookContext": {"streamerId": "my-custom-id"}, "refreshInterval": 600}, "profiles": [{"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "fps": 30, "fpsDen": 1, "quality": 23, "gop": "2", "profile": "H264Baseline"}], "projectId": "aac12556-4d65-4d34-9fb6-d1f0985eb0a9", "record": false, "recordingSpec": {"profiles": []}, "multistream": {"targets": [{"profile": "720p0", "videoOnly": false, "id": "PUSH123"}]}, "lastTerminatedAt": 1713281212993}
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  getStreams:
+    speakeasy-default-get-streams:
+      responses:
+        "200":
+          application/json: [{"id": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "name": "test_stream", "creatorId": {"type": "unverified", "value": "user123"}, "lastSeen": 1587667174725, "sourceSegments": 1, "transcodedSegments": 2, "sourceSegmentsDuration": 1, "transcodedSegmentsDuration": 2, "sourceBytes": 1, "transcodedBytes": 2, "ingestRate": 1, "outgoingRate": 2, "isActive": true, "createdByTokenName": "abc-123-xyz-456", "createdAt": 1587667174725, "parentId": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "streamKey": "hgebdhhigq", "pull": {"source": "https://myservice.com/live/stream.flv", "headers": {"Authorization": "Bearer 123"}, "location": {"lat": 39.739, "lon": -104.988}}, "playbackId": "eaw4nk06ts2d0mzb", "playbackPolicy": {"type": "webhook", "webhookId": "1bde4o2i6xycudoy", "webhookContext": {"streamerId": "my-custom-id"}, "refreshInterval": 600}, "profiles": [], "projectId": "aac12556-4d65-4d34-9fb6-d1f0985eb0a9", "record": false, "recordingSpec": {"profiles": [{"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}, {"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}]}, "multistream": {"targets": [{"profile": "720p0", "videoOnly": false, "id": "PUSH123"}]}, "lastTerminatedAt": 1713281212993}]
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  getStream:
+    speakeasy-default-get-stream:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "name": "test_stream", "creatorId": {"type": "unverified", "value": "user123"}, "lastSeen": 1587667174725, "sourceSegments": 1, "transcodedSegments": 2, "sourceSegmentsDuration": 1, "transcodedSegmentsDuration": 2, "sourceBytes": 1, "transcodedBytes": 2, "ingestRate": 1, "outgoingRate": 2, "isActive": true, "createdByTokenName": "abc-123-xyz-456", "createdAt": 1587667174725, "parentId": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "streamKey": "hgebdhhigq", "pull": {"source": "https://myservice.com/live/stream.flv", "headers": {"Authorization": "Bearer 123"}, "location": {"lat": 39.739, "lon": -104.988}}, "playbackId": "eaw4nk06ts2d0mzb", "playbackPolicy": {"type": "webhook", "webhookId": "1bde4o2i6xycudoy", "webhookContext": {"streamerId": "my-custom-id"}, "refreshInterval": 600}, "profiles": [{"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "fps": 30, "fpsDen": 1, "quality": 23, "gop": "2", "profile": "H264Baseline"}, {"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "fps": 30, "fpsDen": 1, "quality": 23, "gop": "2", "profile": "H264Baseline"}], "projectId": "aac12556-4d65-4d34-9fb6-d1f0985eb0a9", "record": false, "recordingSpec": {"profiles": [{"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}, {"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}]}, "multistream": {"targets": [{"profile": "720p0", "videoOnly": false, "id": "PUSH123"}]}, "lastTerminatedAt": 1713281212993}
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  updateStream:
+    speakeasy-default-update-stream:
+      parameters:
+        path:
+          id: "<id>"
+      requestBody:
+        application/json: {"record": false, "multistream": {"targets": [{"profile": "720p0", "videoOnly": false, "id": "PUSH123", "spec": {"name": "My target", "url": "rtmps://live.my-service.tv/channel/secretKey"}}]}, "playbackPolicy": {"type": "webhook", "webhookId": "1bde4o2i6xycudoy", "webhookContext": {"streamerId": "my-custom-id"}, "refreshInterval": 600}, "profiles": [{"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "fps": 30, "fpsDen": 1, "quality": 23, "gop": "2", "profile": "H264Baseline"}, {"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "fps": 30, "fpsDen": 1, "quality": 23, "gop": "2", "profile": "H264Baseline"}, {"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "fps": 30, "fpsDen": 1, "quality": 23, "gop": "2", "profile": "H264Baseline"}], "recordingSpec": {"profiles": [{"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}, {"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}]}}
+      responses:
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  deleteStream:
+    speakeasy-default-delete-stream:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  terminateStream:
+    speakeasy-default-terminate-stream:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  startPullStream:
+    speakeasy-default-start-pull-stream:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  createClip:
+    speakeasy-default-create-clip:
+      requestBody:
+        application/json: {"playbackId": "eaw4nk06ts2d0mzb", "startTime": 1587667174725, "endTime": 1587667174725, "name": "My Clip", "sessionId": "de7818e7-610a-4057-8f6f-b785dc1e6f88"}
+      responses:
+        "200":
+          application/json: {"asset": {"id": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "type": "video", "playbackId": "eaw4nk06ts2d0mzb", "playbackUrl": "https://livepeercdn.com/asset/ea03f37e-f861-4cdd-b495-0e60b6d753ad/index.m3u8", "downloadUrl": "https://livepeercdn.com/asset/eaw4nk06ts2d0mzb/video/download.mp4", "playbackPolicy": {"type": "webhook", "webhookId": "1bde4o2i6xycudoy", "webhookContext": {"streamerId": "my-custom-id"}, "refreshInterval": 600}, "source": {"type": "clip"}, "creatorId": {"type": "unverified", "value": "user123"}, "profiles": [], "storage": {"ipfs": {"updatedAt": 1587667174725}, "status": {"phase": "ready", "progress": 0.5, "errorMessage": "Failed to update storage", "tasks": {"pending": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "last": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "failed": "09F8B46C-61A0-4254-9875-F71F4C605BC7"}}}, "status": {"phase": "failed", "updatedAt": 1587667174725}, "name": "filename.mp4", "projectId": "aac12556-4d65-4d34-9fb6-d1f0985eb0a9", "createdAt": 1587667174725, "size": 84934509, "hash": [{"hash": "9b560b28b85378a5004117539196ab24e21bbd75b0e9eb1a8bc7c5fd80dc5b57", "algorithm": "sha256"}], "videoSpec": {"format": "mp4", "duration": 23.8328, "bitrate": 1000000, "tracks": [{"type": "video", "codec": "aac", "startTime": 23.8238, "duration": 23.8238, "bitrate": 1000000, "width": 1920, "height": 1080, "pixelFormat": "yuv420p", "fps": 30, "channels": 2, "sampleRate": 44100, "bitDepth": 16}]}}, "task": {"id": "34d7618e-fd42-4798-acf5-19504616a11e"}}
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  getClips:
+    speakeasy-default-get-clips:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: []
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  addMultistreamTarget:
+    speakeasy-default-add-multistream-target:
+      parameters:
+        path:
+          id: "<id>"
+      requestBody:
+        application/json: {"profile": "720p0", "videoOnly": false, "id": "PUSH123", "spec": {"name": "My target", "url": "rtmps://live.my-service.tv/channel/secretKey"}}
+      responses:
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  removeMultistreamTarget:
+    speakeasy-default-remove-multistream-target:
+      parameters:
+        path:
+          id: "<id>"
+          targetId: "<id>"
+      responses:
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  getMultistreamTargets:
+    speakeasy-default-get-multistream-targets:
+      responses:
+        "200":
+          application/json: [{"id": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "createdAt": 1587667174725}]
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  createMultistreamTarget:
+    speakeasy-default-create-multistream-target:
+      requestBody:
+        application/json: {"url": "rtmps://live.my-service.tv/channel/secretKey"}
+      responses:
+        "201":
+          application/json: {"id": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "createdAt": 1587667174725}
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  getMultistreamTarget:
+    speakeasy-default-get-multistream-target:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "createdAt": 1587667174725}
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  updateMultistreamTarget:
+    speakeasy-default-update-multistream-target:
+      parameters:
+        path:
+          id: "<id>"
+      requestBody:
+        application/json: {"url": "rtmps://live.my-service.tv/channel/secretKey"}
+      responses:
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  deleteMultistreamTarget:
+    speakeasy-default-delete-multistream-target:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  getWebhooks:
+    speakeasy-default-get-webhooks:
+      responses:
+        "200":
+          application/json: [{"id": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "name": "test_webhook", "projectId": "aac12556-4d65-4d34-9fb6-d1f0985eb0a9", "createdAt": 1587667174725, "events": ["stream.started", "stream.idle"], "url": "https://my-service.com/webhook", "streamId": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "status": {"lastFailure": {"timestamp": 1587667174725, "error": "Error message", "response": "Response body", "statusCode": 500}, "lastTriggeredAt": 1587667174725}}]
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  createWebhook:
+    speakeasy-default-create-webhook:
+      requestBody:
+        application/json: {"name": "test_webhook", "projectId": "aac12556-4d65-4d34-9fb6-d1f0985eb0a9", "events": ["stream.started", "stream.idle"], "url": "https://my-service.com/webhook", "sharedSecret": "my-secret", "streamId": "de7818e7-610a-4057-8f6f-b785dc1e6f88"}
+      responses:
+        "200":
+          application/json: {"id": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "name": "test_webhook", "projectId": "aac12556-4d65-4d34-9fb6-d1f0985eb0a9", "createdAt": 1587667174725, "events": ["stream.started", "stream.idle"], "url": "https://my-service.com/webhook", "streamId": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "status": {"lastFailure": {"timestamp": 1587667174725, "error": "Error message", "response": "Response body", "statusCode": 500}, "lastTriggeredAt": 1587667174725}}
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  getWebhook:
+    speakeasy-default-get-webhook:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "name": "test_webhook", "projectId": "aac12556-4d65-4d34-9fb6-d1f0985eb0a9", "createdAt": 1587667174725, "events": ["stream.started", "stream.idle"], "url": "https://my-service.com/webhook", "streamId": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "status": {"lastFailure": {"timestamp": 1587667174725, "error": "Error message", "response": "Response body", "statusCode": 500}, "lastTriggeredAt": 1587667174725}}
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  updateWebhook:
+    speakeasy-default-update-webhook:
+      parameters:
+        path:
+          id: "<id>"
+      requestBody:
+        application/json: {"name": "test_webhook", "projectId": "aac12556-4d65-4d34-9fb6-d1f0985eb0a9", "events": ["stream.started", "stream.idle"], "url": "https://my-service.com/webhook", "sharedSecret": "my-secret", "streamId": "de7818e7-610a-4057-8f6f-b785dc1e6f88"}
+      responses:
+        "200":
+          application/json: {"id": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "name": "test_webhook", "projectId": "aac12556-4d65-4d34-9fb6-d1f0985eb0a9", "createdAt": 1587667174725, "events": ["stream.started", "stream.idle"], "url": "https://my-service.com/webhook", "streamId": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "status": {"lastFailure": {"timestamp": 1587667174725, "error": "Error message", "response": "Response body", "statusCode": 500}, "lastTriggeredAt": 1587667174725}}
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  deleteWebhook:
+    speakeasy-default-delete-webhook:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "name": "test_webhook", "projectId": "aac12556-4d65-4d34-9fb6-d1f0985eb0a9", "createdAt": 1587667174725, "events": ["stream.started", "stream.idle"], "url": "https://my-service.com/webhook", "streamId": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "status": {"lastFailure": {"timestamp": 1587667174725, "error": "Error message", "response": "Response body", "statusCode": 500}, "lastTriggeredAt": 1587667174725}}
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  getWebhookLogs:
+    speakeasy-default-get-webhook-logs:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: [{"id": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "webhookId": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "event": "stream.started", "createdAt": 1587667174725, "duration": 0.5, "success": true, "request": {"url": "https://my-service.com/webhook", "method": "POST", "headers": {"User-Agent": "livepeer.studio"}, "body": "{\"event\": \"stream.started\"}"}}, {"id": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "webhookId": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "event": "stream.started", "createdAt": 1587667174725, "duration": 0.5, "success": true, "request": {"url": "https://my-service.com/webhook", "method": "POST", "headers": {"User-Agent": "livepeer.studio"}, "body": "{\"event\": \"stream.started\"}"}}]
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  getWebhookLog:
+    speakeasy-default-get-webhook-log:
+      parameters:
+        path:
+          id: "<id>"
+          logId: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "webhookId": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "event": "stream.started", "createdAt": 1587667174725, "duration": 0.5, "success": true, "request": {"url": "https://my-service.com/webhook", "method": "POST", "headers": {"User-Agent": "livepeer.studio"}, "body": "{\"event\": \"stream.started\"}"}}
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  resendWebhook:
+    speakeasy-default-resend-webhook:
+      parameters:
+        path:
+          id: "<id>"
+          logId: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "webhookId": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "event": "stream.started", "createdAt": 1587667174725, "duration": 0.5, "success": true, "request": {"url": "https://my-service.com/webhook", "method": "POST", "headers": {"User-Agent": "livepeer.studio"}, "body": "{\"event\": \"stream.started\"}"}}
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  getAssets:
+    speakeasy-default-get-assets:
+      responses:
+        "200":
+          application/json: [{"id": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "type": "video", "playbackId": "eaw4nk06ts2d0mzb", "playbackUrl": "https://livepeercdn.com/asset/ea03f37e-f861-4cdd-b495-0e60b6d753ad/index.m3u8", "downloadUrl": "https://livepeercdn.com/asset/eaw4nk06ts2d0mzb/video/download.mp4", "playbackPolicy": {"type": "webhook", "webhookId": "1bde4o2i6xycudoy", "webhookContext": {"streamerId": "my-custom-id"}, "refreshInterval": 600}, "source": {"type": "url", "url": "https://puzzled-adviser.info"}, "creatorId": {"type": "unverified", "value": "user123"}, "profiles": [{"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}, {"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}], "storage": {"ipfs": {"updatedAt": 1587667174725}, "status": {"phase": "ready", "progress": 0.5, "errorMessage": "Failed to update storage", "tasks": {"pending": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "last": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "failed": "09F8B46C-61A0-4254-9875-F71F4C605BC7"}}}, "status": {"phase": "uploading", "updatedAt": 1587667174725}, "name": "filename.mp4", "projectId": "aac12556-4d65-4d34-9fb6-d1f0985eb0a9", "createdAt": 1587667174725, "size": 84934509, "hash": [{"hash": "9b560b28b85378a5004117539196ab24e21bbd75b0e9eb1a8bc7c5fd80dc5b57", "algorithm": "sha256"}, {"hash": "9b560b28b85378a5004117539196ab24e21bbd75b0e9eb1a8bc7c5fd80dc5b57", "algorithm": "sha256"}, {"hash": "9b560b28b85378a5004117539196ab24e21bbd75b0e9eb1a8bc7c5fd80dc5b57", "algorithm": "sha256"}], "videoSpec": {"format": "mp4", "duration": 23.8328, "bitrate": 1000000, "tracks": [{"type": "video", "codec": "aac", "startTime": 23.8238, "duration": 23.8238, "bitrate": 1000000, "width": 1920, "height": 1080, "pixelFormat": "yuv420p", "fps": 30, "channels": 2, "sampleRate": 44100, "bitDepth": 16}, {"type": "video", "codec": "aac", "startTime": 23.8238, "duration": 23.8238, "bitrate": 1000000, "width": 1920, "height": 1080, "pixelFormat": "yuv420p", "fps": 30, "channels": 2, "sampleRate": 44100, "bitDepth": 16}, {"type": "video", "codec": "aac", "startTime": 23.8238, "duration": 23.8238, "bitrate": 1000000, "width": 1920, "height": 1080, "pixelFormat": "yuv420p", "fps": 30, "channels": 2, "sampleRate": 44100, "bitDepth": 16}]}}]
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  requestUpload:
+    speakeasy-default-request-upload:
+      requestBody:
+        application/json: {"name": "filename.mp4", "staticMp4": true, "playbackPolicy": {"type": "webhook", "webhookId": "1bde4o2i6xycudoy", "webhookContext": {"streamerId": "my-custom-id"}, "refreshInterval": 600}, "profiles": [{"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}]}
+      responses:
+        "200":
+          application/json: {"url": "https://origin.livepeer.com/api/asset/upload/direct?token=eyJhbGciOiJIUzI1NiJ9.eyJtc2ciOiJoZWxsbyBoYWNrZXIsIHRoZXJlJ3Mgbm90aGluZyBmb3IgeW91IGhlcmUg8J-YhiJ9.1YDjmXsqLcgNyMSzT4kXl_kIni46_EuGX_xfqmC7e0Q", "tusEndpoint": "https://origin.livepeer.com/api/asset/upload/tus?token=eyJhbGciOiJIUzI1NiJ9.eyJtc2ciOiJoZWxsbyBoYWNrZXIsIHRoZXJlJ3Mgbm90aGluZyBmb3IgeW91IGhlcmUg8J-YhiJ9.1YDjmXsqLcgNyMSzT4kXl_kIni46_EuGX_xfqmC7e0Q", "asset": {"id": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "type": "video", "playbackId": "eaw4nk06ts2d0mzb", "playbackUrl": "https://livepeercdn.com/asset/ea03f37e-f861-4cdd-b495-0e60b6d753ad/index.m3u8", "downloadUrl": "https://livepeercdn.com/asset/eaw4nk06ts2d0mzb/video/download.mp4", "playbackPolicy": {"type": "webhook", "webhookId": "1bde4o2i6xycudoy", "webhookContext": {"streamerId": "my-custom-id"}, "refreshInterval": 600}, "source": {"type": "recording", "sessionId": "<id>"}, "creatorId": {"type": "unverified", "value": "user123"}, "profiles": [{"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}], "storage": {"ipfs": {"updatedAt": 1587667174725}, "status": {"phase": "ready", "progress": 0.5, "errorMessage": "Failed to update storage", "tasks": {"pending": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "last": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "failed": "09F8B46C-61A0-4254-9875-F71F4C605BC7"}}}, "status": {"phase": "uploading", "updatedAt": 1587667174725}, "name": "filename.mp4", "projectId": "aac12556-4d65-4d34-9fb6-d1f0985eb0a9", "createdAt": 1587667174725, "size": 84934509, "hash": [], "videoSpec": {"format": "mp4", "duration": 23.8328, "bitrate": 1000000, "tracks": [{"type": "video", "codec": "aac", "startTime": 23.8238, "duration": 23.8238, "bitrate": 1000000, "width": 1920, "height": 1080, "pixelFormat": "yuv420p", "fps": 30, "channels": 2, "sampleRate": 44100, "bitDepth": 16}, {"type": "video", "codec": "aac", "startTime": 23.8238, "duration": 23.8238, "bitrate": 1000000, "width": 1920, "height": 1080, "pixelFormat": "yuv420p", "fps": 30, "channels": 2, "sampleRate": 44100, "bitDepth": 16}, {"type": "video", "codec": "aac", "startTime": 23.8238, "duration": 23.8238, "bitrate": 1000000, "width": 1920, "height": 1080, "pixelFormat": "yuv420p", "fps": 30, "channels": 2, "sampleRate": 44100, "bitDepth": 16}]}}, "task": {"id": "34d7618e-fd42-4798-acf5-19504616a11e"}}
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  uploadAsset:
+    speakeasy-default-upload-asset:
+      requestBody:
+        application/json: {"name": "filename.mp4", "staticMp4": true, "playbackPolicy": {"type": "webhook", "webhookId": "1bde4o2i6xycudoy", "webhookContext": {"streamerId": "my-custom-id"}, "refreshInterval": 600}, "url": "https://s3.amazonaws.com/my-bucket/path/filename.mp4", "profiles": [{"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}, {"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}]}
+      responses:
+        "200":
+          application/json: {"asset": {"id": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "type": "video", "playbackId": "eaw4nk06ts2d0mzb", "playbackUrl": "https://livepeercdn.com/asset/ea03f37e-f861-4cdd-b495-0e60b6d753ad/index.m3u8", "downloadUrl": "https://livepeercdn.com/asset/eaw4nk06ts2d0mzb/video/download.mp4", "playbackPolicy": {"type": "webhook", "webhookId": "1bde4o2i6xycudoy", "webhookContext": {"streamerId": "my-custom-id"}, "refreshInterval": 600}, "source": {"type": "url", "url": "https://creative-tenant.com/"}, "creatorId": {"type": "unverified", "value": "user123"}, "profiles": [{"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}], "storage": {"ipfs": {"updatedAt": 1587667174725}, "status": {"phase": "ready", "progress": 0.5, "errorMessage": "Failed to update storage", "tasks": {"pending": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "last": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "failed": "09F8B46C-61A0-4254-9875-F71F4C605BC7"}}}, "status": {"phase": "ready", "updatedAt": 1587667174725}, "name": "filename.mp4", "projectId": "aac12556-4d65-4d34-9fb6-d1f0985eb0a9", "createdAt": 1587667174725, "size": 84934509, "hash": [], "videoSpec": {"format": "mp4", "duration": 23.8328, "bitrate": 1000000, "tracks": [{"type": "video", "codec": "aac", "startTime": 23.8238, "duration": 23.8238, "bitrate": 1000000, "width": 1920, "height": 1080, "pixelFormat": "yuv420p", "fps": 30, "channels": 2, "sampleRate": 44100, "bitDepth": 16}, {"type": "video", "codec": "aac", "startTime": 23.8238, "duration": 23.8238, "bitrate": 1000000, "width": 1920, "height": 1080, "pixelFormat": "yuv420p", "fps": 30, "channels": 2, "sampleRate": 44100, "bitDepth": 16}]}}, "task": {"id": "34d7618e-fd42-4798-acf5-19504616a11e"}}
+        "201":
+          application/json: {"asset": {"id": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "type": "video", "playbackId": "eaw4nk06ts2d0mzb", "playbackUrl": "https://livepeercdn.com/asset/ea03f37e-f861-4cdd-b495-0e60b6d753ad/index.m3u8", "downloadUrl": "https://livepeercdn.com/asset/eaw4nk06ts2d0mzb/video/download.mp4", "playbackPolicy": {"type": "webhook", "webhookId": "1bde4o2i6xycudoy", "webhookContext": {"streamerId": "my-custom-id"}, "refreshInterval": 600}, "source": {"type": "directUpload"}, "creatorId": {"type": "unverified", "value": "user123"}, "profiles": [{"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}], "storage": {"ipfs": {"updatedAt": 1587667174725}, "status": {"phase": "ready", "progress": 0.5, "errorMessage": "Failed to update storage", "tasks": {"pending": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "last": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "failed": "09F8B46C-61A0-4254-9875-F71F4C605BC7"}}}, "status": {"phase": "deleted", "updatedAt": 1587667174725}, "name": "filename.mp4", "projectId": "aac12556-4d65-4d34-9fb6-d1f0985eb0a9", "createdAt": 1587667174725, "size": 84934509, "hash": [], "videoSpec": {"format": "mp4", "duration": 23.8328, "bitrate": 1000000, "tracks": [{"type": "video", "codec": "aac", "startTime": 23.8238, "duration": 23.8238, "bitrate": 1000000, "width": 1920, "height": 1080, "pixelFormat": "yuv420p", "fps": 30, "channels": 2, "sampleRate": 44100, "bitDepth": 16}]}}, "task": {"id": "34d7618e-fd42-4798-acf5-19504616a11e"}}
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  getAsset:
+    speakeasy-default-get-asset:
+      parameters:
+        path:
+          assetId: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "type": "video", "playbackId": "eaw4nk06ts2d0mzb", "playbackUrl": "https://livepeercdn.com/asset/ea03f37e-f861-4cdd-b495-0e60b6d753ad/index.m3u8", "downloadUrl": "https://livepeercdn.com/asset/eaw4nk06ts2d0mzb/video/download.mp4", "playbackPolicy": {"type": "webhook", "webhookId": "1bde4o2i6xycudoy", "webhookContext": {"streamerId": "my-custom-id"}, "refreshInterval": 600}, "source": {"type": "clip"}, "creatorId": {"type": "unverified", "value": "user123"}, "profiles": [{"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}, {"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}], "storage": {"ipfs": {"updatedAt": 1587667174725}, "status": {"phase": "ready", "progress": 0.5, "errorMessage": "Failed to update storage", "tasks": {"pending": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "last": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "failed": "09F8B46C-61A0-4254-9875-F71F4C605BC7"}}}, "status": {"phase": "ready", "updatedAt": 1587667174725}, "name": "filename.mp4", "projectId": "aac12556-4d65-4d34-9fb6-d1f0985eb0a9", "createdAt": 1587667174725, "size": 84934509, "hash": [{"hash": "9b560b28b85378a5004117539196ab24e21bbd75b0e9eb1a8bc7c5fd80dc5b57", "algorithm": "sha256"}, {"hash": "9b560b28b85378a5004117539196ab24e21bbd75b0e9eb1a8bc7c5fd80dc5b57", "algorithm": "sha256"}, {"hash": "9b560b28b85378a5004117539196ab24e21bbd75b0e9eb1a8bc7c5fd80dc5b57", "algorithm": "sha256"}], "videoSpec": {"format": "mp4", "duration": 23.8328, "bitrate": 1000000, "tracks": [{"type": "video", "codec": "aac", "startTime": 23.8238, "duration": 23.8238, "bitrate": 1000000, "width": 1920, "height": 1080, "pixelFormat": "yuv420p", "fps": 30, "channels": 2, "sampleRate": 44100, "bitDepth": 16}]}}
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  updateAsset:
+    speakeasy-default-update-asset:
+      parameters:
+        path:
+          assetId: "<id>"
+      requestBody:
+        application/json: {"name": "filename.mp4", "playbackPolicy": {"type": "webhook", "webhookId": "1bde4o2i6xycudoy", "webhookContext": {"streamerId": "my-custom-id"}, "refreshInterval": 600}}
+      responses:
+        "200":
+          application/json: {"id": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "type": "video", "playbackId": "eaw4nk06ts2d0mzb", "playbackUrl": "https://livepeercdn.com/asset/ea03f37e-f861-4cdd-b495-0e60b6d753ad/index.m3u8", "downloadUrl": "https://livepeercdn.com/asset/eaw4nk06ts2d0mzb/video/download.mp4", "playbackPolicy": {"type": "webhook", "webhookId": "1bde4o2i6xycudoy", "webhookContext": {"streamerId": "my-custom-id"}, "refreshInterval": 600}, "source": {"type": "clip"}, "creatorId": {"type": "unverified", "value": "user123"}, "profiles": [{"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}], "storage": {"ipfs": {"updatedAt": 1587667174725}, "status": {"phase": "ready", "progress": 0.5, "errorMessage": "Failed to update storage", "tasks": {"pending": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "last": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "failed": "09F8B46C-61A0-4254-9875-F71F4C605BC7"}}}, "status": {"phase": "deleted", "updatedAt": 1587667174725}, "name": "filename.mp4", "projectId": "aac12556-4d65-4d34-9fb6-d1f0985eb0a9", "createdAt": 1587667174725, "size": 84934509, "hash": [{"hash": "9b560b28b85378a5004117539196ab24e21bbd75b0e9eb1a8bc7c5fd80dc5b57", "algorithm": "sha256"}, {"hash": "9b560b28b85378a5004117539196ab24e21bbd75b0e9eb1a8bc7c5fd80dc5b57", "algorithm": "sha256"}], "videoSpec": {"format": "mp4", "duration": 23.8328, "bitrate": 1000000, "tracks": [{"type": "video", "codec": "aac", "startTime": 23.8238, "duration": 23.8238, "bitrate": 1000000, "width": 1920, "height": 1080, "pixelFormat": "yuv420p", "fps": 30, "channels": 2, "sampleRate": 44100, "bitDepth": 16}]}}
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  deleteAsset:
+    speakeasy-default-delete-asset:
+      parameters:
+        path:
+          assetId: "<id>"
+      responses:
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  getSessionClips:
+    speakeasy-default-get-session-clips:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: []
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  getSessions:
+    speakeasy-default-get-sessions:
+      responses:
+        "200":
+          application/json: [{"id": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "name": "test_session", "lastSeen": 1587667174725, "sourceSegments": 1, "transcodedSegments": 2, "sourceSegmentsDuration": 1, "transcodedSegmentsDuration": 2, "sourceBytes": 1, "transcodedBytes": 2, "ingestRate": 1, "outgoingRate": 2, "createdAt": 1587667174725, "parentId": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "projectId": "aac12556-4d65-4d34-9fb6-d1f0985eb0a9", "record": false, "playbackId": "eaw4nk06ts2d0mzb", "profiles": [], "recordingSpec": {"profiles": [{"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}, {"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}]}}]
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  getSession:
+    speakeasy-default-get-session:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "name": "test_session", "lastSeen": 1587667174725, "sourceSegments": 1, "transcodedSegments": 2, "sourceSegmentsDuration": 1, "transcodedSegmentsDuration": 2, "sourceBytes": 1, "transcodedBytes": 2, "ingestRate": 1, "outgoingRate": 2, "createdAt": 1587667174725, "parentId": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "projectId": "aac12556-4d65-4d34-9fb6-d1f0985eb0a9", "record": false, "playbackId": "eaw4nk06ts2d0mzb", "profiles": [{"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "fps": 30, "fpsDen": 1, "quality": 23, "gop": "2", "profile": "H264Baseline"}, {"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "fps": 30, "fpsDen": 1, "quality": 23, "gop": "2", "profile": "H264Baseline"}], "recordingSpec": {"profiles": [{"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}, {"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}]}}
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  getRecordedSessions:
+    speakeasy-default-get-recorded-sessions:
+      parameters:
+        path:
+          parentId: "<id>"
+        query:
+          record: true
+      responses:
+        "200":
+          application/json: [{"id": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "name": "test_session", "lastSeen": 1587667174725, "sourceSegments": 1, "transcodedSegments": 2, "sourceSegmentsDuration": 1, "transcodedSegmentsDuration": 2, "sourceBytes": 1, "transcodedBytes": 2, "ingestRate": 1, "outgoingRate": 2, "createdAt": 1587667174725, "parentId": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "projectId": "aac12556-4d65-4d34-9fb6-d1f0985eb0a9", "record": false, "playbackId": "eaw4nk06ts2d0mzb", "profiles": [], "recordingSpec": {"profiles": [{"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}, {"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}]}}, {"id": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "name": "test_session", "lastSeen": 1587667174725, "sourceSegments": 1, "transcodedSegments": 2, "sourceSegmentsDuration": 1, "transcodedSegmentsDuration": 2, "sourceBytes": 1, "transcodedBytes": 2, "ingestRate": 1, "outgoingRate": 2, "createdAt": 1587667174725, "parentId": "de7818e7-610a-4057-8f6f-b785dc1e6f88", "projectId": "aac12556-4d65-4d34-9fb6-d1f0985eb0a9", "record": false, "playbackId": "eaw4nk06ts2d0mzb", "profiles": [{"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "fps": 30, "fpsDen": 1, "quality": 23, "gop": "2", "profile": "H264Baseline"}], "recordingSpec": {"profiles": []}}]
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  createRoom:
+    speakeasy-default-create-room:
+      responses:
+        "200":
+          application/json: {"id": "d32ae9e6-c459-4931-9898-e86e2f5e7e16"}
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  getRoom:
+    speakeasy-default-get-room:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "d32ae9e6-c459-4931-9898-e86e2f5e7e16", "createdAt": 1587667174725, "updatedAt": 1587667174725}
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  deleteRoom:
+    speakeasy-default-delete-room:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  startRoomEgress:
+    speakeasy-default-start-room-egress:
+      parameters:
+        path:
+          id: "<id>"
+      requestBody:
+        application/json: {"streamId": "aac12556-4d65-4d34-9fb6-d1f0985eb0a9"}
+      responses:
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  stopRoomEgress:
+    speakeasy-default-stop-room-egress:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  createRoomUser:
+    speakeasy-default-create-room-user:
+      parameters:
+        path:
+          id: "<id>"
+      requestBody:
+        application/json: {"name": "name", "canPublish": true, "canPublishData": true}
+      responses:
+        "201":
+          application/json: {"id": "d32ae9e6-c459-4931-9898-e86e2f5e7e16", "joinUrl": "https://meet.livepeer.chat", "token": "token"}
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  getRoomUser:
+    speakeasy-default-get-room-user:
+      parameters:
+        path:
+          id: "<id>"
+          userId: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "d32ae9e6-c459-4931-9898-e86e2f5e7e16", "joinedAt": 1687517025261, "name": "name", "isPublisher": true}
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  updateRoomUser:
+    speakeasy-default-update-room-user:
+      parameters:
+        path:
+          id: "<id>"
+          userId: "<id>"
+      requestBody:
+        application/json: {"canPublish": true, "canPublishData": true}
+      responses:
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  deleteRoomUser:
+    speakeasy-default-delete-room-user:
+      parameters:
+        path:
+          id: "<id>"
+          userId: "<id>"
+      responses:
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  getRealtimeViewershipNow:
+    speakeasy-default-get-realtime-viewership-now:
+      responses:
+        "200":
+          application/json: []
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  getViewershipMetrics:
+    speakeasy-default-get-viewership-metrics:
+      responses:
+        "200":
+          application/json: [{"playbackId": "1bde4o2i6xycudoy", "creatorId": "john@doe.com", "viewerId": "1bde4o2i6xycudoy", "dStorageUrl": "ipfs://QmZ4", "timestamp": 1587667174725, "device": "iPhone", "deviceType": "mobile", "cpu": "ARM", "os": "iOS", "browser": "Safari", "browserEngine": "WebKit", "continent": "North America", "country": "United States", "subdivision": "California", "timezone": "America/Los_Angeles", "geohash": "123", "viewCount": 100, "playtimeMins": 10, "ttffMs": 100, "rebufferRatio": 0.1, "errorRate": 0.1, "exitsBeforeStart": 0.5}, {"playbackId": "1bde4o2i6xycudoy", "creatorId": "john@doe.com", "viewerId": "1bde4o2i6xycudoy", "dStorageUrl": "ipfs://QmZ4", "timestamp": 1587667174725, "device": "iPhone", "deviceType": "mobile", "cpu": "ARM", "os": "iOS", "browser": "Safari", "browserEngine": "WebKit", "continent": "North America", "country": "United States", "subdivision": "California", "timezone": "America/Los_Angeles", "geohash": "123", "viewCount": 100, "playtimeMins": 10, "ttffMs": 100, "rebufferRatio": 0.1, "errorRate": 0.1, "exitsBeforeStart": 0.5}, {"playbackId": "1bde4o2i6xycudoy", "creatorId": "john@doe.com", "viewerId": "1bde4o2i6xycudoy", "dStorageUrl": "ipfs://QmZ4", "timestamp": 1587667174725, "device": "iPhone", "deviceType": "mobile", "cpu": "ARM", "os": "iOS", "browser": "Safari", "browserEngine": "WebKit", "continent": "North America", "country": "United States", "subdivision": "California", "timezone": "America/Los_Angeles", "geohash": "123", "viewCount": 100, "playtimeMins": 10, "ttffMs": 100, "rebufferRatio": 0.1, "errorRate": 0.1, "exitsBeforeStart": 0.5}]
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  getCreatorViewershipMetrics:
+    speakeasy-default-get-creator-viewership-metrics:
+      responses:
+        "200":
+          application/json: [{"playbackId": "1bde4o2i6xycudoy", "creatorId": "john@doe.com", "viewerId": "1bde4o2i6xycudoy", "dStorageUrl": "ipfs://QmZ4", "timestamp": 1587667174725, "device": "iPhone", "deviceType": "mobile", "cpu": "ARM", "os": "iOS", "browser": "Safari", "browserEngine": "WebKit", "continent": "North America", "country": "United States", "subdivision": "California", "timezone": "America/Los_Angeles", "geohash": "123", "viewCount": 100, "playtimeMins": 10, "ttffMs": 100, "rebufferRatio": 0.1, "errorRate": 0.1, "exitsBeforeStart": 0.5}]
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  getPublicViewershipMetrics:
+    speakeasy-default-get-public-viewership-metrics:
+      parameters:
+        path:
+          playbackId: "<id>"
+      responses:
+        "200":
+          application/json: {"playbackId": "1bde4o2i6xycudoy", "dStorageUrl": "ipfs://QmZ4", "viewCount": 100, "playtimeMins": 10}
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  getUsageMetrics:
+    speakeasy-default-get-usage-metrics:
+      responses:
+        "200":
+          application/json: {"UserID": "1bde4o2i6xycudoy", "CreatorID": "john@doe.com", "DeliveryUsageMins": 100, "TotalUsageMins": 100, "StorageUsageMins": 100}
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  createSigningKey:
+    speakeasy-default-create-signing-key:
+      responses:
+        "200":
+          application/json: {"id": "78df0075-b5f3-4683-a618-1086faca35dc", "name": "key1", "createdAt": 1587667174725, "lastSeen": 1587667174725, "publicKey": "<value>", "disabled": false, "projectId": "aac12556-4d65-4d34-9fb"}
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  getSigningKeys:
+    speakeasy-default-get-signing-keys:
+      responses:
+        "200":
+          application/json: [{"id": "78df0075-b5f3-4683-a618-1086faca35dc", "name": "key1", "createdAt": 1587667174725, "lastSeen": 1587667174725, "publicKey": "<value>", "disabled": false, "projectId": "aac12556-4d65-4d34-9fb"}]
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  deleteSigningKey:
+    speakeasy-default-delete-signing-key:
+      parameters:
+        path:
+          keyId: "<id>"
+      responses:
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  getSigningKey:
+    speakeasy-default-get-signing-key:
+      parameters:
+        path:
+          keyId: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "78df0075-b5f3-4683-a618-1086faca35dc", "name": "key1", "createdAt": 1587667174725, "lastSeen": 1587667174725, "publicKey": "<value>", "disabled": false, "projectId": "aac12556-4d65-4d34-9fb"}
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  updateSigningKey:
+    speakeasy-default-update-signing-key:
+      parameters:
+        path:
+          keyId: "<id>"
+      responses:
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  getTasks:
+    speakeasy-default-get-tasks:
+      responses:
+        "200":
+          application/json: [{"id": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "type": "upload", "createdAt": 1587667174725, "scheduledAt": 1587667174725, "inputAssetId": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "outputAssetId": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "projectId": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "requesterId": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "params": {"upload": {"url": "https://cdn.livepeer.com/ABC123/filename.mp4", "c2pa": true, "profiles": [], "targetSegmentSizeSecs": 6}, "export": {"ipfs": {"pinata": {"apiKey": "1234567890"}}}, "exportData": {"ipfs": {}, "type": "text/plain", "id": "09F8B46C-61A0-4254-9875-F71F4C605BC7"}, "transcode-file": {"input": {"url": "https://cdn.livepeer.com/ABC123/filename.mp4"}, "storage": {"url": "s3+https://accessKeyId:secretAccessKey@s3Endpoint/bucket"}, "outputs": {"hls": {"path": "/samplevideo/hls"}, "mp4": {"path": "/samplevideo/mp4"}}, "profiles": [{"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}], "targetSegmentSizeSecs": 10, "c2pa": false}, "clip": {"url": "https://asset-cdn.lp-playback.monster/hls/1bde4o2i6xycudoy/static360p0.mp4", "clipStrategy": {"startTime": 1587667174725, "endTime": 1587667174725, "playbackId": "eaw4nk06ts2d0mzb"}, "catalystPipelineStrategy": "catalyst_ffmpeg", "sessionId": "d32ae9e6-c459-4931-9898-e86e2f5e7e16", "inputId": "09F8B46C-61A0-4254-9875-F71F4C605BC7"}}, "status": {"phase": "pending", "updatedAt": 1587667174725, "progress": 0.5, "errorMessage": "Failed to upload file", "retries": 3}, "output": {"export": {"ipfs": {"videoFileCid": "Qmabc123xyz341", "videoFileUrl": "ipfs://Qmabc123xyz341", "videoFileGatewayUrl": "https://gateway.ipfs.io/ipfs/Qmabc123xyz341", "nftMetadataCid": "Qmabc123xyz341", "nftMetadataUrl": "ipfs://Qmabc123xyz341", "nftMetadataGatewayUrl": "https://gateway.ipfs.io/ipfs/Qmabc123xyz341"}}, "exportData": {"ipfs": {"cid": "Qmabc123xyz341"}}}}]
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  getTask:
+    speakeasy-default-get-task:
+      parameters:
+        path:
+          taskId: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "type": "upload", "createdAt": 1587667174725, "scheduledAt": 1587667174725, "inputAssetId": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "outputAssetId": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "projectId": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "requesterId": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "params": {"upload": {"url": "https://cdn.livepeer.com/ABC123/filename.mp4", "c2pa": true, "profiles": [{"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}, {"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}], "targetSegmentSizeSecs": 6}, "export": {"ipfs": {"pinata": {"apiKey": "1234567890"}}}, "exportData": {"ipfs": {"pinata": {"apiKey": "1234567890"}}, "type": "text/plain", "id": "09F8B46C-61A0-4254-9875-F71F4C605BC7"}, "transcode-file": {"input": {"url": "https://cdn.livepeer.com/ABC123/filename.mp4"}, "storage": {"url": "s3+https://accessKeyId:secretAccessKey@s3Endpoint/bucket"}, "outputs": {"hls": {"path": "/samplevideo/hls"}, "mp4": {"path": "/samplevideo/mp4"}}, "profiles": [{"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}, {"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}, {"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}], "targetSegmentSizeSecs": 10, "c2pa": false}, "clip": {"url": "https://asset-cdn.lp-playback.monster/hls/1bde4o2i6xycudoy/static360p0.mp4", "clipStrategy": {"startTime": 1587667174725, "endTime": 1587667174725, "playbackId": "eaw4nk06ts2d0mzb"}, "catalystPipelineStrategy": "catalyst_ffmpeg", "sessionId": "d32ae9e6-c459-4931-9898-e86e2f5e7e16", "inputId": "09F8B46C-61A0-4254-9875-F71F4C605BC7"}}, "status": {"phase": "pending", "updatedAt": 1587667174725, "progress": 0.5, "errorMessage": "Failed to upload file", "retries": 3}, "output": {"export": {"ipfs": {"videoFileCid": "Qmabc123xyz341", "videoFileUrl": "ipfs://Qmabc123xyz341", "videoFileGatewayUrl": "https://gateway.ipfs.io/ipfs/Qmabc123xyz341", "nftMetadataCid": "Qmabc123xyz341", "nftMetadataUrl": "ipfs://Qmabc123xyz341", "nftMetadataGatewayUrl": "https://gateway.ipfs.io/ipfs/Qmabc123xyz341"}}, "exportData": {"ipfs": {"cid": "Qmabc123xyz341"}}}}
+  transcodeVideo:
+    speakeasy-default-transcode-video:
+      requestBody:
+        application/json: {"input": {"url": "https://s3.amazonaws.com/bucket/file.mp4"}, "storage": {"type": "web3.storage", "credentials": {"proof": "EaJlcm9vdHOAZ3ZlcnNpb24BmgIBcRIg2uxHpcPYSWNtifMKFkPC7IEDvFDCxCd3ADViv0coV7SnYXNYRO2hA0AnblHEW38s3lSlcwaDjPn"}}, "outputs": {"hls": {"path": "/samplevideo/hls"}, "mp4": {"path": "/samplevideo/mp4"}, "fmp4": {"path": "/samplevideo/fmp4"}}, "profiles": [{"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}]}
+      responses:
+        "200":
+          application/json: {"id": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "type": "upload", "createdAt": 1587667174725, "scheduledAt": 1587667174725, "inputAssetId": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "outputAssetId": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "projectId": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "requesterId": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "params": {"upload": {"url": "https://cdn.livepeer.com/ABC123/filename.mp4", "c2pa": true, "profiles": [], "targetSegmentSizeSecs": 6}, "export": {"custom": {"url": "https://s3.amazonaws.com/my-bucket/path/filename.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=LLMMB", "method": "POST"}}, "exportData": {"ipfs": {"pinata": {"apiKey": "1234567890"}}, "type": "text/plain", "id": "09F8B46C-61A0-4254-9875-F71F4C605BC7"}, "transcode-file": {"input": {"url": "https://cdn.livepeer.com/ABC123/filename.mp4"}, "storage": {"url": "s3+https://accessKeyId:secretAccessKey@s3Endpoint/bucket"}, "outputs": {"hls": {"path": "/samplevideo/hls"}, "mp4": {"path": "/samplevideo/mp4"}}, "profiles": [{"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}, {"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}, {"width": 1280, "name": "720p", "height": 720, "bitrate": 3000000, "quality": 23, "fps": 30, "fpsDen": 1, "gop": "2", "profile": "H264Baseline", "encoder": "H.264"}], "targetSegmentSizeSecs": 10, "c2pa": false}, "clip": {"url": "https://asset-cdn.lp-playback.monster/hls/1bde4o2i6xycudoy/static360p0.mp4", "clipStrategy": {"startTime": 1587667174725, "endTime": 1587667174725, "playbackId": "eaw4nk06ts2d0mzb"}, "catalystPipelineStrategy": "catalyst_ffmpeg", "sessionId": "d32ae9e6-c459-4931-9898-e86e2f5e7e16", "inputId": "09F8B46C-61A0-4254-9875-F71F4C605BC7"}}, "status": {"phase": "pending", "updatedAt": 1587667174725, "progress": 0.5, "errorMessage": "Failed to upload file", "retries": 3}, "output": {"export": {"ipfs": {"videoFileCid": "Qmabc123xyz341", "videoFileUrl": "ipfs://Qmabc123xyz341", "videoFileGatewayUrl": "https://gateway.ipfs.io/ipfs/Qmabc123xyz341", "nftMetadataCid": "Qmabc123xyz341", "nftMetadataUrl": "ipfs://Qmabc123xyz341", "nftMetadataGatewayUrl": "https://gateway.ipfs.io/ipfs/Qmabc123xyz341"}}, "exportData": {"ipfs": {"cid": "Qmabc123xyz341"}}}}
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+  getPlaybackInfo:
+    speakeasy-default-get-playback-info:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"type": "vod", "meta": {"live": 0, "playbackPolicy": {"type": "webhook", "webhookId": "1bde4o2i6xycudoy", "webhookContext": {"streamerId": "my-custom-id"}, "refreshInterval": 600}, "source": [{"hrn": "MP4", "type": "html5/video/mp4", "url": "https://asset-cdn.lp-playback.monster/hls/1bde4o2i6xycudoy/static360p0.mp4", "size": 494778, "width": 204, "height": 360, "bitrate": 449890}, {"hrn": "MP4", "type": "html5/video/mp4", "url": "https://asset-cdn.lp-playback.monster/hls/1bde4o2i6xycudoy/static360p0.mp4", "size": 494778, "width": 204, "height": 360, "bitrate": 449890}], "dvrPlayback": [{"hrn": "HLS (TS)", "type": "html5/application/vnd.apple.mpegurl", "url": "https://asset-cdn.lp-playback.monster/hls/1bde4o2i6xycudoy/static360p0.mp4"}, {"hrn": "HLS (TS)", "type": "html5/application/vnd.apple.mpegurl", "url": "https://asset-cdn.lp-playback.monster/hls/1bde4o2i6xycudoy/static360p0.mp4"}], "attestation": {"id": "5b9e63bb-6fd0-4bea-aff2-cc5d4eb9cad0", "primaryType": "VideoAttestation", "domain": {"name": "Verifiable Video", "version": "1"}, "message": {"video": "5b9e63bb-6fd0-4bea-aff2-cc5d4eb9cad0", "attestations": [{"role": "creator", "address": "1311768467294899700"}, {"role": "creator", "address": "1311768467294899700"}], "signer": "1311768467294899700", "timestamp": 1587667174725}, "signature": "1311768467294899700", "createdAt": 1587667174725, "signatureType": "eip712", "storage": {"ipfs": {"updatedAt": 1587667174725}, "status": {"phase": "ready", "progress": 0.5, "errorMessage": "Failed to update storage", "tasks": {"pending": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "last": "09F8B46C-61A0-4254-9875-F71F4C605BC7", "failed": "09F8B46C-61A0-4254-9875-F71F4C605BC7"}}}}}}
+        "404":
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
+        default:
+          application/json: {"errors": ["[\"id not provided\",\"Account not found\"]"]}
