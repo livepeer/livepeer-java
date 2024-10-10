@@ -244,8 +244,7 @@ public class TargetOutput {
         public TargetOutput build() {
             if (videoOnly == null) {
                 videoOnly = _SINGLETON_VALUE_VideoOnly.value();
-            }
-            return new TargetOutput(
+            }            return new TargetOutput(
                 profile,
                 videoOnly,
                 id);

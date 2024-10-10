@@ -18,13 +18,13 @@ public class UpdateAssetRequestBuilder {
         this.sdk = sdk;
     }
 
-    public UpdateAssetRequestBuilder assetId(java.lang.String assetId) {
+    public UpdateAssetRequestBuilder assetId(String assetId) {
         Utils.checkNotNull(assetId, "assetId");
         this.assetId = assetId;
         return this;
     }
 
-    public UpdateAssetRequestBuilder assetPatchPayload(studio.livepeer.livepeer.models.components.AssetPatchPayload assetPatchPayload) {
+    public UpdateAssetRequestBuilder assetPatchPayload(AssetPatchPayload assetPatchPayload) {
         Utils.checkNotNull(assetPatchPayload, "assetPatchPayload");
         this.assetPatchPayload = assetPatchPayload;
         return this;

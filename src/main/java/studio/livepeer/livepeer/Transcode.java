@@ -13,9 +13,9 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.List;
 import java.util.Optional;
+import studio.livepeer.livepeer.models.components.Error;
 import studio.livepeer.livepeer.models.components.Task;
 import studio.livepeer.livepeer.models.components.TranscodePayload;
-import studio.livepeer.livepeer.models.errors.Error;
 import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.SDKMethodInterfaces.*;
 import studio.livepeer.livepeer.models.operations.TranscodeVideoRequestBuilder;
@@ -323,7 +323,7 @@ public class Transcode implements
         _req.setBody(Optional.ofNullable(_serializedRequestBody));
         _req.addHeader("Accept", "application/json")
             .addHeader("user-agent", 
-                this.sdkConfiguration.userAgent);
+                SDKConfiguration.USER_AGENT);
 
         Utils.configureSecurity(_req,  
                 this.sdkConfiguration.securitySource.getSecurity());

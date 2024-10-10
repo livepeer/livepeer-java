@@ -3,6 +3,34 @@ info:
   title: CodeSamples overlay for java target
   version: 0.0.0
 actions:
+  - target: $["paths"]["/access-control/signing-key"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getSigningKeys
+          source: |-
+            package hello.world;
+
+            import java.lang.Exception;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.operations.GetSigningKeysResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    GetSigningKeysResponse res = sdk.accessControl().getAll()
+                            .call();
+
+                    if (res.data().isPresent()) {
+                        // handle response
+                    }
+                }
+            }
   - target: $["paths"]["/access-control/signing-key"]["post"]
     update:
       x-codeSamples:
@@ -13,198 +41,108 @@ actions:
 
             import java.lang.Exception;
             import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
             import studio.livepeer.livepeer.models.operations.CreateSigningKeyResponse;
 
             public class Application {
 
                 public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
 
-                        CreateSigningKeyResponse res = sdk.accessControl().create()
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    CreateSigningKeyResponse res = sdk.accessControl().create()
                             .call();
 
-                        if (res.signingKey().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/playback/{id}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: getPlaybackInfo
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.GetPlaybackInfoResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        GetPlaybackInfoResponse res = sdk.playback().get()
-                            .id("<value>")
-                            .call();
-
-                        if (res.playbackInfo().isPresent()) {
-                            // handle response
-                        }
-                    } catch (studio.livepeer.livepeer.models.errors.Error e) {
-                        // handle exception
-                        throw e;
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/stream/{id}"]["delete"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: deleteStream
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.DeleteStreamResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        DeleteStreamResponse res = sdk.stream().delete()
-                            .id("<value>")
-                            .call();
-
+                    if (res.signingKey().isPresent()) {
                         // handle response
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
                     }
-
                 }
             }
-  - target: $["paths"]["/multistream/target/{id}"]["get"]
+  - target: $["paths"]["/access-control/signing-key/{keyId}"]["delete"]
     update:
       x-codeSamples:
         - lang: java
-          label: getMultistreamTarget
+          label: deleteSigningKey
           source: |-
             package hello.world;
 
             import java.lang.Exception;
             import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.GetMultistreamTargetResponse;
+            import studio.livepeer.livepeer.models.operations.DeleteSigningKeyResponse;
 
             public class Application {
 
                 public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
 
-                        GetMultistreamTargetResponse res = sdk.multistream().get()
-                            .id("<value>")
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    DeleteSigningKeyResponse res = sdk.accessControl().delete()
+                            .keyId("<id>")
                             .call();
 
-                        if (res.multistreamTarget().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
+                    // handle response
                 }
             }
-  - target: $["paths"]["/webhook"]["post"]
+  - target: $["paths"]["/access-control/signing-key/{keyId}"]["get"]
     update:
       x-codeSamples:
         - lang: java
-          label: createWebhook
+          label: getSigningKey
           source: |-
             package hello.world;
 
             import java.lang.Exception;
-            import java.util.List;
             import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.Events;
-            import studio.livepeer.livepeer.models.components.WebhookInput;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.CreateWebhookResponse;
+            import studio.livepeer.livepeer.models.operations.GetSigningKeyResponse;
 
             public class Application {
 
                 public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
+
+                    Livepeer sdk = Livepeer.builder()
                             .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
+                        .build();
 
-                        WebhookInput req = WebhookInput.builder()
-                            .name("test_webhook")
-                            .url("https://my-service.com/webhook")
-                            .projectId("aac12556-4d65-4d34-9fb6-d1f0985eb0a9")
-                            .events(List.of(
-                                Events.STREAM_STARTED,
-                                Events.STREAM_IDLE))
-                            .sharedSecret("my-secret")
-                            .streamId("de7818e7-610a-4057-8f6f-b785dc1e6f88")
-                            .build();
-
-                        CreateWebhookResponse res = sdk.webhook().create()
-                            .request(req)
+                    GetSigningKeyResponse res = sdk.accessControl().get()
+                            .keyId("<id>")
                             .call();
 
-                        if (res.webhook().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
+                    if (res.signingKey().isPresent()) {
+                        // handle response
                     }
+                }
+            }
+  - target: $["paths"]["/access-control/signing-key/{keyId}"]["patch"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: updateSigningKey
+          source: |-
+            package hello.world;
 
+            import java.lang.Exception;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.operations.UpdateSigningKeyRequestBody;
+            import studio.livepeer.livepeer.models.operations.UpdateSigningKeyResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    UpdateSigningKeyResponse res = sdk.accessControl().update()
+                            .keyId("<id>")
+                            .requestBody(UpdateSigningKeyRequestBody.builder()
+                                .build())
+                            .call();
+
+                    // handle response
                 }
             }
   - target: $["paths"]["/asset"]["get"]
@@ -217,757 +155,22 @@ actions:
 
             import java.lang.Exception;
             import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
             import studio.livepeer.livepeer.models.operations.GetAssetsResponse;
 
             public class Application {
 
                 public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
 
-                        GetAssetsResponse res = sdk.asset().getAll()
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    GetAssetsResponse res = sdk.asset().getAll()
                             .call();
 
-                        if (res.data().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/session/{id}/clips"]["get"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: getSessionClips
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.GetSessionClipsResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        GetSessionClipsResponse res = sdk.session().getClips()
-                            .id("<value>")
-                            .call();
-
-                        if (res.data().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/stream/{id}/clips"]["get"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: getClips
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.GetClipsResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        GetClipsResponse res = sdk.stream().getClips()
-                            .id("<value>")
-                            .call();
-
-                        if (res.data().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/task/{taskId}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: getTask
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.GetTaskResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        GetTaskResponse res = sdk.task().get()
-                            .taskId("<value>")
-                            .call();
-
-                        if (res.task().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/clip"]["post"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: createClip
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.ClipPayload;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.CreateClipResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        ClipPayload req = ClipPayload.builder()
-                            .playbackId("eaw4nk06ts2d0mzb")
-                            .startTime(1587667174725d)
-                            .endTime(1587667174725d)
-                            .name("My Clip")
-                            .sessionId("de7818e7-610a-4057-8f6f-b785dc1e6f88")
-                            .build();
-
-                        CreateClipResponse res = sdk.stream().createClip()
-                            .request(req)
-                            .call();
-
-                        if (res.data().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/webhook/{id}"]["put"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: updateWebhook
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import java.util.List;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.Events;
-            import studio.livepeer.livepeer.models.components.WebhookInput;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.UpdateWebhookResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        UpdateWebhookResponse res = sdk.webhook().update()
-                            .id("<value>")
-                            .webhook(WebhookInput.builder()
-                                .name("test_webhook")
-                                .url("https://my-service.com/webhook")
-                                .projectId("aac12556-4d65-4d34-9fb6-d1f0985eb0a9")
-                                .events(List.of(
-                                    Events.STREAM_STARTED,
-                                    Events.STREAM_IDLE))
-                                .sharedSecret("my-secret")
-                                .streamId("de7818e7-610a-4057-8f6f-b785dc1e6f88")
-                                .build())
-                            .call();
-
-                        if (res.webhook().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/room/{id}/egress"]["delete"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: stopRoomEgress
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.StopRoomEgressResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        StopRoomEgressResponse res = sdk.room().stopEgress()
-                            .id("<value>")
-                            .call();
-
+                    if (res.data().isPresent()) {
                         // handle response
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
                     }
-
-                }
-            }
-  - target: $["paths"]["/data/views/query"]["get"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: getViewershipMetrics
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.GetViewershipMetricsRequest;
-            import studio.livepeer.livepeer.models.operations.GetViewershipMetricsResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        GetViewershipMetricsRequest req = GetViewershipMetricsRequest.builder()
-                            .build();
-
-                        GetViewershipMetricsResponse res = sdk.metrics().getViewership()
-                            .request(req)
-                            .call();
-
-                        if (res.data().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/access-control/signing-key"]["get"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: getSigningKeys
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.GetSigningKeysResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        GetSigningKeysResponse res = sdk.accessControl().getAll()
-                            .call();
-
-                        if (res.data().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/stream/{id}/create-multistream-target"]["post"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: addMultistreamTarget
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.TargetAddPayload;
-            import studio.livepeer.livepeer.models.components.TargetAddPayloadSpec;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.AddMultistreamTargetResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        AddMultistreamTargetResponse res = sdk.stream().addMultistreamTarget()
-                            .id("<value>")
-                            .targetAddPayload(TargetAddPayload.builder()
-                                .profile("720p0")
-                                .videoOnly(false)
-                                .id("PUSH123")
-                                .spec(TargetAddPayloadSpec.builder()
-                                    .url("rtmps://live.my-service.tv/channel/secretKey")
-                                    .name("My target")
-                                    .build())
-                                .build())
-                            .call();
-
-                        // handle response
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/room"]["post"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: createRoom
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.CreateRoomResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        CreateRoomResponse res = sdk.room().create()
-                            .call();
-
-                        if (res.createRoomResponse().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/room/{id}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: getRoom
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.GetRoomResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        GetRoomResponse res = sdk.room().get()
-                            .id("<value>")
-                            .call();
-
-                        if (res.room().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/room/{id}"]["delete"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: deleteRoom
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.DeleteRoomResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        DeleteRoomResponse res = sdk.room().delete()
-                            .id("<value>")
-                            .call();
-
-                        // handle response
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/room/{id}/user/{userId}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: getRoomUser
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.GetRoomUserResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        GetRoomUserResponse res = sdk.room().getUser()
-                            .id("<value>")
-                            .userId("<value>")
-                            .call();
-
-                        if (res.getRoomUserResponse().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/webhook"]["get"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: getWebhooks
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.GetWebhooksResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        GetWebhooksResponse res = sdk.webhook().getAll()
-                            .call();
-
-                        if (res.data().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/webhook/{id}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: getWebhook
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.GetWebhookResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        GetWebhookResponse res = sdk.webhook().get()
-                            .id("<value>")
-                            .call();
-
-                        if (res.webhook().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/room/{id}/user"]["post"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: createRoomUser
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.RoomUserPayload;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.CreateRoomUserResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        CreateRoomUserResponse res = sdk.room().createUser()
-                            .id("<value>")
-                            .roomUserPayload(RoomUserPayload.builder()
-                                .name("name")
-                                .canPublish(true)
-                                .canPublishData(true)
-                                .build())
-                            .call();
-
-                        if (res.roomUserResponse().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/multistream/target"]["post"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: createMultistreamTarget
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.MultistreamTargetInput;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.CreateMultistreamTargetResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        MultistreamTargetInput req = MultistreamTargetInput.builder()
-                            .url("rtmps://live.my-service.tv/channel/secretKey")
-                            .build();
-
-                        CreateMultistreamTargetResponse res = sdk.multistream().create()
-                            .request(req)
-                            .call();
-
-                        if (res.multistreamTarget().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/multistream/target/{id}"]["patch"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: updateMultistreamTarget
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.MultistreamTargetPatchPayload;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.UpdateMultistreamTargetResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        UpdateMultistreamTargetResponse res = sdk.multistream().update()
-                            .id("<value>")
-                            .multistreamTargetPatchPayload(MultistreamTargetPatchPayload.builder()
-                                .url("rtmps://live.my-service.tv/channel/secretKey")
-                                .build())
-                            .call();
-
-                        // handle response
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
                 }
             }
   - target: $["paths"]["/asset/request-upload"]["post"]
@@ -988,18 +191,17 @@ actions:
             import studio.livepeer.livepeer.models.components.TranscodeProfileEncoder;
             import studio.livepeer.livepeer.models.components.TranscodeProfileProfile;
             import studio.livepeer.livepeer.models.components.Type;
-            import studio.livepeer.livepeer.models.errors.SDKError;
             import studio.livepeer.livepeer.models.operations.RequestUploadResponse;
 
             public class Application {
 
                 public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
 
-                        NewAssetPayload req = NewAssetPayload.builder()
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    NewAssetPayload req = NewAssetPayload.builder()
                             .name("filename.mp4")
                             .staticMp4(true)
                             .playbackPolicy(PlaybackPolicy.builder()
@@ -1024,386 +226,13 @@ actions:
                                     .build()))
                             .build();
 
-                        RequestUploadResponse res = sdk.asset().create()
+                    RequestUploadResponse res = sdk.asset().create()
                             .request(req)
                             .call();
 
-                        if (res.data().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/room/{id}/user/{userId}"]["put"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: updateRoomUser
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.RoomUserUpdatePayload;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.UpdateRoomUserResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        UpdateRoomUserResponse res = sdk.room().updateUser()
-                            .id("<value>")
-                            .userId("<value>")
-                            .roomUserUpdatePayload(RoomUserUpdatePayload.builder()
-                                .canPublish(true)
-                                .canPublishData(true)
-                                .build())
-                            .call();
-
+                    if (res.data().isPresent()) {
                         // handle response
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
                     }
-
-                }
-            }
-  - target: $["paths"]["/data/views/query/total/{playbackId}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: getPublicViewershipMetrics
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.GetPublicViewershipMetricsResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        GetPublicViewershipMetricsResponse res = sdk.metrics().getPublicViewership()
-                            .playbackId("<value>")
-                            .call();
-
-                        if (res.data().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/stream/{id}/multistream/{targetId}"]["delete"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: removeMultistreamTarget
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.RemoveMultistreamTargetResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        RemoveMultistreamTargetResponse res = sdk.stream().removeMultistreamTarget()
-                            .id("<value>")
-                            .targetId("<value>")
-                            .call();
-
-                        // handle response
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/webhook/{id}"]["delete"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: deleteWebhook
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.DeleteWebhookResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        DeleteWebhookResponse res = sdk.webhook().delete()
-                            .id("<value>")
-                            .call();
-
-                        if (res.webhook().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/room/{id}/user/{userId}"]["delete"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: deleteRoomUser
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.DeleteRoomUserResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        DeleteRoomUserResponse res = sdk.room().deleteUser()
-                            .id("<value>")
-                            .userId("<value>")
-                            .call();
-
-                        // handle response
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/data/views/now"]["get"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: getRealtimeViewershipNow
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import java.util.List;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.BreakdownBy;
-            import studio.livepeer.livepeer.models.operations.GetRealtimeViewershipNowResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        GetRealtimeViewershipNowResponse res = sdk.metrics().getRealtimeViewership()
-                            .playbackId("<value>")
-                            .creatorId("<value>")
-                            .breakdownBy(List.of(
-                                BreakdownBy.PLAYBACK_ID))
-                            .call();
-
-                        if (res.data().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/transcode"]["post"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: transcodeVideo
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import java.util.List;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.Fmp4;
-            import studio.livepeer.livepeer.models.components.Hls;
-            import studio.livepeer.livepeer.models.components.Input1;
-            import studio.livepeer.livepeer.models.components.Input;
-            import studio.livepeer.livepeer.models.components.Mp4;
-            import studio.livepeer.livepeer.models.components.Outputs;
-            import studio.livepeer.livepeer.models.components.Storage1;
-            import studio.livepeer.livepeer.models.components.StorageCredentials;
-            import studio.livepeer.livepeer.models.components.StorageType;
-            import studio.livepeer.livepeer.models.components.TranscodePayload;
-            import studio.livepeer.livepeer.models.components.TranscodePayloadStorage;
-            import studio.livepeer.livepeer.models.components.TranscodeProfile;
-            import studio.livepeer.livepeer.models.components.TranscodeProfileEncoder;
-            import studio.livepeer.livepeer.models.components.TranscodeProfileProfile;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.TranscodeVideoResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        TranscodePayload req = TranscodePayload.builder()
-                            .input(Input.of(Input1.builder()
-                                        .url("https://s3.amazonaws.com/bucket/file.mp4")
-                                        .build()))
-                            .storage(TranscodePayloadStorage.of(Storage1.builder()
-                                        .type(StorageType.S3)
-                                        .endpoint("https://gateway.storjshare.io")
-                                        .bucket("outputbucket")
-                                        .credentials(StorageCredentials.builder()
-                                                .accessKeyId("AKIAIOSFODNN7EXAMPLE")
-                                                .secretAccessKey("wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY")
-                                                .build())
-                                        .build()))
-                            .outputs(Outputs.builder()
-                                    .hls(Hls.builder()
-                                        .path("/samplevideo/hls")
-                                        .build())
-                                    .mp4(Mp4.builder()
-                                        .path("/samplevideo/mp4")
-                                        .build())
-                                    .fmp4(Fmp4.builder()
-                                        .path("/samplevideo/fmp4")
-                                        .build())
-                                    .build())
-                            .profiles(List.of(
-                                TranscodeProfile.builder()
-                                    .bitrate(3000000L)
-                                    .width(1280L)
-                                    .name("720p")
-                                    .height(720L)
-                                    .quality(23L)
-                                    .fps(30L)
-                                    .fpsDen(1L)
-                                    .gop("2")
-                                    .profile(TranscodeProfileProfile.H264_BASELINE)
-                                    .encoder(TranscodeProfileEncoder.H264)
-                                    .build()))
-                            .build();
-
-                        TranscodeVideoResponse res = sdk.transcode().create()
-                            .request(req)
-                            .call();
-
-                        if (res.task().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/webhook/{id}/log"]["get"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: getWebhookLogs
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.GetWebhookLogsResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        GetWebhookLogsResponse res = sdk.webhook().getLogs()
-                            .id("<value>")
-                            .call();
-
-                        if (res.data().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
                 }
             }
   - target: $["paths"]["/asset/upload/url"]["post"]
@@ -1424,18 +253,17 @@ actions:
             import studio.livepeer.livepeer.models.components.TranscodeProfileEncoder;
             import studio.livepeer.livepeer.models.components.TranscodeProfileProfile;
             import studio.livepeer.livepeer.models.components.Type;
-            import studio.livepeer.livepeer.models.errors.SDKError;
             import studio.livepeer.livepeer.models.operations.UploadAssetResponse;
 
             public class Application {
 
                 public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
 
-                        NewAssetFromUrlPayload req = NewAssetFromUrlPayload.builder()
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    NewAssetFromUrlPayload req = NewAssetFromUrlPayload.builder()
                             .name("filename.mp4")
                             .url("https://s3.amazonaws.com/my-bucket/path/filename.mp4")
                             .staticMp4(true)
@@ -1461,424 +289,13 @@ actions:
                                     .build()))
                             .build();
 
-                        UploadAssetResponse res = sdk.asset().createViaUrl()
+                    UploadAssetResponse res = sdk.asset().createViaUrl()
                             .request(req)
                             .call();
 
-                        if (res.twoHundredApplicationJsonData().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/data/usage/query"]["get"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: getUsageMetrics
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.GetUsageMetricsRequest;
-            import studio.livepeer.livepeer.models.operations.GetUsageMetricsResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        GetUsageMetricsRequest req = GetUsageMetricsRequest.builder()
-                            .build();
-
-                        GetUsageMetricsResponse res = sdk.metrics().getUsage()
-                            .request(req)
-                            .call();
-
-                        if (res.usageMetric().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/access-control/signing-key/{keyId}"]["delete"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: deleteSigningKey
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.DeleteSigningKeyResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        DeleteSigningKeyResponse res = sdk.accessControl().delete()
-                            .keyId("<value>")
-                            .call();
-
+                    if (res.twoHundredApplicationJsonData().isPresent()) {
                         // handle response
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
                     }
-
-                }
-            }
-  - target: $["paths"]["/stream"]["get"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: getStreams
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.GetStreamsResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        GetStreamsResponse res = sdk.stream().getAll()
-                            .streamsonly("<value>")
-                            .call();
-
-                        if (res.data().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/session"]["get"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: getSessions
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.GetSessionsResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        GetSessionsResponse res = sdk.session().getAll()
-                            .call();
-
-                        if (res.data().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/stream/{id}"]["patch"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: updateStream
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import java.util.List;
-            import java.util.Map;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.FfmpegProfile;
-            import studio.livepeer.livepeer.models.components.Multistream;
-            import studio.livepeer.livepeer.models.components.PlaybackPolicy;
-            import studio.livepeer.livepeer.models.components.Profile;
-            import studio.livepeer.livepeer.models.components.RecordingSpec;
-            import studio.livepeer.livepeer.models.components.StreamPatchPayload;
-            import studio.livepeer.livepeer.models.components.Target;
-            import studio.livepeer.livepeer.models.components.TargetSpec;
-            import studio.livepeer.livepeer.models.components.TranscodeProfile;
-            import studio.livepeer.livepeer.models.components.TranscodeProfileEncoder;
-            import studio.livepeer.livepeer.models.components.TranscodeProfileProfile;
-            import studio.livepeer.livepeer.models.components.Type;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.UpdateStreamResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        UpdateStreamResponse res = sdk.stream().update()
-                            .id("<value>")
-                            .streamPatchPayload(StreamPatchPayload.builder()
-                                .record(false)
-                                .multistream(Multistream.builder()
-                                    .targets(List.of(
-                                        Target.builder()
-                                            .profile("720p0")
-                                            .videoOnly(false)
-                                            .id("PUSH123")
-                                            .spec(TargetSpec.builder()
-                                                .url("rtmps://live.my-service.tv/channel/secretKey")
-                                                .name("My target")
-                                                .build())
-                                            .build()))
-                                    .build())
-                                .playbackPolicy(PlaybackPolicy.builder()
-                                    .type(Type.WEBHOOK)
-                                    .webhookId("1bde4o2i6xycudoy")
-                                    .webhookContext(Map.ofEntries(
-                                        Map.entry("streamerId", "my-custom-id")))
-                                    .refreshInterval(600d)
-                                    .build())
-                                .profiles(List.of(
-                                    FfmpegProfile.builder()
-                                        .width(1280L)
-                                        .name("720p")
-                                        .height(720L)
-                                        .bitrate(3000000L)
-                                        .fps(30L)
-                                        .fpsDen(1L)
-                                        .quality(23L)
-                                        .gop("2")
-                                        .profile(Profile.H264_BASELINE)
-                                        .build()))
-                                .recordingSpec(RecordingSpec.builder()
-                                    .profiles(List.of(
-                                        TranscodeProfile.builder()
-                                            .bitrate(3000000L)
-                                            .width(1280L)
-                                            .name("720p")
-                                            .height(720L)
-                                            .quality(23L)
-                                            .fps(30L)
-                                            .fpsDen(1L)
-                                            .gop("2")
-                                            .profile(TranscodeProfileProfile.H264_BASELINE)
-                                            .encoder(TranscodeProfileEncoder.H264)
-                                            .build()))
-                                    .build())
-                                .build())
-                            .call();
-
-                        // handle response
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/multistream/target"]["get"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: getMultistreamTargets
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.GetMultistreamTargetsResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        GetMultistreamTargetsResponse res = sdk.multistream().getAll()
-                            .call();
-
-                        if (res.data().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/multistream/target/{id}"]["delete"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: deleteMultistreamTarget
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.DeleteMultistreamTargetResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        DeleteMultistreamTargetResponse res = sdk.multistream().delete()
-                            .id("<value>")
-                            .call();
-
-                        // handle response
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/stream/{id}/terminate"]["delete"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: terminateStream
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.TerminateStreamResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        TerminateStreamResponse res = sdk.stream().terminate()
-                            .id("<value>")
-                            .call();
-
-                        // handle response
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/data/views/query/creator"]["get"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: getCreatorViewershipMetrics
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.GetCreatorViewershipMetricsRequest;
-            import studio.livepeer.livepeer.models.operations.GetCreatorViewershipMetricsResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        GetCreatorViewershipMetricsRequest req = GetCreatorViewershipMetricsRequest.builder()
-                            .build();
-
-                        GetCreatorViewershipMetricsResponse res = sdk.metrics().getCreatorViewership()
-                            .request(req)
-                            .call();
-
-                        if (res.data().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
                 }
             }
   - target: $["paths"]["/asset/{assetId}"]["delete"]
@@ -1891,185 +308,587 @@ actions:
 
             import java.lang.Exception;
             import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
             import studio.livepeer.livepeer.models.operations.DeleteAssetResponse;
 
             public class Application {
 
                 public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
 
-                        DeleteAssetResponse res = sdk.asset().delete()
-                            .assetId("<value>")
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    DeleteAssetResponse res = sdk.asset().delete()
+                            .assetId("<id>")
                             .call();
 
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/asset/{assetId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getAsset
+          source: |-
+            package hello.world;
+
+            import java.lang.Exception;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.operations.GetAssetResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    GetAssetResponse res = sdk.asset().get()
+                            .assetId("<id>")
+                            .call();
+
+                    if (res.asset().isPresent()) {
                         // handle response
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
                     }
-
                 }
             }
-  - target: $["paths"]["/stream/{parentId}/sessions"]["get"]
+  - target: $["paths"]["/asset/{assetId}"]["patch"]
     update:
       x-codeSamples:
         - lang: java
-          label: getRecordedSessions
+          label: updateAsset
           source: |-
             package hello.world;
 
             import java.lang.Exception;
+            import java.util.Map;
             import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.GetRecordedSessionsResponse;
-            import studio.livepeer.livepeer.models.operations.Record;
+            import studio.livepeer.livepeer.models.components.AssetPatchPayload;
+            import studio.livepeer.livepeer.models.components.PlaybackPolicy;
+            import studio.livepeer.livepeer.models.components.Type;
+            import studio.livepeer.livepeer.models.operations.UpdateAssetResponse;
 
             public class Application {
 
                 public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
+
+                    Livepeer sdk = Livepeer.builder()
                             .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
+                        .build();
 
-                        GetRecordedSessionsResponse res = sdk.session().getRecorded()
-                            .parentId("<value>")
-                            .record(Record.of(true))
-                            .call();
-
-                        if (res.data().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/room/{id}/egress"]["post"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: startRoomEgress
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.RoomEgressPayload;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.StartRoomEgressResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        StartRoomEgressResponse res = sdk.room().startEgress()
-                            .id("<value>")
-                            .roomEgressPayload(RoomEgressPayload.builder()
-                                .streamId("aac12556-4d65-4d34-9fb6-d1f0985eb0a9")
+                    UpdateAssetResponse res = sdk.asset().update()
+                            .assetId("<id>")
+                            .assetPatchPayload(AssetPatchPayload.builder()
+                                .name("filename.mp4")
+                                .playbackPolicy(PlaybackPolicy.builder()
+                                    .type(Type.WEBHOOK)
+                                    .webhookId("1bde4o2i6xycudoy")
+                                    .webhookContext(Map.ofEntries(
+                                        Map.entry("streamerId", "my-custom-id")))
+                                    .refreshInterval(600d)
+                                    .build())
                                 .build())
                             .call();
 
+                    if (res.asset().isPresent()) {
                         // handle response
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
                     }
-
                 }
             }
-  - target: $["paths"]["/stream/{id}/start-pull"]["post"]
+  - target: $["paths"]["/clip"]["post"]
     update:
       x-codeSamples:
         - lang: java
-          label: startPullStream
+          label: createClip
           source: |-
             package hello.world;
 
             import java.lang.Exception;
             import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.StartPullStreamResponse;
+            import studio.livepeer.livepeer.models.components.ClipPayload;
+            import studio.livepeer.livepeer.models.operations.CreateClipResponse;
 
             public class Application {
 
                 public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
+
+                    Livepeer sdk = Livepeer.builder()
                             .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    ClipPayload req = ClipPayload.builder()
+                            .playbackId("eaw4nk06ts2d0mzb")
+                            .startTime(1587667174725d)
+                            .endTime(1587667174725d)
+                            .name("My Clip")
+                            .sessionId("de7818e7-610a-4057-8f6f-b785dc1e6f88")
                             .build();
 
-                        StartPullStreamResponse res = sdk.stream().startPull()
-                            .id("<value>")
+                    CreateClipResponse res = sdk.stream().createClip()
+                            .request(req)
                             .call();
 
+                    if (res.data().isPresent()) {
                         // handle response
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
                     }
-
                 }
             }
-  - target: $["paths"]["/webhook/{id}/log/{logId}/resend"]["post"]
+  - target: $["paths"]["/data/usage/query"]["get"]
     update:
       x-codeSamples:
         - lang: java
-          label: resendWebhook
+          label: getUsageMetrics
           source: |-
             package hello.world;
 
             import java.lang.Exception;
             import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.ResendWebhookResponse;
+            import studio.livepeer.livepeer.models.operations.GetUsageMetricsRequest;
+            import studio.livepeer.livepeer.models.operations.GetUsageMetricsResponse;
 
             public class Application {
 
                 public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
+
+                    Livepeer sdk = Livepeer.builder()
                             .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    GetUsageMetricsRequest req = GetUsageMetricsRequest.builder()
                             .build();
 
-                        ResendWebhookResponse res = sdk.webhook().resendLog()
-                            .id("<value>")
-                            .logId("<value>")
+                    GetUsageMetricsResponse res = sdk.metrics().getUsage()
+                            .request(req)
                             .call();
 
-                        if (res.webhookLog().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
+                    if (res.usageMetric().isPresent()) {
+                        // handle response
                     }
+                }
+            }
+  - target: $["paths"]["/data/views/now"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getRealtimeViewershipNow
+          source: |-
+            package hello.world;
 
+            import java.lang.Exception;
+            import java.util.List;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.operations.BreakdownBy;
+            import studio.livepeer.livepeer.models.operations.GetRealtimeViewershipNowResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    GetRealtimeViewershipNowResponse res = sdk.metrics().getRealtimeViewership()
+                            .playbackId("<id>")
+                            .creatorId("<id>")
+                            .breakdownBy(List.of(
+                                BreakdownBy.PLAYBACK_ID))
+                            .call();
+
+                    if (res.data().isPresent()) {
+                        // handle response
+                    }
+                }
+            }
+  - target: $["paths"]["/data/views/query"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getViewershipMetrics
+          source: |-
+            package hello.world;
+
+            import java.lang.Exception;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.operations.GetViewershipMetricsRequest;
+            import studio.livepeer.livepeer.models.operations.GetViewershipMetricsResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    GetViewershipMetricsRequest req = GetViewershipMetricsRequest.builder()
+                            .build();
+
+                    GetViewershipMetricsResponse res = sdk.metrics().getViewership()
+                            .request(req)
+                            .call();
+
+                    if (res.data().isPresent()) {
+                        // handle response
+                    }
+                }
+            }
+  - target: $["paths"]["/data/views/query/creator"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getCreatorViewershipMetrics
+          source: |-
+            package hello.world;
+
+            import java.lang.Exception;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.operations.GetCreatorViewershipMetricsRequest;
+            import studio.livepeer.livepeer.models.operations.GetCreatorViewershipMetricsResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    GetCreatorViewershipMetricsRequest req = GetCreatorViewershipMetricsRequest.builder()
+                            .build();
+
+                    GetCreatorViewershipMetricsResponse res = sdk.metrics().getCreatorViewership()
+                            .request(req)
+                            .call();
+
+                    if (res.data().isPresent()) {
+                        // handle response
+                    }
+                }
+            }
+  - target: $["paths"]["/data/views/query/total/{playbackId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getPublicViewershipMetrics
+          source: |-
+            package hello.world;
+
+            import java.lang.Exception;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.operations.GetPublicViewershipMetricsResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    GetPublicViewershipMetricsResponse res = sdk.metrics().getPublicViewership()
+                            .playbackId("<id>")
+                            .call();
+
+                    if (res.data().isPresent()) {
+                        // handle response
+                    }
+                }
+            }
+  - target: $["paths"]["/multistream/target"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getMultistreamTargets
+          source: |-
+            package hello.world;
+
+            import java.lang.Exception;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.operations.GetMultistreamTargetsResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    GetMultistreamTargetsResponse res = sdk.multistream().getAll()
+                            .call();
+
+                    if (res.data().isPresent()) {
+                        // handle response
+                    }
+                }
+            }
+  - target: $["paths"]["/multistream/target"]["post"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: createMultistreamTarget
+          source: |-
+            package hello.world;
+
+            import java.lang.Exception;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.components.MultistreamTargetInput;
+            import studio.livepeer.livepeer.models.operations.CreateMultistreamTargetResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    MultistreamTargetInput req = MultistreamTargetInput.builder()
+                            .url("rtmps://live.my-service.tv/channel/secretKey")
+                            .build();
+
+                    CreateMultistreamTargetResponse res = sdk.multistream().create()
+                            .request(req)
+                            .call();
+
+                    if (res.multistreamTarget().isPresent()) {
+                        // handle response
+                    }
+                }
+            }
+  - target: $["paths"]["/multistream/target/{id}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: deleteMultistreamTarget
+          source: |-
+            package hello.world;
+
+            import java.lang.Exception;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.operations.DeleteMultistreamTargetResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    DeleteMultistreamTargetResponse res = sdk.multistream().delete()
+                            .id("<id>")
+                            .call();
+
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/multistream/target/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getMultistreamTarget
+          source: |-
+            package hello.world;
+
+            import java.lang.Exception;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.operations.GetMultistreamTargetResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    GetMultistreamTargetResponse res = sdk.multistream().get()
+                            .id("<id>")
+                            .call();
+
+                    if (res.multistreamTarget().isPresent()) {
+                        // handle response
+                    }
+                }
+            }
+  - target: $["paths"]["/multistream/target/{id}"]["patch"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: updateMultistreamTarget
+          source: |-
+            package hello.world;
+
+            import java.lang.Exception;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.components.MultistreamTargetPatchPayload;
+            import studio.livepeer.livepeer.models.operations.UpdateMultistreamTargetResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    UpdateMultistreamTargetResponse res = sdk.multistream().update()
+                            .id("<id>")
+                            .multistreamTargetPatchPayload(MultistreamTargetPatchPayload.builder()
+                                .url("rtmps://live.my-service.tv/channel/secretKey")
+                                .build())
+                            .call();
+
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/playback/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getPlaybackInfo
+          source: |-
+            package hello.world;
+
+            import java.lang.Exception;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.errors.Error;
+            import studio.livepeer.livepeer.models.operations.GetPlaybackInfoResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Error, Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    GetPlaybackInfoResponse res = sdk.playback().get()
+                            .id("<id>")
+                            .call();
+
+                    if (res.playbackInfo().isPresent()) {
+                        // handle response
+                    }
+                }
+            }
+  - target: $["paths"]["/session"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getSessions
+          source: |-
+            package hello.world;
+
+            import java.lang.Exception;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.operations.GetSessionsResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    GetSessionsResponse res = sdk.session().getAll()
+                            .call();
+
+                    if (res.data().isPresent()) {
+                        // handle response
+                    }
+                }
+            }
+  - target: $["paths"]["/session/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getSession
+          source: |-
+            package hello.world;
+
+            import java.lang.Exception;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.operations.GetSessionResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    GetSessionResponse res = sdk.session().get()
+                            .id("<id>")
+                            .call();
+
+                    if (res.session().isPresent()) {
+                        // handle response
+                    }
+                }
+            }
+  - target: $["paths"]["/session/{id}/clips"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getSessionClips
+          source: |-
+            package hello.world;
+
+            import java.lang.Exception;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.operations.GetSessionClipsResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    GetSessionClipsResponse res = sdk.session().getClips()
+                            .id("<id>")
+                            .call();
+
+                    if (res.data().isPresent()) {
+                        // handle response
+                    }
+                }
+            }
+  - target: $["paths"]["/stream"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getStreams
+          source: |-
+            package hello.world;
+
+            import java.lang.Exception;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.operations.GetStreamsResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    GetStreamsResponse res = sdk.stream().getAll()
+                            .streamsonly("<value>")
+                            .call();
+
+                    if (res.data().isPresent()) {
+                        // handle response
+                    }
                 }
             }
   - target: $["paths"]["/stream"]["post"]
@@ -2098,18 +917,17 @@ actions:
             import studio.livepeer.livepeer.models.components.TranscodeProfileEncoder;
             import studio.livepeer.livepeer.models.components.TranscodeProfileProfile;
             import studio.livepeer.livepeer.models.components.Type;
-            import studio.livepeer.livepeer.models.errors.SDKError;
             import studio.livepeer.livepeer.models.operations.CreateStreamResponse;
 
             public class Application {
 
                 public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
 
-                        NewStreamPayload req = NewStreamPayload.builder()
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    NewStreamPayload req = NewStreamPayload.builder()
                             .name("test_stream")
                             .pull(Pull.builder()
                                 .source("https://myservice.com/live/stream.flv")
@@ -2169,149 +987,40 @@ actions:
                                 .build())
                             .build();
 
-                        CreateStreamResponse res = sdk.stream().create()
+                    CreateStreamResponse res = sdk.stream().create()
                             .request(req)
                             .call();
 
-                        if (res.stream().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
+                    if (res.stream().isPresent()) {
+                        // handle response
                     }
-
                 }
             }
-  - target: $["paths"]["/asset/{assetId}"]["patch"]
+  - target: $["paths"]["/stream/{id}"]["delete"]
     update:
       x-codeSamples:
         - lang: java
-          label: updateAsset
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import java.util.Map;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.components.AssetPatchPayload;
-            import studio.livepeer.livepeer.models.components.PlaybackPolicy;
-            import studio.livepeer.livepeer.models.components.Type;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.UpdateAssetResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        UpdateAssetResponse res = sdk.asset().update()
-                            .assetId("<value>")
-                            .assetPatchPayload(AssetPatchPayload.builder()
-                                .name("filename.mp4")
-                                .playbackPolicy(PlaybackPolicy.builder()
-                                    .type(Type.WEBHOOK)
-                                    .webhookId("1bde4o2i6xycudoy")
-                                    .webhookContext(Map.ofEntries(
-                                        Map.entry("streamerId", "my-custom-id")))
-                                    .refreshInterval(600d)
-                                    .build())
-                                .build())
-                            .call();
-
-                        if (res.asset().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/session/{id}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: getSession
+          label: deleteStream
           source: |-
             package hello.world;
 
             import java.lang.Exception;
             import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.GetSessionResponse;
+            import studio.livepeer.livepeer.models.operations.DeleteStreamResponse;
 
             public class Application {
 
                 public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
 
-                        GetSessionResponse res = sdk.session().get()
-                            .id("<value>")
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    DeleteStreamResponse res = sdk.stream().delete()
+                            .id("<id>")
                             .call();
 
-                        if (res.session().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/access-control/signing-key/{keyId}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: getSigningKey
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.GetSigningKeyResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        GetSigningKeyResponse res = sdk.accessControl().get()
-                            .keyId("<value>")
-                            .call();
-
-                        if (res.signingKey().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
+                    // handle response
                 }
             }
   - target: $["paths"]["/stream/{id}"]["get"]
@@ -2324,148 +1033,293 @@ actions:
 
             import java.lang.Exception;
             import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
             import studio.livepeer.livepeer.models.operations.GetStreamResponse;
 
             public class Application {
 
                 public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
 
-                        GetStreamResponse res = sdk.stream().get()
-                            .id("<value>")
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    GetStreamResponse res = sdk.stream().get()
+                            .id("<id>")
                             .call();
 
-                        if (res.stream().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
+                    if (res.stream().isPresent()) {
+                        // handle response
                     }
-
                 }
             }
-  - target: $["paths"]["/webhook/{id}/log/{logId}"]["get"]
+  - target: $["paths"]["/stream/{id}"]["patch"]
     update:
       x-codeSamples:
         - lang: java
-          label: getWebhookLog
+          label: updateStream
           source: |-
             package hello.world;
 
             import java.lang.Exception;
+            import java.util.List;
+            import java.util.Map;
             import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.GetWebhookLogResponse;
+            import studio.livepeer.livepeer.models.components.FfmpegProfile;
+            import studio.livepeer.livepeer.models.components.Multistream;
+            import studio.livepeer.livepeer.models.components.PlaybackPolicy;
+            import studio.livepeer.livepeer.models.components.Profile;
+            import studio.livepeer.livepeer.models.components.RecordingSpec;
+            import studio.livepeer.livepeer.models.components.StreamPatchPayload;
+            import studio.livepeer.livepeer.models.components.Target;
+            import studio.livepeer.livepeer.models.components.TargetSpec;
+            import studio.livepeer.livepeer.models.components.TranscodeProfile;
+            import studio.livepeer.livepeer.models.components.TranscodeProfileEncoder;
+            import studio.livepeer.livepeer.models.components.TranscodeProfileProfile;
+            import studio.livepeer.livepeer.models.components.Type;
+            import studio.livepeer.livepeer.models.operations.UpdateStreamResponse;
 
             public class Application {
 
                 public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
+
+                    Livepeer sdk = Livepeer.builder()
                             .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
+                        .build();
 
-                        GetWebhookLogResponse res = sdk.webhook().getLog()
-                            .id("<value>")
-                            .logId("<value>")
-                            .call();
-
-                        if (res.webhookLog().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/asset/{assetId}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: getAsset
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.GetAssetResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        GetAssetResponse res = sdk.asset().get()
-                            .assetId("<value>")
-                            .call();
-
-                        if (res.asset().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
-
-                }
-            }
-  - target: $["paths"]["/access-control/signing-key/{keyId}"]["patch"]
-    update:
-      x-codeSamples:
-        - lang: java
-          label: updateSigningKey
-          source: |-
-            package hello.world;
-
-            import java.lang.Exception;
-            import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
-            import studio.livepeer.livepeer.models.operations.UpdateSigningKeyRequestBody;
-            import studio.livepeer.livepeer.models.operations.UpdateSigningKeyResponse;
-
-            public class Application {
-
-                public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
-
-                        UpdateSigningKeyResponse res = sdk.accessControl().update()
-                            .keyId("<value>")
-                            .requestBody(UpdateSigningKeyRequestBody.builder()
+                    UpdateStreamResponse res = sdk.stream().update()
+                            .id("<id>")
+                            .streamPatchPayload(StreamPatchPayload.builder()
+                                .record(false)
+                                .multistream(Multistream.builder()
+                                    .targets(List.of(
+                                        Target.builder()
+                                            .profile("720p0")
+                                            .videoOnly(false)
+                                            .id("PUSH123")
+                                            .spec(TargetSpec.builder()
+                                                .url("rtmps://live.my-service.tv/channel/secretKey")
+                                                .name("My target")
+                                                .build())
+                                            .build()))
+                                    .build())
+                                .playbackPolicy(PlaybackPolicy.builder()
+                                    .type(Type.WEBHOOK)
+                                    .webhookId("1bde4o2i6xycudoy")
+                                    .webhookContext(Map.ofEntries(
+                                        Map.entry("streamerId", "my-custom-id")))
+                                    .refreshInterval(600d)
+                                    .build())
+                                .profiles(List.of(
+                                    FfmpegProfile.builder()
+                                        .width(1280L)
+                                        .name("720p")
+                                        .height(720L)
+                                        .bitrate(3000000L)
+                                        .fps(30L)
+                                        .fpsDen(1L)
+                                        .quality(23L)
+                                        .gop("2")
+                                        .profile(Profile.H264_BASELINE)
+                                        .build()))
+                                .recordingSpec(RecordingSpec.builder()
+                                    .profiles(List.of(
+                                        TranscodeProfile.builder()
+                                            .bitrate(3000000L)
+                                            .width(1280L)
+                                            .name("720p")
+                                            .height(720L)
+                                            .quality(23L)
+                                            .fps(30L)
+                                            .fpsDen(1L)
+                                            .gop("2")
+                                            .profile(TranscodeProfileProfile.H264_BASELINE)
+                                            .encoder(TranscodeProfileEncoder.H264)
+                                            .build()))
+                                    .build())
                                 .build())
                             .call();
 
-                        // handle response
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
-                    }
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/stream/{id}/clips"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getClips
+          source: |-
+            package hello.world;
 
+            import java.lang.Exception;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.operations.GetClipsResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    GetClipsResponse res = sdk.stream().getClips()
+                            .id("<id>")
+                            .call();
+
+                    if (res.data().isPresent()) {
+                        // handle response
+                    }
+                }
+            }
+  - target: $["paths"]["/stream/{id}/create-multistream-target"]["post"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: addMultistreamTarget
+          source: |-
+            package hello.world;
+
+            import java.lang.Exception;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.components.TargetAddPayload;
+            import studio.livepeer.livepeer.models.components.TargetAddPayloadSpec;
+            import studio.livepeer.livepeer.models.operations.AddMultistreamTargetResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    AddMultistreamTargetResponse res = sdk.stream().addMultistreamTarget()
+                            .id("<id>")
+                            .targetAddPayload(TargetAddPayload.builder()
+                                .profile("720p0")
+                                .videoOnly(false)
+                                .id("PUSH123")
+                                .spec(TargetAddPayloadSpec.builder()
+                                    .url("rtmps://live.my-service.tv/channel/secretKey")
+                                    .name("My target")
+                                    .build())
+                                .build())
+                            .call();
+
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/stream/{id}/multistream/{targetId}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: removeMultistreamTarget
+          source: |-
+            package hello.world;
+
+            import java.lang.Exception;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.operations.RemoveMultistreamTargetResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    RemoveMultistreamTargetResponse res = sdk.stream().removeMultistreamTarget()
+                            .id("<id>")
+                            .targetId("<id>")
+                            .call();
+
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/stream/{id}/start-pull"]["post"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: startPullStream
+          source: |-
+            package hello.world;
+
+            import java.lang.Exception;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.operations.StartPullStreamResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    StartPullStreamResponse res = sdk.stream().startPull()
+                            .id("<id>")
+                            .call();
+
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/stream/{id}/terminate"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: terminateStream
+          source: |-
+            package hello.world;
+
+            import java.lang.Exception;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.operations.TerminateStreamResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    TerminateStreamResponse res = sdk.stream().terminate()
+                            .id("<id>")
+                            .call();
+
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/stream/{parentId}/sessions"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getRecordedSessions
+          source: |-
+            package hello.world;
+
+            import java.lang.Exception;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.operations.GetRecordedSessionsResponse;
+            import studio.livepeer.livepeer.models.operations.Record;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    GetRecordedSessionsResponse res = sdk.session().getRecorded()
+                            .parentId("<id>")
+                            .record(Record.of(true))
+                            .call();
+
+                    if (res.data().isPresent()) {
+                        // handle response
+                    }
                 }
             }
   - target: $["paths"]["/task"]["get"]
@@ -2478,30 +1332,390 @@ actions:
 
             import java.lang.Exception;
             import studio.livepeer.livepeer.Livepeer;
-            import studio.livepeer.livepeer.models.errors.SDKError;
             import studio.livepeer.livepeer.models.operations.GetTasksResponse;
 
             public class Application {
 
                 public static void main(String[] args) throws Exception {
-                    try {
-                        Livepeer sdk = Livepeer.builder()
-                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                            .build();
 
-                        GetTasksResponse res = sdk.task().getAll()
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    GetTasksResponse res = sdk.task().getAll()
                             .call();
 
-                        if (res.data().isPresent()) {
-                            // handle response
-                        }
-                    } catch (SDKError e) {
-                        // handle exception
-                        throw e;
-                    } catch (Exception e) {
-                        // handle exception
-                        throw e;
+                    if (res.data().isPresent()) {
+                        // handle response
                     }
+                }
+            }
+  - target: $["paths"]["/task/{taskId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getTask
+          source: |-
+            package hello.world;
 
+            import java.lang.Exception;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.operations.GetTaskResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    GetTaskResponse res = sdk.task().get()
+                            .taskId("<id>")
+                            .call();
+
+                    if (res.task().isPresent()) {
+                        // handle response
+                    }
+                }
+            }
+  - target: $["paths"]["/transcode"]["post"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: transcodeVideo
+          source: |-
+            package hello.world;
+
+            import java.lang.Exception;
+            import java.util.List;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.components.Fmp4;
+            import studio.livepeer.livepeer.models.components.Hls;
+            import studio.livepeer.livepeer.models.components.Input1;
+            import studio.livepeer.livepeer.models.components.Input;
+            import studio.livepeer.livepeer.models.components.Mp4;
+            import studio.livepeer.livepeer.models.components.Outputs;
+            import studio.livepeer.livepeer.models.components.Storage2;
+            import studio.livepeer.livepeer.models.components.TranscodePayload;
+            import studio.livepeer.livepeer.models.components.TranscodePayloadStorage;
+            import studio.livepeer.livepeer.models.components.TranscodePayloadStorageCredentials;
+            import studio.livepeer.livepeer.models.components.TranscodePayloadStorageType;
+            import studio.livepeer.livepeer.models.components.TranscodeProfile;
+            import studio.livepeer.livepeer.models.components.TranscodeProfileEncoder;
+            import studio.livepeer.livepeer.models.components.TranscodeProfileProfile;
+            import studio.livepeer.livepeer.models.operations.TranscodeVideoResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    TranscodePayload req = TranscodePayload.builder()
+                            .input(Input.of(Input1.builder()
+                                .url("https://s3.amazonaws.com/bucket/file.mp4")
+                                .build()))
+                            .storage(TranscodePayloadStorage.of(Storage2.builder()
+                                .type(TranscodePayloadStorageType.WEB3_STORAGE)
+                                .credentials(TranscodePayloadStorageCredentials.builder()
+                                    .proof("EaJlcm9vdHOAZ3ZlcnNpb24BmgIBcRIg2uxHpcPYSWNtifMKFkPC7IEDvFDCxCd3ADViv0coV7SnYXNYRO2hA0AnblHEW38s3lSlcwaDjPn")
+                                    .build())
+                                .build()))
+                            .outputs(Outputs.builder()
+                                .hls(Hls.builder()
+                                    .path("/samplevideo/hls")
+                                    .build())
+                                .mp4(Mp4.builder()
+                                    .path("/samplevideo/mp4")
+                                    .build())
+                                .fmp4(Fmp4.builder()
+                                    .path("/samplevideo/fmp4")
+                                    .build())
+                                .build())
+                            .profiles(List.of(
+                                TranscodeProfile.builder()
+                                    .bitrate(3000000L)
+                                    .width(1280L)
+                                    .name("720p")
+                                    .height(720L)
+                                    .quality(23L)
+                                    .fps(30L)
+                                    .fpsDen(1L)
+                                    .gop("2")
+                                    .profile(TranscodeProfileProfile.H264_BASELINE)
+                                    .encoder(TranscodeProfileEncoder.H264)
+                                    .build()))
+                            .build();
+
+                    TranscodeVideoResponse res = sdk.transcode().create()
+                            .request(req)
+                            .call();
+
+                    if (res.task().isPresent()) {
+                        // handle response
+                    }
+                }
+            }
+  - target: $["paths"]["/webhook"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getWebhooks
+          source: |-
+            package hello.world;
+
+            import java.lang.Exception;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.operations.GetWebhooksResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    GetWebhooksResponse res = sdk.webhook().getAll()
+                            .call();
+
+                    if (res.data().isPresent()) {
+                        // handle response
+                    }
+                }
+            }
+  - target: $["paths"]["/webhook"]["post"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: createWebhook
+          source: |-
+            package hello.world;
+
+            import java.lang.Exception;
+            import java.util.List;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.components.Events;
+            import studio.livepeer.livepeer.models.components.WebhookInput;
+            import studio.livepeer.livepeer.models.operations.CreateWebhookResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    WebhookInput req = WebhookInput.builder()
+                            .name("test_webhook")
+                            .url("https://my-service.com/webhook")
+                            .projectId("aac12556-4d65-4d34-9fb6-d1f0985eb0a9")
+                            .events(List.of(
+                                Events.STREAM_STARTED,
+                                Events.STREAM_IDLE))
+                            .sharedSecret("my-secret")
+                            .streamId("de7818e7-610a-4057-8f6f-b785dc1e6f88")
+                            .build();
+
+                    CreateWebhookResponse res = sdk.webhook().create()
+                            .request(req)
+                            .call();
+
+                    if (res.webhook().isPresent()) {
+                        // handle response
+                    }
+                }
+            }
+  - target: $["paths"]["/webhook/{id}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: deleteWebhook
+          source: |-
+            package hello.world;
+
+            import java.lang.Exception;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.operations.DeleteWebhookResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    DeleteWebhookResponse res = sdk.webhook().delete()
+                            .id("<id>")
+                            .call();
+
+                    if (res.webhook().isPresent()) {
+                        // handle response
+                    }
+                }
+            }
+  - target: $["paths"]["/webhook/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getWebhook
+          source: |-
+            package hello.world;
+
+            import java.lang.Exception;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.operations.GetWebhookResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    GetWebhookResponse res = sdk.webhook().get()
+                            .id("<id>")
+                            .call();
+
+                    if (res.webhook().isPresent()) {
+                        // handle response
+                    }
+                }
+            }
+  - target: $["paths"]["/webhook/{id}"]["put"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: updateWebhook
+          source: |-
+            package hello.world;
+
+            import java.lang.Exception;
+            import java.util.List;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.components.Events;
+            import studio.livepeer.livepeer.models.components.WebhookInput;
+            import studio.livepeer.livepeer.models.operations.UpdateWebhookResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    UpdateWebhookResponse res = sdk.webhook().update()
+                            .id("<id>")
+                            .webhook(WebhookInput.builder()
+                                .name("test_webhook")
+                                .url("https://my-service.com/webhook")
+                                .projectId("aac12556-4d65-4d34-9fb6-d1f0985eb0a9")
+                                .events(List.of(
+                                    Events.STREAM_STARTED,
+                                    Events.STREAM_IDLE))
+                                .sharedSecret("my-secret")
+                                .streamId("de7818e7-610a-4057-8f6f-b785dc1e6f88")
+                                .build())
+                            .call();
+
+                    if (res.webhook().isPresent()) {
+                        // handle response
+                    }
+                }
+            }
+  - target: $["paths"]["/webhook/{id}/log"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getWebhookLogs
+          source: |-
+            package hello.world;
+
+            import java.lang.Exception;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.operations.GetWebhookLogsResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    GetWebhookLogsResponse res = sdk.webhook().getLogs()
+                            .id("<id>")
+                            .call();
+
+                    if (res.data().isPresent()) {
+                        // handle response
+                    }
+                }
+            }
+  - target: $["paths"]["/webhook/{id}/log/{logId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: getWebhookLog
+          source: |-
+            package hello.world;
+
+            import java.lang.Exception;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.operations.GetWebhookLogResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    GetWebhookLogResponse res = sdk.webhook().getLog()
+                            .id("<id>")
+                            .logId("<id>")
+                            .call();
+
+                    if (res.webhookLog().isPresent()) {
+                        // handle response
+                    }
+                }
+            }
+  - target: $["paths"]["/webhook/{id}/log/{logId}/resend"]["post"]
+    update:
+      x-codeSamples:
+        - lang: java
+          label: resendWebhook
+          source: |-
+            package hello.world;
+
+            import java.lang.Exception;
+            import studio.livepeer.livepeer.Livepeer;
+            import studio.livepeer.livepeer.models.operations.ResendWebhookResponse;
+
+            public class Application {
+
+                public static void main(String[] args) throws Exception {
+
+                    Livepeer sdk = Livepeer.builder()
+                            .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+                        .build();
+
+                    ResendWebhookResponse res = sdk.webhook().resendLog()
+                            .id("<id>")
+                            .logId("<id>")
+                            .call();
+
+                    if (res.webhookLog().isPresent()) {
+                        // handle response
+                    }
                 }
             }

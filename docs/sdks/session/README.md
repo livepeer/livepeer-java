@@ -23,32 +23,23 @@ package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.GetSessionClipsResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            GetSessionClipsResponse res = sdk.session().getClips()
-                .id("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+            .build();
+
+        GetSessionClipsResponse res = sdk.session().getClips()
+                .id("<id>")
                 .call();
 
-            if (res.data().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.data().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -65,10 +56,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## getAll
 
@@ -81,31 +71,22 @@ package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.GetSessionsResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            GetSessionsResponse res = sdk.session().getAll()
+        Livepeer sdk = Livepeer.builder()
+                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+            .build();
+
+        GetSessionsResponse res = sdk.session().getAll()
                 .call();
 
-            if (res.data().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.data().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -116,10 +97,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## get
 
@@ -132,32 +112,23 @@ package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.GetSessionResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            GetSessionResponse res = sdk.session().get()
-                .id("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+            .build();
+
+        GetSessionResponse res = sdk.session().get()
+                .id("<id>")
                 .call();
 
-            if (res.session().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.session().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -174,10 +145,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## getRecorded
 
@@ -190,34 +160,25 @@ package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.GetRecordedSessionsResponse;
 import studio.livepeer.livepeer.models.operations.Record;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            GetRecordedSessionsResponse res = sdk.session().getRecorded()
-                .parentId("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+            .build();
+
+        GetRecordedSessionsResponse res = sdk.session().getRecorded()
+                .parentId("<id>")
                 .record(Record.of(true))
                 .call();
 
-            if (res.data().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.data().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -235,6 +196,6 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |

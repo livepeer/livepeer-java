@@ -16,7 +16,7 @@ public class GetPublicViewershipMetricsRequestBuilder {
         this.sdk = sdk;
     }
 
-    public GetPublicViewershipMetricsRequestBuilder playbackId(java.lang.String playbackId) {
+    public GetPublicViewershipMetricsRequestBuilder playbackId(String playbackId) {
         Utils.checkNotNull(playbackId, "playbackId");
         this.playbackId = playbackId;
         return this;

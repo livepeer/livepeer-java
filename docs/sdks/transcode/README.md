@@ -148,49 +148,45 @@ import studio.livepeer.livepeer.models.components.Input1;
 import studio.livepeer.livepeer.models.components.Input;
 import studio.livepeer.livepeer.models.components.Mp4;
 import studio.livepeer.livepeer.models.components.Outputs;
-import studio.livepeer.livepeer.models.components.Storage1;
-import studio.livepeer.livepeer.models.components.StorageCredentials;
-import studio.livepeer.livepeer.models.components.StorageType;
+import studio.livepeer.livepeer.models.components.Storage2;
 import studio.livepeer.livepeer.models.components.TranscodePayload;
 import studio.livepeer.livepeer.models.components.TranscodePayloadStorage;
+import studio.livepeer.livepeer.models.components.TranscodePayloadStorageCredentials;
+import studio.livepeer.livepeer.models.components.TranscodePayloadStorageType;
 import studio.livepeer.livepeer.models.components.TranscodeProfile;
 import studio.livepeer.livepeer.models.components.TranscodeProfileEncoder;
 import studio.livepeer.livepeer.models.components.TranscodeProfileProfile;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.TranscodeVideoResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            TranscodePayload req = TranscodePayload.builder()
+        Livepeer sdk = Livepeer.builder()
+                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+            .build();
+
+        TranscodePayload req = TranscodePayload.builder()
                 .input(Input.of(Input1.builder()
-                            .url("https://s3.amazonaws.com/bucket/file.mp4")
-                            .build()))
-                .storage(TranscodePayloadStorage.of(Storage1.builder()
-                            .type(StorageType.S3)
-                            .endpoint("https://gateway.storjshare.io")
-                            .bucket("outputbucket")
-                            .credentials(StorageCredentials.builder()
-                                    .accessKeyId("AKIAIOSFODNN7EXAMPLE")
-                                    .secretAccessKey("wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY")
-                                    .build())
-                            .build()))
-                .outputs(Outputs.builder()
-                        .hls(Hls.builder()
-                            .path("/samplevideo/hls")
-                            .build())
-                        .mp4(Mp4.builder()
-                            .path("/samplevideo/mp4")
-                            .build())
-                        .fmp4(Fmp4.builder()
-                            .path("/samplevideo/fmp4")
-                            .build())
+                    .url("https://s3.amazonaws.com/bucket/file.mp4")
+                    .build()))
+                .storage(TranscodePayloadStorage.of(Storage2.builder()
+                    .type(TranscodePayloadStorageType.WEB3_STORAGE)
+                    .credentials(TranscodePayloadStorageCredentials.builder()
+                        .proof("EaJlcm9vdHOAZ3ZlcnNpb24BmgIBcRIg2uxHpcPYSWNtifMKFkPC7IEDvFDCxCd3ADViv0coV7SnYXNYRO2hA0AnblHEW38s3lSlcwaDjPn")
                         .build())
+                    .build()))
+                .outputs(Outputs.builder()
+                    .hls(Hls.builder()
+                        .path("/samplevideo/hls")
+                        .build())
+                    .mp4(Mp4.builder()
+                        .path("/samplevideo/mp4")
+                        .build())
+                    .fmp4(Fmp4.builder()
+                        .path("/samplevideo/fmp4")
+                        .build())
+                    .build())
                 .profiles(List.of(
                     TranscodeProfile.builder()
                         .bitrate(3000000L)
@@ -206,21 +202,13 @@ public class Application {
                         .build()))
                 .build();
 
-            TranscodeVideoResponse res = sdk.transcode().create()
+        TranscodeVideoResponse res = sdk.transcode().create()
                 .request(req)
                 .call();
 
-            if (res.task().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.task().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -237,6 +225,6 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |

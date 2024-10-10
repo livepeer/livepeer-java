@@ -86,8 +86,8 @@ public class ExportTaskParams {
 
         public _Deserializer() {
             super(ExportTaskParams.class, false,
-                  TypeReferenceWithShape.of(new TypeReference<studio.livepeer.livepeer.models.components.ExportTaskParams2>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<studio.livepeer.livepeer.models.components.ExportTaskParams1>() {}, JsonShape.DEFAULT));
+                  TypeReferenceWithShape.of(new TypeReference<ExportTaskParams2>() {}, JsonShape.DEFAULT),
+                  TypeReferenceWithShape.of(new TypeReference<ExportTaskParams1>() {}, JsonShape.DEFAULT));
         }
     }
     

@@ -16,7 +16,7 @@ public class TranscodeVideoRequestBuilder {
         this.sdk = sdk;
     }
 
-    public TranscodeVideoRequestBuilder request(studio.livepeer.livepeer.models.components.TranscodePayload request) {
+    public TranscodeVideoRequestBuilder request(TranscodePayload request) {
         Utils.checkNotNull(request, "request");
         this.request = request;
         return this;

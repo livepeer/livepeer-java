@@ -15,7 +15,7 @@ public class GetCreatorViewershipMetricsRequestBuilder {
         this.sdk = sdk;
     }
 
-    public GetCreatorViewershipMetricsRequestBuilder request(studio.livepeer.livepeer.models.operations.GetCreatorViewershipMetricsRequest request) {
+    public GetCreatorViewershipMetricsRequestBuilder request(GetCreatorViewershipMetricsRequest request) {
         Utils.checkNotNull(request, "request");
         this.request = request;
         return this;

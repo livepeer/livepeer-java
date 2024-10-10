@@ -16,7 +16,7 @@ public class GetMultistreamTargetRequestBuilder {
         this.sdk = sdk;
     }
 
-    public GetMultistreamTargetRequestBuilder id(java.lang.String id) {
+    public GetMultistreamTargetRequestBuilder id(String id) {
         Utils.checkNotNull(id, "id");
         this.id = id;
         return this;

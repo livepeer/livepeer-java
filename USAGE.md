@@ -20,18 +20,17 @@ import studio.livepeer.livepeer.models.components.TranscodeProfile;
 import studio.livepeer.livepeer.models.components.TranscodeProfileEncoder;
 import studio.livepeer.livepeer.models.components.TranscodeProfileProfile;
 import studio.livepeer.livepeer.models.components.Type;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.CreateStreamResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            NewStreamPayload req = NewStreamPayload.builder()
+        Livepeer sdk = Livepeer.builder()
+                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+            .build();
+
+        NewStreamPayload req = NewStreamPayload.builder()
                 .name("test_stream")
                 .pull(Pull.builder()
                     .source("https://myservice.com/live/stream.flv")
@@ -91,21 +90,13 @@ public class Application {
                     .build())
                 .build();
 
-            CreateStreamResponse res = sdk.stream().create()
+        CreateStreamResponse res = sdk.stream().create()
                 .request(req)
                 .call();
 
-            if (res.stream().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.stream().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```

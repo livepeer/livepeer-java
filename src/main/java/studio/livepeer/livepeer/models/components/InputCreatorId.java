@@ -83,8 +83,8 @@ public class InputCreatorId {
 
         public _Deserializer() {
             super(InputCreatorId.class, false,
-                  TypeReferenceWithShape.of(new TypeReference<java.lang.String>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<studio.livepeer.livepeer.models.components.InputCreatorId1>() {}, JsonShape.DEFAULT));
+                  TypeReferenceWithShape.of(new TypeReference<String>() {}, JsonShape.DEFAULT),
+                  TypeReferenceWithShape.of(new TypeReference<InputCreatorId1>() {}, JsonShape.DEFAULT));
         }
     }
     

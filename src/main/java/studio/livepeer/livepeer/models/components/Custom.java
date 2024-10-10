@@ -229,8 +229,7 @@ public class Custom {
         public Custom build() {
             if (method == null) {
                 method = _SINGLETON_VALUE_Method.value();
-            }
-            return new Custom(
+            }            return new Custom(
                 url,
                 method,
                 headers);

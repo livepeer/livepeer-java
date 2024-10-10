@@ -19,19 +19,19 @@ public class UpdateRoomUserRequestBuilder {
         this.sdk = sdk;
     }
 
-    public UpdateRoomUserRequestBuilder id(java.lang.String id) {
+    public UpdateRoomUserRequestBuilder id(String id) {
         Utils.checkNotNull(id, "id");
         this.id = id;
         return this;
     }
 
-    public UpdateRoomUserRequestBuilder userId(java.lang.String userId) {
+    public UpdateRoomUserRequestBuilder userId(String userId) {
         Utils.checkNotNull(userId, "userId");
         this.userId = userId;
         return this;
     }
 
-    public UpdateRoomUserRequestBuilder roomUserUpdatePayload(studio.livepeer.livepeer.models.components.RoomUserUpdatePayload roomUserUpdatePayload) {
+    public UpdateRoomUserRequestBuilder roomUserUpdatePayload(RoomUserUpdatePayload roomUserUpdatePayload) {
         Utils.checkNotNull(roomUserUpdatePayload, "roomUserUpdatePayload");
         this.roomUserUpdatePayload = roomUserUpdatePayload;
         return this;

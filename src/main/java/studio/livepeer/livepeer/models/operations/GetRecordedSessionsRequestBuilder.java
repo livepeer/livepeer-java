@@ -18,19 +18,19 @@ public class GetRecordedSessionsRequestBuilder {
         this.sdk = sdk;
     }
 
-    public GetRecordedSessionsRequestBuilder parentId(java.lang.String parentId) {
+    public GetRecordedSessionsRequestBuilder parentId(String parentId) {
         Utils.checkNotNull(parentId, "parentId");
         this.parentId = parentId;
         return this;
     }
                 
-    public GetRecordedSessionsRequestBuilder record(studio.livepeer.livepeer.models.operations.Record record) {
+    public GetRecordedSessionsRequestBuilder record(Record record) {
         Utils.checkNotNull(record, "record");
         this.record = Optional.of(record);
         return this;
     }
 
-    public GetRecordedSessionsRequestBuilder record(java.util.Optional<? extends studio.livepeer.livepeer.models.operations.Record> record) {
+    public GetRecordedSessionsRequestBuilder record(Optional<? extends Record> record) {
         Utils.checkNotNull(record, "record");
         this.record = record;
         return this;

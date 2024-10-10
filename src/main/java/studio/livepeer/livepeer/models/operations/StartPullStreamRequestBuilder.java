@@ -16,7 +16,7 @@ public class StartPullStreamRequestBuilder {
         this.sdk = sdk;
     }
 
-    public StartPullStreamRequestBuilder id(java.lang.String id) {
+    public StartPullStreamRequestBuilder id(String id) {
         Utils.checkNotNull(id, "id");
         this.id = id;
         return this;

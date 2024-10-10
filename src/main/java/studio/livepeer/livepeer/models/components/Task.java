@@ -66,6 +66,13 @@ public class Task {
     private Optional<String> outputAssetId;
 
     /**
+     * ID of the project
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("projectId")
+    private Optional<String> projectId;
+
+    /**
      * ID of the requester hash(IP + SALT + PlaybackId)
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -101,6 +108,7 @@ public class Task {
             @JsonProperty("scheduledAt") Optional<Double> scheduledAt,
             @JsonProperty("inputAssetId") Optional<String> inputAssetId,
             @JsonProperty("outputAssetId") Optional<String> outputAssetId,
+            @JsonProperty("projectId") Optional<String> projectId,
             @JsonProperty("requesterId") Optional<String> requesterId,
             @JsonProperty("params") Optional<? extends Params> params,
             @JsonProperty("status") Optional<? extends TaskStatus> status,
@@ -111,6 +119,7 @@ public class Task {
         Utils.checkNotNull(scheduledAt, "scheduledAt");
         Utils.checkNotNull(inputAssetId, "inputAssetId");
         Utils.checkNotNull(outputAssetId, "outputAssetId");
+        Utils.checkNotNull(projectId, "projectId");
         Utils.checkNotNull(requesterId, "requesterId");
         Utils.checkNotNull(params, "params");
         Utils.checkNotNull(status, "status");
@@ -121,6 +130,7 @@ public class Task {
         this.scheduledAt = scheduledAt;
         this.inputAssetId = inputAssetId;
         this.outputAssetId = outputAssetId;
+        this.projectId = projectId;
         this.requesterId = requesterId;
         this.params = params;
         this.status = status;
@@ -128,7 +138,7 @@ public class Task {
     }
     
     public Task() {
-        this(Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty());
+        this(Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty());
     }
 
     /**
@@ -180,6 +190,14 @@ public class Task {
     @JsonIgnore
     public Optional<String> outputAssetId() {
         return outputAssetId;
+    }
+
+    /**
+     * ID of the project
+     */
+    @JsonIgnore
+    public Optional<String> projectId() {
+        return projectId;
     }
 
     /**
@@ -334,6 +352,24 @@ public class Task {
     }
 
     /**
+     * ID of the project
+     */
+    public Task withProjectId(String projectId) {
+        Utils.checkNotNull(projectId, "projectId");
+        this.projectId = Optional.ofNullable(projectId);
+        return this;
+    }
+
+    /**
+     * ID of the project
+     */
+    public Task withProjectId(Optional<String> projectId) {
+        Utils.checkNotNull(projectId, "projectId");
+        this.projectId = projectId;
+        return this;
+    }
+
+    /**
      * ID of the requester hash(IP + SALT + PlaybackId)
      */
     public Task withRequesterId(String requesterId) {
@@ -421,6 +457,7 @@ public class Task {
             Objects.deepEquals(this.scheduledAt, other.scheduledAt) &&
             Objects.deepEquals(this.inputAssetId, other.inputAssetId) &&
             Objects.deepEquals(this.outputAssetId, other.outputAssetId) &&
+            Objects.deepEquals(this.projectId, other.projectId) &&
             Objects.deepEquals(this.requesterId, other.requesterId) &&
             Objects.deepEquals(this.params, other.params) &&
             Objects.deepEquals(this.status, other.status) &&
@@ -436,6 +473,7 @@ public class Task {
             scheduledAt,
             inputAssetId,
             outputAssetId,
+            projectId,
             requesterId,
             params,
             status,
@@ -451,6 +489,7 @@ public class Task {
                 "scheduledAt", scheduledAt,
                 "inputAssetId", inputAssetId,
                 "outputAssetId", outputAssetId,
+                "projectId", projectId,
                 "requesterId", requesterId,
                 "params", params,
                 "status", status,
@@ -470,6 +509,8 @@ public class Task {
         private Optional<String> inputAssetId = Optional.empty();
  
         private Optional<String> outputAssetId = Optional.empty();
+ 
+        private Optional<String> projectId = Optional.empty();
  
         private Optional<String> requesterId = Optional.empty();
  
@@ -596,6 +637,24 @@ public class Task {
         }
 
         /**
+         * ID of the project
+         */
+        public Builder projectId(String projectId) {
+            Utils.checkNotNull(projectId, "projectId");
+            this.projectId = Optional.ofNullable(projectId);
+            return this;
+        }
+
+        /**
+         * ID of the project
+         */
+        public Builder projectId(Optional<String> projectId) {
+            Utils.checkNotNull(projectId, "projectId");
+            this.projectId = projectId;
+            return this;
+        }
+
+        /**
          * ID of the requester hash(IP + SALT + PlaybackId)
          */
         public Builder requesterId(String requesterId) {
@@ -675,6 +734,7 @@ public class Task {
                 scheduledAt,
                 inputAssetId,
                 outputAssetId,
+                projectId,
                 requesterId,
                 params,
                 status,

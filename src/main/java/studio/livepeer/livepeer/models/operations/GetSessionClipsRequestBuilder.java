@@ -16,7 +16,7 @@ public class GetSessionClipsRequestBuilder {
         this.sdk = sdk;
     }
 
-    public GetSessionClipsRequestBuilder id(java.lang.String id) {
+    public GetSessionClipsRequestBuilder id(String id) {
         Utils.checkNotNull(id, "id");
         this.id = id;
         return this;

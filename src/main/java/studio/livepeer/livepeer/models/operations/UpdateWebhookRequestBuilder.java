@@ -18,13 +18,13 @@ public class UpdateWebhookRequestBuilder {
         this.sdk = sdk;
     }
 
-    public UpdateWebhookRequestBuilder id(java.lang.String id) {
+    public UpdateWebhookRequestBuilder id(String id) {
         Utils.checkNotNull(id, "id");
         this.id = id;
         return this;
     }
 
-    public UpdateWebhookRequestBuilder webhook(studio.livepeer.livepeer.models.components.WebhookInput webhook) {
+    public UpdateWebhookRequestBuilder webhook(WebhookInput webhook) {
         Utils.checkNotNull(webhook, "webhook");
         this.webhook = webhook;
         return this;

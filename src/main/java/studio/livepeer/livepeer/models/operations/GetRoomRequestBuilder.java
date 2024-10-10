@@ -16,7 +16,7 @@ public class GetRoomRequestBuilder {
         this.sdk = sdk;
     }
 
-    public GetRoomRequestBuilder id(java.lang.String id) {
+    public GetRoomRequestBuilder id(String id) {
         Utils.checkNotNull(id, "id");
         this.id = id;
         return this;
