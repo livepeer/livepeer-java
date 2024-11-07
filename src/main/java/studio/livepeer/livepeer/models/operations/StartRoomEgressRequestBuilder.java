@@ -18,13 +18,13 @@ public class StartRoomEgressRequestBuilder {
         this.sdk = sdk;
     }
 
-    public StartRoomEgressRequestBuilder id(java.lang.String id) {
+    public StartRoomEgressRequestBuilder id(String id) {
         Utils.checkNotNull(id, "id");
         this.id = id;
         return this;
     }
 
-    public StartRoomEgressRequestBuilder roomEgressPayload(studio.livepeer.livepeer.models.components.RoomEgressPayload roomEgressPayload) {
+    public StartRoomEgressRequestBuilder roomEgressPayload(RoomEgressPayload roomEgressPayload) {
         Utils.checkNotNull(roomEgressPayload, "roomEgressPayload");
         this.roomEgressPayload = roomEgressPayload;
         return this;

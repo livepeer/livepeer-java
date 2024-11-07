@@ -8,6 +8,7 @@ package studio.livepeer.livepeer.models.components;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import java.lang.Boolean;
 import java.lang.Override;
 import java.lang.String;
 import java.lang.SuppressWarnings;
@@ -86,8 +87,8 @@ public class StreamIsMobile {
 
         public _Deserializer() {
             super(StreamIsMobile.class, false,
-                  TypeReferenceWithShape.of(new TypeReference<java.lang.Boolean>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<studio.livepeer.livepeer.models.components.IsMobile1>() {}, JsonShape.DEFAULT));
+                  TypeReferenceWithShape.of(new TypeReference<Boolean>() {}, JsonShape.DEFAULT),
+                  TypeReferenceWithShape.of(new TypeReference<IsMobile1>() {}, JsonShape.DEFAULT));
         }
     }
     

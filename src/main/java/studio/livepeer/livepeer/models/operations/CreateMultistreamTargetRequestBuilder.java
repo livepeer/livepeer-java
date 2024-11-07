@@ -16,7 +16,7 @@ public class CreateMultistreamTargetRequestBuilder {
         this.sdk = sdk;
     }
 
-    public CreateMultistreamTargetRequestBuilder request(studio.livepeer.livepeer.models.components.MultistreamTargetInput request) {
+    public CreateMultistreamTargetRequestBuilder request(MultistreamTargetInput request) {
         Utils.checkNotNull(request, "request");
         this.request = request;
         return this;

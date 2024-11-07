@@ -17,13 +17,13 @@ public class ResendWebhookRequestBuilder {
         this.sdk = sdk;
     }
 
-    public ResendWebhookRequestBuilder id(java.lang.String id) {
+    public ResendWebhookRequestBuilder id(String id) {
         Utils.checkNotNull(id, "id");
         this.id = id;
         return this;
     }
 
-    public ResendWebhookRequestBuilder logId(java.lang.String logId) {
+    public ResendWebhookRequestBuilder logId(String logId) {
         Utils.checkNotNull(logId, "logId");
         this.logId = logId;
         return this;

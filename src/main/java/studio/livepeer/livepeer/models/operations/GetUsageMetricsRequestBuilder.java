@@ -15,7 +15,7 @@ public class GetUsageMetricsRequestBuilder {
         this.sdk = sdk;
     }
 
-    public GetUsageMetricsRequestBuilder request(studio.livepeer.livepeer.models.operations.GetUsageMetricsRequest request) {
+    public GetUsageMetricsRequestBuilder request(GetUsageMetricsRequest request) {
         Utils.checkNotNull(request, "request");
         this.request = request;
         return this;

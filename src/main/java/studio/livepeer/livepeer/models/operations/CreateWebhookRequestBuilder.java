@@ -16,7 +16,7 @@ public class CreateWebhookRequestBuilder {
         this.sdk = sdk;
     }
 
-    public CreateWebhookRequestBuilder request(studio.livepeer.livepeer.models.components.WebhookInput request) {
+    public CreateWebhookRequestBuilder request(WebhookInput request) {
         Utils.checkNotNull(request, "request");
         this.request = request;
         return this;

@@ -221,8 +221,7 @@ public class AssetSpec {
         public AssetSpec build() {
             if (nftMetadataTemplate == null) {
                 nftMetadataTemplate = _SINGLETON_VALUE_NftMetadataTemplate.value();
-            }
-            return new AssetSpec(
+            }            return new AssetSpec(
                 nftMetadataTemplate,
                 nftMetadata);
         }

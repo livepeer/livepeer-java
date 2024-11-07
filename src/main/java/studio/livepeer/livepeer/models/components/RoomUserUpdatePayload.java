@@ -245,8 +245,7 @@ public class RoomUserUpdatePayload {
             }
             if (canPublishData == null) {
                 canPublishData = _SINGLETON_VALUE_CanPublishData.value();
-            }
-            return new RoomUserUpdatePayload(
+            }            return new RoomUserUpdatePayload(
                 canPublish,
                 canPublishData,
                 metadata);

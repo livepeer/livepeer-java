@@ -8,6 +8,7 @@ package studio.livepeer.livepeer.models.operations;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import java.lang.Long;
 import java.lang.Override;
 import java.lang.String;
 import java.lang.SuppressWarnings;
@@ -87,8 +88,8 @@ public class QueryParamFrom {
 
         public _Deserializer() {
             super(QueryParamFrom.class, false,
-                  TypeReferenceWithShape.of(new TypeReference<java.lang.Long>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<java.time.OffsetDateTime>() {}, JsonShape.DEFAULT));
+                  TypeReferenceWithShape.of(new TypeReference<Long>() {}, JsonShape.DEFAULT),
+                  TypeReferenceWithShape.of(new TypeReference<OffsetDateTime>() {}, JsonShape.DEFAULT));
         }
     }
     

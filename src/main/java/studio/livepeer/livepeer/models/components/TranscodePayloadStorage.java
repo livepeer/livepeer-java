@@ -83,8 +83,8 @@ public class TranscodePayloadStorage {
 
         public _Deserializer() {
             super(TranscodePayloadStorage.class, false,
-                  TypeReferenceWithShape.of(new TypeReference<studio.livepeer.livepeer.models.components.Storage1>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<studio.livepeer.livepeer.models.components.Storage2>() {}, JsonShape.DEFAULT));
+                  TypeReferenceWithShape.of(new TypeReference<Storage1>() {}, JsonShape.DEFAULT),
+                  TypeReferenceWithShape.of(new TypeReference<Storage2>() {}, JsonShape.DEFAULT));
         }
     }
     

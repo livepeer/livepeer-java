@@ -16,7 +16,7 @@ public class GetSigningKeyRequestBuilder {
         this.sdk = sdk;
     }
 
-    public GetSigningKeyRequestBuilder keyId(java.lang.String keyId) {
+    public GetSigningKeyRequestBuilder keyId(String keyId) {
         Utils.checkNotNull(keyId, "keyId");
         this.keyId = keyId;
         return this;

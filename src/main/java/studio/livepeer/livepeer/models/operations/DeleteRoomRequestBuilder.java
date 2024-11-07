@@ -16,7 +16,7 @@ public class DeleteRoomRequestBuilder {
         this.sdk = sdk;
     }
 
-    public DeleteRoomRequestBuilder id(java.lang.String id) {
+    public DeleteRoomRequestBuilder id(String id) {
         Utils.checkNotNull(id, "id");
         this.id = id;
         return this;

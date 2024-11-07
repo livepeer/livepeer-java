@@ -16,7 +16,7 @@ public class GetClipsRequestBuilder {
         this.sdk = sdk;
     }
 
-    public GetClipsRequestBuilder id(java.lang.String id) {
+    public GetClipsRequestBuilder id(String id) {
         Utils.checkNotNull(id, "id");
         this.id = id;
         return this;

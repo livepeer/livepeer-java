@@ -16,7 +16,7 @@ public class CreateClipRequestBuilder {
         this.sdk = sdk;
     }
 
-    public CreateClipRequestBuilder request(studio.livepeer.livepeer.models.components.ClipPayload request) {
+    public CreateClipRequestBuilder request(ClipPayload request) {
         Utils.checkNotNull(request, "request");
         this.request = request;
         return this;

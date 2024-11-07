@@ -16,7 +16,7 @@ public class UploadAssetRequestBuilder {
         this.sdk = sdk;
     }
 
-    public UploadAssetRequestBuilder request(studio.livepeer.livepeer.models.components.NewAssetFromUrlPayload request) {
+    public UploadAssetRequestBuilder request(NewAssetFromUrlPayload request) {
         Utils.checkNotNull(request, "request");
         this.request = request;
         return this;

@@ -16,7 +16,7 @@ public class GetAssetRequestBuilder {
         this.sdk = sdk;
     }
 
-    public GetAssetRequestBuilder assetId(java.lang.String assetId) {
+    public GetAssetRequestBuilder assetId(String assetId) {
         Utils.checkNotNull(assetId, "assetId");
         this.assetId = assetId;
         return this;

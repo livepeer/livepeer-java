@@ -17,13 +17,13 @@ public class DeleteRoomUserRequestBuilder {
         this.sdk = sdk;
     }
 
-    public DeleteRoomUserRequestBuilder id(java.lang.String id) {
+    public DeleteRoomUserRequestBuilder id(String id) {
         Utils.checkNotNull(id, "id");
         this.id = id;
         return this;
     }
 
-    public DeleteRoomUserRequestBuilder userId(java.lang.String userId) {
+    public DeleteRoomUserRequestBuilder userId(String userId) {
         Utils.checkNotNull(userId, "userId");
         this.userId = userId;
         return this;

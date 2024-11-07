@@ -20,37 +20,37 @@ public class GetRealtimeViewershipNowRequestBuilder {
         this.sdk = sdk;
     }
                 
-    public GetRealtimeViewershipNowRequestBuilder playbackId(java.lang.String playbackId) {
+    public GetRealtimeViewershipNowRequestBuilder playbackId(String playbackId) {
         Utils.checkNotNull(playbackId, "playbackId");
         this.playbackId = Optional.of(playbackId);
         return this;
     }
 
-    public GetRealtimeViewershipNowRequestBuilder playbackId(java.util.Optional<java.lang.String> playbackId) {
+    public GetRealtimeViewershipNowRequestBuilder playbackId(Optional<String> playbackId) {
         Utils.checkNotNull(playbackId, "playbackId");
         this.playbackId = playbackId;
         return this;
     }
                 
-    public GetRealtimeViewershipNowRequestBuilder creatorId(java.lang.String creatorId) {
+    public GetRealtimeViewershipNowRequestBuilder creatorId(String creatorId) {
         Utils.checkNotNull(creatorId, "creatorId");
         this.creatorId = Optional.of(creatorId);
         return this;
     }
 
-    public GetRealtimeViewershipNowRequestBuilder creatorId(java.util.Optional<java.lang.String> creatorId) {
+    public GetRealtimeViewershipNowRequestBuilder creatorId(Optional<String> creatorId) {
         Utils.checkNotNull(creatorId, "creatorId");
         this.creatorId = creatorId;
         return this;
     }
                 
-    public GetRealtimeViewershipNowRequestBuilder breakdownBy(java.util.List<studio.livepeer.livepeer.models.operations.BreakdownBy> breakdownBy) {
+    public GetRealtimeViewershipNowRequestBuilder breakdownBy(List<BreakdownBy> breakdownBy) {
         Utils.checkNotNull(breakdownBy, "breakdownBy");
         this.breakdownBy = Optional.of(breakdownBy);
         return this;
     }
 
-    public GetRealtimeViewershipNowRequestBuilder breakdownBy(java.util.Optional<? extends java.util.List<studio.livepeer.livepeer.models.operations.BreakdownBy>> breakdownBy) {
+    public GetRealtimeViewershipNowRequestBuilder breakdownBy(Optional<? extends List<BreakdownBy>> breakdownBy) {
         Utils.checkNotNull(breakdownBy, "breakdownBy");
         this.breakdownBy = breakdownBy;
         return this;

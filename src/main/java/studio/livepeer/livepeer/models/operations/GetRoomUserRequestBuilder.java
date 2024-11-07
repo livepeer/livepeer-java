@@ -17,13 +17,13 @@ public class GetRoomUserRequestBuilder {
         this.sdk = sdk;
     }
 
-    public GetRoomUserRequestBuilder id(java.lang.String id) {
+    public GetRoomUserRequestBuilder id(String id) {
         Utils.checkNotNull(id, "id");
         this.id = id;
         return this;
     }
 
-    public GetRoomUserRequestBuilder userId(java.lang.String userId) {
+    public GetRoomUserRequestBuilder userId(String userId) {
         Utils.checkNotNull(userId, "userId");
         this.userId = userId;
         return this;

@@ -18,13 +18,13 @@ public class CreateRoomUserRequestBuilder {
         this.sdk = sdk;
     }
 
-    public CreateRoomUserRequestBuilder id(java.lang.String id) {
+    public CreateRoomUserRequestBuilder id(String id) {
         Utils.checkNotNull(id, "id");
         this.id = id;
         return this;
     }
 
-    public CreateRoomUserRequestBuilder roomUserPayload(studio.livepeer.livepeer.models.components.RoomUserPayload roomUserPayload) {
+    public CreateRoomUserRequestBuilder roomUserPayload(RoomUserPayload roomUserPayload) {
         Utils.checkNotNull(roomUserPayload, "roomUserPayload");
         this.roomUserPayload = roomUserPayload;
         return this;

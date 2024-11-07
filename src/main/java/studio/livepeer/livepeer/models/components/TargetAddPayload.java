@@ -323,8 +323,7 @@ public class TargetAddPayload {
         public TargetAddPayload build() {
             if (videoOnly == null) {
                 videoOnly = _SINGLETON_VALUE_VideoOnly.value();
-            }
-            return new TargetAddPayload(
+            }            return new TargetAddPayload(
                 profile,
                 videoOnly,
                 id,

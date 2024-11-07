@@ -16,7 +16,7 @@ public class TerminateStreamRequestBuilder {
         this.sdk = sdk;
     }
 
-    public TerminateStreamRequestBuilder id(java.lang.String id) {
+    public TerminateStreamRequestBuilder id(String id) {
         Utils.checkNotNull(id, "id");
         this.id = id;
         return this;

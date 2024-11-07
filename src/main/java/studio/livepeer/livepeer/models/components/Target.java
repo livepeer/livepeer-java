@@ -323,8 +323,7 @@ public class Target {
         public Target build() {
             if (videoOnly == null) {
                 videoOnly = _SINGLETON_VALUE_VideoOnly.value();
-            }
-            return new Target(
+            }            return new Target(
                 profile,
                 videoOnly,
                 id,

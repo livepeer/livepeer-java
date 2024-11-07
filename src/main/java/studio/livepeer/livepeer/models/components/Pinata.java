@@ -88,8 +88,8 @@ public class Pinata {
 
         public _Deserializer() {
             super(Pinata.class, false,
-                  TypeReferenceWithShape.of(new TypeReference<studio.livepeer.livepeer.models.components.Pinata2>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<studio.livepeer.livepeer.models.components.Pinata1>() {}, JsonShape.DEFAULT));
+                  TypeReferenceWithShape.of(new TypeReference<Pinata2>() {}, JsonShape.DEFAULT),
+                  TypeReferenceWithShape.of(new TypeReference<Pinata1>() {}, JsonShape.DEFAULT));
         }
     }
     

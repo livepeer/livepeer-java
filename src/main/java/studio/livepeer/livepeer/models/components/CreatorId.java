@@ -77,7 +77,7 @@ public class CreatorId {
 
         public _Deserializer() {
             super(CreatorId.class, false,
-                  TypeReferenceWithShape.of(new TypeReference<studio.livepeer.livepeer.models.components.CreatorId1>() {}, JsonShape.DEFAULT));
+                  TypeReferenceWithShape.of(new TypeReference<CreatorId1>() {}, JsonShape.DEFAULT));
         }
     }
     

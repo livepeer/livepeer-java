@@ -17,13 +17,13 @@ public class UpdateSigningKeyRequestBuilder {
         this.sdk = sdk;
     }
 
-    public UpdateSigningKeyRequestBuilder keyId(java.lang.String keyId) {
+    public UpdateSigningKeyRequestBuilder keyId(String keyId) {
         Utils.checkNotNull(keyId, "keyId");
         this.keyId = keyId;
         return this;
     }
 
-    public UpdateSigningKeyRequestBuilder requestBody(studio.livepeer.livepeer.models.operations.UpdateSigningKeyRequestBody requestBody) {
+    public UpdateSigningKeyRequestBuilder requestBody(UpdateSigningKeyRequestBody requestBody) {
         Utils.checkNotNull(requestBody, "requestBody");
         this.requestBody = requestBody;
         return this;

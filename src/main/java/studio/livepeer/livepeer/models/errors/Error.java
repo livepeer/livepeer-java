@@ -16,6 +16,7 @@ import java.util.Objects;
 import java.util.Optional;
 import studio.livepeer.livepeer.utils.Utils;
 
+@SuppressWarnings("serial")
 public class Error extends RuntimeException {
 
     @JsonInclude(Include.NON_ABSENT)

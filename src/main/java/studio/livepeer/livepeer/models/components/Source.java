@@ -89,9 +89,9 @@ public class Source {
 
         public _Deserializer() {
             super(Source.class, false,
-                  TypeReferenceWithShape.of(new TypeReference<studio.livepeer.livepeer.models.components.Source3>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<studio.livepeer.livepeer.models.components.Source1>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<studio.livepeer.livepeer.models.components.Two>() {}, JsonShape.DEFAULT));
+                  TypeReferenceWithShape.of(new TypeReference<Source3>() {}, JsonShape.DEFAULT),
+                  TypeReferenceWithShape.of(new TypeReference<Source1>() {}, JsonShape.DEFAULT),
+                  TypeReferenceWithShape.of(new TypeReference<Two>() {}, JsonShape.DEFAULT));
         }
     }
     

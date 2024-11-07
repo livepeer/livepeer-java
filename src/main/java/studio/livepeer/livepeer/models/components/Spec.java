@@ -221,8 +221,7 @@ public class Spec {
         public Spec build() {
             if (nftMetadataTemplate == null) {
                 nftMetadataTemplate = _SINGLETON_VALUE_NftMetadataTemplate.value();
-            }
-            return new Spec(
+            }            return new Spec(
                 nftMetadataTemplate,
                 nftMetadata);
         }

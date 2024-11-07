@@ -18,13 +18,13 @@ public class UpdateStreamRequestBuilder {
         this.sdk = sdk;
     }
 
-    public UpdateStreamRequestBuilder id(java.lang.String id) {
+    public UpdateStreamRequestBuilder id(String id) {
         Utils.checkNotNull(id, "id");
         this.id = id;
         return this;
     }
 
-    public UpdateStreamRequestBuilder streamPatchPayload(studio.livepeer.livepeer.models.components.StreamPatchPayload streamPatchPayload) {
+    public UpdateStreamRequestBuilder streamPatchPayload(StreamPatchPayload streamPatchPayload) {
         Utils.checkNotNull(streamPatchPayload, "streamPatchPayload");
         this.streamPatchPayload = streamPatchPayload;
         return this;

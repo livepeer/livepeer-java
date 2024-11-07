@@ -70,6 +70,10 @@ public class StreamPatchPayload {
     @JsonProperty("userTags")
     private Optional<? extends Map<String, UserTags>> userTags;
 
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("name")
+    private Optional<String> name;
+
     @JsonCreator
     public StreamPatchPayload(
             @JsonProperty("creatorId") Optional<? extends InputCreatorId> creatorId,
@@ -79,7 +83,8 @@ public class StreamPatchPayload {
             @JsonProperty("playbackPolicy") JsonNullable<? extends PlaybackPolicy> playbackPolicy,
             @JsonProperty("profiles") JsonNullable<? extends List<FfmpegProfile>> profiles,
             @JsonProperty("recordingSpec") Optional<? extends RecordingSpec> recordingSpec,
-            @JsonProperty("userTags") Optional<? extends Map<String, UserTags>> userTags) {
+            @JsonProperty("userTags") Optional<? extends Map<String, UserTags>> userTags,
+            @JsonProperty("name") Optional<String> name) {
         Utils.checkNotNull(creatorId, "creatorId");
         Utils.checkNotNull(record, "record");
         Utils.checkNotNull(suspended, "suspended");
@@ -88,6 +93,7 @@ public class StreamPatchPayload {
         Utils.checkNotNull(profiles, "profiles");
         Utils.checkNotNull(recordingSpec, "recordingSpec");
         Utils.checkNotNull(userTags, "userTags");
+        Utils.checkNotNull(name, "name");
         this.creatorId = creatorId;
         this.record = record;
         this.suspended = suspended;
@@ -96,10 +102,11 @@ public class StreamPatchPayload {
         this.profiles = profiles;
         this.recordingSpec = recordingSpec;
         this.userTags = userTags;
+        this.name = name;
     }
     
     public StreamPatchPayload() {
-        this(Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), JsonNullable.undefined(), JsonNullable.undefined(), Optional.empty(), Optional.empty());
+        this(Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), JsonNullable.undefined(), JsonNullable.undefined(), Optional.empty(), Optional.empty(), Optional.empty());
     }
 
     @SuppressWarnings("unchecked")
@@ -160,6 +167,11 @@ public class StreamPatchPayload {
     @JsonIgnore
     public Optional<Map<String, UserTags>> userTags() {
         return (Optional<Map<String, UserTags>>) userTags;
+    }
+
+    @JsonIgnore
+    public Optional<String> name() {
+        return name;
     }
 
     public final static Builder builder() {
@@ -289,6 +301,18 @@ public class StreamPatchPayload {
         this.userTags = userTags;
         return this;
     }
+
+    public StreamPatchPayload withName(String name) {
+        Utils.checkNotNull(name, "name");
+        this.name = Optional.ofNullable(name);
+        return this;
+    }
+
+    public StreamPatchPayload withName(Optional<String> name) {
+        Utils.checkNotNull(name, "name");
+        this.name = name;
+        return this;
+    }
     
     @Override
     public boolean equals(java.lang.Object o) {
@@ -307,7 +331,8 @@ public class StreamPatchPayload {
             Objects.deepEquals(this.playbackPolicy, other.playbackPolicy) &&
             Objects.deepEquals(this.profiles, other.profiles) &&
             Objects.deepEquals(this.recordingSpec, other.recordingSpec) &&
-            Objects.deepEquals(this.userTags, other.userTags);
+            Objects.deepEquals(this.userTags, other.userTags) &&
+            Objects.deepEquals(this.name, other.name);
     }
     
     @Override
@@ -320,7 +345,8 @@ public class StreamPatchPayload {
             playbackPolicy,
             profiles,
             recordingSpec,
-            userTags);
+            userTags,
+            name);
     }
     
     @Override
@@ -333,7 +359,8 @@ public class StreamPatchPayload {
                 "playbackPolicy", playbackPolicy,
                 "profiles", profiles,
                 "recordingSpec", recordingSpec,
-                "userTags", userTags);
+                "userTags", userTags,
+                "name", name);
     }
     
     public final static class Builder {
@@ -352,7 +379,9 @@ public class StreamPatchPayload {
  
         private Optional<? extends RecordingSpec> recordingSpec = Optional.empty();
  
-        private Optional<? extends Map<String, UserTags>> userTags = Optional.empty();  
+        private Optional<? extends Map<String, UserTags>> userTags = Optional.empty();
+ 
+        private Optional<String> name = Optional.empty();  
         
         private Builder() {
           // force use of static builder() method
@@ -481,6 +510,18 @@ public class StreamPatchPayload {
             this.userTags = userTags;
             return this;
         }
+
+        public Builder name(String name) {
+            Utils.checkNotNull(name, "name");
+            this.name = Optional.ofNullable(name);
+            return this;
+        }
+
+        public Builder name(Optional<String> name) {
+            Utils.checkNotNull(name, "name");
+            this.name = name;
+            return this;
+        }
         
         public StreamPatchPayload build() {
             return new StreamPatchPayload(
@@ -491,7 +532,8 @@ public class StreamPatchPayload {
                 playbackPolicy,
                 profiles,
                 recordingSpec,
-                userTags);
+                userTags,
+                name);
         }
     }
 }

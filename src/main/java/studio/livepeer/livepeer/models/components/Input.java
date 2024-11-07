@@ -83,8 +83,8 @@ public class Input {
 
         public _Deserializer() {
             super(Input.class, false,
-                  TypeReferenceWithShape.of(new TypeReference<studio.livepeer.livepeer.models.components.Input2>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<studio.livepeer.livepeer.models.components.Input1>() {}, JsonShape.DEFAULT));
+                  TypeReferenceWithShape.of(new TypeReference<Input2>() {}, JsonShape.DEFAULT),
+                  TypeReferenceWithShape.of(new TypeReference<Input1>() {}, JsonShape.DEFAULT));
         }
     }
     

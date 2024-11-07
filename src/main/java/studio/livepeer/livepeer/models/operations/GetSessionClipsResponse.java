@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import studio.livepeer.livepeer.models.components.Asset;
-import studio.livepeer.livepeer.models.errors.Error;
+import studio.livepeer.livepeer.models.components.Error;
 import studio.livepeer.livepeer.utils.Response;
 import studio.livepeer.livepeer.utils.Utils;
 

@@ -18,13 +18,13 @@ public class UpdateMultistreamTargetRequestBuilder {
         this.sdk = sdk;
     }
 
-    public UpdateMultistreamTargetRequestBuilder id(java.lang.String id) {
+    public UpdateMultistreamTargetRequestBuilder id(String id) {
         Utils.checkNotNull(id, "id");
         this.id = id;
         return this;
     }
 
-    public UpdateMultistreamTargetRequestBuilder multistreamTargetPatchPayload(studio.livepeer.livepeer.models.components.MultistreamTargetPatchPayload multistreamTargetPatchPayload) {
+    public UpdateMultistreamTargetRequestBuilder multistreamTargetPatchPayload(MultistreamTargetPatchPayload multistreamTargetPatchPayload) {
         Utils.checkNotNull(multistreamTargetPatchPayload, "multistreamTargetPatchPayload");
         this.multistreamTargetPatchPayload = multistreamTargetPatchPayload;
         return this;

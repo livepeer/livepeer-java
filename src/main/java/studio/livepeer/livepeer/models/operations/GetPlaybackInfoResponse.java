@@ -15,6 +15,7 @@ import java.lang.SuppressWarnings;
 import java.net.http.HttpResponse;
 import java.util.Objects;
 import java.util.Optional;
+import studio.livepeer.livepeer.models.components.Error;
 import studio.livepeer.livepeer.models.components.PlaybackInfo;
 import studio.livepeer.livepeer.utils.Response;
 import studio.livepeer.livepeer.utils.Utils;
@@ -42,27 +43,35 @@ public class GetPlaybackInfoResponse implements Response {
      */
     private Optional<? extends PlaybackInfo> playbackInfo;
 
+    /**
+     * Playback not found
+     */
+    private Optional<? extends Error> error;
+
     @JsonCreator
     public GetPlaybackInfoResponse(
             String contentType,
             int statusCode,
             HttpResponse<InputStream> rawResponse,
-            Optional<? extends PlaybackInfo> playbackInfo) {
+            Optional<? extends PlaybackInfo> playbackInfo,
+            Optional<? extends Error> error) {
         Utils.checkNotNull(contentType, "contentType");
         Utils.checkNotNull(statusCode, "statusCode");
         Utils.checkNotNull(rawResponse, "rawResponse");
         Utils.checkNotNull(playbackInfo, "playbackInfo");
+        Utils.checkNotNull(error, "error");
         this.contentType = contentType;
         this.statusCode = statusCode;
         this.rawResponse = rawResponse;
         this.playbackInfo = playbackInfo;
+        this.error = error;
     }
     
     public GetPlaybackInfoResponse(
             String contentType,
             int statusCode,
             HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse, Optional.empty());
+        this(contentType, statusCode, rawResponse, Optional.empty(), Optional.empty());
     }
 
     /**
@@ -96,6 +105,15 @@ public class GetPlaybackInfoResponse implements Response {
     @JsonIgnore
     public Optional<PlaybackInfo> playbackInfo() {
         return (Optional<PlaybackInfo>) playbackInfo;
+    }
+
+    /**
+     * Playback not found
+     */
+    @SuppressWarnings("unchecked")
+    @JsonIgnore
+    public Optional<Error> error() {
+        return (Optional<Error>) error;
     }
 
     public final static Builder builder() {
@@ -146,6 +164,24 @@ public class GetPlaybackInfoResponse implements Response {
         this.playbackInfo = playbackInfo;
         return this;
     }
+
+    /**
+     * Playback not found
+     */
+    public GetPlaybackInfoResponse withError(Error error) {
+        Utils.checkNotNull(error, "error");
+        this.error = Optional.ofNullable(error);
+        return this;
+    }
+
+    /**
+     * Playback not found
+     */
+    public GetPlaybackInfoResponse withError(Optional<? extends Error> error) {
+        Utils.checkNotNull(error, "error");
+        this.error = error;
+        return this;
+    }
     
     @Override
     public boolean equals(java.lang.Object o) {
@@ -160,7 +196,8 @@ public class GetPlaybackInfoResponse implements Response {
             Objects.deepEquals(this.contentType, other.contentType) &&
             Objects.deepEquals(this.statusCode, other.statusCode) &&
             Objects.deepEquals(this.rawResponse, other.rawResponse) &&
-            Objects.deepEquals(this.playbackInfo, other.playbackInfo);
+            Objects.deepEquals(this.playbackInfo, other.playbackInfo) &&
+            Objects.deepEquals(this.error, other.error);
     }
     
     @Override
@@ -169,7 +206,8 @@ public class GetPlaybackInfoResponse implements Response {
             contentType,
             statusCode,
             rawResponse,
-            playbackInfo);
+            playbackInfo,
+            error);
     }
     
     @Override
@@ -178,7 +216,8 @@ public class GetPlaybackInfoResponse implements Response {
                 "contentType", contentType,
                 "statusCode", statusCode,
                 "rawResponse", rawResponse,
-                "playbackInfo", playbackInfo);
+                "playbackInfo", playbackInfo,
+                "error", error);
     }
     
     public final static class Builder {
@@ -189,7 +228,9 @@ public class GetPlaybackInfoResponse implements Response {
  
         private HttpResponse<InputStream> rawResponse;
  
-        private Optional<? extends PlaybackInfo> playbackInfo = Optional.empty();  
+        private Optional<? extends PlaybackInfo> playbackInfo = Optional.empty();
+ 
+        private Optional<? extends Error> error = Optional.empty();  
         
         private Builder() {
           // force use of static builder() method
@@ -239,13 +280,32 @@ public class GetPlaybackInfoResponse implements Response {
             this.playbackInfo = playbackInfo;
             return this;
         }
+
+        /**
+         * Playback not found
+         */
+        public Builder error(Error error) {
+            Utils.checkNotNull(error, "error");
+            this.error = Optional.ofNullable(error);
+            return this;
+        }
+
+        /**
+         * Playback not found
+         */
+        public Builder error(Optional<? extends Error> error) {
+            Utils.checkNotNull(error, "error");
+            this.error = error;
+            return this;
+        }
         
         public GetPlaybackInfoResponse build() {
             return new GetPlaybackInfoResponse(
                 contentType,
                 statusCode,
                 rawResponse,
-                playbackInfo);
+                playbackInfo,
+                error);
         }
     }
 }
