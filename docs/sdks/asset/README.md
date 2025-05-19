@@ -25,31 +25,22 @@ package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.GetAssetsResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            GetAssetsResponse res = sdk.asset().getAll()
+        Livepeer sdk = Livepeer.builder()
+                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+            .build();
+
+        GetAssetsResponse res = sdk.asset().getAll()
                 .call();
 
-            if (res.data().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.data().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -60,10 +51,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## create
 
@@ -149,24 +139,18 @@ import java.lang.Exception;
 import java.util.List;
 import java.util.Map;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.NewAssetPayload;
-import studio.livepeer.livepeer.models.components.PlaybackPolicy;
-import studio.livepeer.livepeer.models.components.TranscodeProfile;
-import studio.livepeer.livepeer.models.components.TranscodeProfileEncoder;
-import studio.livepeer.livepeer.models.components.TranscodeProfileProfile;
-import studio.livepeer.livepeer.models.components.Type;
-import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.operations.RequestUploadResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            NewAssetPayload req = NewAssetPayload.builder()
+        Livepeer sdk = Livepeer.builder()
+                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+            .build();
+
+        NewAssetPayload req = NewAssetPayload.builder()
                 .name("filename.mp4")
                 .staticMp4(true)
                 .playbackPolicy(PlaybackPolicy.builder()
@@ -174,9 +158,21 @@ public class Application {
                     .webhookId("1bde4o2i6xycudoy")
                     .webhookContext(Map.ofEntries(
                         Map.entry("streamerId", "my-custom-id")))
-                    .refreshInterval(600d)
+                    .refreshInterval(600)
                     .build())
                 .profiles(List.of(
+                    TranscodeProfile.builder()
+                        .bitrate(3000000L)
+                        .width(1280L)
+                        .name("720p")
+                        .height(720L)
+                        .quality(23L)
+                        .fps(30L)
+                        .fpsDen(1L)
+                        .gop("2")
+                        .profile(TranscodeProfileProfile.H264_BASELINE)
+                        .encoder(TranscodeProfileEncoder.H264)
+                        .build(),
                     TranscodeProfile.builder()
                         .bitrate(3000000L)
                         .width(1280L)
@@ -191,21 +187,13 @@ public class Application {
                         .build()))
                 .build();
 
-            RequestUploadResponse res = sdk.asset().create()
+        RequestUploadResponse res = sdk.asset().create()
                 .request(req)
                 .call();
 
-            if (res.data().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.data().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -222,10 +210,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## createViaUrl
 
@@ -240,24 +227,18 @@ import java.lang.Exception;
 import java.util.List;
 import java.util.Map;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.NewAssetFromUrlPayload;
-import studio.livepeer.livepeer.models.components.PlaybackPolicy;
-import studio.livepeer.livepeer.models.components.TranscodeProfile;
-import studio.livepeer.livepeer.models.components.TranscodeProfileEncoder;
-import studio.livepeer.livepeer.models.components.TranscodeProfileProfile;
-import studio.livepeer.livepeer.models.components.Type;
-import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.operations.UploadAssetResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            NewAssetFromUrlPayload req = NewAssetFromUrlPayload.builder()
+        Livepeer sdk = Livepeer.builder()
+                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+            .build();
+
+        NewAssetFromUrlPayload req = NewAssetFromUrlPayload.builder()
                 .name("filename.mp4")
                 .url("https://s3.amazonaws.com/my-bucket/path/filename.mp4")
                 .staticMp4(true)
@@ -266,7 +247,7 @@ public class Application {
                     .webhookId("1bde4o2i6xycudoy")
                     .webhookContext(Map.ofEntries(
                         Map.entry("streamerId", "my-custom-id")))
-                    .refreshInterval(600d)
+                    .refreshInterval(600)
                     .build())
                 .profiles(List.of(
                     TranscodeProfile.builder()
@@ -283,21 +264,13 @@ public class Application {
                         .build()))
                 .build();
 
-            UploadAssetResponse res = sdk.asset().createViaUrl()
+        UploadAssetResponse res = sdk.asset().createViaUrl()
                 .request(req)
                 .call();
 
-            if (res.twoHundredApplicationJsonData().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.twoHundredApplicationJsonData().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -314,10 +287,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## get
 
@@ -330,32 +302,23 @@ package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.GetAssetResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            GetAssetResponse res = sdk.asset().get()
-                .assetId("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+            .build();
+
+        GetAssetResponse res = sdk.asset().get()
+                .assetId("<id>")
                 .call();
 
-            if (res.asset().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.asset().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -372,10 +335,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## update
 
@@ -389,22 +351,19 @@ package hello.world;
 import java.lang.Exception;
 import java.util.Map;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.AssetPatchPayload;
-import studio.livepeer.livepeer.models.components.PlaybackPolicy;
-import studio.livepeer.livepeer.models.components.Type;
-import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.operations.UpdateAssetResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            UpdateAssetResponse res = sdk.asset().update()
-                .assetId("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+            .build();
+
+        UpdateAssetResponse res = sdk.asset().update()
+                .assetId("<id>")
                 .assetPatchPayload(AssetPatchPayload.builder()
                     .name("filename.mp4")
                     .playbackPolicy(PlaybackPolicy.builder()
@@ -412,22 +371,14 @@ public class Application {
                         .webhookId("1bde4o2i6xycudoy")
                         .webhookContext(Map.ofEntries(
                             Map.entry("streamerId", "my-custom-id")))
-                        .refreshInterval(600d)
+                        .refreshInterval(600)
                         .build())
                     .build())
                 .call();
 
-            if (res.asset().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.asset().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -445,10 +396,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## delete
 
@@ -461,30 +411,21 @@ package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.DeleteAssetResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            DeleteAssetResponse res = sdk.asset().delete()
-                .assetId("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+            .build();
+
+        DeleteAssetResponse res = sdk.asset().delete()
+                .assetId("<id>")
                 .call();
 
-            // handle response
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
-        }
-
+        // handle response
     }
 }
 ```
@@ -501,6 +442,6 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |

@@ -1,4 +1,4 @@
-speakeasyVersion: 1.377.1
+speakeasyVersion: 1.546.2
 sources:
     Livepeer:
         sourceNamespace: livepeer
@@ -8,24 +8,25 @@ sources:
             - latest
     livepeer-studio-api:
         sourceNamespace: livepeer-studio-api
-        sourceRevisionDigest: sha256:9333277669bf8fb46063579d611518570aff37c2bfb20e0a90fd3b0c030ca2ad
-        sourceBlobDigest: sha256:1705d75b1de89f7c2e60643ed2c2aaced22b577da6f2935b1c2e09d533bb7182
+        sourceRevisionDigest: sha256:3a52d5f351da1511749650e156f0859f22ccdc4c17d0a507deb61e4c059a8652
+        sourceBlobDigest: sha256:4488790737c35e02b007209a1c0f7c6828c03112914a4b4cd3c7a49256a80167
         tags:
             - latest
-            - main
+            - speakeasy-sdk-regen-1731111021
+            - 1.0.0
 targets:
     livepeer-java:
         source: livepeer-studio-api
         sourceNamespace: livepeer-studio-api
-        sourceRevisionDigest: sha256:9333277669bf8fb46063579d611518570aff37c2bfb20e0a90fd3b0c030ca2ad
-        sourceBlobDigest: sha256:1705d75b1de89f7c2e60643ed2c2aaced22b577da6f2935b1c2e09d533bb7182
-        outLocation: /github/workspace/repo
+        sourceRevisionDigest: sha256:3a52d5f351da1511749650e156f0859f22ccdc4c17d0a507deb61e4c059a8652
+        sourceBlobDigest: sha256:4488790737c35e02b007209a1c0f7c6828c03112914a4b4cd3c7a49256a80167
+        codeSamplesNamespace: livepeer-studio-api-java-code-samples
+        codeSamplesRevisionDigest: sha256:eb62f40ad967b7d656e4d30c4a2a73aa223f92aef28a0ee088574815ad11adde
     my-first-target:
         source: Livepeer
         sourceNamespace: livepeer
         sourceRevisionDigest: sha256:a27b08eda9895afa45560e8255cc722036759a56c7c16bf09d002f2f5a4e2dea
         sourceBlobDigest: sha256:856a4f7c8547bd06b13cb376f3b89f51fe7f6578c4fa6284a1877fc99cc46766
-        outLocation: /Users/chase/git/livepeer/livepeer-java
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -33,6 +34,7 @@ workflow:
         livepeer-studio-api:
             inputs:
                 - location: https://raw.githubusercontent.com/livepeer/studio/master/packages/api/src/schema/api-schema.yaml
+                - location: https://raw.githubusercontent.com/livepeer/studio/master/packages/api/src/schema/ai-api-schema.yaml
             registry:
                 location: registry.speakeasyapi.dev/livepeer/livepeer-studio/livepeer-studio-api
     targets:
@@ -41,3 +43,5 @@ workflow:
             source: livepeer-studio-api
             codeSamples:
                 output: codeSamples.yaml
+                registry:
+                    location: registry.speakeasyapi.dev/livepeer/livepeer-studio/livepeer-studio-api-java-code-samples
