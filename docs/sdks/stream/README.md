@@ -45,40 +45,26 @@ import java.lang.Exception;
 import java.util.List;
 import java.util.Map;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.FfmpegProfile;
-import studio.livepeer.livepeer.models.components.Location;
-import studio.livepeer.livepeer.models.components.Multistream;
-import studio.livepeer.livepeer.models.components.NewStreamPayload;
-import studio.livepeer.livepeer.models.components.NewStreamPayloadRecordingSpec;
-import studio.livepeer.livepeer.models.components.PlaybackPolicy;
-import studio.livepeer.livepeer.models.components.Profile;
-import studio.livepeer.livepeer.models.components.Pull;
-import studio.livepeer.livepeer.models.components.Target;
-import studio.livepeer.livepeer.models.components.TargetSpec;
-import studio.livepeer.livepeer.models.components.TranscodeProfile;
-import studio.livepeer.livepeer.models.components.TranscodeProfileEncoder;
-import studio.livepeer.livepeer.models.components.TranscodeProfileProfile;
-import studio.livepeer.livepeer.models.components.Type;
-import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.operations.CreateStreamResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            NewStreamPayload req = NewStreamPayload.builder()
+        Livepeer sdk = Livepeer.builder()
+                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+            .build();
+
+        NewStreamPayload req = NewStreamPayload.builder()
                 .name("test_stream")
                 .pull(Pull.builder()
                     .source("https://myservice.com/live/stream.flv")
                     .headers(Map.ofEntries(
                         Map.entry("Authorization", "Bearer 123")))
                     .location(Location.builder()
-                        .lat(39.739d)
-                        .lon(-104.988d)
+                        .lat(39.739)
+                        .lon(-104.988)
                         .build())
                     .build())
                 .playbackPolicy(PlaybackPolicy.builder()
@@ -119,32 +105,19 @@ public class Application {
                 .multistream(Multistream.builder()
                     .targets(List.of(
                         Target.builder()
-                            .profile("720p0")
-                            .videoOnly(false)
+                            .profile("720p")
                             .id("PUSH123")
-                            .spec(TargetSpec.builder()
-                                .url("rtmps://live.my-service.tv/channel/secretKey")
-                                .name("My target")
-                                .build())
                             .build()))
                     .build())
                 .build();
 
-            CreateStreamResponse res = sdk.stream().create()
+        CreateStreamResponse res = sdk.stream().create()
                 .request(req)
                 .call();
 
-            if (res.stream().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.stream().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -161,10 +134,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## getAll
 
@@ -177,41 +149,31 @@ package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.GetStreamsResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            GetStreamsResponse res = sdk.stream().getAll()
-                .streamsonly("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+            .build();
+
+        GetStreamsResponse res = sdk.stream().getAll()
                 .call();
 
-            if (res.data().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.data().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
 
 ### Parameters
 
-| Parameter          | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `streamsonly`      | *Optional<String>* | :heavy_minus_sign: | N/A                |
+| Parameter           | Type                | Required            | Description         |
+| ------------------- | ------------------- | ------------------- | ------------------- |
+| `streamsonly`       | *Optional\<String>* | :heavy_minus_sign:  | N/A                 |
 
 ### Response
 
@@ -219,10 +181,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## get
 
@@ -235,32 +196,23 @@ package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.GetStreamResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            GetStreamResponse res = sdk.stream().get()
-                .id("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+            .build();
+
+        GetStreamResponse res = sdk.stream().get()
+                .id("<id>")
                 .call();
 
-            if (res.stream().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.stream().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -277,10 +229,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## update
 
@@ -294,44 +245,28 @@ package hello.world;
 import java.lang.Exception;
 import java.util.List;
 import java.util.Map;
+import org.openapitools.jackson.nullable.JsonNullable;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.FfmpegProfile;
-import studio.livepeer.livepeer.models.components.Multistream;
-import studio.livepeer.livepeer.models.components.PlaybackPolicy;
-import studio.livepeer.livepeer.models.components.Profile;
-import studio.livepeer.livepeer.models.components.RecordingSpec;
-import studio.livepeer.livepeer.models.components.StreamPatchPayload;
-import studio.livepeer.livepeer.models.components.Target;
-import studio.livepeer.livepeer.models.components.TargetSpec;
-import studio.livepeer.livepeer.models.components.TranscodeProfile;
-import studio.livepeer.livepeer.models.components.TranscodeProfileEncoder;
-import studio.livepeer.livepeer.models.components.TranscodeProfileProfile;
-import studio.livepeer.livepeer.models.components.Type;
-import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.operations.UpdateStreamResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            UpdateStreamResponse res = sdk.stream().update()
-                .id("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+            .build();
+
+        UpdateStreamResponse res = sdk.stream().update()
+                .id("<id>")
                 .streamPatchPayload(StreamPatchPayload.builder()
                     .record(false)
                     .multistream(Multistream.builder()
                         .targets(List.of(
                             Target.builder()
-                                .profile("720p0")
-                                .videoOnly(false)
+                                .profile("720p")
                                 .id("PUSH123")
-                                .spec(TargetSpec.builder()
-                                    .url("rtmps://live.my-service.tv/channel/secretKey")
-                                    .name("My target")
-                                    .build())
                                 .build()))
                         .build())
                     .playbackPolicy(PlaybackPolicy.builder()
@@ -341,18 +276,7 @@ public class Application {
                             Map.entry("streamerId", "my-custom-id")))
                         .refreshInterval(600d)
                         .build())
-                    .profiles(List.of(
-                        FfmpegProfile.builder()
-                            .width(1280L)
-                            .name("720p")
-                            .height(720L)
-                            .bitrate(3000000L)
-                            .fps(30L)
-                            .fpsDen(1L)
-                            .quality(23L)
-                            .gop("2")
-                            .profile(Profile.H264_BASELINE)
-                            .build()))
+                    .profiles(JsonNullable.of(null))
                     .recordingSpec(RecordingSpec.builder()
                         .profiles(List.of(
                             TranscodeProfile.builder()
@@ -368,18 +292,11 @@ public class Application {
                                 .encoder(TranscodeProfileEncoder.H264)
                                 .build()))
                         .build())
+                    .name("test_stream")
                     .build())
                 .call();
 
-            // handle response
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
-        }
-
+        // handle response
     }
 }
 ```
@@ -397,10 +314,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## delete
 
@@ -417,30 +333,21 @@ package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.DeleteStreamResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            DeleteStreamResponse res = sdk.stream().delete()
-                .id("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+            .build();
+
+        DeleteStreamResponse res = sdk.stream().delete()
+                .id("<id>")
                 .call();
 
-            // handle response
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
-        }
-
+        // handle response
     }
 }
 ```
@@ -457,10 +364,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## terminate
 
@@ -481,30 +387,21 @@ package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.TerminateStreamResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            TerminateStreamResponse res = sdk.stream().terminate()
-                .id("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+            .build();
+
+        TerminateStreamResponse res = sdk.stream().terminate()
+                .id("<id>")
                 .call();
 
-            // handle response
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
-        }
-
+        // handle response
     }
 }
 ```
@@ -521,10 +418,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## startPull
 
@@ -544,30 +440,21 @@ package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.StartPullStreamResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            StartPullStreamResponse res = sdk.stream().startPull()
-                .id("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+            .build();
+
+        StartPullStreamResponse res = sdk.stream().startPull()
+                .id("<id>")
                 .call();
 
-            // handle response
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
-        }
-
+        // handle response
     }
 }
 ```
@@ -584,10 +471,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## createClip
 
@@ -601,18 +487,17 @@ package hello.world;
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.ClipPayload;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.CreateClipResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            ClipPayload req = ClipPayload.builder()
+        Livepeer sdk = Livepeer.builder()
+                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+            .build();
+
+        ClipPayload req = ClipPayload.builder()
                 .playbackId("eaw4nk06ts2d0mzb")
                 .startTime(1587667174725d)
                 .endTime(1587667174725d)
@@ -620,21 +505,13 @@ public class Application {
                 .sessionId("de7818e7-610a-4057-8f6f-b785dc1e6f88")
                 .build();
 
-            CreateClipResponse res = sdk.stream().createClip()
+        CreateClipResponse res = sdk.stream().createClip()
                 .request(req)
                 .call();
 
-            if (res.data().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.data().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -651,10 +528,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## getClips
 
@@ -667,32 +543,23 @@ package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.GetClipsResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            GetClipsResponse res = sdk.stream().getClips()
-                .id("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+            .build();
+
+        GetClipsResponse res = sdk.stream().getClips()
+                .id("<id>")
                 .call();
 
-            if (res.data().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.data().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -709,10 +576,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## addMultistreamTarget
 
@@ -727,22 +593,20 @@ import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.TargetAddPayload;
 import studio.livepeer.livepeer.models.components.TargetAddPayloadSpec;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.AddMultistreamTargetResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            AddMultistreamTargetResponse res = sdk.stream().addMultistreamTarget()
-                .id("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+            .build();
+
+        AddMultistreamTargetResponse res = sdk.stream().addMultistreamTarget()
+                .id("<id>")
                 .targetAddPayload(TargetAddPayload.builder()
                     .profile("720p0")
-                    .videoOnly(false)
                     .id("PUSH123")
                     .spec(TargetAddPayloadSpec.builder()
                         .url("rtmps://live.my-service.tv/channel/secretKey")
@@ -751,15 +615,7 @@ public class Application {
                     .build())
                 .call();
 
-            // handle response
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
-        }
-
+        // handle response
     }
 }
 ```
@@ -777,10 +633,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## removeMultistreamTarget
 
@@ -793,31 +648,22 @@ package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.RemoveMultistreamTargetResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            RemoveMultistreamTargetResponse res = sdk.stream().removeMultistreamTarget()
-                .id("<value>")
-                .targetId("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+            .build();
+
+        RemoveMultistreamTargetResponse res = sdk.stream().removeMultistreamTarget()
+                .id("<id>")
+                .targetId("<id>")
                 .call();
 
-            // handle response
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
-        }
-
+        // handle response
     }
 }
 ```
@@ -835,6 +681,6 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |

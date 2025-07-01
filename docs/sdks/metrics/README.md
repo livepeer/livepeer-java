@@ -24,38 +24,23 @@ Requires a private (non-CORS) API key to be used.
 package hello.world;
 
 import java.lang.Exception;
-import java.util.List;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
-import studio.livepeer.livepeer.models.operations.BreakdownBy;
 import studio.livepeer.livepeer.models.operations.GetRealtimeViewershipNowResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            GetRealtimeViewershipNowResponse res = sdk.metrics().getRealtimeViewership()
-                .playbackId("<value>")
-                .creatorId("<value>")
-                .breakdownBy(List.of(
-                    BreakdownBy.PLAYBACK_ID))
+        Livepeer sdk = Livepeer.builder()
+                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+            .build();
+
+        GetRealtimeViewershipNowResponse res = sdk.metrics().getRealtimeViewership()
                 .call();
 
-            if (res.data().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.data().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -64,9 +49,9 @@ public class Application {
 
 | Parameter                                                                                                                                             | Type                                                                                                                                                  | Required                                                                                                                                              | Description                                                                                                                                           |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `playbackId`                                                                                                                                          | *Optional<String>*                                                                                                                                    | :heavy_minus_sign:                                                                                                                                    | The playback ID to filter the query results. This can be a canonical<br/>playback ID from Livepeer assets or streams, or dStorage identifiers<br/>for assets<br/> |
-| `creatorId`                                                                                                                                           | *Optional<String>*                                                                                                                                    | :heavy_minus_sign:                                                                                                                                    | The creator ID to filter the query results                                                                                                            |
-| `breakdownBy`                                                                                                                                         | List<[BreakdownBy](../../models/operations/BreakdownBy.md)>                                                                                           | :heavy_minus_sign:                                                                                                                                    | The list of fields to break down the query results. Specify this<br/>query-string multiple times to break down by multiple fields.<br/>               |
+| `playbackId`                                                                                                                                          | *Optional\<String>*                                                                                                                                   | :heavy_minus_sign:                                                                                                                                    | The playback ID to filter the query results. This can be a canonical<br/>playback ID from Livepeer assets or streams, or dStorage identifiers<br/>for assets<br/> |
+| `creatorId`                                                                                                                                           | *Optional\<String>*                                                                                                                                   | :heavy_minus_sign:                                                                                                                                    | The creator ID to filter the query results                                                                                                            |
+| `breakdownBy`                                                                                                                                         | List\<[BreakdownBy](../../models/operations/BreakdownBy.md)>                                                                                          | :heavy_minus_sign:                                                                                                                                    | The list of fields to break down the query results. Specify this<br/>query-string multiple times to break down by multiple fields.<br/>               |
 
 ### Response
 
@@ -74,10 +59,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## getViewership
 
@@ -91,36 +75,22 @@ package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
-import studio.livepeer.livepeer.models.operations.GetViewershipMetricsRequest;
 import studio.livepeer.livepeer.models.operations.GetViewershipMetricsResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
+
+        Livepeer sdk = Livepeer.builder()
                 .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
+            .build();
 
-            GetViewershipMetricsRequest req = GetViewershipMetricsRequest.builder()
-                .build();
-
-            GetViewershipMetricsResponse res = sdk.metrics().getViewership()
-                .request(req)
+        GetViewershipMetricsResponse res = sdk.metrics().getViewership()
                 .call();
 
-            if (res.data().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.data().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -137,10 +107,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## getCreatorViewership
 
@@ -154,36 +123,22 @@ package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
-import studio.livepeer.livepeer.models.operations.GetCreatorViewershipMetricsRequest;
 import studio.livepeer.livepeer.models.operations.GetCreatorViewershipMetricsResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
+
+        Livepeer sdk = Livepeer.builder()
                 .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
+            .build();
 
-            GetCreatorViewershipMetricsRequest req = GetCreatorViewershipMetricsRequest.builder()
-                .build();
-
-            GetCreatorViewershipMetricsResponse res = sdk.metrics().getCreatorViewership()
-                .request(req)
+        GetCreatorViewershipMetricsResponse res = sdk.metrics().getCreatorViewership()
                 .call();
 
-            if (res.data().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.data().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -200,10 +155,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## getPublicViewership
 
@@ -219,32 +173,23 @@ package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.GetPublicViewershipMetricsResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            GetPublicViewershipMetricsResponse res = sdk.metrics().getPublicViewership()
-                .playbackId("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
+            .build();
+
+        GetPublicViewershipMetricsResponse res = sdk.metrics().getPublicViewership()
+                .playbackId("<id>")
                 .call();
 
-            if (res.data().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.data().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -261,10 +206,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## getUsage
 
@@ -277,36 +221,22 @@ package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
-import studio.livepeer.livepeer.models.operations.GetUsageMetricsRequest;
 import studio.livepeer.livepeer.models.operations.GetUsageMetricsResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
+
+        Livepeer sdk = Livepeer.builder()
                 .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
+            .build();
 
-            GetUsageMetricsRequest req = GetUsageMetricsRequest.builder()
-                .build();
-
-            GetUsageMetricsResponse res = sdk.metrics().getUsage()
-                .request(req)
+        GetUsageMetricsResponse res = sdk.metrics().getUsage()
                 .call();
 
-            if (res.usageMetric().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.usageMetric().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -323,6 +253,6 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |

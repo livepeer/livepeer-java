@@ -26,8 +26,9 @@ repositories {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
     withSourcesJar()
     withJavadocJar()
 }
@@ -37,6 +38,9 @@ model {
         destination = file("$buildDir/pom.xml")
     }
 }
+
+version = "${version}"
+group = "${groupId}"
 
 jar {
     dependsOn(":generatePomFileForMavenPublication")
@@ -60,15 +64,16 @@ tasks.withType(Javadoc) {
   options.addStringOption('Xdoclint:none', '-quiet')
 }
 
-group = "studio.livepeer"
-version = "0.5.0"
+tasks.withType(JavaCompile).configureEach {
+    options.release = 11
+}
 
 sourcesJar {
-    archiveBaseName = "livepeer"
+    archiveBaseName = "${artifactId}"
 }
 
 javadocJar {
-    archiveBaseName = "livepeer"
+    archiveBaseName = "${artifactId}"
 }
 
 
@@ -76,13 +81,19 @@ publishing {
 
     publications {
         maven(MavenPublication) {
-            groupId = 'studio.livepeer'
-            artifactId = 'livepeer'
-            version = '0.5.0'
+            // note that properties can't yet be used below!
+            // https://github.com/gradle/gradle/issues/18619
+            groupId = "studio.livepeer"
+            artifactId = "livepeer"
+            version = "0.6.0"
 
             from components.java
 
             pom {
+                properties = [
+                    'maven.compiler.source': '11',
+                    'maven.compiler.target': '11',
+                ]
                 name = 'My Company Java SDK'
                 description = 'SDK enabling Java developers to easily integrate with the My Company API.'
                 url = 'https://github.com/owner/repo'
@@ -121,16 +132,15 @@ if (!project.hasProperty('skip.signing')) {
     }
 }
 
+
+
 dependencies {
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.2'
-    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.17.2'
-    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.17.2'
-    implementation 'org.openapitools:jackson-databind-nullable:0.2.6'
-    implementation 'org.apache.httpcomponents:httpclient:4.5.14'
-    implementation 'org.apache.httpcomponents:httpmime:4.5.14'
-    implementation 'commons-io:commons-io:2.15.1'
+    api 'com.fasterxml.jackson.core:jackson-annotations:2.18.2'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.18.2'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.18.2'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.18.2'
+    api('org.openapitools:jackson-databind-nullable:0.2.6') {exclude group: 'com.fasterxml.jackson.core', module: 'jackson-databind'}
+    implementation 'commons-io:commons-io:2.18.0'
 }
-
-
 
 apply from: 'build-extras.gradle'
