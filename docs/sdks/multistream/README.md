@@ -19,36 +19,28 @@ Retrieve Multistream Targets
 
 ### Example Usage
 
+<!-- UsageSnippet language="java" operationID="getMultistreamTargets" method="get" path="/multistream/target" -->
 ```java
 package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.GetMultistreamTargetsResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            GetMultistreamTargetsResponse res = sdk.multistream().getAll()
+        Livepeer sdk = Livepeer.builder()
+                .apiKey(System.getenv().getOrDefault("API_KEY", ""))
+            .build();
+
+        GetMultistreamTargetsResponse res = sdk.multistream().getAll()
                 .call();
 
-            if (res.data().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.data().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -59,10 +51,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## create
 
@@ -70,42 +61,34 @@ Create a multistream target
 
 ### Example Usage
 
+<!-- UsageSnippet language="java" operationID="createMultistreamTarget" method="post" path="/multistream/target" -->
 ```java
 package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.MultistreamTargetInput;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.CreateMultistreamTargetResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            MultistreamTargetInput req = MultistreamTargetInput.builder()
+        Livepeer sdk = Livepeer.builder()
+                .apiKey(System.getenv().getOrDefault("API_KEY", ""))
+            .build();
+
+        MultistreamTargetInput req = MultistreamTargetInput.builder()
                 .url("rtmps://live.my-service.tv/channel/secretKey")
                 .build();
 
-            CreateMultistreamTargetResponse res = sdk.multistream().create()
+        CreateMultistreamTargetResponse res = sdk.multistream().create()
                 .request(req)
                 .call();
 
-            if (res.multistreamTarget().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.multistreamTarget().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -122,10 +105,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## get
 
@@ -133,37 +115,29 @@ Retrieve a multistream target
 
 ### Example Usage
 
+<!-- UsageSnippet language="java" operationID="getMultistreamTarget" method="get" path="/multistream/target/{id}" -->
 ```java
 package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.GetMultistreamTargetResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            GetMultistreamTargetResponse res = sdk.multistream().get()
-                .id("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey(System.getenv().getOrDefault("API_KEY", ""))
+            .build();
+
+        GetMultistreamTargetResponse res = sdk.multistream().get()
+                .id("<id>")
                 .call();
 
-            if (res.multistreamTarget().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.multistreamTarget().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -180,10 +154,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## update
 
@@ -191,49 +164,41 @@ Update Multistream Target
 
 ### Example Usage
 
+<!-- UsageSnippet language="java" operationID="updateMultistreamTarget" method="patch" path="/multistream/target/{id}" -->
 ```java
 package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.MultistreamTargetPatchPayload;
-import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.components.MultistreamTargetInput;
 import studio.livepeer.livepeer.models.operations.UpdateMultistreamTargetResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            UpdateMultistreamTargetResponse res = sdk.multistream().update()
-                .id("<value>")
-                .multistreamTargetPatchPayload(MultistreamTargetPatchPayload.builder()
+        Livepeer sdk = Livepeer.builder()
+                .apiKey(System.getenv().getOrDefault("API_KEY", ""))
+            .build();
+
+        UpdateMultistreamTargetResponse res = sdk.multistream().update()
+                .id("<id>")
+                .multistreamTarget(MultistreamTargetInput.builder()
                     .url("rtmps://live.my-service.tv/channel/secretKey")
                     .build())
                 .call();
 
-            // handle response
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
-        }
-
+        // handle response
     }
 }
 ```
 
 ### Parameters
 
-| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `id`                                                                                      | *String*                                                                                  | :heavy_check_mark:                                                                        | ID of the multistream target                                                              |
-| `multistreamTargetPatchPayload`                                                           | [MultistreamTargetPatchPayload](../../models/components/MultistreamTargetPatchPayload.md) | :heavy_check_mark:                                                                        | N/A                                                                                       |
+| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `id`                                                                        | *String*                                                                    | :heavy_check_mark:                                                          | ID of the multistream target                                                |
+| `multistreamTarget`                                                         | [MultistreamTargetInput](../../models/components/MultistreamTargetInput.md) | :heavy_check_mark:                                                          | N/A                                                                         |
 
 ### Response
 
@@ -241,10 +206,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## delete
 
@@ -254,35 +218,27 @@ streams before actually deleting it from the API.
 
 ### Example Usage
 
+<!-- UsageSnippet language="java" operationID="deleteMultistreamTarget" method="delete" path="/multistream/target/{id}" -->
 ```java
 package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.DeleteMultistreamTargetResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            DeleteMultistreamTargetResponse res = sdk.multistream().delete()
-                .id("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey(System.getenv().getOrDefault("API_KEY", ""))
+            .build();
+
+        DeleteMultistreamTargetResponse res = sdk.multistream().delete()
+                .id("<id>")
                 .call();
 
-            // handle response
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
-        }
-
+        // handle response
     }
 }
 ```
@@ -299,6 +255,6 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |

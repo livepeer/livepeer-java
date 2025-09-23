@@ -26,36 +26,28 @@ Create a multiparticipant livestreaming room.
 
 ### Example Usage
 
+<!-- UsageSnippet language="java" operationID="createRoom" method="post" path="/room" -->
 ```java
 package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.CreateRoomResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            CreateRoomResponse res = sdk.room().create()
+        Livepeer sdk = Livepeer.builder()
+                .apiKey(System.getenv().getOrDefault("API_KEY", ""))
+            .build();
+
+        CreateRoomResponse res = sdk.room().create()
                 .call();
 
-            if (res.createRoomResponse().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.createRoomResponse().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -66,10 +58,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## ~~get~~
 
@@ -79,37 +70,29 @@ Retrieve a room
 
 ### Example Usage
 
+<!-- UsageSnippet language="java" operationID="getRoom" method="get" path="/room/{id}" -->
 ```java
 package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.GetRoomResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            GetRoomResponse res = sdk.room().get()
-                .id("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey(System.getenv().getOrDefault("API_KEY", ""))
+            .build();
+
+        GetRoomResponse res = sdk.room().get()
+                .id("<id>")
                 .call();
 
-            if (res.room().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.room().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -126,10 +109,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## ~~delete~~
 
@@ -139,35 +121,27 @@ Delete a room
 
 ### Example Usage
 
+<!-- UsageSnippet language="java" operationID="deleteRoom" method="delete" path="/room/{id}" -->
 ```java
 package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.DeleteRoomResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            DeleteRoomResponse res = sdk.room().delete()
-                .id("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey(System.getenv().getOrDefault("API_KEY", ""))
+            .build();
+
+        DeleteRoomResponse res = sdk.room().delete()
+                .id("<id>")
                 .call();
 
-            // handle response
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
-        }
-
+        // handle response
     }
 }
 ```
@@ -184,10 +158,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## ~~startEgress~~
 
@@ -199,39 +172,31 @@ This allows you to leverage livestreaming features like recording and HLS output
 
 ### Example Usage
 
+<!-- UsageSnippet language="java" operationID="startRoomEgress" method="post" path="/room/{id}/egress" -->
 ```java
 package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.RoomEgressPayload;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.StartRoomEgressResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            StartRoomEgressResponse res = sdk.room().startEgress()
-                .id("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey(System.getenv().getOrDefault("API_KEY", ""))
+            .build();
+
+        StartRoomEgressResponse res = sdk.room().startEgress()
+                .id("<id>")
                 .roomEgressPayload(RoomEgressPayload.builder()
                     .streamId("aac12556-4d65-4d34-9fb6-d1f0985eb0a9")
                     .build())
                 .call();
 
-            // handle response
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
-        }
-
+        // handle response
     }
 }
 ```
@@ -249,10 +214,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## ~~stopEgress~~
 
@@ -262,35 +226,27 @@ Stop room RTMP egress
 
 ### Example Usage
 
+<!-- UsageSnippet language="java" operationID="stopRoomEgress" method="delete" path="/room/{id}/egress" -->
 ```java
 package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.StopRoomEgressResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            StopRoomEgressResponse res = sdk.room().stopEgress()
-                .id("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey(System.getenv().getOrDefault("API_KEY", ""))
+            .build();
+
+        StopRoomEgressResponse res = sdk.room().stopEgress()
+                .id("<id>")
                 .call();
 
-            // handle response
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
-        }
-
+        // handle response
     }
 }
 ```
@@ -307,10 +263,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## ~~createUser~~
 
@@ -323,25 +278,25 @@ Alternatively the joining token can be used with a custom app.
 
 ### Example Usage
 
+<!-- UsageSnippet language="java" operationID="createRoomUser" method="post" path="/room/{id}/user" -->
 ```java
 package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.RoomUserPayload;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.CreateRoomUserResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            CreateRoomUserResponse res = sdk.room().createUser()
-                .id("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey(System.getenv().getOrDefault("API_KEY", ""))
+            .build();
+
+        CreateRoomUserResponse res = sdk.room().createUser()
+                .id("<id>")
                 .roomUserPayload(RoomUserPayload.builder()
                     .name("name")
                     .canPublish(true)
@@ -349,17 +304,9 @@ public class Application {
                     .build())
                 .call();
 
-            if (res.roomUserResponse().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.roomUserResponse().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -377,10 +324,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## ~~getUser~~
 
@@ -390,38 +336,30 @@ Get user details
 
 ### Example Usage
 
+<!-- UsageSnippet language="java" operationID="getRoomUser" method="get" path="/room/{id}/user/{userId}" -->
 ```java
 package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.GetRoomUserResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            GetRoomUserResponse res = sdk.room().getUser()
-                .id("<value>")
-                .userId("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey(System.getenv().getOrDefault("API_KEY", ""))
+            .build();
+
+        GetRoomUserResponse res = sdk.room().getUser()
+                .id("<id>")
+                .userId("<id>")
                 .call();
 
-            if (res.getRoomUserResponse().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.getRoomUserResponse().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -439,10 +377,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## ~~updateUser~~
 
@@ -452,41 +389,31 @@ Update properties for a user.
 
 ### Example Usage
 
+<!-- UsageSnippet language="java" operationID="updateRoomUser" method="put" path="/room/{id}/user/{userId}" -->
 ```java
 package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
 import studio.livepeer.livepeer.models.components.RoomUserUpdatePayload;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.UpdateRoomUserResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            UpdateRoomUserResponse res = sdk.room().updateUser()
-                .id("<value>")
-                .userId("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey(System.getenv().getOrDefault("API_KEY", ""))
+            .build();
+
+        UpdateRoomUserResponse res = sdk.room().updateUser()
+                .id("<id>")
+                .userId("<id>")
                 .roomUserUpdatePayload(RoomUserUpdatePayload.builder()
-                    .canPublish(true)
-                    .canPublishData(true)
                     .build())
                 .call();
 
-            // handle response
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
-        }
-
+        // handle response
     }
 }
 ```
@@ -505,10 +432,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
 
 ## ~~deleteUser~~
 
@@ -518,36 +444,28 @@ Remove a user from the room
 
 ### Example Usage
 
+<!-- UsageSnippet language="java" operationID="deleteRoomUser" method="delete" path="/room/{id}/user/{userId}" -->
 ```java
 package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.DeleteRoomUserResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            DeleteRoomUserResponse res = sdk.room().deleteUser()
-                .id("<value>")
-                .userId("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey(System.getenv().getOrDefault("API_KEY", ""))
+            .build();
+
+        DeleteRoomUserResponse res = sdk.room().deleteUser()
+                .id("<id>")
+                .userId("<id>")
                 .call();
 
-            // handle response
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
-        }
-
+        // handle response
     }
 }
 ```
@@ -565,6 +483,6 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
+| Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+| models/errors/SDKError | 4XX, 5XX               | \*/\*                  |
