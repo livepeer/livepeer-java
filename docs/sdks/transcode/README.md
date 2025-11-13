@@ -136,61 +136,55 @@ This endpoint currently supports the following output types:
 
 ### Example Usage
 
+<!-- UsageSnippet language="java" operationID="transcodeVideo" method="post" path="/transcode" -->
 ```java
 package hello.world;
 
 import java.lang.Exception;
 import java.util.List;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.Fmp4;
-import studio.livepeer.livepeer.models.components.Hls;
-import studio.livepeer.livepeer.models.components.Input1;
-import studio.livepeer.livepeer.models.components.Input;
-import studio.livepeer.livepeer.models.components.Mp4;
-import studio.livepeer.livepeer.models.components.Outputs;
-import studio.livepeer.livepeer.models.components.Storage1;
-import studio.livepeer.livepeer.models.components.StorageCredentials;
-import studio.livepeer.livepeer.models.components.StorageType;
-import studio.livepeer.livepeer.models.components.TranscodePayload;
-import studio.livepeer.livepeer.models.components.TranscodePayloadStorage;
-import studio.livepeer.livepeer.models.components.TranscodeProfile;
-import studio.livepeer.livepeer.models.components.TranscodeProfileEncoder;
-import studio.livepeer.livepeer.models.components.TranscodeProfileProfile;
-import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.operations.TranscodeVideoResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            TranscodePayload req = TranscodePayload.builder()
-                .input(Input.of(Input1.builder()
-                            .url("https://s3.amazonaws.com/bucket/file.mp4")
-                            .build()))
-                .storage(TranscodePayloadStorage.of(Storage1.builder()
-                            .type(StorageType.S3)
-                            .endpoint("https://gateway.storjshare.io")
-                            .bucket("outputbucket")
-                            .credentials(StorageCredentials.builder()
-                                    .accessKeyId("AKIAIOSFODNN7EXAMPLE")
-                                    .secretAccessKey("wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY")
-                                    .build())
-                            .build()))
-                .outputs(Outputs.builder()
-                        .hls(Hls.builder()
-                            .path("/samplevideo/hls")
-                            .build())
-                        .mp4(Mp4.builder()
-                            .path("/samplevideo/mp4")
-                            .build())
-                        .fmp4(Fmp4.builder()
-                            .path("/samplevideo/fmp4")
-                            .build())
+        Livepeer sdk = Livepeer.builder()
+                .apiKey(System.getenv().getOrDefault("API_KEY", ""))
+            .build();
+
+        TranscodePayload req = TranscodePayload.builder()
+                .input(Input.of(Input2.builder()
+                    .type(InputType.S3)
+                    .endpoint("https://gateway.storjshare.io")
+                    .bucket("inputbucket")
+                    .path("/path/file.mp4")
+                    .credentials(Credentials.builder()
+                        .accessKeyId("AKIAIOSFODNN7EXAMPLE")
+                        .secretAccessKey("wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY")
                         .build())
+                    .build()))
+                .storage(TranscodePayloadStorage.of(Storage1.builder()
+                    .type(StorageType.S3)
+                    .endpoint("https://gateway.storjshare.io")
+                    .bucket("outputbucket")
+                    .credentials(StorageCredentials.builder()
+                        .accessKeyId("AKIAIOSFODNN7EXAMPLE")
+                        .secretAccessKey("wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY")
+                        .build())
+                    .build()))
+                .outputs(Outputs.builder()
+                    .hls(Hls.builder()
+                        .path("/samplevideo/hls")
+                        .build())
+                    .mp4(Mp4.builder()
+                        .path("/samplevideo/mp4")
+                        .build())
+                    .fmp4(Fmp4.builder()
+                        .path("/samplevideo/fmp4")
+                        .build())
+                    .build())
                 .profiles(List.of(
                     TranscodeProfile.builder()
                         .bitrate(3000000L)
@@ -206,21 +200,13 @@ public class Application {
                         .build()))
                 .build();
 
-            TranscodeVideoResponse res = sdk.transcode().create()
+        TranscodeVideoResponse res = sdk.transcode().create()
                 .request(req)
                 .call();
 
-            if (res.task().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.task().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -237,6 +223,6 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models/errors/SDKException | 4XX, 5XX                   | \*/\*                      |

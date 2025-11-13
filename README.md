@@ -7,6 +7,34 @@ applications written in Java.
 
 For full documentation and examples, please visit [docs.livepeer.org](https://docs.livepeer.org/sdks/javascript/).
 
+<!-- Start Summary [summary] -->
+## Summary
+
+Livepeer API Reference: Welcome to the Livepeer API reference docs. Here you will find all the
+endpoints exposed on the standard Livepeer API, learn how to use them and
+what they return.
+<!-- End Summary [summary] -->
+
+<!-- Start Table of Contents [toc] -->
+## Table of Contents
+<!-- $toc-max-depth=2 -->
+* [Livepeer Java SDK](#livepeer-java-sdk)
+  * [Documentation](#documentation)
+  * [SDK Installation](#sdk-installation)
+  * [SDK Example Usage](#sdk-example-usage)
+  * [Available Resources and Operations](#available-resources-and-operations)
+  * [Error Handling](#error-handling)
+  * [Server Selection](#server-selection)
+  * [Asynchronous Support](#asynchronous-support)
+  * [Authentication](#authentication)
+  * [Custom HTTP Client](#custom-http-client)
+  * [Debugging](#debugging)
+* [Development](#development)
+  * [Maturity](#maturity)
+  * [Contributions](#contributions)
+
+<!-- End Table of Contents [toc] -->
+
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
@@ -18,7 +46,7 @@ The samples below show how a published SDK artifact is used:
 
 Gradle:
 ```groovy
-implementation 'studio.livepeer:livepeer:0.5.0'
+implementation 'studio.livepeer:livepeer:0.6.0'
 ```
 
 Maven:
@@ -26,7 +54,7 @@ Maven:
 <dependency>
     <groupId>studio.livepeer</groupId>
     <artifactId>livepeer</artifactId>
-    <version>0.5.0</version>
+    <version>0.6.0</version>
 </dependency>
 ```
 
@@ -57,40 +85,26 @@ import java.lang.Exception;
 import java.util.List;
 import java.util.Map;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.FfmpegProfile;
-import studio.livepeer.livepeer.models.components.Location;
-import studio.livepeer.livepeer.models.components.Multistream;
-import studio.livepeer.livepeer.models.components.NewStreamPayload;
-import studio.livepeer.livepeer.models.components.NewStreamPayloadRecordingSpec;
-import studio.livepeer.livepeer.models.components.PlaybackPolicy;
-import studio.livepeer.livepeer.models.components.Profile;
-import studio.livepeer.livepeer.models.components.Pull;
-import studio.livepeer.livepeer.models.components.Target;
-import studio.livepeer.livepeer.models.components.TargetSpec;
-import studio.livepeer.livepeer.models.components.TranscodeProfile;
-import studio.livepeer.livepeer.models.components.TranscodeProfileEncoder;
-import studio.livepeer.livepeer.models.components.TranscodeProfileProfile;
-import studio.livepeer.livepeer.models.components.Type;
-import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.operations.CreateStreamResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            NewStreamPayload req = NewStreamPayload.builder()
+        Livepeer sdk = Livepeer.builder()
+                .apiKey(System.getenv().getOrDefault("API_KEY", ""))
+            .build();
+
+        NewStreamPayload req = NewStreamPayload.builder()
                 .name("test_stream")
                 .pull(Pull.builder()
                     .source("https://myservice.com/live/stream.flv")
                     .headers(Map.ofEntries(
                         Map.entry("Authorization", "Bearer 123")))
                     .location(Location.builder()
-                        .lat(39.739d)
-                        .lon(-104.988d)
+                        .lat(39.739)
+                        .lon(-104.988)
                         .build())
                     .build())
                 .playbackPolicy(PlaybackPolicy.builder()
@@ -131,39 +145,176 @@ public class Application {
                 .multistream(Multistream.builder()
                     .targets(List.of(
                         Target.builder()
-                            .profile("720p0")
-                            .videoOnly(false)
+                            .profile("720p")
                             .id("PUSH123")
-                            .spec(TargetSpec.builder()
-                                .url("rtmps://live.my-service.tv/channel/secretKey")
-                                .name("My target")
-                                .build())
                             .build()))
                     .build())
                 .build();
 
-            CreateStreamResponse res = sdk.stream().create()
+        CreateStreamResponse res = sdk.stream().create()
                 .request(req)
                 .call();
 
-            if (res.stream().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.stream().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
+#### Asynchronous Call
+An asynchronous SDK client is also available that returns a [`CompletableFuture<T>`][comp-fut]. See [Asynchronous Support](#asynchronous-support) for more details on async benefits and reactive library integration.
+```java
+package hello.world;
+
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.CompletableFuture;
+import studio.livepeer.livepeer.AsyncLivepeer;
+import studio.livepeer.livepeer.Livepeer;
+import studio.livepeer.livepeer.models.components.*;
+import studio.livepeer.livepeer.models.operations.async.CreateStreamResponse;
+
+public class Application {
+
+    public static void main(String[] args) {
+
+        AsyncLivepeer sdk = Livepeer.builder()
+                .apiKey(System.getenv().getOrDefault("API_KEY", ""))
+            .build()
+            .async();
+
+        NewStreamPayload req = NewStreamPayload.builder()
+                .name("test_stream")
+                .pull(Pull.builder()
+                    .source("https://myservice.com/live/stream.flv")
+                    .headers(Map.ofEntries(
+                        Map.entry("Authorization", "Bearer 123")))
+                    .location(Location.builder()
+                        .lat(39.739)
+                        .lon(-104.988)
+                        .build())
+                    .build())
+                .playbackPolicy(PlaybackPolicy.builder()
+                    .type(Type.WEBHOOK)
+                    .webhookId("1bde4o2i6xycudoy")
+                    .webhookContext(Map.ofEntries(
+                        Map.entry("streamerId", "my-custom-id")))
+                    .refreshInterval(600d)
+                    .build())
+                .profiles(List.of(
+                    FfmpegProfile.builder()
+                        .width(1280L)
+                        .name("720p")
+                        .height(720L)
+                        .bitrate(3000000L)
+                        .fps(30L)
+                        .fpsDen(1L)
+                        .quality(23L)
+                        .gop("2")
+                        .profile(Profile.H264_BASELINE)
+                        .build()))
+                .record(false)
+                .recordingSpec(NewStreamPayloadRecordingSpec.builder()
+                    .profiles(List.of(
+                        TranscodeProfile.builder()
+                            .bitrate(3000000L)
+                            .width(1280L)
+                            .name("720p")
+                            .height(720L)
+                            .quality(23L)
+                            .fps(30L)
+                            .fpsDen(1L)
+                            .gop("2")
+                            .profile(TranscodeProfileProfile.H264_BASELINE)
+                            .encoder(TranscodeProfileEncoder.H264)
+                            .build()))
+                    .build())
+                .multistream(Multistream.builder()
+                    .targets(List.of(
+                        Target.builder()
+                            .profile("720p")
+                            .id("PUSH123")
+                            .build()))
+                    .build())
+                .build();
+
+        CompletableFuture<CreateStreamResponse> resFut = sdk.stream().create()
+                .request(req)
+                .call();
+
+        resFut.thenAccept(res -> {
+            if (res.stream().isPresent()) {
+            // handle response
+            }
+        });
+    }
+}
+```
+
+[comp-fut]: https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html
 <!-- End SDK Example Usage [usage] -->
 
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
+
+<details open>
+<summary>Available methods</summary>
+
+### [accessControl()](docs/sdks/accesscontrol/README.md)
+
+* [create](docs/sdks/accesscontrol/README.md#create) - Create a signing key
+* [getAll](docs/sdks/accesscontrol/README.md#getall) - Retrieves signing keys
+* [delete](docs/sdks/accesscontrol/README.md#delete) - Delete Signing Key
+* [get](docs/sdks/accesscontrol/README.md#get) - Retrieves a signing key
+* [update](docs/sdks/accesscontrol/README.md#update) - Update a signing key
+
+### [asset()](docs/sdks/asset/README.md)
+
+* [getAll](docs/sdks/asset/README.md#getall) - Retrieve assets
+* [create](docs/sdks/asset/README.md#create) - Upload an asset
+* [createViaUrl](docs/sdks/asset/README.md#createviaurl) - Upload asset via URL
+* [get](docs/sdks/asset/README.md#get) - Retrieves an asset
+* [update](docs/sdks/asset/README.md#update) - Patch an asset
+* [delete](docs/sdks/asset/README.md#delete) - Delete an asset
+
+### [metrics()](docs/sdks/metrics/README.md)
+
+* [getRealtimeViewership](docs/sdks/metrics/README.md#getrealtimeviewership) - Query realtime viewership
+* [getViewership](docs/sdks/metrics/README.md#getviewership) - Query viewership metrics
+* [getCreatorViewership](docs/sdks/metrics/README.md#getcreatorviewership) - Query creator viewership metrics
+* [getPublicViewership](docs/sdks/metrics/README.md#getpublicviewership) - Query public total views metrics
+* [getUsage](docs/sdks/metrics/README.md#getusage) - Query usage metrics
+
+### [multistream()](docs/sdks/multistream/README.md)
+
+* [getAll](docs/sdks/multistream/README.md#getall) - Retrieve Multistream Targets
+* [create](docs/sdks/multistream/README.md#create) - Create a multistream target
+* [get](docs/sdks/multistream/README.md#get) - Retrieve a multistream target
+* [update](docs/sdks/multistream/README.md#update) - Update Multistream Target
+* [delete](docs/sdks/multistream/README.md#delete) - Delete a multistream target
+
+### [playback()](docs/sdks/playback/README.md)
+
+* [get](docs/sdks/playback/README.md#get) - Retrieve Playback Info
+
+### [~~room()~~](docs/sdks/room/README.md)
+
+* [~~create~~](docs/sdks/room/README.md#create) - Create a room :warning: **Deprecated**
+* [~~get~~](docs/sdks/room/README.md#get) - Retrieve a room :warning: **Deprecated**
+* [~~delete~~](docs/sdks/room/README.md#delete) - Delete a room :warning: **Deprecated**
+* [~~startEgress~~](docs/sdks/room/README.md#startegress) - Start room RTMP egress :warning: **Deprecated**
+* [~~stopEgress~~](docs/sdks/room/README.md#stopegress) - Stop room RTMP egress :warning: **Deprecated**
+* [~~createUser~~](docs/sdks/room/README.md#createuser) - Create a room user :warning: **Deprecated**
+* [~~getUser~~](docs/sdks/room/README.md#getuser) - Get user details :warning: **Deprecated**
+* [~~updateUser~~](docs/sdks/room/README.md#updateuser) - Update a room user :warning: **Deprecated**
+* [~~deleteUser~~](docs/sdks/room/README.md#deleteuser) - Remove a user from the room :warning: **Deprecated**
+
+### [session()](docs/sdks/session/README.md)
+
+* [getClips](docs/sdks/session/README.md#getclips) - Retrieve clips of a session
+* [getAll](docs/sdks/session/README.md#getall) - Retrieve sessions
+* [get](docs/sdks/session/README.md#get) - Retrieve a session
+* [getRecorded](docs/sdks/session/README.md#getrecorded) - Retrieve Recorded Sessions
 
 ### [stream()](docs/sdks/stream/README.md)
 
@@ -179,13 +330,14 @@ public class Application {
 * [addMultistreamTarget](docs/sdks/stream/README.md#addmultistreamtarget) - Add a multistream target
 * [removeMultistreamTarget](docs/sdks/stream/README.md#removemultistreamtarget) - Remove a multistream target
 
-### [multistream()](docs/sdks/multistream/README.md)
+### [task()](docs/sdks/task/README.md)
 
-* [getAll](docs/sdks/multistream/README.md#getall) - Retrieve Multistream Targets
-* [create](docs/sdks/multistream/README.md#create) - Create a multistream target
-* [get](docs/sdks/multistream/README.md#get) - Retrieve a multistream target
-* [update](docs/sdks/multistream/README.md#update) - Update Multistream Target
-* [delete](docs/sdks/multistream/README.md#delete) - Delete a multistream target
+* [getAll](docs/sdks/task/README.md#getall) - Retrieve Tasks
+* [get](docs/sdks/task/README.md#get) - Retrieve a Task
+
+### [transcode()](docs/sdks/transcode/README.md)
+
+* [create](docs/sdks/transcode/README.md#create) - Transcode a video
 
 ### [webhook()](docs/sdks/webhook/README.md)
 
@@ -198,244 +350,119 @@ public class Application {
 * [getLog](docs/sdks/webhook/README.md#getlog) - Retrieve a webhook log
 * [resendLog](docs/sdks/webhook/README.md#resendlog) - Resend a webhook
 
-### [asset()](docs/sdks/asset/README.md)
-
-* [getAll](docs/sdks/asset/README.md#getall) - Retrieve assets
-* [create](docs/sdks/asset/README.md#create) - Upload an asset
-* [createViaUrl](docs/sdks/asset/README.md#createviaurl) - Upload asset via URL
-* [get](docs/sdks/asset/README.md#get) - Retrieves an asset
-* [update](docs/sdks/asset/README.md#update) - Patch an asset
-* [delete](docs/sdks/asset/README.md#delete) - Delete an asset
-
-### [session()](docs/sdks/session/README.md)
-
-* [getClips](docs/sdks/session/README.md#getclips) - Retrieve clips of a session
-* [getAll](docs/sdks/session/README.md#getall) - Retrieve sessions
-* [get](docs/sdks/session/README.md#get) - Retrieve a session
-* [getRecorded](docs/sdks/session/README.md#getrecorded) - Retrieve Recorded Sessions
-
-### [room()](docs/sdks/room/README.md)
-
-* [~~create~~](docs/sdks/room/README.md#create) - Create a room :warning: **Deprecated**
-* [~~get~~](docs/sdks/room/README.md#get) - Retrieve a room :warning: **Deprecated**
-* [~~delete~~](docs/sdks/room/README.md#delete) - Delete a room :warning: **Deprecated**
-* [~~startEgress~~](docs/sdks/room/README.md#startegress) - Start room RTMP egress :warning: **Deprecated**
-* [~~stopEgress~~](docs/sdks/room/README.md#stopegress) - Stop room RTMP egress :warning: **Deprecated**
-* [~~createUser~~](docs/sdks/room/README.md#createuser) - Create a room user :warning: **Deprecated**
-* [~~getUser~~](docs/sdks/room/README.md#getuser) - Get user details :warning: **Deprecated**
-* [~~updateUser~~](docs/sdks/room/README.md#updateuser) - Update a room user :warning: **Deprecated**
-* [~~deleteUser~~](docs/sdks/room/README.md#deleteuser) - Remove a user from the room :warning: **Deprecated**
-
-### [metrics()](docs/sdks/metrics/README.md)
-
-* [getRealtimeViewership](docs/sdks/metrics/README.md#getrealtimeviewership) - Query realtime viewership
-* [getViewership](docs/sdks/metrics/README.md#getviewership) - Query viewership metrics
-* [getCreatorViewership](docs/sdks/metrics/README.md#getcreatorviewership) - Query creator viewership metrics
-* [getPublicViewership](docs/sdks/metrics/README.md#getpublicviewership) - Query public total views metrics
-* [getUsage](docs/sdks/metrics/README.md#getusage) - Query usage metrics
-
-### [accessControl()](docs/sdks/accesscontrol/README.md)
-
-* [create](docs/sdks/accesscontrol/README.md#create) - Create a signing key
-* [getAll](docs/sdks/accesscontrol/README.md#getall) - Retrieves signing keys
-* [delete](docs/sdks/accesscontrol/README.md#delete) - Delete Signing Key
-* [get](docs/sdks/accesscontrol/README.md#get) - Retrieves a signing key
-* [update](docs/sdks/accesscontrol/README.md#update) - Update a signing key
-
-### [task()](docs/sdks/task/README.md)
-
-* [getAll](docs/sdks/task/README.md#getall) - Retrieve Tasks
-* [get](docs/sdks/task/README.md#get) - Retrieve a Task
-
-### [transcode()](docs/sdks/transcode/README.md)
-
-* [create](docs/sdks/transcode/README.md#create) - Transcode a video
-
-### [playback()](docs/sdks/playback/README.md)
-
-* [get](docs/sdks/playback/README.md#get) - Retrieve Playback Info
+</details>
 <!-- End Available Resources and Operations [operations] -->
 
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Handling errors in this SDK should largely match your expectations.  All operations return a response object or raise an error.  If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Exception type.
+Handling errors in this SDK should largely match your expectations. All operations return a response object or raise an exception.
 
-| Error Object           | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| models/errors/Error    | 404                    | application/json       |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
+[`LivepeerException`](./src/main/java/models/errors/LivepeerException.java) is the base class for all HTTP error responses. It has the following properties:
+
+| Method           | Type                        | Description                                                              |
+| ---------------- | --------------------------- | ------------------------------------------------------------------------ |
+| `message()`      | `String`                    | Error message                                                            |
+| `code()`         | `int`                       | HTTP response status code eg `404`                                       |
+| `headers`        | `Map<String, List<String>>` | HTTP response headers                                                    |
+| `body()`         | `byte[]`                    | HTTP body as a byte array. Can be empty array if no body is returned.    |
+| `bodyAsString()` | `String`                    | HTTP body as a UTF-8 string. Can be empty string if no body is returned. |
+| `rawResponse()`  | `HttpResponse<?>`           | Raw HTTP response (body already read and not available for re-read)      |
 
 ### Example
-
 ```java
 package hello.world;
 
+import java.io.UncheckedIOException;
 import java.lang.Exception;
+import java.lang.String;
+import java.util.List;
+import java.util.Optional;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.errors.Error;
+import studio.livepeer.livepeer.models.errors.LivepeerException;
 import studio.livepeer.livepeer.models.operations.GetPlaybackInfoResponse;
 
 public class Application {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Error, Exception {
+
+        Livepeer sdk = Livepeer.builder()
+                .apiKey(System.getenv().getOrDefault("API_KEY", ""))
+            .build();
         try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
             GetPlaybackInfoResponse res = sdk.playback().get()
-                .id("<value>")
-                .call();
+                    .id("<id>")
+                    .call();
 
             if (res.playbackInfo().isPresent()) {
                 // handle response
             }
-        } catch (studio.livepeer.livepeer.models.errors.Error e) {
-            // handle exception
-            throw e;
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
-        }
+        } catch (LivepeerException ex) { // all SDK exceptions inherit from LivepeerException
 
-    }
+            // ex.ToString() provides a detailed error message including
+            // HTTP status code, headers, and error payload (if any)
+            System.out.println(ex);
+
+            // Base exception fields
+            var rawResponse = ex.rawResponse();
+            var headers = ex.headers();
+            var contentType = headers.first("Content-Type");
+            int statusCode = ex.code();
+            Optional<byte[]> responseBody = ex.body();
+
+            // different error subclasses may be thrown 
+            // depending on the service call
+            if (ex instanceof Error) {
+                var e = (Error) ex;
+                // Check error data fields
+                e.data().ifPresent(payload -> {
+                      Optional<List<String>> errors = payload.errors();
+                });
+            }
+
+            // An underlying cause may be provided. If the error payload 
+            // cannot be deserialized then the deserialization exception 
+            // will be set as the cause.
+            if (ex.getCause() != null) {
+                var cause = ex.getCause();
+            }
+        } catch (UncheckedIOException ex) {
+            // handle IO error (connection, timeout, etc)
+        }    }
 }
 ```
+
+### Error Classes
+**Primary error:**
+* [`LivepeerException`](./src/main/java/models/errors/LivepeerException.java): The base class for HTTP error responses.
+
+<details><summary>Less common errors (7)</summary>
+
+<br />
+
+**Network errors:**
+* `java.io.IOException` (always wrapped by `java.io.UncheckedIOException`). Commonly encountered subclasses of
+`IOException` include `java.net.ConnectException`, `java.net.SocketTimeoutException`, `EOFException` (there are
+many more subclasses in the JDK platform).
+
+**Inherit from [`LivepeerException`](./src/main/java/models/errors/LivepeerException.java)**:
+* [`studio.livepeer.livepeer.models.errors.Error`](./src/main/java/models/errors/studio.livepeer.livepeer.models.errors.Error.java): Playback not found. Status code `404`. Applicable to 1 of 57 methods.*
+
+
+</details>
+
+\* Check [the method documentation](#available-resources-and-operations) to see if the error is applicable.
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
-### Select Server by Index
-
-You can override the default server globally by passing a server index to the `serverIndex` builder method when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
-
-| # | Server | Variables |
-| - | ------ | --------- |
-| 0 | `https://livepeer.studio/api` | None |
-
-#### Example
-
-```java
-package hello.world;
-
-import java.lang.Exception;
-import java.util.List;
-import java.util.Map;
-import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.FfmpegProfile;
-import studio.livepeer.livepeer.models.components.Location;
-import studio.livepeer.livepeer.models.components.Multistream;
-import studio.livepeer.livepeer.models.components.NewStreamPayload;
-import studio.livepeer.livepeer.models.components.NewStreamPayloadRecordingSpec;
-import studio.livepeer.livepeer.models.components.PlaybackPolicy;
-import studio.livepeer.livepeer.models.components.Profile;
-import studio.livepeer.livepeer.models.components.Pull;
-import studio.livepeer.livepeer.models.components.Target;
-import studio.livepeer.livepeer.models.components.TargetSpec;
-import studio.livepeer.livepeer.models.components.TranscodeProfile;
-import studio.livepeer.livepeer.models.components.TranscodeProfileEncoder;
-import studio.livepeer.livepeer.models.components.TranscodeProfileProfile;
-import studio.livepeer.livepeer.models.components.Type;
-import studio.livepeer.livepeer.models.errors.SDKError;
-import studio.livepeer.livepeer.models.operations.CreateStreamResponse;
-
-public class Application {
-
-    public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .serverIndex(0)
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
-
-            NewStreamPayload req = NewStreamPayload.builder()
-                .name("test_stream")
-                .pull(Pull.builder()
-                    .source("https://myservice.com/live/stream.flv")
-                    .headers(Map.ofEntries(
-                        Map.entry("Authorization", "Bearer 123")))
-                    .location(Location.builder()
-                        .lat(39.739d)
-                        .lon(-104.988d)
-                        .build())
-                    .build())
-                .playbackPolicy(PlaybackPolicy.builder()
-                    .type(Type.WEBHOOK)
-                    .webhookId("1bde4o2i6xycudoy")
-                    .webhookContext(Map.ofEntries(
-                        Map.entry("streamerId", "my-custom-id")))
-                    .refreshInterval(600d)
-                    .build())
-                .profiles(List.of(
-                    FfmpegProfile.builder()
-                        .width(1280L)
-                        .name("720p")
-                        .height(720L)
-                        .bitrate(3000000L)
-                        .fps(30L)
-                        .fpsDen(1L)
-                        .quality(23L)
-                        .gop("2")
-                        .profile(Profile.H264_BASELINE)
-                        .build()))
-                .record(false)
-                .recordingSpec(NewStreamPayloadRecordingSpec.builder()
-                    .profiles(List.of(
-                        TranscodeProfile.builder()
-                            .bitrate(3000000L)
-                            .width(1280L)
-                            .name("720p")
-                            .height(720L)
-                            .quality(23L)
-                            .fps(30L)
-                            .fpsDen(1L)
-                            .gop("2")
-                            .profile(TranscodeProfileProfile.H264_BASELINE)
-                            .encoder(TranscodeProfileEncoder.H264)
-                            .build()))
-                    .build())
-                .multistream(Multistream.builder()
-                    .targets(List.of(
-                        Target.builder()
-                            .profile("720p0")
-                            .videoOnly(false)
-                            .id("PUSH123")
-                            .spec(TargetSpec.builder()
-                                .url("rtmps://live.my-service.tv/channel/secretKey")
-                                .name("My target")
-                                .build())
-                            .build()))
-                    .build())
-                .build();
-
-            CreateStreamResponse res = sdk.stream().create()
-                .request(req)
-                .call();
-
-            if (res.stream().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
-        }
-
-    }
-}
-```
-
-
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `serverURL` builder method when initializing the SDK client instance. For example:
+The default server can be overridden globally using the `.serverURL(String serverUrl)` builder method when initializing the SDK client instance. For example:
 ```java
 package hello.world;
 
@@ -443,41 +470,27 @@ import java.lang.Exception;
 import java.util.List;
 import java.util.Map;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.FfmpegProfile;
-import studio.livepeer.livepeer.models.components.Location;
-import studio.livepeer.livepeer.models.components.Multistream;
-import studio.livepeer.livepeer.models.components.NewStreamPayload;
-import studio.livepeer.livepeer.models.components.NewStreamPayloadRecordingSpec;
-import studio.livepeer.livepeer.models.components.PlaybackPolicy;
-import studio.livepeer.livepeer.models.components.Profile;
-import studio.livepeer.livepeer.models.components.Pull;
-import studio.livepeer.livepeer.models.components.Target;
-import studio.livepeer.livepeer.models.components.TargetSpec;
-import studio.livepeer.livepeer.models.components.TranscodeProfile;
-import studio.livepeer.livepeer.models.components.TranscodeProfileEncoder;
-import studio.livepeer.livepeer.models.components.TranscodeProfileProfile;
-import studio.livepeer.livepeer.models.components.Type;
-import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.operations.CreateStreamResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .serverURL("https://livepeer.studio/api")
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            NewStreamPayload req = NewStreamPayload.builder()
+        Livepeer sdk = Livepeer.builder()
+                .serverURL("https://livepeer.studio/api")
+                .apiKey(System.getenv().getOrDefault("API_KEY", ""))
+            .build();
+
+        NewStreamPayload req = NewStreamPayload.builder()
                 .name("test_stream")
                 .pull(Pull.builder()
                     .source("https://myservice.com/live/stream.flv")
                     .headers(Map.ofEntries(
                         Map.entry("Authorization", "Bearer 123")))
                     .location(Location.builder()
-                        .lat(39.739d)
-                        .lon(-104.988d)
+                        .lat(39.739)
+                        .lon(-104.988)
                         .build())
                     .build())
                 .playbackPolicy(PlaybackPolicy.builder()
@@ -518,36 +531,89 @@ public class Application {
                 .multistream(Multistream.builder()
                     .targets(List.of(
                         Target.builder()
-                            .profile("720p0")
-                            .videoOnly(false)
+                            .profile("720p")
                             .id("PUSH123")
-                            .spec(TargetSpec.builder()
-                                .url("rtmps://live.my-service.tv/channel/secretKey")
-                                .name("My target")
-                                .build())
                             .build()))
                     .build())
                 .build();
 
-            CreateStreamResponse res = sdk.stream().create()
+        CreateStreamResponse res = sdk.stream().create()
                 .request(req)
                 .call();
 
-            if (res.stream().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.stream().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
 <!-- End Server Selection [server] -->
+
+<!-- Start Asynchronous Support [async-support] -->
+## Asynchronous Support
+
+The SDK provides comprehensive asynchronous support using Java's [`CompletableFuture<T>`][comp-fut] and [Reactive Streams `Publisher<T>`][reactive-streams] APIs. This design makes no assumptions about your choice of reactive toolkit, allowing seamless integration with any reactive library.
+
+<details>
+<summary>Why Use Async?</summary>
+
+Asynchronous operations provide several key benefits:
+
+- **Non-blocking I/O**: Your threads stay free for other work while operations are in flight
+- **Better resource utilization**: Handle more concurrent operations with fewer threads
+- **Improved scalability**: Build highly responsive applications that can handle thousands of concurrent requests
+- **Reactive integration**: Works seamlessly with reactive streams and backpressure handling
+
+</details>
+
+<details>
+<summary>Reactive Library Integration</summary>
+
+The SDK returns [Reactive Streams `Publisher<T>`][reactive-streams] instances for operations dealing with streams involving multiple I/O interactions. We use Reactive Streams instead of JDK Flow API to provide broader compatibility with the reactive ecosystem, as most reactive libraries natively support Reactive Streams.
+
+**Why Reactive Streams over JDK Flow?**
+- **Broader ecosystem compatibility**: Most reactive libraries (Project Reactor, RxJava, Akka Streams, etc.) natively support Reactive Streams
+- **Industry standard**: Reactive Streams is the de facto standard for reactive programming in Java
+- **Better interoperability**: Seamless integration without additional adapters for most use cases
+
+**Integration with Popular Libraries:**
+- **Project Reactor**: Use `Flux.from(publisher)` to convert to Reactor types
+- **RxJava**: Use `Flowable.fromPublisher(publisher)` for RxJava integration
+- **Akka Streams**: Use `Source.fromPublisher(publisher)` for Akka Streams integration
+- **Vert.x**: Use `ReadStream.fromPublisher(vertx, publisher)` for Vert.x reactive streams
+- **Mutiny**: Use `Multi.createFrom().publisher(publisher)` for Quarkus Mutiny integration
+
+**For JDK Flow API Integration:**
+If you need JDK Flow API compatibility (e.g., for Quarkus/Mutiny 2), you can use adapters:
+```java
+// Convert Reactive Streams Publisher to Flow Publisher
+Flow.Publisher<T> flowPublisher = FlowAdapters.toFlowPublisher(reactiveStreamsPublisher);
+
+// Convert Flow Publisher to Reactive Streams Publisher
+Publisher<T> reactiveStreamsPublisher = FlowAdapters.toPublisher(flowPublisher);
+```
+
+For standard single-response operations, the SDK returns `CompletableFuture<T>` for straightforward async execution.
+
+</details>
+
+<details>
+<summary>Supported Operations</summary>
+
+Async support is available for:
+
+- **[Server-sent Events](#server-sent-event-streaming)**: Stream real-time events with Reactive Streams `Publisher<T>`
+- **[JSONL Streaming](#jsonl-streaming)**: Process streaming JSON lines asynchronously
+- **[Pagination](#pagination)**: Iterate through paginated results using `callAsPublisher()` and `callAsPublisherUnwrapped()`
+- **[File Uploads](#file-uploads)**: Upload files asynchronously with progress tracking
+- **[File Downloads](#file-downloads)**: Download files asynchronously with streaming support
+- **[Standard Operations](#example)**: All regular API calls return `CompletableFuture<T>` for async execution
+
+</details>
+
+[comp-fut]: https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html
+[reactive-streams]: https://www.reactive-streams.org/
+<!-- End Asynchronous Support [async-support] -->
 
 <!-- Start Authentication [security] -->
 ## Authentication
@@ -556,9 +622,9 @@ public class Application {
 
 This SDK supports the following security scheme globally:
 
-| Name        | Type        | Scheme      |
-| ----------- | ----------- | ----------- |
-| `apiKey`    | http        | HTTP Bearer |
+| Name     | Type | Scheme      |
+| -------- | ---- | ----------- |
+| `apiKey` | http | HTTP Bearer |
 
 To authenticate with the API the `apiKey` parameter must be set when initializing the SDK client instance. For example:
 ```java
@@ -568,40 +634,26 @@ import java.lang.Exception;
 import java.util.List;
 import java.util.Map;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.components.FfmpegProfile;
-import studio.livepeer.livepeer.models.components.Location;
-import studio.livepeer.livepeer.models.components.Multistream;
-import studio.livepeer.livepeer.models.components.NewStreamPayload;
-import studio.livepeer.livepeer.models.components.NewStreamPayloadRecordingSpec;
-import studio.livepeer.livepeer.models.components.PlaybackPolicy;
-import studio.livepeer.livepeer.models.components.Profile;
-import studio.livepeer.livepeer.models.components.Pull;
-import studio.livepeer.livepeer.models.components.Target;
-import studio.livepeer.livepeer.models.components.TargetSpec;
-import studio.livepeer.livepeer.models.components.TranscodeProfile;
-import studio.livepeer.livepeer.models.components.TranscodeProfileEncoder;
-import studio.livepeer.livepeer.models.components.TranscodeProfileProfile;
-import studio.livepeer.livepeer.models.components.Type;
-import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.components.*;
 import studio.livepeer.livepeer.models.operations.CreateStreamResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            NewStreamPayload req = NewStreamPayload.builder()
+        Livepeer sdk = Livepeer.builder()
+                .apiKey(System.getenv().getOrDefault("API_KEY", ""))
+            .build();
+
+        NewStreamPayload req = NewStreamPayload.builder()
                 .name("test_stream")
                 .pull(Pull.builder()
                     .source("https://myservice.com/live/stream.flv")
                     .headers(Map.ofEntries(
                         Map.entry("Authorization", "Bearer 123")))
                     .location(Location.builder()
-                        .lat(39.739d)
-                        .lon(-104.988d)
+                        .lat(39.739)
+                        .lon(-104.988)
                         .build())
                     .build())
                 .playbackPolicy(PlaybackPolicy.builder()
@@ -642,36 +694,190 @@ public class Application {
                 .multistream(Multistream.builder()
                     .targets(List.of(
                         Target.builder()
-                            .profile("720p0")
-                            .videoOnly(false)
+                            .profile("720p")
                             .id("PUSH123")
-                            .spec(TargetSpec.builder()
-                                .url("rtmps://live.my-service.tv/channel/secretKey")
-                                .name("My target")
-                                .build())
                             .build()))
                     .build())
                 .build();
 
-            CreateStreamResponse res = sdk.stream().create()
+        CreateStreamResponse res = sdk.stream().create()
                 .request(req)
                 .call();
 
-            if (res.stream().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.stream().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
 <!-- End Authentication [security] -->
+
+<!-- Start Custom HTTP Client [http-client] -->
+## Custom HTTP Client
+
+The Java SDK makes API calls using an `HTTPClient` that wraps the native
+[HttpClient](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html). This
+client provides the ability to attach hooks around the request lifecycle that can be used to modify the request or handle
+errors and response.
+
+The `HTTPClient` interface allows you to either use the default `SpeakeasyHTTPClient` that comes with the SDK,
+or provide your own custom implementation with customized configuration such as custom executors, SSL context,
+connection pools, and other HTTP client settings.
+
+The interface provides synchronous (`send`) methods and asynchronous (`sendAsync`) methods. The `sendAsync` method
+is used to power the async SDK methods and returns a `CompletableFuture<HttpResponse<Blob>>` for non-blocking operations.
+
+The following example shows how to add a custom header and handle errors:
+
+```java
+import studio.livepeer.livepeer.Livepeer;
+import studio.livepeer.livepeer.utils.HTTPClient;
+import studio.livepeer.livepeer.utils.SpeakeasyHTTPClient;
+import studio.livepeer.livepeer.utils.Utils;
+
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.io.InputStream;
+import java.time.Duration;
+
+public class Application {
+    public static void main(String[] args) {
+        // Create a custom HTTP client with hooks
+        HTTPClient httpClient = new HTTPClient() {
+            private final HTTPClient defaultClient = new SpeakeasyHTTPClient();
+            
+            @Override
+            public HttpResponse<InputStream> send(HttpRequest request) throws IOException, URISyntaxException, InterruptedException {
+                // Add custom header and timeout using Utils.copy()
+                HttpRequest modifiedRequest = Utils.copy(request)
+                    .header("x-custom-header", "custom value")
+                    .timeout(Duration.ofSeconds(30))
+                    .build();
+                    
+                try {
+                    HttpResponse<InputStream> response = defaultClient.send(modifiedRequest);
+                    // Log successful response
+                    System.out.println("Request successful: " + response.statusCode());
+                    return response;
+                } catch (Exception error) {
+                    // Log error
+                    System.err.println("Request failed: " + error.getMessage());
+                    throw error;
+                }
+            }
+        };
+
+        Livepeer sdk = Livepeer.builder()
+            .client(httpClient)
+            .build();
+    }
+}
+```
+
+<details>
+<summary>Custom HTTP Client Configuration</summary>
+
+You can also provide a completely custom HTTP client with your own configuration:
+
+```java
+import studio.livepeer.livepeer.Livepeer;
+import studio.livepeer.livepeer.utils.HTTPClient;
+import studio.livepeer.livepeer.utils.Blob;
+import studio.livepeer.livepeer.utils.ResponseWithBody;
+
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.io.InputStream;
+import java.time.Duration;
+import java.util.concurrent.Executors;
+import java.util.concurrent.CompletableFuture;
+
+public class Application {
+    public static void main(String[] args) {
+        // Custom HTTP client with custom configuration
+        HTTPClient customHttpClient = new HTTPClient() {
+            private final HttpClient client = HttpClient.newBuilder()
+                .executor(Executors.newFixedThreadPool(10))
+                .connectTimeout(Duration.ofSeconds(30))
+                // .sslContext(customSslContext) // Add custom SSL context if needed
+                .build();
+
+            @Override
+            public HttpResponse<InputStream> send(HttpRequest request) throws IOException, URISyntaxException, InterruptedException {
+                return client.send(request, HttpResponse.BodyHandlers.ofInputStream());
+            }
+
+            @Override
+            public CompletableFuture<HttpResponse<Blob>> sendAsync(HttpRequest request) {
+                // Convert response to HttpResponse<Blob> for async operations
+                return client.sendAsync(request, HttpResponse.BodyHandlers.ofPublisher())
+                    .thenApply(resp -> new ResponseWithBody<>(resp, Blob::from));
+            }
+        };
+
+        Livepeer sdk = Livepeer.builder()
+            .client(customHttpClient)
+            .build();
+    }
+}
+```
+
+</details>
+
+You can also enable debug logging on the default `SpeakeasyHTTPClient`:
+
+```java
+import studio.livepeer.livepeer.Livepeer;
+import studio.livepeer.livepeer.utils.SpeakeasyHTTPClient;
+
+public class Application {
+    public static void main(String[] args) {
+        SpeakeasyHTTPClient httpClient = new SpeakeasyHTTPClient();
+        httpClient.enableDebugLogging(true);
+
+        Livepeer sdk = Livepeer.builder()
+            .client(httpClient)
+            .build();
+    }
+}
+```
+<!-- End Custom HTTP Client [http-client] -->
+
+<!-- Start Debugging [debug] -->
+## Debugging
+
+### Debug
+You can setup your SDK to emit debug logs for SDK requests and responses.
+
+For request and response logging (especially json bodies), call `enableHTTPDebugLogging(boolean)` on the SDK builder like so:
+```java
+SDK.builder()
+    .enableHTTPDebugLogging(true)
+    .build();
+```
+Example output:
+```
+Sending request: http://localhost:35123/bearer#global GET
+Request headers: {Accept=[application/json], Authorization=[******], Client-Level-Header=[added by client], Idempotency-Key=[some-key], x-speakeasy-user-agent=[speakeasy-sdk/java 0.0.1 internal 0.1.0 org.openapis.openapi]}
+Received response: (GET http://localhost:35123/bearer#global) 200
+Response headers: {access-control-allow-credentials=[true], access-control-allow-origin=[*], connection=[keep-alive], content-length=[50], content-type=[application/json], date=[Wed, 09 Apr 2025 01:43:29 GMT], server=[gunicorn/19.9.0]}
+Response body:
+{
+  "authenticated": true, 
+  "token": "global"
+}
+```
+__WARNING__: This should only used for temporary debugging purposes. Leaving this option on in a production system could expose credentials/secrets in logs. <i>Authorization</i> headers are redacted by default and there is the ability to specify redacted header names via `SpeakeasyHTTPClient.setRedactedHeaders`.
+
+__NOTE__: This is a convenience method that calls `HTTPClient.enableDebugLogging()`. The `SpeakeasyHTTPClient` honors this setting. If you are using a custom HTTP client, it is up to the custom client to honor this setting.
+
+Another option is to set the System property `-Djdk.httpclient.HttpClient.log=all`. However, this second option does not log bodies.
+<!-- End Debugging [debug] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

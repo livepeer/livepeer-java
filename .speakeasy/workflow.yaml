@@ -13,3 +13,5 @@ targets:
         source: livepeer-studio-api
         codeSamples:
             output: codeSamples.yaml
+            registry:
+                location: registry.speakeasyapi.dev/livepeer/livepeer-studio/livepeer-studio-api-java-code-samples
