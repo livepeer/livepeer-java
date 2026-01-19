@@ -1,5 +1,4 @@
 # AccessControl
-(*accessControl()*)
 
 ## Overview
 
@@ -21,36 +20,28 @@ Up to 10 signing keys can be generated, after that you must delete at least one 
 
 ### Example Usage
 
+<!-- UsageSnippet language="java" operationID="createSigningKey" method="post" path="/access-control/signing-key" -->
 ```java
 package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.CreateSigningKeyResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            CreateSigningKeyResponse res = sdk.accessControl().create()
+        Livepeer sdk = Livepeer.builder()
+                .apiKey(System.getenv().getOrDefault("API_KEY", ""))
+            .build();
+
+        CreateSigningKeyResponse res = sdk.accessControl().create()
                 .call();
 
-            if (res.signingKey().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.signingKey().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -61,10 +52,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models/errors/SDKException | 4XX, 5XX                   | \*/\*                      |
 
 ## getAll
 
@@ -72,36 +62,28 @@ Retrieves signing keys
 
 ### Example Usage
 
+<!-- UsageSnippet language="java" operationID="getSigningKeys" method="get" path="/access-control/signing-key" -->
 ```java
 package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.GetSigningKeysResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            GetSigningKeysResponse res = sdk.accessControl().getAll()
+        Livepeer sdk = Livepeer.builder()
+                .apiKey(System.getenv().getOrDefault("API_KEY", ""))
+            .build();
+
+        GetSigningKeysResponse res = sdk.accessControl().getAll()
                 .call();
 
-            if (res.data().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.data().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -112,10 +94,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models/errors/SDKException | 4XX, 5XX                   | \*/\*                      |
 
 ## delete
 
@@ -123,35 +104,29 @@ Delete Signing Key
 
 ### Example Usage
 
+<!-- UsageSnippet language="java" operationID="deleteSigningKey" method="delete" path="/access-control/signing-key/{keyId}" -->
 ```java
 package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.DeleteSigningKeyResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            DeleteSigningKeyResponse res = sdk.accessControl().delete()
-                .keyId("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey(System.getenv().getOrDefault("API_KEY", ""))
+            .build();
+
+        DeleteSigningKeyResponse res = sdk.accessControl().delete()
+                .keyId("<id>")
                 .call();
 
+        if (res.error().isPresent()) {
             // handle response
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
         }
-
     }
 }
 ```
@@ -168,10 +143,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models/errors/SDKException | 4XX, 5XX                   | \*/\*                      |
 
 ## get
 
@@ -179,37 +153,29 @@ Retrieves a signing key
 
 ### Example Usage
 
+<!-- UsageSnippet language="java" operationID="getSigningKey" method="get" path="/access-control/signing-key/{keyId}" -->
 ```java
 package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.GetSigningKeyResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            GetSigningKeyResponse res = sdk.accessControl().get()
-                .keyId("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey(System.getenv().getOrDefault("API_KEY", ""))
+            .build();
+
+        GetSigningKeyResponse res = sdk.accessControl().get()
+                .keyId("<id>")
                 .call();
 
-            if (res.signingKey().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.signingKey().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -226,10 +192,9 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models/errors/SDKException | 4XX, 5XX                   | \*/\*                      |
 
 ## update
 
@@ -237,38 +202,32 @@ Update a signing key
 
 ### Example Usage
 
+<!-- UsageSnippet language="java" operationID="updateSigningKey" method="patch" path="/access-control/signing-key/{keyId}" -->
 ```java
 package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
 import studio.livepeer.livepeer.models.operations.UpdateSigningKeyRequestBody;
 import studio.livepeer.livepeer.models.operations.UpdateSigningKeyResponse;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
 
-            UpdateSigningKeyResponse res = sdk.accessControl().update()
-                .keyId("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey(System.getenv().getOrDefault("API_KEY", ""))
+            .build();
+
+        UpdateSigningKeyResponse res = sdk.accessControl().update()
+                .keyId("<id>")
                 .requestBody(UpdateSigningKeyRequestBody.builder()
                     .build())
                 .call();
 
+        if (res.error().isPresent()) {
             // handle response
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
         }
-
     }
 }
 ```
@@ -286,6 +245,6 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models/errors/SDKException | 4XX, 5XX                   | \*/\*                      |

@@ -1,5 +1,4 @@
 # Playback
-(*playback()*)
 
 ## Overview
 
@@ -15,40 +14,30 @@ Retrieve Playback Info
 
 ### Example Usage
 
+<!-- UsageSnippet language="java" operationID="getPlaybackInfo" method="get" path="/playback/{id}" -->
 ```java
 package hello.world;
 
 import java.lang.Exception;
 import studio.livepeer.livepeer.Livepeer;
-import studio.livepeer.livepeer.models.errors.SDKError;
+import studio.livepeer.livepeer.models.errors.Error;
 import studio.livepeer.livepeer.models.operations.GetPlaybackInfoResponse;
 
 public class Application {
 
-    public static void main(String[] args) throws Exception {
-        try {
-            Livepeer sdk = Livepeer.builder()
-                .apiKey("<YOUR_BEARER_TOKEN_HERE>")
-                .build();
+    public static void main(String[] args) throws Error, Exception {
 
-            GetPlaybackInfoResponse res = sdk.playback().get()
-                .id("<value>")
+        Livepeer sdk = Livepeer.builder()
+                .apiKey(System.getenv().getOrDefault("API_KEY", ""))
+            .build();
+
+        GetPlaybackInfoResponse res = sdk.playback().get()
+                .id("<id>")
                 .call();
 
-            if (res.playbackInfo().isPresent()) {
-                // handle response
-            }
-        } catch (studio.livepeer.livepeer.models.errors.Error e) {
-            // handle exception
-            throw e;
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.playbackInfo().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -65,7 +54,7 @@ public class Application {
 
 ### Errors
 
-| Error Object           | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| models/errors/Error    | 404                    | application/json       |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models/errors/Error        | 404                        | application/json           |
+| models/errors/SDKException | 4XX, 5XX                   | \*/\*                      |

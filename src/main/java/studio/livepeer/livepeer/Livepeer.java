@@ -7,24 +7,26 @@ package studio.livepeer.livepeer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Optional;
-import studio.livepeer.livepeer.models.operations.SDKMethodInterfaces.*;
 import studio.livepeer.livepeer.utils.HTTPClient;
+import studio.livepeer.livepeer.utils.Headers;
 import studio.livepeer.livepeer.utils.RetryConfig;
 import studio.livepeer.livepeer.utils.SpeakeasyHTTPClient;
+import studio.livepeer.livepeer.utils.Utils;
 
 /**
  * Livepeer API Reference: Welcome to the Livepeer API reference docs. Here you will find all the
  * endpoints exposed on the standard Livepeer API, learn how to use them and
  * what they return.
- * 
  */
 public class Livepeer {
+    private static final Headers _headers = Headers.EMPTY;
 
 
     /**
      * SERVERS contains the list of server urls available to the SDK.
      */
     public static final String[] SERVERS = {
+
         "https://livepeer.studio/api",
     };
 
@@ -159,8 +161,7 @@ public class Livepeer {
     public Playback playback() {
         return playback;
     }
-
-    private final SDKConfiguration sdkConfiguration;
+    private final AsyncLivepeer asyncSDK;
 
     /**
      * The Builder class allows the configuration of a new instance of the SDK.
@@ -168,6 +169,9 @@ public class Livepeer {
     public static class Builder {
 
         private final SDKConfiguration sdkConfiguration = new SDKConfiguration();
+        private String serverUrl;
+        private String server;
+        
 
         private Builder() {
         }
@@ -179,7 +183,7 @@ public class Livepeer {
          * @return The builder instance.
          */
         public Builder client(HTTPClient client) {
-            this.sdkConfiguration.defaultClient = client;
+            this.sdkConfiguration.setClient(client);
             return this;
         }
         /**
@@ -189,19 +193,21 @@ public class Livepeer {
          * @return The builder instance.
          */
         public Builder apiKey(String apiKey) {
-            this.sdkConfiguration.securitySource = SecuritySource.of(studio.livepeer.livepeer.models.components.Security.builder()
+            this.sdkConfiguration.setSecuritySource(SecuritySource.of(studio.livepeer.livepeer.models.components.Security.builder()
               .apiKey(apiKey)
-              .build());
+              .build()));
             return this;
         }
 
         /**
          * Configures the SDK to use a custom security source.
+         *
          * @param securitySource The security source to use for all requests.
          * @return The builder instance.
          */
         public Builder securitySource(SecuritySource securitySource) {
-            this.sdkConfiguration.securitySource = securitySource;
+            Utils.checkNotNull(securitySource, "securitySource");
+            this.sdkConfiguration.setSecuritySource(securitySource);
             return this;
         }
         
@@ -212,19 +218,19 @@ public class Livepeer {
          * @return The builder instance.
          */
         public Builder serverURL(String serverUrl) {
-            this.sdkConfiguration.serverUrl = serverUrl;
+            this.serverUrl = serverUrl;
             return this;
         }
 
         /**
-         * Overrides the default server URL  with a templated URL populated with the provided parameters.
+         * Overrides the default server URL with a templated URL populated with the provided parameters.
          *
          * @param serverUrl The server URL to use for all requests.
          * @param params The parameters to use when templating the URL.
          * @return The builder instance.
          */
         public Builder serverURL(String serverUrl, Map<String, String> params) {
-            this.sdkConfiguration.serverUrl = studio.livepeer.livepeer.utils.Utils.templateUrl(serverUrl, params);
+            this.serverUrl = Utils.templateUrl(serverUrl, params);
             return this;
         }
         
@@ -235,8 +241,8 @@ public class Livepeer {
          * @return The builder instance.
          */
         public Builder serverIndex(int serverIdx) {
-            this.sdkConfiguration.serverIdx = serverIdx;
-            this.sdkConfiguration.serverUrl = SERVERS[serverIdx];
+            this.sdkConfiguration.setServerIdx(serverIdx);
+            this.serverUrl= SERVERS[serverIdx];
             return this;
         }
         
@@ -247,46 +253,53 @@ public class Livepeer {
          * @return The builder instance.
          */
         public Builder retryConfig(RetryConfig retryConfig) {
-            this.sdkConfiguration.retryConfig = Optional.of(retryConfig);
+            this.sdkConfiguration.setRetryConfig(Optional.of(retryConfig));
             return this;
         }
-        // Visible for testing, will be accessed via reflection
-        void _hooks(studio.livepeer.livepeer.utils.Hooks hooks) {
-            sdkConfiguration.setHooks(hooks);    
+
+        /**
+         * Enables debug logging for HTTP requests and responses, including JSON body content.
+         * <p>
+         * Convenience method that calls {@link HTTPClient#enableDebugLogging(boolean)}.
+         * {@link SpeakeasyHTTPClient} honors this setting. If you are using a custom HTTP client,
+         * it is up to the custom client to honor this setting.
+         * </p>
+         *
+         * @param enabled Whether to enable debug logging.
+         * @return The builder instance.
+         */
+        public Builder enableHTTPDebugLogging(boolean enabled) {
+            this.sdkConfiguration.client().enableDebugLogging(enabled);
+            return this;
         }
-        
+
+
         /**
          * Builds a new instance of the SDK.
+         *
          * @return The SDK instance.
          */
         public Livepeer build() {
-            if (sdkConfiguration.defaultClient == null) {
-                sdkConfiguration.defaultClient = new SpeakeasyHTTPClient();
+            if (serverUrl == null || serverUrl.isBlank()) {
+                serverUrl = SERVERS[0];
+                sdkConfiguration.setServerIdx(0);
             }
-	        if (sdkConfiguration.securitySource == null) {
-	    	    sdkConfiguration.securitySource = SecuritySource.of(null);
-	        }
-            if (sdkConfiguration.serverUrl == null || sdkConfiguration.serverUrl.isBlank()) {
-                sdkConfiguration.serverUrl = SERVERS[0];
-                sdkConfiguration.serverIdx = 0;
-            }
-            if (sdkConfiguration.serverUrl.endsWith("/")) {
-                sdkConfiguration.serverUrl = sdkConfiguration.serverUrl.substring(0, sdkConfiguration.serverUrl.length() - 1);
-            }
+            sdkConfiguration.setServerUrl(serverUrl);
             return new Livepeer(sdkConfiguration);
         }
     }
-    
+
     /**
      * Get a new instance of the SDK builder to configure a new instance of the SDK.
+     *
      * @return The SDK builder instance.
      */
     public static Builder builder() {
         return new Builder();
     }
 
-    private Livepeer(SDKConfiguration sdkConfiguration) {
-        this.sdkConfiguration = sdkConfiguration;
+    public Livepeer(SDKConfiguration sdkConfiguration) {
+        sdkConfiguration.initialize();
         this.stream = new Stream(sdkConfiguration);
         this.multistream = new Multistream(sdkConfiguration);
         this.webhook = new Webhook(sdkConfiguration);
@@ -298,5 +311,16 @@ public class Livepeer {
         this.task = new Task(sdkConfiguration);
         this.transcode = new Transcode(sdkConfiguration);
         this.playback = new Playback(sdkConfiguration);
-        this.sdkConfiguration.initialize();
-    }}
+        this.asyncSDK = new AsyncLivepeer(this, sdkConfiguration);
+    }
+
+    /**
+     * Switches to the async SDK.
+     * 
+     * @return The async SDK
+     */
+    public AsyncLivepeer async() {
+        return asyncSDK;
+    }
+
+}
